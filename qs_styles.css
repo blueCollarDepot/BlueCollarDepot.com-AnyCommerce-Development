@@ -1,4 +1,7 @@
-body,html	{font-size:100%;}
+body,html	{
+	font-size:100%;
+	background-image: url(img/BG.jpg);
+}
 
 #appTemplates {display:none;} /* container for all templates. should be hidden */
 
@@ -422,7 +425,7 @@ CHECKOUT
 
 
 
-/* -----------------> CHECKOUT  <----------------- */
+/* --------------- CHECKOUT  <----------------- */
 
 /* some global styles, within checkout. */
 
@@ -540,7 +543,7 @@ ul.zwarn li	{margin-left:15px;}
 
 
 
-/* -----------------> POST-CHECKOUT MARKETING PAGE  <----------------- */
+/* --------------- POST-CHECKOUT MARKETING PAGE  <----------------- */
 
 .checkoutSuccess	{padding:20px 0;} /* don't change this to margin. will F up sites */
 
@@ -609,3 +612,10 @@ ul.zwarn li	{margin-left:15px;}
 	width: 160px;
 	}
 
+#lftSiderBar {
+	float: left;
+}
+#contentMain {
+	float: right;
+	background-color: #FFF;
+}
