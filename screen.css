@@ -66,9 +66,12 @@ body {
 #logo {
 	position: relative;
 	padding: 0px;
-	margin: 0px;
-	background-image: url(images/logo_trans.png);
+	background-image: url(img/BlueCollarDepot_D04a3a1.gif);
 	background-repeat: repeat-y;
+	margin-top: 20px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
 }
 #advertise {
 }

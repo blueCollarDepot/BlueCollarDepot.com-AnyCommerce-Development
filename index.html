@@ -66,10 +66,11 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 <!-- DELETE THIS WHEN YOU GET STARTED -->
 <!-- /DELETE THIS WHEN YOU GET STARTED -->
 <!-- what is displayed onLoad until the view is loaded -->
-<div id='appPreView'class='displayNone'>
+<div id='appPreView'>
 <table>
 <tr>
-	<td><!-- put logo here --></td>
+	<td><!-- put logo here 
+    <img src="img/BlueCollarDepot_D04a3a1.gif" width="480" height="288" alt="img">--></td>
 	<td>
 	<h3>One moment please.</h3>
 	
@@ -78,7 +79,7 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 	</div>
 	<div id='appPreViewProgressText'>0% Complete</div>
 	
-	<div class='appMessaging'></div>
+	<div class='appMessaging'class='displayNone'></div>
 	</td>
 </tr>
 </table>
@@ -94,18 +95,18 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 	** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
 	**				  INSTEAD PUT THEM INTO <div id="homepageTemplate"></div>
 	-->
- <div id="wrapper">
+ 
  
 <div class="header"></div>
  
     <div class="container ">
-    <div class="span-10"id="logo"><img src="img/BlueCollarDepot_D04a3a1.jpg" width="489" height="289" alt="img"></div> 
-     <div class="span-8"  ></div>
+    <div class="span-13"id="logo"><img src="img/BlueCollarDepot_D04a3a1.gif" width="480" height="288" alt="img"></div> 
+    <!-- <div class="span-8"  ></div>
     
      
-     <!-- <hr>-->
-      <h2 class="alt"></h2>
-      <!--<hr>-->
+     <hr>
+      <h2 class="alt"></h2>-->
+      <!--<hr>
       <div class="span-7 colborder">
         
       </div>
@@ -114,21 +115,16 @@ app.u.loadScript(app.vars.baseURL+"init.js");
       </div>
       <div class="span-7 last">
         
-      </div>
-      <!--<hr>-->
-      <hr class="space">
+      </div>-->
+      <!--<hr>
+      <hr class="space">-->
       <div class="span-15 prepend-1 colborder" id="contentMain">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim disputari sine reprehensione nec cum iracundia aut pertinacia recte disputari potest. Haec para/doca illi, nos admirabilia dicamus. Cupit enim dícere nihil posse ad beatam vitam deesse sapienti. Addidisti ad extremum etiam indoctum fuisse. Illa sunt similia: hebes acies est cuipiam oculorum, corpore alius senescit; Duo Reges: constructio interrete. Tenesne igitur, inquam, Hieronymus Rhodius quid dicat esse summum bonum, quo putet omnia referri oportere? Ita cum ea volunt retinere, quae superiori sententiae conveniunt, in Aristonem incidunt; Apparet statim, quae sint officia, quae actiones. Qua igitur re ab deo vincitur, si aeternitate non vincitur? Nosti, credo, illud: Nemo pius est, qui pietatem-; Quae fere omnia appellantur uno ingenii nomine, easque virtutes qui habent, ingeniosi vocantur. </p>
-
-<p>In qua si nihil est praeter rationem, sit in una virtute finis bonorum; Confecta res esset. Et quidem iure fortasse, sed tamen non gravissimum est testimonium multitudinis. De vacuitate doloris eadem sententia erit. Tanti autem aderant vesicae et torminum morbi, ut nihil ad eorum magnitudinem posset accedere. Prioris generis est docilitas, memoria; Sed nunc, quod agimus; Aperiendum est igitur, quid sit voluptas; </p>
-
-<p>Quod, inquit, quamquam voluptatibus quibusdam est saepe iucundius, tamen expetitur propter voluptatem. Ne amores quidem sanctos a sapiente alienos esse arbitrantur. An potest cupiditas finiri? Quid, si etiam iucunda memoria est praeteritorum malorum? Teneo, inquit, finem illi videri nihil dolere. Tum Quintus: Est plane, Piso, ut dicis, inquit. Bonum negas esse divitias, praeposìtum esse dicis? Sed fortuna fortis; </p>
-
-<p>Indicant pueri, in quibus ut in speculis natura cernitur. Ex quo intellegitur officium medium quiddam esse, quod neque in bonis ponatur neque in contrariis. Maximus dolor, inquit, brevis est. Iam contemni non poteris. </p>
-
+        
+<div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
+<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 
       </div>
-      <div class="span-7 last" id="lftSiderBar">
+      <!--<div class="span-7 last" id="lftSiderBar">
         <h3> <span class="alt">Catagories</span></h3>
         <div id="navcontainer">
 <ul id="navlist">
@@ -143,55 +139,54 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 <li><a href="#">Item blank</a></li>
 </ul>
 </div>
-      </div>
-      <!--<hr>-->
+      </div>-->
+      <!--<hr>
       <h2 class="alt"></h2>
-      <!--<hr>-->
+      <hr>
       <p>
         
         </a>
-      </p>
-    </div>
+      </p>-->
+  </div>
     <div class="footer">
-    <ul id="shopWithUs" >
+    <!--<ul id="shopWithUs" >
       <li>Laundry Care</li>
       <li>Mail Orders</li>
       <li>Privacy and Security</li>
-      <!--<li>Blank</li>
       <li>Blank</li>
       <li>Blank</li>
       <li>Blank</li>
       <li>Blank</li>
-      <li>Blank</li>-->
-      </ul>
-      <ul id="yourAccount" >
+      <li>Blank</li>
+      <li>Blank</li>
+      </ul>-->
+      <!--<ul id="yourAccount" >
       <li>Shipping</li>
       <li>Wholesale</li>
       <li>Register</li>
-      <!--<li>Blank</li>
       <li>Blank</li>
       <li>Blank</li>
       <li>Blank</li>
       <li>Blank</li>
-      <li>Blank</li>-->
-      </ul>
-      <ul id="ourOffers" >
+      <li>Blank</li>
+      <li>Blank</li>
+      </ul>-->
+     <!-- <ul id="ourOffers" >
       <li>Free Returns on Products and Exchanges</li>
       <li>120% Price Watch</li>
-     <!-- <li>Blank</li>
       <li>Blank</li>
       <li>Blank</li>
       <li>Blank</li>
       <li>Blank</li>
-      <li>Blank</li>-->
+      <li>Blank</li>
+      <li>Blank</li>
       </ul>
-</div>
+</div>-->
 
-</div>
-    </div></body>
+</div> 
     
-<div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
-<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
+    
+
 
 
 <!-- ... your html ends -->
