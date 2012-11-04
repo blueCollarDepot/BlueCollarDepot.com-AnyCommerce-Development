@@ -66,9 +66,7 @@ body {
 #logo {
 	position: relative;
 	padding: 0px;
-	background-image: url(img/BlueCollarDepot_D04a3a1.gif);
-	background-repeat: repeat-y;
-	margin-top: 20px;
+	background-repeat: no-repeat;
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 0px;
@@ -358,6 +356,14 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 	margin: 0px;
 	position: relative;
 }
+.topNav  {
+	float: right;
+	text-align: right;
+	margin-top: 30px;
+}
+.topNav ul li {
+	display: inline;
+}
 .footer  {
 	position: relative;
 	text-align: center;
@@ -382,3 +388,47 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 	background-color: #FFF;
 	width: 100%;
 }
+.header ul {
+	float: right;
+	list-style-type: none;
+	margin-left: -120px;
+}
+#appView .header ul li {
+	display: inline;
+	float: left;
+}
+/*slidershow*/
+
+#slideshowContainer  {position:relative; z-index:10; height:300px; min-width:720px; max-width:900px; margin:0 auto; overflow:hidden; z-index:5; } /* setting height/width and overflow hidden keeps banners from showing up, then hiding once slideshow() is executed */
+#slideshowContainer  ul, .slideshow li {list-style:none; margin:0; padding:0; display:inline; float:left; } /* the slides */
+
+#slideshowNav { z-index: 50; position: absolute; bottom: 10px; left: 10px; width:100%; text-align:left; }
+#slideshowNav a {
+ margin: 0 8px; font-size:.01em; 
+ text-decoration: none;
+ display:inline-block;
+ padding: 6px 8px;
+ border: 1px solid #c0b3ad;
+ color:#ffffff;
+ background: #ffffff;
+ cursor:pointer;
+ -webkit-border-radius: 8px;
+ border-radius: 8px;
+ }
+
+#slideshowNav a:hover, #slideshowNav a.activeSlide {
+ color:#bfd255;
+background: #ea5051; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VhNTA1MSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2UwMjMyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iIzY5MjAyMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZjBmMTAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #ea5051 0%, #e02324 50%, #692021 51%, #6f0f10 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ea5051), color-stop(50%,#e02324), color-stop(51%,#692021), color-stop(100%,#6f0f10)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ea5051 0%,#e02324 50%,#692021 51%,#6f0f10 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ea5051 0%,#e02324 50%,#692021 51%,#6f0f10 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ea5051 0%,#e02324 50%,#692021 51%,#6f0f10 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ea5051 0%,#e02324 50%,#692021 51%,#6f0f10 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea5051', endColorstr='#6f0f10',GradientType=0 ); /* IE6-8 */
+ border-color:#990000;
+ }
+
+#slideshowNav a:focus { outline: none; }
