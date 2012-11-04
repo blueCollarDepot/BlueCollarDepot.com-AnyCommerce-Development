@@ -6,7 +6,6 @@
 
 <meta name="description" content="" id='metaDescription' />
 <meta name="keywords" content="" id='metaKeywords' />
-
 <!-- used for optional social media extensions -->
 <meta property="og:type" content="" id='ogType' />
 <meta property="og:image" content="" id='ogImage' />
@@ -43,10 +42,13 @@ css files should be included before any .js file to ensure they are downloaded i
 -->
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
- <!-- Framework CSS -->
-    <link rel="stylesheet"  type="text/css"href="screen.css" />
-    <link rel="stylesheet"  type="text/css"href="print.css" />
-    <!--[if lt IE 8]><link rel="stylesheet" href="../../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet"href="code/css/reset.css"  >
+<link rel="stylesheet"href="code/css/text.css" >
+<link rel="stylesheet"href="code/css/960.css" >
+<link rel="stylesheet" href="code/css/blueCollarDepot.css">
+
+
+<!--[if lt IE 8]><link rel="stylesheet" href="../../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -59,10 +61,9 @@ css files should be included before any .js file to ensure they are downloaded i
 app.u.loadScript(app.vars.baseURL+"init.js");
 </script>
 
-
 </head>
 
-<body>
+<body >
 <!-- DELETE THIS WHEN YOU GET STARTED -->
 <!-- /DELETE THIS WHEN YOU GET STARTED -->
 <!-- what is displayed onLoad until the view is loaded -->
@@ -70,9 +71,9 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 <table>
 <tr>
 	<td><!-- put logo here 
-    <img src="img/BlueCollarDepot_D04a3a1.gif" width="480" height="288" alt="img">--></td>
+    <img src="img/BlueCollarDepot_D04a3a1_a.gif" width="389" height="233" alt="img">--></td>
 	<td>
-	<h3>One moment please.</h3>
+	<h3>One moment please.</h3> 
 	
 	<div class='alignCenter'>
 	<progress id="appPreViewProgressBar" max="100" value="0" /><br />
@@ -95,102 +96,111 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 	** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
 	**				  INSTEAD PUT THEM INTO <div id="homepageTemplate"></div>
 	-->
- 
- 
-<div class="header">
+<div id=" wrapper"> 
 
+<div id="header"> <!--<div id="">
+
+</div>--></div>
+     <!--end header -->    
+        <!-- beginning container-->
+<div class="container_12" id="container"><div class="grid_8" id="topNav">    
 <ul>
-<li>Home</li>
-<li>About</li>
-<li>Contact Us</li>
-<li>Portfolio</li>
-<li>Gallery</li>
-</ul>
-</div>
- 
-    <div class="container ">
-    <div class="span-13"id="logo"><img src="img/BlueCollarDepot_D04a3a1.gif" width="480" height="288" alt="img"></div> 
-    <!-- <div class="span-8"  ></div>
+    <li><a href="#">My account</a>|</li>
+    <li><a href="#">Contact</a>|</li>
+    <li><a href="#">Wish lists</a>|</li>
+    <li><a href="#">Gift Certificates</a>|</li>
     
-     
-     <hr>
-      <h2 class="alt"></h2>-->
-      <!--<hr>
-      <div class="span-7 colborder">
-        
-      </div>
-      <div class="span-8 colborder">
-        
-      </div>
-      <div class="span-7 last">
-        
-      </div>-->
-      <!--<hr>
-      <hr class="space">-->
-      <div class="span-15 prepend-1 colborder" id="contentMain">
-        
-<div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
-<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
-
-      </div>
-      
-     <div class="span-7 last" id="lftSiderBar">
-        <!--<h3> <span class="alt">Catagories</span></h3>-->
-        <div id="navcontainer">
-<ul id='tier1categories'></ul> 
+    
+  </ul>
 </div>
-      </div>
-      <!--<hr>
-      <h2 class="alt"></h2>
-      <hr>
-      <p>
-        
-        </a>
-      </p>-->
-  </div>
-    <div class="footer">
-    <!--<ul id="shopWithUs" >
-      <li>Laundry Care</li>
-      <li>Mail Orders</li>
-      <li>Privacy and Security</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      </ul>-->
-      <!--<ul id="yourAccount" >
-      <li>Shipping</li>
-      <li>Wholesale</li>
-      <li>Register</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      </ul>-->
-     <!-- <ul id="ourOffers" >
-      <li>Free Returns on Products and Exchanges</li>
-      <li>120% Price Watch</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      <li>Blank</li>
-      </ul>
+     <div class="grid_2 " id="logo" >
+</div><div class="grid_3" id="search"><form method="get" action="/search" id="search">
+  <input name="q" type="text" size="40" placeholder="Search..." />
+</form> </div> 
+  <div class="grid_12" id="nav"></div>
+<div class="grid_4 " id="" >
+   
+</div>
+<div class="grid_4 " >
+  
+</div>
+<div class="clear" ></div>
+<!--start nav-->
+  
+  <div class="clear"></div>
+ <!--<div class="grid_8" id="breadcrumbs">    
+<ul id="crumbs">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Main section</a></li>
+    <li><a href="#">Sub section</a></li>
+    <li><a href="#">Sub sub section</a></li>
+    <li>The page you are on right now</li>
+    </ul>
 </div>-->
+<!-- /slideshowContainer -->
+<div id="slideshowContainer" class='clearfix marginBottom'>
+  <div id="slideshowNav"></div>
+  <ul id="wideSlideshow" class="pics slideshow">
+   <img src='blank.gif' width='900' height='300' data-bind="var: page(banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+   <img src='blank.gif' width='900' height='300' data-bind="var: page(banner_slideshow2); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+   <img src='blank.gif' width='900' height='300' data-bind="var: page(banner_slideshow3); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+   <img src='blank.gif' width='900' height='300' data-bind="var: page(banner_slideshow4); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+   <img src='blank.gif' width='900' height='300' data-bind="var: page(banner_slideshow5); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+  </ul>
+ </div><!-- /slideshowContainer -->
 
-</div> 
-    
-    
+<div class="grid_10" id="content">
+	
+ <div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
+<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
+</div>
+ <!--end content-->
+</div>
+<!--end of container-->	
 
+<!--beginning footer-->
+	    <div id="footer">
+        <div class="floatleft">
+<h3>Shop with Us </h3>
+<ul id="crumbs">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Main section</a></li>
+    <li><a href="#">Sub section</a></li>
+    <li><a href="#">Sub sub section</a></li>
+    <li>The page you are on right now</li>
+    </ul>
+</div>
+<div class="floatleft">
+<h3>Your Account  </h3>
+<ul id="crumbs">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Main section</a></li>
+    <li><a href="#">Sub section</a></li>
+    <li><a href="#">Sub sub section</a></li>
+    <li>The page you are on right now</li>
+    </ul>
+</div>
+<div class="floatleft">
+<h3>Our Offers</h3>
+<ul id="crumbs">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Main section</a></li>
+    <li><a href="#">Sub section</a></li>
+    <li><a href="#">Sub sub section</a></li>
+    <li>The page you are on right now</li>
+    </ul>
+</div>
+        
+</div>
+<!--end footer --> 
+</div>
+<!--end wrapper-->     
 
 
 <!-- ... your html ends -->
 <!-- /VIEW CONTENT -->
+
+</div>
 </div>
 
 
@@ -1386,30 +1396,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div><!-- /templates -->
-
-
-
-
-
-
-
 
 
 

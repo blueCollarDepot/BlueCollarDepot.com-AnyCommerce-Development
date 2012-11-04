@@ -1,0 +1,167 @@
+@charset "UTF-8";
+#container {
+	position: relative;
+	z-index: 1;
+	width: 950px;
+	margin-top: -230px;
+}
+#wrapper {
+}
+#content {
+	position: relative;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-bottom: 300px;
+	background-color: #FFF;
+	float: right;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+#container #IS {
+	position: relative;
+	float: right;
+	margin-right: 15px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-top: 90px;
+}
+
+#footer {
+	background-image: url(../../img/blueFooter.jpg);
+	position: relative;
+	width: 100%;
+	clear: both;
+	height: 300px;
+	margin-top: -300px;
+}
+#logo {
+	background-image: url(../../img/BlueCollarDepot_D04a3a1_a.gif);
+	height: 180px;
+	width: 380px;
+	background-repeat: no-repeat;
+	position: relative;
+	top: -60px;
+}
+#sc {
+	color: #84B4E9;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 20px;
+}
+#navmain {
+	margin: 0px;
+}
+#container .grid_12 {
+	margin-top: 5px;
+	position: relative;
+	
+}
+/*breadcrumb
+ul, li {
+list-style-type:none;
+padding:0;
+margin:0;
+}
+#crumbs {*/
+/*border:1px solid #dedede;
+height:2.3em;
+}
+#crumbs li {
+float:left;
+line-height:2.3em;
+padding-left:.75em;
+color:#777;
+}
+#search {
+}
+#crumbs li a {
+	display:block;
+	padding:0 15px 0 0;
+	background-image: url(../img/crumbs.gif);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+#crumbs li a:link, #crumbs li a:visited {
+text-decoration:none;
+color:#777;
+}
+#crumbs li a:hover, #crumbs li a:focus {
+	color:#2472C3;
+}
+#breadcrumbs {
+	margin-top: 15px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	position: relative;
+	visibility: visible;
+}*/
+#IS2 {
+	margin-top: 15px;
+	position: relative;
+	float: right;
+	margin-right: 15px;
+	margin-left: 0px;
+}
+#search {
+	float: right;
+	position: relative;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	top: 40px;
+}
+h6 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+}
+#content1 {
+	float: right;
+	position: relative;
+	margin-top: 30px;
+}
+#siderbar {
+	float: left;
+	position: relative;
+	background-image: url(../img/blue.png);
+	margin-top: 30px;
+	-moz-border-radius-topright: 50px;
+border-top-right-radius: 50px;
+	
+}
+#siderbar #sidebarnav ul {
+	padding-left: 15px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+#search_img {
+	position: relative;
+	float: left;
+}
+#mainmenu {
+	margin: 0px;
+}
+#header {
+	height: 240px;
+	width: 100%;
+	clear: both;
+	z-index: -3;
+	background-image: url(../../img/images/headerBg_02.gif);
+	background-repeat: repeat-x;
+}
+#container_main {
+	width: 960px;
+}
+#topNav {
+	float: right;
+}
+#topNav ul {
+	text-align: right;
+}
+#topNav ul li {
+	display: inline;
+	margin-right: -20px;
+}

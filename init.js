@@ -168,6 +168,21 @@ $(document).ready(function(){
 	app.u.handleRQ(0)
 	});
 
+//add tabs to product data.
+app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
+ var $target = $('#wideSlideshow');
+ if($target.children().length > 1) {
+    $('#wideSlideshow').cycle({
+  fx:'fade',
+  speed:'slow',
+  timeout: 5000,
+  pager:'#slideshowNav',
+  slideExpr: 'li'      
+    });
+ }
+ }]);
+
+
 
 
 

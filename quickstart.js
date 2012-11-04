@@ -533,7 +533,12 @@ need to be customized on a per-ria basis.
 
 		pageTransition : function($o,$n)	{
 			
-			$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
+			if($o.length) {
+            $o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
+                 }
+            else   {
+             $n.fadeIn(1000)
+ //fade out old, fade in new.
 
 //This is another example transition. old content slides out and new content slides in.
 //			$n.slideDown(3000);
@@ -1660,7 +1665,7 @@ return r;
 				else	{
 					P.templateID = 'productTemplate';
 					P.state = 'onInits'
-					parentID = P.templateID+"_"+pid
+					parentID = P.templateID+"_"+app.u.makeSafeHTMLId(pid);
 					app.ext.myRIA.u.handleTemplateFunctions(P);
 //no need to render template again.
 					if(!$('#'+parentID).length){
