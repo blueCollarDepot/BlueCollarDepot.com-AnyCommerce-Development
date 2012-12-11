@@ -104,13 +104,14 @@ var myRIA = function() {
 //This will create the arrays for the template[templateID].onCompletes and onInits
 			app.ext.myRIA.u.createTemplateFunctions(); //should happen early so that the myRIA.template object exists, specifically for app.u..appInitComplete
 				
-//attach an event to the window that will execute code on 'back' some history has been added to the history.
 //if ?debug=anything is on URI, show all elements with a class of debug.
 if(app.u.getParameterByName('debug'))	{
 	$('.debug').show().append("<div class='clearfix'>Model Version: "+app.model.version+" and release: "+app.vars.release+"</div>");
 	app.ext.myRIA.u.bindAppViewForms('.debug');
 	app.ext.myRIA.u.bindNav('.debug .bindByAnchor');
 	}
+
+//attach an event to the window that will execute code on 'back' some history has been added to the history.
 if(typeof window.onpopstate == 'object')	{
 	window.onpopstate = function(event) { 
 		app.ext.myRIA.u.handlePopState(event.state);
@@ -156,7 +157,7 @@ else	{
 
 //adds submit functionality to search form. keeps dom clean to do it here.
 				app.ext.myRIA.u.bindAppViewForms('#appView'); //added the selector on 20121026. was blank before.
-				app.ext.myRIA.vars.mcSetInterval = setInterval(app.ext.myRIA.u.handleMinicartUpdate,4000,'cartDetail')
+				app.ext.myRIA.vars.mcSetInterval = setInterval(function(){app.ext.myRIA.u.handleMinicartUpdate({'datapointer':'cartDetail'})},4000); //make sure minicart stays up to date.
 				showContent = app.ext.myRIA.a.showContent; //a shortcut for easy execution.
 				quickView = app.ext.myRIA.a.quickView; //a shortcut for easy execution.
 				
@@ -522,9 +523,28 @@ need to be customized on a per-ria basis.
 				return "<a href='#product?pid="+suffix+"' onClick='return showContent(\"product\",{\"pid\":\""+suffix+"\"});'>"+phrase+"<\/a>"
 				},
 			":customer" : function(suffix,phrase){
-// ### this needs to get smarter. look at what the suffix is and handle cases. (for orders, link to orders, newsletter link to newsletter, etc)				
-				return "<a href='#customer?show="+suffix+"' onClick='return showContent({\"customer\",{\"show\":\""+suffix+"\"});'>"+phrase+"<\/a>"
+				return "<a href='#customer?show="+suffix+"' onClick='return showContent(\"customer\",{\"show\":\""+suffix+"\"});'>"+phrase+"<\/a>"
 				},
+
+			":policy" : function(suffix,phrase){
+				return "<a href='#policy?show="+suffix+"' onClick='return showContent(\"company\",{\"show\":\""+suffix+"\"});'>"+phrase+"<\/a>"
+				},
+
+			":app" : function(suffix,phrase){
+				var output; //what is returned.
+				if(suffix == 'contact')	{
+					output = "<a href='#policy?show="+suffix+"' onClick='return showContent(\"company\",{\"show\":\""+suffix+"\"});'>"+phrase+"<\/a>"					
+					}
+				else if(suffix == 'contact')	{
+					output = "<a href='#policy?show="+suffix+"' onClick='return showContent(\"company\",{\"show\":\""+suffix+"\"});'>"+phrase+"<\/a>"					
+					}
+				else	{
+					//we'll want to do something fantastic here.
+					output = phrase;
+					}
+				return output;
+				},
+
 			":popup" : function(suffix,phrase)	{
 				return "<a href=\""+suffix+"\" target='popup' onClick=\"_gaq.push(['_trackEvent', 'outgoing_links', "+suffix.replace(/^http:\/\//i, '')+"]);\">"+phrase+"</a>";
 				}
@@ -532,13 +552,13 @@ need to be customized on a per-ria basis.
 
 
 		pageTransition : function($o,$n)	{
-			
-			if($o.length) {
-            $o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
-                 }
-            else   {
-             $n.fadeIn(1000)
- //fade out old, fade in new.
+//if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
+			if($o.length)	{
+				$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
+				}
+			else	{
+				$n.fadeIn(1000)
+				}
 
 //This is another example transition. old content slides out and new content slides in.
 //			$n.slideDown(3000);
@@ -627,14 +647,16 @@ need to be customized on a per-ria basis.
 				var L = data.value.hits.hits.length;
 				var templateID = data.bindData.loadsTemplate ? data.bindData.loadsTemplate : 'productListTemplateResults';
 				var pid;
-				for(var i = 0; i < L; i += 1)	{
-					pid = data.value.hits.hits[i]['_id'];
-					$tag.append(app.renderFunctions.transmogrify({'id':parentID+'_'+pid,'pid':pid},templateID,data.value.hits.hits[i]['_source']));
+				if(data.value.hits.total)	{
+					for(var i = 0; i < L; i += 1)	{
+						pid = data.value.hits.hits[i]['_id'];
+						$tag.append(app.renderFunctions.transmogrify({'id':parentID+'_'+pid,'pid':pid},templateID,data.value.hits.hits[i]['_source']));
+						}
+					
+					if(data.bindData.before) {$tag.before(data.bindData.before)} //used for html
+					if(data.bindData.after) {$tag.after(data.bindData.after)}
+					if(data.bindData.wrap) {$tag.wrap(data.bindData.wrap)}		
 					}
-				
-				if(data.bindData.before) {$tag.before(data.bindData.before)} //used for html
-				if(data.bindData.after) {$tag.after(data.bindData.after)}
-				if(data.bindData.wrap) {$tag.wrap(data.bindData.wrap)}		
 				},
 
 /*
@@ -895,8 +917,8 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						app.ext.myRIA.u.handleTemplateFunctions(infoObj);
 					}
 //this is low so that the individual 'shows' above can set a different default and if nothing is set, it'll default to true here.
-				infoObj.performJumpToTop === false ? false  : true; //specific instances jump to top. these are passed in (usually related to modals).
-
+				infoObj.performJumpToTop = (infoObj.performJumpToTop === false) ? false : true; //specific instances jump to top. these are passed in (usually related to modals).
+//				app.u.dump(" -> infoObj.performJumpToTop: "+infoObj.performJumpToTop);
 				r = app.ext.myRIA.u.addPushState(infoObj);
 				
 //r will = true if pushState isn't working (IE or local). so the hash is updated instead.
@@ -914,6 +936,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 				if(infoObj.performJumpToTop)	{$('html, body').animate({scrollTop : 0},1000)} //new page content loading. scroll to top.				
 //transition appPreView out on init.
 				if($('#appPreView').is(':visible'))	{
+//					app.ext.myRIA.pageTransition($('#appPreView'),$('#appView'));
 					$('#appPreView').slideUp(1000,function(){
 						$('#'+infoObj.parentID).show(); //have to show content area here because the slideDown will only make the parent visible
 						$('#appView').slideDown(3000);
@@ -1096,7 +1119,7 @@ P.listID (buyer list id)
 			showFAQbyTopic : function(topicID)	{
 				app.u.dump("BEGIN showFAQbyTopic ["+topicID+"]");
 				var templateID = 'faqQnATemplate'
-				var $target = $('#faqDetails4Topic_'+topicID).empty().show();
+				
 				if(!topicID)	{
 					app.u.throwMessage("Uh Oh. It seems an app error occured. Error: no topic id. see console for details.");
 					app.u.dump("a required parameter (topicID) was left blank for myRIA.a.showFAQbyTopic");
@@ -1105,12 +1128,16 @@ P.listID (buyer list id)
 					app.u.dump(" -> No data is present");
 					}
 				else	{
-					var L = app.data['appFAQs']['@detail'].length;
-					app.u.dump(" -> total #faq: "+L);
-					for(var i = 0; i < L; i += 1)	{
-						if(app.data['appFAQs']['@detail'][i]['TOPIC_ID'] == topicID)	{
-							app.u.dump(" -> faqid matches topic: "+app.data['appFAQs']['@detail'][i]['ID']);
-							$target.append(app.renderFunctions.transmogrify({'id':topicID+'_'+app.data['appFAQs']['@detail'][i]['ID'],'data-faqid':+app.data['appFAQs']['@detail'][i]['ID']},templateID,app.data['appFAQs']['@detail'][i]))
+					var $target = $('#faqDetails4Topic_'+topicID).toggle();
+					if($target.children().length)	{} //if children are present, this faq topic has been opened before or is empty. no need to re-render content.
+					else	{
+						var L = app.data['appFAQs']['@detail'].length;
+						app.u.dump(" -> total #faq: "+L);
+						for(var i = 0; i < L; i += 1)	{
+							if(app.data['appFAQs']['@detail'][i]['TOPIC_ID'] == topicID)	{
+								app.u.dump(" -> faqid matches topic: "+app.data['appFAQs']['@detail'][i]['ID']);
+								$target.append(app.renderFunctions.transmogrify({'id':topicID+'_'+app.data['appFAQs']['@detail'][i]['ID'],'data-faqid':+app.data['appFAQs']['@detail'][i]['ID']},templateID,app.data['appFAQs']['@detail'][i]))
+								}
 							}
 						}
 					}
@@ -1297,7 +1324,7 @@ P.listID (buyer list id)
 					}
 				else if(url.indexOf('quickstart.html') > -1)	{
 					var msg = app.u.errMsgObject('Rename this file as index.html to decrease the likelyhood of accidentally saving over it.',"MVC-INIT-MYRIA_1000")
-					msg.skipAutoHide = true;
+					msg.persistant = true;
 					app.u.throwMessage(msg);
 					r.pageType = '404';
 					}
@@ -1425,11 +1452,16 @@ P.listID (buyer list id)
 				case 'customer':
 					relativePath = 'customer/'+P.show+'/';
 					break;
+
 				case 'checkout':
 					relativePath = '#checkout?show=checkout';
 					break;
 				case 'cart':
 					relativePath = '#cart?show=cart';
+					break;
+
+				case 'search':
+					relativePath = '#search?KEYWORDS='+P.KEYWORDS
 					break;
 
 				case 'company':
@@ -1663,7 +1695,7 @@ return r;
 					app.u.dump("ERROR! showProd had no P.pid.  P:"); app.u.dump(P);
 					}
 				else	{
-					P.templateID = 'productTemplate';
+					P.templateID = P.templateID || 'productTemplate';
 					P.state = 'onInits'
 					parentID = P.templateID+"_"+app.u.makeSafeHTMLId(pid);
 					app.ext.myRIA.u.handleTemplateFunctions(P);
@@ -1707,14 +1739,19 @@ return r;
 				var parentID = 'mainContentArea_company'; //this is the id that will be assigned to the companyTemplate instance.
 
 //only create instance once.
-				if($('#mainContentArea_company').length)	{}
+				if($('#mainContentArea_company').length)	{
+					app.ext.myRIA.u.showArticle(P);
+					P.state = 'onCompletes';
+					app.ext.myRIA.u.handleTemplateFunctions(P);
+					
+					}
 				else	{
 					$('#mainContentArea').append(app.renderFunctions.createTemplateInstance(P.templateID,parentID));
 					app.ext.myRIA.u.bindNav('#sideline a');
+					app.calls.appProfileInfo.init(app.vars.profile,{'callback':'showCompany','extension':'myRIA','infoObj':P,'parentID':parentID},'mutable');
+					app.model.dispatchThis();
 					}
 					
-				app.calls.appProfileInfo.init(app.vars.profile,{'callback':'showCompany','extension':'myRIA','infoObj':P,'parentID':parentID},'mutable');
-				app.model.dispatchThis();
 
 				}, //showCompany
 				
@@ -1953,13 +1990,14 @@ buyer to 'take with them' as they move between  pages.
 				var subject;
 				if(typeof P == 'object')	{
 					subject = P.show
-					$('.sideline .'+subject).addClass('ui-state-highlight');
+					$('.sideline .navLink_'+subject).addClass('ui-state-highlight');
 					}
 				else if(typeof P == 'string')	{subject = P}
 				else	{
 					app.u.dump("WARNING - unknown type for 'P' ["+typeof P+"] in showArticle")
 					}
 				if(subject)	{
+//					$('html, body').animate({scrollTop : 0},1000); //scroll up.
 					$('#'+subject+'Article').show(); //only show content if page doesn't require authentication.
 					switch(subject)	{
 						case 'faq':
@@ -2332,6 +2370,8 @@ else	{
 				return r;
 				},
 
+//This will create the arrays for each of the templates that support template functions (onCompletes, onInits and onDeparts).
+// 
 			createTemplateFunctions : function()	{
 
 				app.ext.myRIA.template = {};

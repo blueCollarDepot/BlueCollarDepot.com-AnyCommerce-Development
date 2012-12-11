@@ -1,167 +1,312 @@
-@charset "UTF-8";
-#container {
-	position: relative;
-	z-index: 1;
-	width: 950px;
-	margin-top: -230px;
-}
-#wrapper {
-}
-#content {
-	position: relative;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	padding-bottom: 300px;
-	background-color: #FFF;
-	float: right;
-	padding-right: 0px;
-	padding-left: 0px;
-}
-#container #IS {
-	position: relative;
-	float: right;
-	margin-right: 15px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-top: 90px;
-}
-
-#footer {
-	background-image: url(../../img/blueFooter.jpg);
+div#header
+{
+	background: url('../../img/blue-collar-depot-header-background.png') repeat-x;
+	height: 202px;
 	position: relative;
 	width: 100%;
-	clear: both;
-	height: 300px;
-	margin-top: -300px;
 }
-#logo {
-	background-image: url(../../img/BlueCollarDepot_D04a3a1_a.gif);
-	height: 180px;
-	width: 380px;
-	background-repeat: no-repeat;
+	div#header div#headerContent
+	{
+		height: 202px;
+		margin: 0px auto;
+		position: relative;
+		width: 1000px;
+	}
+		div#header div#headerContent ul
+		{
+			position: absolute;
+			right: 0px;
+			top: 13px;
+		}
+			div#header div#headerContent ul li
+			{
+				display: inline;
+				list-style: none;
+				padding-right: 9px;
+			}
+			div#header div#headerContent ul li:last-child
+			{
+				padding-right: 0px;
+			}
+				div#header div#headerContent ul li:last-child a
+				{
+					padding-right: 0px;
+				}
+				div#header div#headerContent ul li a
+				{
+					color: #000000;
+					font-family: Tahoma;
+					font-size: 12px;
+					padding-right: 9px;
+					text-decoration: none;
+				}
+					div#header div#headerContent ul li a:hover
+					{
+						text-decoration: underline;
+					}
+		div#header div#headerContent a#logo
+		{
+			left: 20px;
+			position: absolute;
+			top: 20px;
+			z-index: 1000;
+		}
+		
+		div#header div#headerContent p#callUs
+		{
+			color: #646464;
+			font-family: Tahoma;
+			font-size: 22px;
+			position: absolute;
+			right: 2px;
+			top: 69px;
+		}
+		div#header div#headerContent div#info
+		{
+			height: 42px;
+			position: absolute;
+			right: 10px;
+			top: 115px;
+			width: 593px;
+		}		
+			div#header div#headerContent div#info img
+			{
+				cursor: pointer;
+				display: inline;
+				margin: 0px;
+				padding: 0px;
+			}
+		div#header div#headerContent div#nav
+		{
+			border: 1px solid #bdbcbd;
+			border-bottom: 0px;
+			bottom: 5px;
+			height: 39px;
+			position: absolute;
+			width: 998px;
+		}	
+			div#header div#headerContent div#nav div#search
+			{
+				height: 21px;
+				right: 11px;
+				position: absolute;
+				top: 9px;
+				width: 206px;
+			}
+				div#header div#headerContent div#nav div#search input
+				{
+					background-color: transparent;
+					border: 0px solid #000000;
+					font-family: Arial;
+					font-size: 12px;
+					left: 5px;
+					position: absolute;
+					width: 180px;
+					top: 2px;
+					z-index: 1000;
+				}
+				div#header div#headerContent div#nav div#search img#btnSearch
+				{
+					cursor: pointer;
+					position: absolute;
+					right: 3px;
+					top: 3px;
+				}
+div#content
+{
+	background: url('../../img/blue-collar-depot-content-background.png') repeat;
 	position: relative;
-	top: -60px;
-}
-#sc {
-	color: #84B4E9;
-	font-family: Arial, Helvetica, sans-serif;
-	padding-top: 20px;
-}
-#navmain {
-	margin: 0px;
-}
-#container .grid_12 {
-	margin-top: 5px;
-	position: relative;
-	
-}
-/*breadcrumb
-ul, li {
-list-style-type:none;
-padding:0;
-margin:0;
-}
-#crumbs {*/
-/*border:1px solid #dedede;
-height:2.3em;
-}
-#crumbs li {
-float:left;
-line-height:2.3em;
-padding-left:.75em;
-color:#777;
-}
-#search {
-}
-#crumbs li a {
-	display:block;
-	padding:0 15px 0 0;
-	background-image: url(../img/crumbs.gif);
-	background-repeat: no-repeat;
-	background-position: right center;
-}
-#crumbs li a:link, #crumbs li a:visited {
-text-decoration:none;
-color:#777;
-}
-#crumbs li a:hover, #crumbs li a:focus {
-	color:#2472C3;
-}
-#breadcrumbs {
-	margin-top: 15px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	position: relative;
-	visibility: visible;
-}*/
-#IS2 {
-	margin-top: 15px;
-	position: relative;
-	float: right;
-	margin-right: 15px;
-	margin-left: 0px;
-}
-#search {
-	float: right;
-	position: relative;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	top: 40px;
-}
-h6 {
-	font-family: Arial, Helvetica, sans-serif;
-}
-p {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1em;
-}
-#content1 {
-	float: right;
-	position: relative;
-	margin-top: 30px;
-}
-#siderbar {
-	float: left;
-	position: relative;
-	background-image: url(../img/blue.png);
-	margin-top: 30px;
-	-moz-border-radius-topright: 50px;
-border-top-right-radius: 50px;
-	
-}
-#siderbar #sidebarnav ul {
-	padding-left: 15px;
-	padding-top: 10px;
-	padding-bottom: 20px;
-}
-#search_img {
-	position: relative;
-	float: left;
-}
-#mainmenu {
-	margin: 0px;
-}
-#header {
-	height: 240px;
 	width: 100%;
-	clear: both;
-	z-index: -3;
-	background-image: url(../../img/images/headerBg_02.gif);
-	background-repeat: repeat-x;
 }
-#container_main {
-	width: 960px;
+	div#content div#breadCrumbs, div#content div#contentBody
+	{
+		margin: 0px auto;
+		position: relative;
+		width: 1000px;
+	}
+	
+	div#content div#breadCrumbs
+	{
+		border: 0px solid #000000;
+		height: 40px; /* actual 42px;*/	
+		width: 998px; /* actual 1000px;*/		
+	}
+	
+	div#content div#slideShow
+	{
+		background-color: #043262;
+		border: 1px solid #000000;
+		height: 260px;
+		margin: 0px auto;
+		position: relative;
+		width: 998px;
+	}
+		div#content div#slideShow img#slidePic
+		{
+			margin-top: 2px;
+			position: relative;
+		}
+		div#content div#slideShow img#slideBackButton
+		{
+			cursor: pointer;
+			left: 38px;
+			position: absolute;
+			top: 141px;
+			z-index: 1000;
+			
+			opacity: .66;
+			filter:alpha(opacity=66);
+		}
+		div#content div#slideShow img#slideForwardButton
+		{
+			cursor: pointer;
+			position: absolute;
+			right: 38px;
+			top: 141px;
+			z-index: 1000;
+			
+			opacity: .66;
+			filter:alpha(opacity=66);
+		}		
+	
+	div#content div#contentBody
+	{
+		background-color: #FFFFFF;
+	}
+div#footer
+{
+	background-color: #032c58;
+	position: relative;
+	width: 100%;
 }
-#topNav {
-	float: right;
-}
-#topNav ul {
-	text-align: right;
-}
-#topNav ul li {
-	display: inline;
-	margin-right: -20px;
-}
+	div#footer div#footerContent
+	{
+		margin: 0px auto;
+		position: relative;
+		width: 1000px;
+	}
+	div#footer div#footerContent div#footModals
+	{
+		height: 164px;
+		padding-top: 20px;		
+		position: relative;
+		width: 100%;
+	}
+		div#footer div#footerContent div#footModals div.footModal
+		{
+			background-color: #FFFFFF;
+			border: 1px solid #bababa;			
+			float: left;
+			height: 164px;
+			overflow: hidden;
+			position: relative;
+			width: 326px;
+			
+			-moz-border-radius: 7px;
+			border-radius: 7px;			
+		}
+			div#footer div#footerContent div#footModals div.footModal:not(:first-child)
+			{		
+				margin-left: 8px;
+			}		
+			div#footer div#footerContent div#footModals div.footModal > div
+			{
+				background-color: #e9e9e9;
+				bottom: 0px;
+				height: 120px;
+				left: 0px;
+				position: absolute;
+				width: 100%;
+			}
+				div#footer div#footerContent div#footModals div.footModal > div img
+				{
+					bottom: 8px;
+					cursor: pointer;
+					position: absolute;
+					right: 10px;
+				}		
+				div#footer div#footerContent div#footModals div.footModal > div p
+				{
+					font-family: Arial;
+					font-size: 12px;
+					margin-left: 10px;
+					margin-top: 8px;
+					position: relative;
+					width: 305px;
+				}	
+				div#footer div#footerContent div#footModals div.footModal > p
+				{
+					color: #000000;
+					font-family: Tahoma;
+					font-size: 23px;
+					margin-left: 24px;
+					margin-top: 5px;
+					position: relative;
+				}
+	
+	div#footer div#footerContent div#spacer
+	{
+		border-bottom: 1px solid #808080;
+		margin-left: 32px;
+		padding-top: 20px;
+		width: 933px;
+	}
+	div#footer div#footerContent div#footInfo
+	{
+		height: 307px;
+		position: relative;
+	}
+		div#footer div#footerContent div#footInfo div#links
+		{
+			margin-left: 21px;
+			margin-top: 25px;
+			position: relative;
+		}
+			div#footer div#footerContent div#footInfo div#links table
+			{
+				display: inline;
+				/*margin-top: 26px;*/
+			}
+			div#footer div#footerContent div#footInfo div#links table:not(:first-child)
+			{
+				margin-left: 100px;
+			}
+				div#footer div#footerContent div#footInfo div#links table tr th
+				{
+					color: #FFFFFF;
+					font-family: Tahoma;
+					font-size: 22px;
+				}
+				div#footer div#footerContent div#footInfo div#links table tr td
+				{
+					color: #FFFFFF;
+					font-family: Tahoma;
+					font-size: 14px;
+					padding-left: 2px;
+					padding-top: 10px;
+				}
+					div#footer div#footerContent div#footInfo div#links table tr td a
+					{
+						color: #FFFFFF;
+						text-decoration: none;
+					}
+					div#footer div#footerContent div#footInfo div#links table tr td a:hover
+					{
+						text-decoration: underline;
+					}	
+			div#footer div#footerContent div#footInfo img#fbLink
+			{
+				cursor: pointer;
+				position: absolute;
+				right: 18px;
+				top: 0px;
+			}
+			div#footer div#footerContent div#footInfo p#copyright
+			{
+				bottom: 65px;
+				color: #FFFFFF;
+				font-family: Tahoma;
+				font-size: 14px;
+				left: 227px;
+				position: absolute;
+			}

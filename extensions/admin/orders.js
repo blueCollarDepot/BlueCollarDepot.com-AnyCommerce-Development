@@ -75,8 +75,8 @@ var admin_orders = function() {
 				return 1;
 				},
 			dispatch : function(orderID,updates,tagObj)	{
-				app.u.dump("BEGIN admin_orders.calls.adminOrderUpdate.dispatch");
-				app.u.dump(" -> orderID = "+orderID);
+//				app.u.dump("BEGIN admin_orders.calls.adminOrderUpdate.dispatch");
+//				app.u.dump(" -> orderID = "+orderID);
 				cmdObj = {};
 				cmdObj['_cmd'] = 'adminOrderUpdate';
 				cmdObj.orderid = orderID;
@@ -109,15 +109,8 @@ var admin_orders = function() {
 //				app.u.dump('BEGIN app.ext.store_navcats.init.onSuccess ');
 				var r = true; //return false if extension won't load for some reason (account config, dependencies, etc).
 //				app.u.dump("DEBUG - template url is changed for local testing. add: ");
-<<<<<<< HEAD
-				app.model.fetchNLoadTemplates('/biz/ajax/zmvc/201228/extensions/admin/order_templates.html',theseTemplates);
-=======
-				app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/admin/order_templates.html',theseTemplates);
->>>>>>> origin/201237-jt
-//				if(!app.u.thisIsAnAdminSession())	{
-//					$('#globalMessaging').toggle(true).append(app.u.formatMessage({'message':'<strong>Uh Oh!<\/strong> This session is not an admin session and the app is trying to load an admin module (admin_orders.js).','uiClass':'error','uiIcon':'alert'}));
-//					r = false;
-//					}
+				app.rq.push(['css',0,app.vars.baseURL+'extensions/admin/orders.css','orders_styles']);
+				app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/admin/orders.html',theseTemplates);
 				return r;
 				},
 			onError : function()	{
@@ -129,12 +122,8 @@ var admin_orders = function() {
 // if the order manager is loaded as part of the controller init, this callback gets run
 		initOrderManager : {
 			onSuccess : function()	{
-				app.u.dump("BEGIN admin_orders.callback.initOrderManager.onSuccess");
-<<<<<<< HEAD
-				app.ext.admin_orders.a.initOrderManager({"pool":"RECENT","targetID":"mainContentArea"});
-=======
-				app.ext.admin_orders.a.initOrderManager({"pool":"RECENT","targetID":"mainContentArea"});
->>>>>>> origin/201237-jt
+//				app.u.dump("BEGIN admin_orders.callback.initOrderManager.onSuccess");
+				app.ext.admin_orders.a.initOrderManager({"pool":"RECENT","targetID":"ordersContent"});
 				}
 			}, //initOrderManager
 
@@ -142,11 +131,11 @@ var admin_orders = function() {
 		orderPoolChanged : {
 			onSuccess : function(tagObj)	{
 //				app.u.dump(" -> targetID: "+targetID);
-				$('#'+tagObj.targetID).empty().remove();
+				$(app.u.jqSelector('#',tagObj.targetID)).empty().remove();
 				},
 			onError : function(responseData)	{
-				$('#'+tagObj.targetID).attr({'data-status':'error'}).find('td:nth-child('+app.ext.admin_orders.u.getFlexgridColIdByName('status')+')').html("<span class='ui-icon ui-icon-alert'></span>");
-				responseData.parentID = 'orderListMessaging'
+				$(app.u.jqSelector('#',tagObj.targetID)).attr({'data-status':'error'}).find('td:nth-child('+app.ext.admin_orders.u.getFlexgridColIdByName('status')+')').html("<span class='ui-icon ui-icon-alert'></span>");
+				responseData._rtag.parentID = 'orderListMessaging'
 				app.u.throwMessage(responseData);
 				}		
 			}, //orderPoolChanged
@@ -155,11 +144,11 @@ var admin_orders = function() {
 		orderFlagAsPaid : {
 			onSuccess : function(tagObj)	{
 				app.u.dump(" -> targetID: "+tagObj.targetID);
-				$('#'+tagObj.targetID).find('td:nth-child('+app.ext.admin_orders.u.getFlexgridColIdByName('ORDER_PAYMENT_STATUS')+')').text('Paid');
+				$(app.u.jqSelector('#',tagObj.targetID)).find('td:nth-child('+app.ext.admin_orders.u.getFlexgridColIdByName('ORDER_PAYMENT_STATUS')+')').text('Paid');
 				},
 			onError : function(d)	{
 //				app.u.dump("BEGIN admin.callbacks.finderProductUpdate.onError");
-				$('#'+tagObj.targetID).attr({'data-status':'error'}).find('td:nth-child('+app.ext.admin_orders.u.getFlexgridColIdByName('actions')+')').html("<span class='ui-icon ui-icon-alert'></span>");
+				$(app.u.jqSelector('#',tagObj.targetID)).attr({'data-status':'error'}).find('td:nth-child('+app.ext.admin_orders.u.getFlexgridColIdByName('actions')+')').html("<span class='ui-icon ui-icon-alert'></span>");
 				responseData.parentID = 'orderListMessaging'
 				app.u.throwMessage(responseData);
 				}		
@@ -200,7 +189,7 @@ var admin_orders = function() {
 		listOrders : {
 			onSuccess : function(tagObj)	{
 
-app.u.dump('BEGIN admin_orders.callbacks.listOrders.onSuccess');
+//app.u.dump('BEGIN admin_orders.callbacks.listOrders.onSuccess');
 var $target = $('#orderListTableBody'); //a table in the orderManagerTemplate
 
 var orderid,cid;
@@ -216,11 +205,7 @@ if(L)	{
 		$(this).click(function(){
 			var orderID = $(this).attr('data-orderid');
 			var CID = $(this).closest('tr').attr('data-cid');
-<<<<<<< HEAD
 			app.ext.admin_orders.a.orderDetailsInDialog(orderID,CID);
-=======
-			app.ext.admin_orders.a.orderDetailsInDialog(orderID,CID);
->>>>>>> origin/201237-jt
 			app.model.dispatchThis();
 			})
 		});
@@ -256,7 +241,7 @@ $('#orderListTableContainer').removeClass('loadingBG');
 			if(P.pool && P.targetID)	{
 //adds the order manager itself to the dom.
 // passes in a new ID so that multiple instances of the ordermanager can be open (not supported yet. may never be supported or needed.)
-				$('#'+P.targetID).append(app.renderFunctions.createTemplateInstance('orderManagerTemplate',{'id':'OM_'+P.targetID}));
+				$(app.u.jqSelector('#',P.targetID)).append(app.renderFunctions.createTemplateInstance('orderManagerTemplate',{'id':'OM_'+P.targetID}));
 				
 //Make the list of filters selectable. (status, type, marketplace, etc)				
 //since only 1 option per UL is selectable, selectable() was avoided.
@@ -273,10 +258,12 @@ $('#orderListTableContainer').removeClass('loadingBG');
 				app.ext.admin_orders.u.bindOrderListButtons(P.targetID);
 				}
 			else	{
-				app.u.dump("ERROR! - pool ["+P.pool+"] and/or targetID ["+P.targetID+"] not passed into initOrderManager");
+				app.u.throwGMessge("WARNING! - pool ["+P.pool+"] and/or targetID ["+P.targetID+"] not passed into initOrderManager");
 				}
 			}, //initOrderManager
 		
+		
+
 		
 		saveChangesToOrder : function()	{
 			app.u.dump("BEGIN admin_orders.a.saveChangesToOrder");
@@ -289,9 +276,9 @@ $('#orderListTableContainer').removeClass('loadingBG');
 			
 			
 		orderDetailsInDialog : function(orderID,CID)	{
-app.u.dump("BEGIN extensions.admin_orders.a.orderDetailsInDialog");
-app.u.dump(" -> CID : "+CID);
-app.u.dump(" -> orderID : "+orderID);
+//app.u.dump("BEGIN extensions.admin_orders.a.orderDetailsInDialog");
+//app.u.dump(" -> CID : "+CID);
+//app.u.dump(" -> orderID : "+orderID);
 if(orderID)	{
 
 	var safeID = app.u.makeSafeHTMLId(orderID);
@@ -329,7 +316,7 @@ if(orderID)	{
 		}
 	}
 else	{
-	app.u.dump("WARNING! - no orderID specificed for view order.");
+	app.u.throwGMessage("WARNING! - no orderID passed into admin_orders.u.orderDetailsInDialog.");
 	}
 			}, //orderDetailsInDialog
 		
@@ -349,15 +336,14 @@ else	{
 				$('#orderListMessaging').append(app.u.formatMessage('Please select at least one filter criteria'));
 				}
 			else	{
-				app.u.dump(obj);
+//				app.u.dump("Filter Obj: "); app.u.dump(obj);
 				app.ext.admin_orders.a.showOrderList(obj);
 				}
 			},
 
 //shows a list of orders by pool.
 		showOrderList : function(filterObj)	{
-		
-			if(typeof filterObj == 'object' || !$.isEmptyObject(filterObj))	{
+			if(!$.isEmptyObject(filterObj))	{
 			//create instance of the template. currently, there's no data to populate.
 				filterObj.DETAIL = 5;
 				filterObj.LIMIT = 20; //for now, cap at 20 so test pool is small. ###
@@ -366,7 +352,7 @@ else	{
 				
 				}
 			else	{
-				app.u.dump("Warning - no filter object passed into showOrderList");
+				app.u.throwGMessage("Warning! no filter object passed into admin_orders.calls.showOrderList."); app.u.dump(filterObj);
 				}
 	
 			},
@@ -401,11 +387,11 @@ else	{
 
 
 		selectAllOrders : function()	{
-			$('#orderListTable tr').each(function(){$(this).addClass('ui-selected')});
+			$('#orderListTableBody tr').each(function(){$(this).addClass('ui-selected')});
 			},
 			
 		deselectAllOrders : function()	{
-			$('#orderListTable tr').each(function(){$(this).removeClass('ui-selected')});
+			$('#orderListTableBody tr').each(function(){$(this).removeClass('ui-selected')});
 			},
 
 
@@ -620,7 +606,7 @@ $(selector + ' .editable').each(function(){
 				
 			bindOrderListButtons : function(targetID)	{
 //				app.u.dump("BEGIN admin_orders.u.bindOrderListButtons");
-				$('#'+targetID+' [data-orderaction]').each(function(){
+				$(app.u.jqSelector('#',targetID)+' [data-orderaction]').each(function(){
 					var action = $(this).attr('data-orderaction');
 //					app.u.dump(" -> action: "+action);
 					$(this).click(function(){

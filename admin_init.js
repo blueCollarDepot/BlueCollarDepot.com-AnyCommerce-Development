@@ -3,75 +3,63 @@ app.rq = app.rq || []; //ensure array is defined. rq = resource queue.
 
 
 
+app.rq.push(['extension',0,'store_product','extensions/store_product.js']);
+app.rq.push(['extension',0,'admin','extensions/admin/extension.js','initExtension']);
 
+//these can be loaded later because none of them are required for a page to load.
+//this will change going forward.
 app.rq.push(['extension',1,'store_prodlist','extensions/store_prodlist.js']);
 app.rq.push(['extension',1,'store_navcats','extensions/store_navcats.js']);
 app.rq.push(['extension',1,'store_search','extensions/store_search.js']);
-app.rq.push(['extension',1,'store_product','extensions/store_product.js']);
-app.rq.push(['extension',0,'admin','extensions/admin/extension.js','initUserInterface']);
+app.rq.push(['extension',1,'store_cart','extensions/store_cart.js']);
+app.rq.push(['extension',1,'store_checkout','extensions/store_checkout.js']);
+
+app.rq.push(['extension',1,'admin_support','extensions/admin/support.js']);
+app.rq.push(['extension',1,'admin_prodEdit','extensions/admin/product_editor.js']);
+// app.rq.push(['extension',1,'admin_orders','extensions/admin/orders.js']); 
+app.rq.push(['extension',1,'convertSessionToOrder','extensions/admin/order_create.js']); 
+app.rq.push(['extension',1,'admin_medialib','extensions/admin/medialib.js']); //do NOT set to zero. causes a script issue.
 
 
+//required for init. don't change from 0.
 app.rq.push(['script',0,app.vars.baseURL+'model.js']); //'validator':function(){return (typeof zoovyModel == 'function') ? true : false;}}
 app.rq.push(['script',0,app.vars.baseURL+'includes.js']); //','validator':function(){return (typeof handlePogs == 'function') ? true : false;}})
-app.rq.push(['script',1,app.vars.baseURL+'jeditable.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
+
+app.rq.push(['script',1,app.vars.baseURL+'jeditable.js']); //used for making text editable (customer address). non-essential. loaded late.
+app.rq.push(['script',1,app.vars.baseURL+'extensions/admin/resources/highcharts-v2.1.9.js']);
+
+app.rq.push(['script',1,'https://www.zoovy.com/biz/ajax/flexigrid-1.1/js/flexigrid.js']);
+app.rq.push(['script',1,'https://crypto-js.googlecode.com/files/2.5.3-crypto-md5.js']);
+
+// app.rq.push(['script',0,app.vars.baseURL+'extensions/admin/resources/jquery.parsequery.min.js']); // parses window.location parameters
+
+//have showLoading as early as possible. pretty handy feature.
+app.rq.push(['css',0,app.vars.baseURL+'extensions/admin/resources/showloading.css']);
+app.rq.push(['script',0,app.vars.baseURL+'extensions/admin/resources/jquery.showloading-v1.0.js']);
+
+// markitup is a combo wiki+html editor
+// http://markitup.jaysalvat.com/documentation/
+// app.rq.push(['script',1,app.vars.baseURL+'extensions/admin/resources/jquery.markitup.js']);
+// app.rq.push(['script',1,app.vars.baseURL+'extensions/admin/resources/markitup/style-wiki/set.js']);
+// app.rq.push(['css',   1,app.vars.baseURL+'extensions/admin/resources/markitup/style-wiki/style.css']);
+// app.rq.push(['script',1,app.vars.baseURL+'extensions/admin/resources/markitup/style-html/set.js']);
+// app.rq.push(['css',   1,app.vars.baseURL+'extensions/admin/resources/markitup/style-html/style.css']);
+
+// jHTMLArea - http://jhtmlarea.codeplex.com/
+// app.rq.push(['script',1,app.vars.baseURL+'
+
+// jQuery-contextMenu - http://medialize.github.com/jQuery-contextMenu/
+app.rq.push(['css',1,app.vars.baseURL+'extensions/admin/resources/jquery.contextMenu.css']);
+app.rq.push(['script',1,app.vars.baseURL+'extensions/admin/resources/jquery.contextMenu.js']);
+app.rq.push(['script',1,app.vars.baseURL+'extensions/admin/resources/jquery.ui.position.js']);
+
+
+
 //group any third party files together (regardless of pass) to make troubleshooting easier.
-app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.js']);
+app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.js']);
 
-
-
-
-/*
-Will load all scripts and extenstions with pass = 0.
-pass with any other value (including blank,null, undefined, etc) will get loaded later.
-this function is overwritten once the myRIA callback occurs with a very similar function (ignores pass).
-app.rq.push() = app.u.handleRQ so whatever the values in push() are get executed immediately.
-*/
-
-app.u.handleRQ = function()	{
-
-	var numIncludes = 0; //what is returned. The total number of includes for this pass.
-	var L = app.rq.length - 1;
-
-	app.vars.extensions = app.vars.extensions || []; //ensure array is defined.
-	app.vars.rq = new Array(); //to avoid any duplication, as iteration occurs, items are moved from app.rq into this tmp array. 
-
-//the callback added to the loadScript on type 'script' sets the last value of the resource array to true.
-//another script will go through this array and make sure all values are true for validation. That script will execute the callback (once all scripts are loaded).
-	var callback = function(index){
-		app.vars.rq[index][app.vars.rq[index].length - 1] = true; //last index in array is for 'is loaded'. set to false in loop below.
-		}
-	
-	for(var i = L; i >= 0; i--)	{
-//		app.u.dump("app.rq["+i+"][0]: "+app.rq[i][0]+" and app.rq["+i+"][1]: "+app.rq[i][1]);
-		if(app.rq[i][0] == 'script' && app.rq[i][1] === 0)	{
-			numIncludes++;
-			app.rq[i][app.rq[i].length] = false; //will get set to true when script loads as part of callback.
-			app.vars.rq.push(app.rq[i]); //add to pass zero rq.
-			app.u.loadScript(app.rq[i][2],callback,(app.vars.rq.length - 1));
-			app.rq.splice(i, 1); //remove from new array to avoid dupes.
-			}
-		else if(app.rq[i][0] == 'extension' && app.rq[i][1] === 0)	{
-			numIncludes++;
-			app.vars.extensions.push({"namespace":app.rq[i][2],"filename":app.rq[i][3],"callback":app.rq[i][4]}); //add to extension Q.
-			app.rq[i][app.rq[i].length] = false; //will get set to true when script loads as part of callback.
-			app.vars.rq.push(app.rq[i]); //add to pass zero rq.
-
-//on pass 0, no callbacks added to extensions because the model already has a function for checking if extensions are loaded.
-// adding these extensions to the extensions array is necessary for this checker to work.
-			app.u.loadScript(app.rq[i][3],callback,(app.vars.rq.length - 1));
-			app.rq.splice(i, 1); //remove from old array to avoid dupes.
-			}
-		else	{
-//currently, this function is intended for pass 0 only, so if an item isn't pass 0,do nothing with it.
-			}
-		}
-//	app.u.dump("numIncludes: "+numIncludes);
-	app.u.initMVC(0);
-	return numIncludes;
-
-	}
 
 
 /*
@@ -102,15 +90,26 @@ app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
 
 app.u.initMVC = function(attempts){
 //	app.u.dump("app.u.initMVC activated ["+attempts+"]");
+	var includesAreDone = true;
+
+//what percentage of completion a single include represents (if 10 includes, each is 10%).
+	var percentPerInclude = Math.round((100 / app.vars.rq.length));  
 	var resourcesLoaded = app.u.howManyPassZeroResourcesAreLoaded();
+	var percentComplete = resourcesLoaded * percentPerInclude; //used to sum how many includes have successfully loaded.
+
+	$('#appPreViewProgressBar').val(percentComplete);
+	$('#appPreViewProgressText').empty().append(percentComplete+"% Complete");
+
+
 	if(resourcesLoaded == app.vars.rq.length)	{
 //instantiate controller. handles all logic and communication between model and view.
 //passing in app will extend app so all previously declared functions will exist in addition to all the built in functions.
 //tmp is a throw away variable. app is what should be used as is referenced within the mvc.
-		app.vars.rq = null; //to get here, all these resources have been loaded. nuke record to keep DOM clean and avoid any duplication.
+		app.vars.rq = null; //to get here, all these resources have been loaded. nuke record to keep DOM clean and avoid any duplication. note this is NOT app.rq
 		var tmp = new zController(app);
 //instantiate wiki parser.
 		myCreole = new Parse.Simple.Creole();
+		
 		}
 	else if(attempts > 50)	{
 		app.u.dump("WARNING! something went wrong in init.js");
@@ -132,7 +131,75 @@ $(document).ready(function(){
 	});
 
 
+// ----------------------------------------------------------------------------
+// markItUp!
+// ----------------------------------------------------------------------------
+// Copyright (C) 2008 Jay Salvat
+// http://markitup.jaysalvat.com/
+// ----------------------------------------------------------------------------
+markItUpWikiSettings = {
+    nameSpace:          "wiki", // Useful to prevent multi-instances CSS conflict
+    // previewParserPath:  "~/sets/wiki/preview.php",
+    onShiftEnter:       {keepDefault:false, replaceWith:'\n\n'},
+    markupSet:  [
+        {name:'Heading 1', key:'1', openWith:'== ', closeWith:' ==', placeHolder:'Your title here...' },
+        {name:'Heading 2', key:'2', openWith:'=== ', closeWith:' ===', placeHolder:'Your title here...' },
+        {name:'Heading 3', key:'3', openWith:'==== ', closeWith:' ====', placeHolder:'Your title here...' },
+        {name:'Heading 4', key:'4', openWith:'===== ', closeWith:' =====', placeHolder:'Your title here...' },
+        {name:'Heading 5', key:'5', openWith:'====== ', closeWith:' ======', placeHolder:'Your title here...' },
+        {separator:'---------------' },        
+        {name:'Bold', key:'B', openWith:"'''", closeWith:"'''"}, 
+        {name:'Italic', key:'I', openWith:"''", closeWith:"''"}, 
+        {name:'Stroke through', key:'S', openWith:'<s>', closeWith:'</s>'}, 
+        {separator:'---------------' },
+        {name:'Bulleted list', openWith:'(!(* |!|*)!)'}, 
+        {name:'Numeric list', openWith:'(!(# |!|#)!)'}, 
+        {separator:'---------------' },
+        {name:'Picture', key:'P', replaceWith:'[[Image:[![Url:!:http://]!]|[![name]!]]]'}, 
+        {name:'Link', key:'L', openWith:'[[![Link]!] ', closeWith:']', placeHolder:'Your text to link here...' },
+        {name:'Url', openWith:'[[![Url:!:http://]!] ', closeWith:']', placeHolder:'Your text to link here...' },
+        {separator:'---------------' },
+        {name:'Quotes', openWith:'(!(> |!|>)!)'},
+        {name:'Code', openWith:'(!(<source lang="[![Language:!:php]!]">|!|<pre>)!)', closeWith:'(!(</source>|!|</pre>)!)'}, 
+        {separator:'---------------' },
+        {name:'Preview', call:'preview', className:'preview'}
+    ]
+}
 
-
+// ----------------------------------------------------------------------------
+// markItUp!
+// ----------------------------------------------------------------------------
+// Copyright (C) 2008 Jay Salvat
+// http://markitup.jaysalvat.com/
+// ----------------------------------------------------------------------------
+markItUpHTMLSettings = {
+    nameSpace:       "html", // Useful to prevent multi-instances CSS conflict
+    onShiftEnter:    {keepDefault:false, replaceWith:'<br />\n'},
+    onCtrlEnter:     {keepDefault:false, openWith:'\n<p>', closeWith:'</p>\n'},
+    onTab:           {keepDefault:false, openWith:'     '},
+    markupSet:  [
+        {name:'Heading 1', key:'1', openWith:'<h1(!( class="[![Class]!]")!)>', closeWith:'</h1>', placeHolder:'Your title here...' },
+        {name:'Heading 2', key:'2', openWith:'<h2(!( class="[![Class]!]")!)>', closeWith:'</h2>', placeHolder:'Your title here...' },
+        {name:'Heading 3', key:'3', openWith:'<h3(!( class="[![Class]!]")!)>', closeWith:'</h3>', placeHolder:'Your title here...' },
+        {name:'Heading 4', key:'4', openWith:'<h4(!( class="[![Class]!]")!)>', closeWith:'</h4>', placeHolder:'Your title here...' },
+        {name:'Heading 5', key:'5', openWith:'<h5(!( class="[![Class]!]")!)>', closeWith:'</h5>', placeHolder:'Your title here...' },
+        {name:'Heading 6', key:'6', openWith:'<h6(!( class="[![Class]!]")!)>', closeWith:'</h6>', placeHolder:'Your title here...' },
+        {name:'Paragraph', openWith:'<p(!( class="[![Class]!]")!)>', closeWith:'</p>'  },
+        {separator:'---------------' },
+        {name:'Bold', key:'B', openWith:'<strong>', closeWith:'</strong>' },
+        {name:'Italic', key:'I', openWith:'<em>', closeWith:'</em>'  },
+        {name:'Stroke through', key:'S', openWith:'<del>', closeWith:'</del>' },
+        {separator:'---------------' },
+        {name:'Ul', openWith:'<ul>\n', closeWith:'</ul>\n' },
+        {name:'Ol', openWith:'<ol>\n', closeWith:'</ol>\n' },
+        {name:'Li', openWith:'<li>', closeWith:'</li>' },
+        {separator:'---------------' },
+        {name:'Picture', key:'P', replaceWith:'<img src="[![Source:!:http://]!]" alt="[![Alternative text]!]" />' },
+        {name:'Link', key:'L', openWith:'<a href="[![Link:!:http://]!]"(!( title="[![Title]!]")!)>', closeWith:'</a>', placeHolder:'Your text to link...' },
+        {separator:'---------------' },
+        {name:'Clean', replaceWith:function(h) { return h.selection.replace(/<(.*?)>/g, "") } },
+        {name:'Preview', call:'preview', className:'preview' }
+    ]
+}
 
 

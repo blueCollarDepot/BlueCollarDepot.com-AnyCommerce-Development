@@ -20,12 +20,18 @@
 var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPLOYMENT!
 var myCreole;
 
-var app = {vars:{
+/*var app = {vars:{
 	"release":"201210270525",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.sporks.zoovy.com/",
 	"httpURL":"http://www.sporks.zoovy.com/"
-	},u:{},rq:[]};
+	},u:{},rq:[]};*/
+var app = {vars:{ 
+	"release":"20121206122900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"baseURL":"",
+	"httpsURL":"https://ssl.zoovy.com/s=www.stage3motorsports.com/",
+	"httpURL":"http://www.stage3motorsports.com/"
+	},u:{},rq:[]};	
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
 //baseURL as blank lets loadScript function run off local copy when testing locally.
@@ -43,8 +49,8 @@ css files should be included before any .js file to ensure they are downloaded i
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
 <link rel="stylesheet"href="code/css/reset.css"  >
-<link rel="stylesheet"href="code/css/text.css" >
-<link rel="stylesheet"href="code/css/960.css" >
+<!--<link rel="stylesheet"href="code/css/text.css" >
+<link rel="stylesheet"href="code/css/960.css" >-->
 <link rel="stylesheet" href="code/css/blueCollarDepot.css">
 
 
@@ -88,119 +94,156 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 
 
 
-<div id='appView' >
-<!-- VIEW CONTENT -->
-<!-- leave the appView div, put your your html here ...  -->
-
-	<!-- 
-	** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
-	**				  INSTEAD PUT THEM INTO <div id="homepageTemplate"></div>
-	-->
-<div id=" wrapper"> 
-
-<div id="header"> <!--<div id="">
-
-</div>--></div>
-     <!--end header -->    
-        <!-- beginning container-->
-<div class="container_12" id="container"><div class="grid_8" id="topNav">    
-<ul>
-    <li><a href="#">My account</a>|</li>
-    <li><a href="#">Contact</a>|</li>
-    <li><a href="#">Wish lists</a>|</li>
-    <li><a href="#">Gift Certificates</a>|</li>
-    
-    
-  </ul>
-</div>
-     <div class="grid_2 " id="logo" >
-</div><div class="grid_3" id="search"><form method="get" action="/search" id="search">
-  <input name="q" type="text" size="40" placeholder="Search..." />
-</form> </div> 
-  <div class="grid_12" id="nav"></div>
-<div class="grid_4 " id="" >
-   
-</div>
-<div class="grid_4 " >
-  
-</div>
-<div class="clear" ></div>
-<!--start nav-->
-  
-  <div class="clear"></div>
- <!--<div class="grid_8" id="breadcrumbs">    
-<ul id="crumbs">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Main section</a></li>
-    <li><a href="#">Sub section</a></li>
-    <li><a href="#">Sub sub section</a></li>
-    <li>The page you are on right now</li>
-    </ul>
-</div>-->
-<!-- /slideshowContainer -->
-<div id="slideshowContainer" class='clearfix marginBottom'>
-  <div id="slideshowNav"></div>
-  <ul id="wideSlideshow" class="pics slideshow">
-   <img src='blank.gif' width='900' height='300' data-bind="var: page(banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
-   <img src='blank.gif' width='900' height='300' data-bind="var: page(banner_slideshow2); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
-   <img src='blank.gif' width='900' height='300' data-bind="var: page(banner_slideshow3); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
-   <img src='blank.gif' width='900' height='300' data-bind="var: page(banner_slideshow4); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
-   <img src='blank.gif' width='900' height='300' data-bind="var: page(banner_slideshow5); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
-  </ul>
- </div><!-- /slideshowContainer -->
-
-<div class="grid_10" id="content">
-	
- <div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
-<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
-</div>
- <!--end content-->
-</div>
-<!--end of container-->	
-
-<!--beginning footer-->
-	    <div id="footer">
-        <div class="floatleft">
-<h3>Shop with Us </h3>
-<ul id="crumbs">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Main section</a></li>
-    <li><a href="#">Sub section</a></li>
-    <li><a href="#">Sub sub section</a></li>
-    <li>The page you are on right now</li>
-    </ul>
-</div>
-<div class="floatleft">
-<h3>Your Account  </h3>
-<ul id="crumbs">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Main section</a></li>
-    <li><a href="#">Sub section</a></li>
-    <li><a href="#">Sub sub section</a></li>
-    <li>The page you are on right now</li>
-    </ul>
-</div>
-<div class="floatleft">
-<h3>Our Offers</h3>
-<ul id="crumbs">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Main section</a></li>
-    <li><a href="#">Sub section</a></li>
-    <li><a href="#">Sub sub section</a></li>
-    <li>The page you are on right now</li>
-    </ul>
-</div>
-        
-</div>
-<!--end footer --> 
-</div>
-<!--end wrapper-->     
-
-
-<!-- ... your html ends -->
-<!-- /VIEW CONTENT -->
-
-</div>
+	<div id='appView'>
+		<div id="header">
+			<div id="headerContent">
+				<ul id="userNav">
+					<li><a href="#" onClick="return showContent('customer',{'show' : 'myaccount'});">My Account</a>|</li>
+					<li><a href="#">Contact</a>|</li>
+					<li><a href="#" onClick="return showContent('customer',{'show' : 'lists'});">Wish Lists</a>|</li>
+					<li><a href="#" onClick="return showContent('category',{'navcat' : '.gift-certificates'});">Gift Certificates</a></li>
+				</ul>
+				<a id="logo" href="#" onClick="return showContent('category',{'navcat' : '.'});">
+					<img src="img/blue-collar-depot-logo.png" alt="Blue Collar Depot Logo" />
+				</a>
+				<p id="callUs">
+					Call us on (877) 855-8566
+				</p>
+				<div id="info">
+					<img src="img/info-free-returns.png" alt="Free Returns on Products Exchanges" onclick="showContent('company',{'show':'returns'});"/>
+					<img src="img/info-best-price-guaranteed.png" alt="120% Price Watch - Best Price Guaranteed" onClick="return showContent('category',{'navcat' : '.price-watch'});" />
+					<a href="#" onClick="return showContent('cart',{});"><img src="img/info-view-cart.png" alt="View Cart" /></a>
+				</div>
+				<div id="nav">
+					<div id="search">
+						<img id="searchBox" src="img/search-box.png" alt="Search Box" />
+						<img id="btnSearch" src="img/search-white.png" alt="Search Button" />
+						<form id="headerSearchFrm" name="headerSearchFrm" action="#" class="productSearchForm" method="get">
+							<input id="txtSearch" name="KEYWORDS" type="text" value="Search..." class="productSearchKeyword handleDefault" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div id="breadCrumbs"></div>
+			<div id="slideShow">
+				<img id="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
+				<img id="slideBackButton" src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" />
+				<img id="slideForwardButton" src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" />	
+			</div>
+			<div id="contentBody">
+				<!-- VIEW CONTENT -->
+				<!-- leave the appView div, put your your html here ...  -->
+				
+					<!-- 
+					** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
+					**				  INSTEAD PUT THEM INTO <div id="homepageTemplate"></div>
+					-->
+					
+					
+					
+								
+								<div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
+								<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
+							
+					<!-- ... your html ends -->
+					<!-- /VIEW CONTENT -->
+			</div>
+		</div>
+		<div id="footer">
+			<div id="footerContent">
+				<div id="footModals">
+					<div class="footModal">
+						<p>Business To Business</p>
+						<div>
+							<p>We supply directly to businesses, schools, local and state government. <a href="#">Learn more »</a></p>
+							<img src="img/read-more.png" alt="Read more" onClick="return showContent('category',{'navcat' : '.b2b'});" />
+						</div>
+					</div>
+					<div class="footModal">
+						<p>Free Shipping & Returns</p>
+						<div>
+							<p>We supply directly to Get FREE SHIPPING on all orders of $48 or More! Save Gas and shop online for FREE SHIPPING! Blue Collar Depot offers FREE RETURNS for exchanges! businesses, schools, local and state government.</p>
+							<img src="img/read-more.png" alt="Read more" onClick="return showContent('category',{'navcat' : '.return-policy'});" />
+						</div>
+					</div>
+					<div class="footModal">
+						<p>Free Coupons And Deals!</p>
+						<div>
+							<p>Love saving money? Subscribe to our email newsletter and receive free coupons and discount offers in your email!</p>
+							<img src="img/read-more.png" alt="Read more" />
+						</div>
+					</div>										
+				</div>
+				<div id="spacer"></div>
+				<div id="footInfo">
+					<div id="links">
+						<table>
+							<tr>
+								<th>Shop With Us</th>
+							</tr>
+							<tr>
+								<td><a href="#" onClick="return showContent('category',{'navcat' : '.laundry-care'});">Laundry Care</a></td>
+							</tr>
+							<tr>
+								<td><a href="#" onClick="return showContent('category',{'navcat' : '.mail-orders'});">Mail Orders</a></td>
+							</tr>
+							<tr>
+								<td><a href="#" onClick="return showContent('category',{'navcat' : '.measure_guide'});">Measurement Guidelines</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">Payment Options</a></td>
+							</tr>
+							<tr>
+								<td><a href="#" onclick="showContent('company',{'show':'privacy'});">Privacy & Security</a></td>
+							</tr>
+						</table>
+						<table>
+							<tr>
+								<th>Your Account</th>
+							</tr>
+							<tr>
+								<td><a href="#">Returns & Exchanges</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">Shipping Information</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">Order History</a></td>
+							</tr>
+							<tr>
+								<td><a href="#" onClick="return showContent('category',{'navcat' : '.volume-purchase'});">Volume Purchases</a></td>
+							</tr>
+							<tr>
+								<td><a href="#" onClick="return showContent('category',{'navcat' : '.wholesale'});">Wholesale Purchases</a></td>
+							</tr>
+						</table>
+						<table>
+							<tr>
+								<th>Our Offers</th>
+							</tr>
+							<tr>
+								<td><a href="#" onClick="return showContent('category',{'navcat' : '.new-releases'});">New Products</a></td>
+							</tr>
+							<tr>
+								<td><a href="#" onclick="showContent('company',{'show':'contact'});">Customer Service</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">Shipping</a></td>
+							</tr>
+							<tr>
+								<td><a href="#">Returns</a></td>
+							</tr>
+						</table>						
+					</div>
+					<img id="fbLink" src="img/facebook-fan-page.png" alt="Facebook Fan Page" />
+					<p id="copyright">All prices are in USD. Copyright &copy; 2012.  Please read our <a onclick="showContent('company',{'show':'privacy'});" href="#">Privacy Policy</a>.<br />
+			E-Commerce solution provided by Zoovy.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 
@@ -1489,7 +1532,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 </div>
-
+<script type="text/javascript" src="actions.js"></script>
 
 </body>
 </html>

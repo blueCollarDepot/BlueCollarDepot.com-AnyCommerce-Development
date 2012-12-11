@@ -164,7 +164,7 @@ a callback was also added which just executes this call, so that checkout COULD 
 				},
 			dispatch : function(stid,qty,tagObj)	{
 //				app.u.dump(' -> adding to PDQ. callback = '+callback)
-				app.model.addDispatchToQ({"_cmd":"updateCart","stid":stid,"quantity":qty,"_zjsid":app.sessionId,"_tag": tagObj},'immutable');
+				app.model.addDispatchToQ({"_cmd":"updateCart","stid":stid,"quantity":qty,"_tag": tagObj},'immutable');
 				app.ext.store_checkout.u.nukePayPalEC(); //require paypal re-authentication anytime the cart is updated.
 				}
 			 },
@@ -275,7 +275,7 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed (va
 
 //display any messaging.
 				if(msg)	{
-					msg.skipAutoHide = true;
+					msg.persistant = true;
 					app.u.throwMessage(msg);
 					}
 
@@ -361,7 +361,7 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed (va
 			onError : function(responseData,uuid)	{
 				app.u.dump('BEGIN convertSessionToOrder[nice].callbacks.handlePayPalIntoPaymentQ.onError');
 				responseData['_msg_1_txt'] = "It appears something went wrong with the PayPal payment:<br \/>err: "+responseData['_msg_1_txt'];
-				responseData.skipAutoHide = true;
+				responseData.persistant = true;
 				app.u.throwMessage(responseData);
 //nuke vars so user MUST go thru paypal again or choose another method.
 //nuke local copy right away too so that any cart logic executed prior to dispatch completing is up to date.
@@ -662,7 +662,7 @@ setTimeout("$('#"+app.ext.convertSessionToOrder.vars.containerID+"').append(app.
 				responseData['_rtag'] = $.isEmptyObject(responseData['_rtag']) ? {} : responseData['_rtag'];
 				responseData['_rtag'].targetID = 'chkoutSummaryErrors';
 //				app.ext.store_checkout.u.showServerErrors(responseData,uuid);
-				responseData.skipAutoHide = true; //don't collapse these messages.
+				responseData.persistant = true; //don't collapse these messages.
 				app.u.throwMessage(responseData);
 
 _gaq.push(['_trackEvent','Checkout','App Event','Order NOT created. error occured. ('+responseData['_msg_1_id']+')']);
@@ -1051,10 +1051,11 @@ an existing user gets a list of previous addresses they've used and an option to
 
 				var $panelFieldset = $("#chkoutShipMethodsFieldset").removeClass("loadingBG");
 				$panelFieldset.append(app.renderFunctions.createTemplateInstance('checkoutTemplateShipMethods','shipMethodsContainer'));
-				app.renderFunctions.translateTemplate(app.data.cartShippingMethods,'shipMethodsContainer');
+				app.renderFunctions.translateTemplate(app.data.cartDetail,'shipMethodsContainer');
 
 //must appear after panel is loaded because otherwise the divs don't exist.
-				if(app.data.cartShippingMethods['@methods'].length == 0)	{
+//per brian, use shipping methods in cart, not in shipping call.
+				if(app.data.cartDetail['@SHIPMETHODS'].length == 0)	{
 					$('#noShipMethodsAvailable').toggle(true);
 					}
 				else if(!$('#data-bill_zip').val() && !$('ship_zip').val()) {
@@ -1065,6 +1066,7 @@ an existing user gets a list of previous addresses they've used and an option to
 it's possible that a ship method is set in the cart that is no longer available.
 this could happen if 'local pickup' is selected, then country,zip,state, etc is changed to a destination where local pickup is not available.
 in these instances, the selected method in the cart/memory/local storage must get emptied.
+Of course, this should only happen IF a method was selected previously.
 */
 				var foundMatchingShipMethodId = false; 
 				var L = app.data.cartShippingMethods['@methods'].length;
@@ -1075,7 +1077,7 @@ in these instances, the selected method in the cart/memory/local storage must ge
 						}
 					}
 
-				if(foundMatchingShipMethodId == false)	{
+				if(foundMatchingShipMethodId == false && app.data.cartDetail['want/shipping_id'])	{
 					app.u.dump(' -> previously selected ship method is no longer available. update session with null value.');
 					app.calls.cartSet.init({"want/shipping_id":null});  //the set will update the method, session and local storage.
 					app.calls.refreshCart.init({"callback":"updateCheckoutOrderContents","extension":"convertSessionToOrder"},'immutable');
