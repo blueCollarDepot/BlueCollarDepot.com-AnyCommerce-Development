@@ -324,6 +324,7 @@ div#homepageTemplate_ ul.categoryList li
 	font-family: Arial;
 	font-size: 14px;
 	height: 0px;
+	width: 180px;
 }
 
 /*div#homepageTemplate_ ul.categoryList li:not(:first-child)
