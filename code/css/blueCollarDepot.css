@@ -310,3 +310,58 @@ div#footer
 				left: 227px;
 				position: absolute;
 			}
+			
+div#homepageTemplate_
+{
+	border: 2px solid #ececec;
+	border-top: 0px solid #000000;
+	width: 227px;
+}
+
+div#homepageTemplate_ ul.categoryList li
+{
+	border-bottom: 1px dotted #a9a9a9;
+	font-family: Arial;
+	font-size: 14px;
+	height: 0px;
+}
+
+/*div#homepageTemplate_ ul.categoryList li:not(:first-child)
+{
+	border-bottom: 1px dotted #a9a9a9;
+}*/
+
+div#homepageTemplate_ #categoryHeader
+{
+	border-bottom: 0px dotted #a9a9a9;
+	font-family: Tahoma;
+	font-size: 22px;
+	height: 30px;
+}
+
+div.catName
+{
+	margin: 5px 0px 0px 7px;
+	padding-bottom: 4px;
+}
+
+ul.breadcrumb
+{
+	background: url('../../img/blue-collar-depot-content-background.png') repeat;
+	font-family: Tahoma;
+	font-size: 12px;
+	height: 42px;
+	margin: 0;
+	/*padding-bottom: 14px;*/
+}
+
+ul.breadcrumb li
+{
+	margin-top: 11px;
+	/*margin: 10px 0px 0px 21px;*/
+}
+
+ul.breadcrumb li:first-child
+{
+	margin-left: 21px;
+}

@@ -26,13 +26,25 @@ var myCreole;
 	"httpsURL":"https://ssl.zoovy.com/s=www.sporks.zoovy.com/",
 	"httpURL":"http://www.sporks.zoovy.com/"
 	},u:{},rq:[]};*/
-var app = {vars:{ 
+/*var app = {vars:{ 
 	"release":"20121206122900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.stage3motorsports.com/",
 	"httpURL":"http://www.stage3motorsports.com/"
-	},u:{},rq:[]};	
-
+	},u:{},rq:[]};*/
+/*var app = {vars:{ 
+	"release":"20121206122900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"baseURL":"",
+	"httpsURL":"https://ssl.zoovy.com/s=www.bluecollardepot.com/",
+	"httpURL":"http://www.bluecollardepot.com/"
+	},u:{},rq:[]};	*/
+var app = {vars:{ 
+	"release":"20121206122900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"baseURL":"",
+	"httpsURL":"https://ssl.zoovy.com/s=55ba36a5fb.pop.zoovy.net/",
+	"httpURL":"http://www.55ba36a5fb.pop.zoovy.net/"
+	},u:{},rq:[]};
+	
 //set base url so images, css, js, etc all load from appropriate location once deployed.
 //baseURL as blank lets loadScript function run off local copy when testing locally.
 if(document.location.protocol != 'file:')	{
@@ -99,7 +111,7 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 			<div id="headerContent">
 				<ul id="userNav">
 					<li><a href="#" onClick="return showContent('customer',{'show' : 'myaccount'});">My Account</a>|</li>
-					<li><a href="#">Contact</a>|</li>
+					<li><a href="#" onclick="showContent('company',{'show':'contact'});">Contact</a>|</li>
 					<li><a href="#" onClick="return showContent('customer',{'show' : 'lists'});">Wish Lists</a>|</li>
 					<li><a href="#" onClick="return showContent('category',{'navcat' : '.gift-certificates'});">Gift Certificates</a></li>
 				</ul>
@@ -126,12 +138,6 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 			</div>
 		</div>
 		<div id="content">
-			<div id="breadCrumbs"></div>
-			<div id="slideShow">
-				<img id="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
-				<img id="slideBackButton" src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" />
-				<img id="slideForwardButton" src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" />	
-			</div>
 			<div id="contentBody">
 				<!-- VIEW CONTENT -->
 				<!-- leave the appView div, put your your html here ...  -->
@@ -157,7 +163,7 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 					<div class="footModal">
 						<p>Business To Business</p>
 						<div>
-							<p>We supply directly to businesses, schools, local and state government. <a href="#">Learn more »</a></p>
+							<p>We supply directly to businesses, schools, local and state government. <a href="#" onClick="return showContent('category',{'navcat' : '.b2b'});">Learn more »</a></p>
 							<img src="img/read-more.png" alt="Read more" onClick="return showContent('category',{'navcat' : '.b2b'});" />
 						</div>
 					</div>
@@ -172,7 +178,7 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 						<p>Free Coupons And Deals!</p>
 						<div>
 							<p>Love saving money? Subscribe to our email newsletter and receive free coupons and discount offers in your email!</p>
-							<img src="img/read-more.png" alt="Read more" />
+							<img src="img/read-more.png" alt="Read more" onClick="return showContent('customer',{'show' : 'newsletter'});" />
 						</div>
 					</div>										
 				</div>
@@ -287,8 +293,13 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 -->
 <div id='homepageTemplate'>
 
+	<div id="slideShow">
+		<img id="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
+		<img id="slideBackButton" src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" />
+		<img id="slideForwardButton" src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" />	
+	</div>
 
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'><li id="categoryHeader">CATEGORIES</li></ul>
 	
 	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
@@ -314,6 +325,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate' class='loadingBG'>
 
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+	
+	<div id="slideShow">
+		<img id="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
+		<img id="slideBackButton" src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" />
+		<img id="slideForwardButton" src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" />	
+	</div>	
 
 	<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
 
