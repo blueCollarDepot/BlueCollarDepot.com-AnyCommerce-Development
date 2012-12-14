@@ -141,15 +141,15 @@ a callback was also added which just executes this call, so that checkout COULD 
 				var country = $('#data-bill_country').val();
 
 				app.model.fetchData('cartDetail'); //will make sure cart is loaded from localStorage (if present) if not in memory.
-				if(!$.isEmptyObject(app.data.cartDetail))	{
-					total = app.data.cartDetail['sum/balance_due_total'];
+				if(app.data.cartDetail && app.u.isSet(app.data.cartDetail.sum))	{
+					total = app.data.cartDetail.sum.balance_due_total;
 					}
 				if(country != "US")	{
 					// country is defaulted to the form value. If that value is NOT "US", then use it (a country has been selected).
 					// if the value is US, then it may be the default setting and the request should w/ country as cart/session value
 					// (country may have been set elsewhere) though the form 'should' default correctly, we don't rely on that.
 					}
-				else if(!$.isEmptyObject(app.data.cartDetail) && app.data.cartDetail['bill/countrycode'])	{
+				else if(!$.isEmptyObject(app.data.cartDetail) && app.data.cartDetail.bill && app.data.cartDetail.bill.countrycode)	{
 					country = app.data.cartDetail['bill/countrycode']; //use the cart, NOT the form. the form defaults to US. Better to send blank.
 					}
 
@@ -331,21 +331,21 @@ note - the order object is available at app.data['order|'+P.orderID]
 //					app.u.dump(app.ext.store_checkout.u.getWalletByID (payby));
 					}
 				else if(payby == 'CREDIT')	{
-					app.ext.store_checkout.calls.cartPaymentQ.init({"cmd":"insert","TN":"CREDIT","cc":$('#payment-cc').val(),"cv":$('#payment-cv').val(),"yy":$('#payment-yy').val(),"mm":$('#payment-mm').val()});
+					app.ext.store_checkout.calls.cartPaymentQ.init({"cmd":"insert","TN":"CREDIT","CC":$('#payment-cc').val(),"CV":$('#payment-cv').val(),"YY":$('#payment-yy').val(),"MM":$('#payment-mm').val()});
 					}				
 				else if(payby == 'PO')	{
-					app.ext.store_checkout.calls.cartPaymentQ.init({"cmd":"insert","TN":"PO","po":$('#payment-po').val()});
+					app.ext.store_checkout.calls.cartPaymentQ.init({"cmd":"insert","TN":"PO","PO":$('#payment-po').val()});
 					}				
 				else if(payby == 'ECHECK')	{
 					app.ext.store_checkout.calls.cartPaymentQ.init({
 "cmd":"insert",
 "TN":"ECHECK",
-"ea":$('#paymentea').val(),
-"er":$('#paymenter').val(),
-"en":$('#paymenten').val(),
-"eb":$('#paymenteb').val(),
-"es":$('#paymentes').val(),
-"ei":$('#paymentei').val()
+"EA":$('#paymentea').val(),
+"ER":$('#paymenter').val(),
+"EN":$('#paymenten').val(),
+"EB":$('#paymenteb').val(),
+"ES":$('#paymentes').val(),
+"EI":$('#paymentei').val()
 						});
 					}
 				else	{
@@ -844,9 +844,9 @@ note - dispatch isn't IN the function to give more control to developer. (you ma
 
 			orderStatusLink : function($tag,data)	{
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.renderFormats.orderStatusLink');
-				var orderSessionID = app.data['order|'+data.value].cart.id;
+				var orderCartID = app.data['order|'+data.value].cart.cartid;
 //				https://ssl.zoovy.com/s=sporks.zoovy.com/customer/order/status?cartid=SESSION&orderid=data.value
-				$tag.click(function(){window.location = zGlobals.appSettings.https_app_url+"customer/order/status?cartid="+orderSessionID+"&orderid="+data.value,'orderStatus'});
+				$tag.click(function(){window.location = zGlobals.appSettings.https_app_url+"customer/order/status?cartid="+orderCartID+"&orderid="+data.value,'orderStatus'});
 				
 				},
 

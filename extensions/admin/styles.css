@@ -38,6 +38,15 @@ button.ui-button-text	{padding:2px 4px;} /*jqueryui uses a lot of spans for butt
 .pointer	{cursor:pointer;} /* apply to anything that is clickable via an onClick. */
 
 
+
+/*
+Generic text styles
+*/
+.lineThrough	{text-decoration:line-through}
+
+
+
+
 /*
 some global padding and margins.
 As often as practical, use margin or padding of 12px; this will give the UI a consistent look and feel.
@@ -99,8 +108,6 @@ Use this in a table where you want clear separation between rows and cells. This
 
 
 
-
-
 /* a global 'handle' class for now. for consistency. 
 later if more variety is needed, we can either create exceptions or more rules to handle all cases.
 */
@@ -113,6 +120,8 @@ later if more variety is needed, we can either create exceptions or more rules t
 /* loading classes. do NOT change class name. change styling as needed */
 .loadingBG	{background:url(images/loading.gif) no-repeat center center  !important; min-height:100px; min-width:100px;}
 li.loadingBG, tr.loadingBG	{background:url(images/wait.gif) no-repeat center center  !important; min-height:25px; min-width:25px;}
+
+.wait	{display:inline-block; background:url(images/small_wait.gif) no-repeat center center  !important; min-height:16px; min-width:16px;}
 
 
 /* This gets applied to the parent containers around each tabs content area.  */
@@ -379,7 +388,7 @@ inline block and width are added so that elements that are empty will be more ob
 be sure to put a title on any element that is editable, for usability (hints to use on an empty field)
 the :before and :after handle the crop (for lack of a better word) lines on the top left and bottom right corners.
 */
-.editEnabled	{display:inline-block; min-width:50px; position:relative; padding:0px; margin:2px;} 
+.editEnabled	{display:inline-block; min-width:50px; position:relative; padding:0px; margin:2px; min-height:12px;} 
 .editEnabled input	{border:0; padding:0; margin:0;}
 .editEnabled:before	{content:''; width:8px; height:8px; position:absolute; border-left:1px solid #cccccc; border-top:1px solid #cccccc; top:-2px; left:-2px;}
 .editEnabled:after	{content:''; width:8px; height:8px; position:absolute; border-right:1px solid #cccccc; border-bottom:1px solid #cccccc; bottom:-2px; right:-2px;}
@@ -407,3 +416,56 @@ PAGE STYLES
 .page section	{display:block; padding:0; margin:0 0 24px 0}
 .page fieldset	{border:none; padding:0; margin-bottom:12px;}
 
+
+/*
+
+########################################################
+
+
+DEBUGGER
+
+########################################################
+
+*/
+
+#debugPanel	{position:fixed; bottom:0; right:0; left:0; height:125px; border:1px solid #cccccc;}
+#debugPanel .debugContent	{position:relative; z-index:10; padding:12px;}
+#debugPanel .debugBG	{
+	height:125px;
+	z-index:1;
+	position:absolute; top:0; bottom:0; left:0; right:0;
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.35)), color-stop(100%,rgba(0,0,0,0.1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59000000', endColorstr='#1a000000',GradientType=0 ); /* IE6-9 */
+	}
+
+
+
+/*
+
+########################################################
+
+
+SHARED FORM STYLES
+
+########################################################
+
+*/
+
+
+/*
+for use in forms where the label is the row container.
+put the prompt into a span
+<label><span>prompt</span>input</label>
+*/
+.labelsAsBreaks label	{display:block; margin:6px 0; vertical-align:top;}
+.labelsAsBreaks label span	{padding-right:12px; display:inline-block; width:150px; vertical-align:top;}
+/*
+horrible idea to set defaults/globals. set as needed within an extension's css file.
+.labelsAsBreaks input	{width:250px;}
+.labelsAsBreaks textarea	{width:200px; height:250px;}
+*/

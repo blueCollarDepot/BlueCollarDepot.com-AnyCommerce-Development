@@ -1,5 +1,12 @@
 $(document).ready(function()
 {
+	$('.slideShow').cycle({ 
+    	fx:    'fade', 
+    	speed:  1250,
+    	next:   '.slideBackButton', 
+    	prev:   '.slideForwardButton' 
+ 	});
+
 	$("div#nav div#search input").click(function()
 	{
 		if($(this).val() == "Search...")
@@ -18,19 +25,19 @@ $(document).ready(function()
 	{
 		$("form#headerSearchFrm").submit();
 	});
-	$("img#slideBackButton").mouseover(function()
+	$("a.slideBackButton img").mouseover(function()
 	{
 		$(this).css("opacity",".86");
 	});
-	$("img#slideBackButton").mouseout(function()
+	$("a.slideBackButton img").mouseout(function()
 	{
 		$(this).css("opacity",".66");
 	});	
-	$("img#slideForwardButton").mouseover(function()
+	$("a.slideForwardButton img").mouseover(function()
 	{
 		$(this).css("opacity",".86");
 	});
-	$("img#slideForwardButton").mouseout(function()
+	$("a.slideForwardButton img").mouseout(function()
 	{
 		$(this).css("opacity",".66");
 	});

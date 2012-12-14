@@ -33,21 +33,22 @@ var store_navcats = function() {
 	calls : {
 //formerly categoryTree
 		appCategoryList : {
-			init : function(tagObj,Q)	{
+			init : function(root,tagObj,Q)	{
 //				app.u.dump("BEGIN store_navcats.calls.appCategoryList.init");
 				var r = 0; //will return 1 if a request is needed. if zero is returned, all data needed was in local.
 				if(app.model.fetchData('appCategoryList') == false)	{
 					r = 1;
-					this.dispatch(tagObj,Q);
+					this.dispatch(root,tagObj,Q);
 					}
 				else 	{
-					app.u.handleCallback(tagObj)
+					app.u.handleCallback(root,tagObj)
 					}
 				return r;
 				},
-			dispatch : function(tagObj,Q)	{
+			dispatch : function(root,tagObj,Q)	{
 				obj = {};
 				obj['_cmd'] = "appCategoryList";
+				obj.root = root;
 				obj['_tag'] = typeof tagObj == 'object' ? tagObj : {};
 				obj['_tag'].datapointer = 'appCategoryList'; //for now, override datapointer for consistency's sake.
 //if no extension is set, use this one. need to b able to override so that a callback from outside the extension can be added.
@@ -191,7 +192,36 @@ obj.PATH = .cat.safe.id
 				tagObj.detail = 'max';
 				app.model.addDispatchToQ({"_cmd":"appCategoryDetail","safe":catSafeID,"detail":"max","_tag" : tagObj},Q);	
 				}
-			}//appCategoryDetailMax
+			},//appCategoryDetailMax
+
+
+
+		appNavcatDetail : {
+			init : function(path,tagObj,Q)	{
+				app.u.dump('BEGIN app.ext.store_navcats.calls.appNavcatDetail.init ('+path+')');
+				Q = Q || 'mutable';
+				var r = 0; //will return 1 if a request is needed. if zero is returned, all data needed was in local.
+				tagObj = typeof tagObj !== 'object' ? {} : tagObj;
+//whether max, more or just detail, always save to same loc.
+//add here so if tagObj is passed directly into callback because data is in localStorage, the datapointer is set.
+				tagObj.datapointer = 'appNavcatDetail|'+path;
+				if(app.model.fetchData(tagObj.datapointer) == false)	{
+					r += 1;
+					this.dispatch(path,tagObj,Q);
+					}
+				else {
+		// app.u.dump(' -> using local');
+					app.u.handleCallback(tagObj)
+					}
+				return r;
+				},
+			dispatch : function(path,tagObj,Q)	{
+		// app.u.dump('BEGIN app.ext.store_navcats.calls.appNavcatDetail.dispatch');
+				var path;
+				app.model.addDispatchToQ({"_cmd":"appNavcatDetail","path":path,"_tag" : tagObj},Q);	
+				}
+			}//appNavcatDetail
+
 
 		}, //calls
 
@@ -434,7 +464,16 @@ the formatted is specific so that getChildDataOf can be used for a specific id o
 			getCatsFromCategoryList : function(catSafeID)	{
 				app.u.dump('BEGIN app.ext.store_navcats.u.getCatsFromCategoryList');
 				var r = false; //what is returned. false if appCategoryList is not defined. otherwise an array of category id's. empty array if no subcats defined.
-				if(app.data.appCategoryList)	{
+				if(!catSafeID)	{
+					app.u.throwGMessage("catSafeID not specified in store_navcats.u.getCatsFromCategoryList");
+					}
+				else if(!app.data.appCategoryList)	{
+					app.u.throwGMessage("Attempted to run store_navcats.u.getCatsFromCategoryList before appCategoryList is in data/memory.");
+					}
+				else if(catSafeID == '.')	{
+					r = app.ext.store_navcats.u.getRootCats();
+					}
+				else if(app.data.appCategoryList && catSafeID)	{
 					var L = app.data.appCategoryList['@paths'].length;
 					r = new Array();
 					for(var i = 0; i < L; i += 1)	{
@@ -444,7 +483,7 @@ the formatted is specific so that getChildDataOf can be used for a specific id o
 						}
 					}
 				else	{
-					app.u.dump("WARNING! Attempted to run store_navcats.u.getRootCats before appCategoryList is in data/memory.");
+					app.u.throwGMessage("An unknown error occured in store_navcats.u.getCatsFromCategoryList");
 					}
 				return r;
 				}, //getRootCatsData

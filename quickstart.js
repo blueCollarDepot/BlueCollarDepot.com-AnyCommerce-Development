@@ -127,7 +127,9 @@ else if ("onhashchange" in window)	{ // does the browser support the hashchange 
 else	{
 	app.u.throwMessage("You appear to be running a very old browser. Our app will run, but may not be an optimal experience.");
 	// wow. upgrade your browser. should only get here if older than:
-	// Google Chrome 5, Safari 5, Opera 10.60, Firefox 3.6 and Internet Explorer 8 
+	// Google Chrome 5, Safari 5, Opera 10.60, Firefox 3.6 and Internet Explorer 8
+	
+	//NOTE: does not trigger in IE9 running IE7 or IE8 standards mode
 	}
 
 
@@ -136,7 +138,7 @@ else	{
 
 //The request for appCategoryList is needed early for both the homepage list of cats and tier1.
 //piggyback a few other necessary requests here to reduce # of requests
-				app.ext.store_navcats.calls.appCategoryList.init({"callback":"showRootCategories","extension":"myRIA"},'mutable');
+				app.ext.store_navcats.calls.appCategoryList.init(zGlobals.appSettings.rootcat,{"callback":"showRootCategories","extension":"myRIA"},'mutable');
 				app.calls.appProfileInfo.init(app.vars.profile,{},'mutable');
 				app.model.dispatchThis(); //this dispatch needs to occur prior to handleAppInit being executed.
 
@@ -199,7 +201,7 @@ else	{
 //we always get the tier 1 cats so they're handy, but we only do something with them out of the get if necessary (tier1categories is defined)
 				if($('#tier1categories').length)	{
 					app.u.dump("#tier1categories is set. fetch tier1 cat data.");
-					app.ext.store_navcats.u.getChildDataOf('.',{'parentID':'tier1categories','callback':'addCatToDom','templateID':'categoryListTemplateRootCats','extension':'store_navcats'},'appCategoryDetailMax');  //generate nav for 'browse'. doing a 'max' because the page will use that anway.
+					app.ext.store_navcats.u.getChildDataOf(zGlobals.appSettings.rootcat,{'parentID':'tier1categories','callback':'addCatToDom','templateID':'categoryListTemplateRootCats','extension':'store_navcats'},'appCategoryDetailMax');  //generate nav for 'browse'. doing a 'max' because the page will use that anway.
 					app.model.dispatchThis();
 					}
 				}
@@ -397,11 +399,18 @@ else	{
 //cat page handling.
 				if(tagObj.navcat)	{
 //					app.u.dump("BEGIN myRIA.callbacks.showPageContent ["+tagObj.navcat+"]");
+
 					if(typeof app.data['appCategoryDetail|'+tagObj.navcat] == 'object' && !$.isEmptyObject(app.data['appCategoryDetail|'+tagObj.navcat]))	{
 						tmp = app.data['appCategoryDetail|'+tagObj.navcat]
 						}
 					if(typeof app.data['appPageGet|'+tagObj.navcat] == 'object' && typeof app.data['appPageGet|'+tagObj.navcat]['%page'] == 'object' && !$.isEmptyObject(app.data['appPageGet|'+tagObj.navcat]['%page']))	{
 						tmp['%page'] = app.data['appPageGet|'+tagObj.navcat]['%page'];
+						}
+					if(tagObj.lists.length)	{
+						var L = tagObj.lists.length;
+						for(var i = 0; i < L; i += 1)	{
+							tmp[tagObj.lists[i]] = app.data['appNavcatDetail|'+tagObj.lists[i]];
+							}
 						}
 					tmp.session = app.ext.myRIA.vars.session;
 //a category page gets translated. A product page does not because the bulk of the product data has already been output. prodlists are being handled via buildProdlist
@@ -639,24 +648,26 @@ need to be customized on a per-ria basis.
 // this function gets executed after the request has been made, in the showPageContent response. for this reason it should NOT BE MOVED to store_search
 // ## this needs to be upgraded to use app.ext.store_search.u.getElasticResultsAsJQObject
 			productSearch : function($tag,data)	{
-//				app.u.dump("BEGIN myRIA.renderFormats.productSearch");
+				app.u.dump("BEGIN myRIA.renderFormats.productSearch");
 				data.bindData = app.renderFunctions.parseDataBind($tag.attr('data-bind'));
-//				app.u.dump(data);
-				
-				var parentID = $tag.attr('id');
-				var L = data.value.hits.hits.length;
-				var templateID = data.bindData.loadsTemplate ? data.bindData.loadsTemplate : 'productListTemplateResults';
-				var pid;
-				if(data.value.hits.total)	{
-					for(var i = 0; i < L; i += 1)	{
-						pid = data.value.hits.hits[i]['_id'];
-						$tag.append(app.renderFunctions.transmogrify({'id':parentID+'_'+pid,'pid':pid},templateID,data.value.hits.hits[i]['_source']));
+				app.u.dump(data);
+				if(data.value)	{
+					var parentID = $tag.attr('id');
+					var L = data.value.hits.hits.length;
+					var templateID = data.bindData.loadsTemplate ? data.bindData.loadsTemplate : 'productListTemplateResults';
+					var pid;
+					if(data.value.hits.total)	{
+						for(var i = 0; i < L; i += 1)	{
+							pid = data.value.hits.hits[i]['_id'];
+							$tag.append(app.renderFunctions.transmogrify({'id':parentID+'_'+pid,'pid':pid},templateID,data.value.hits.hits[i]['_source']));
+							}
+						
+						if(data.bindData.before) {$tag.before(data.bindData.before)} //used for html
+						if(data.bindData.after) {$tag.after(data.bindData.after)}
+						if(data.bindData.wrap) {$tag.wrap(data.bindData.wrap)}		
 						}
-					
-					if(data.bindData.before) {$tag.before(data.bindData.before)} //used for html
-					if(data.bindData.after) {$tag.after(data.bindData.after)}
-					if(data.bindData.wrap) {$tag.wrap(data.bindData.wrap)}		
 					}
+				else	{} //no value, so do nothing.
 				},
 
 /*
@@ -827,7 +838,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 	
 					case 'homepage':
 						infoObj.pageType = 'homepage';
-						infoObj.navcat = '.'
+						infoObj.navcat = zGlobals.appSettings.rootcat;
 						infoObj.parentID = app.ext.myRIA.u.showPage(infoObj);
 						break;
 
@@ -1187,7 +1198,6 @@ P.listID (buyer list id)
 				app.ext.myRIA.vars.sotw = P;
 				app.ext.myRIA.vars.hotw.unshift(P);
 				app.ext.myRIA.vars.hotw.pop(); //remove last entry in array. is created with array(15) so this will limit the size.
-				
 				},
 			
 			showtransition : function(P,$old)	{
@@ -1320,18 +1330,18 @@ P.listID (buyer list id)
 //quickstart is here so a user doesn't see a page not found error by default.
 				else if(url.indexOf('index.html') > -1)	{
 					r.pageType = 'homepage'
-					r.navcat = '.'; //left with category.safe.id or category.safe.id/
+					r.navcat = zGlobals.appSettings.rootcat; //left with category.safe.id or category.safe.id/
 					}
 				else if(url.indexOf('quickstart.html') > -1)	{
 					var msg = app.u.errMsgObject('Rename this file as index.html to decrease the likelyhood of accidentally saving over it.',"MVC-INIT-MYRIA_1000")
 					msg.persistant = true;
 					app.u.throwMessage(msg);
-					r.pageType = '404';
+					r.pageType = 'homepage';
 					}
 //the url in the domain may or may not have a slash at the end. Check for both
 				else if(url == zGlobals.appSettings.http_app_url || url+"/" == zGlobals.appSettings.http_app_url || url == zGlobals.appSettings.https_app_url || url+"/" == zGlobals.appSettings.https_app_url)	{
 					r.pageType = 'homepage'
-					r.navcat = '.'; //left with category.safe.id or category.safe.id/
+					r.navcat = zGlobals.appSettings.rootcat; //left with category.safe.id or category.safe.id/
 					}
 				else	{
 //					alert('Got to else case.');
@@ -1363,7 +1373,7 @@ P.listID (buyer list id)
 				if(this.thisPageInfoIsValid(P))	{
 					if(P.pageType == 'product' && P.pid)	{r = '#product?pid='+P.pid}
 					else if(P.pageType == 'category' && P.navcat)	{r = '#category?navcat='+P.navcat}
-					else if(P.pageType == 'homepage')	{r = '#category?navcat=.'}
+					else if(P.pageType == 'homepage')	{r = ''}
 					else if(P.pageType == 'cart')	{r = '#cart?show='+P.show}
 					else if(P.pageType == 'checkout')	{r = '#checkout?show='+P.show}
 					else if(P.pageType == 'search' && P.KEYWORDS)	{r = '#search?KEYWORDS='+P.KEYWORDS}
@@ -1439,6 +1449,9 @@ P.listID (buyer list id)
 			buildRelativePath : function(P)	{
 				var relativePath; //what is returned.
 				switch(P.pageType)	{
+				case 'homepage' :
+					relativePath = '';
+					break;
 				case 'product':
 					relativePath = 'product/'+P.pid+'/';
 					break;
@@ -1483,8 +1496,8 @@ P.listID (buyer list id)
 //				app.u.dump(P);
 				var r = false; //what is returned
 				if(P.pid)	{r = 'product'}
-				else if(P.catSafeID == '.'){r = 'homepage'}
-				else if(P.navcat == '.'){r = 'homepage'}
+				else if(P.catSafeID == zGlobals.appSettings.rootcat){r = 'homepage'}
+				else if(P.navcat == zGlobals.appSettings.rootcat){r = 'homepage'}
 				else if(P.catSafeID){r = 'category'}
 				else if(P.keywords || P.KEYWORDS){r = 'search'}
 				else if(P.navcat){r = 'category'}
@@ -1746,7 +1759,9 @@ return r;
 					
 					}
 				else	{
-					$('#mainContentArea').append(app.renderFunctions.createTemplateInstance(P.templateID,parentID));
+					var $content = app.renderFunctions.createTemplateInstance(P.templateID,parentID);
+					$content.addClass("displayNone");
+					$('#mainContentArea').append($content);
 					app.ext.myRIA.u.bindNav('#sideline a');
 					app.calls.appProfileInfo.init(app.vars.profile,{'callback':'showCompany','extension':'myRIA','infoObj':P,'parentID':parentID},'mutable');
 					app.model.dispatchThis();
@@ -1921,10 +1936,14 @@ return r;
 			parseAnchor : function(str)	{
 //					app.u.dump("GOT HERE");
 					var tmp1 = str.substring(1).split('?');
-					var tmp2 = tmp1[1].split('=');
 					var P = {};
 					P.pageType = tmp1[0];
-					P[tmp2[0]] = tmp2[1];
+					if(tmp1.length > 1){
+						var tmp2 = tmp1[1].split('=');
+						P[tmp2[0]] = tmp2[1];
+					} else {
+						// Should reach here in case of href="#homepage" (or anything with no params, but #homepage is the only use-case
+					}
 //					app.u.dump(P);
 					return P;
 				}, //parseAnchor
@@ -1939,12 +1958,8 @@ return r;
 //					app.u.dump($this.attr('href'));
 					var P = app.ext.myRIA.u.parseAnchor($this.attr('href'));
 					if(P.pageType == 'category' && P.navcat && P.navcat != '.'){
-//for bindnavs, get info to have handy. the timeout is so that the app has time to load/init and this has no impact.
-//also to reduce # of mutliple requests (init may get this cat already because it's in focus, for instance).
-setTimeout(function(){
-	app.ext.store_navcats.calls.appCategoryDetailMax.init(P.navcat,{},'passive');
-	},7000); //throw this into the q to have handy. do it later 
-						
+//for bindnavs, get info to have handy. add to passive Q and It'll get dispatched by a setInterval.
+app.ext.store_navcats.calls.appCategoryDetailMax.init(P.navcat,{},'passive');
 						}
 					$this.click(function(event){
 //						event.preventDefault(); //cancels any action on the href. keeps anchor from jumping.
@@ -2062,7 +2077,8 @@ buyer to 'take with them' as they move between  pages.
 					if(P.templateID){
 						//templateID 'forced'. use it.
 						}
-					else if(catSafeID == '.' || P.pageType == 'homepage')	{
+						
+					else if(catSafeID == zGlobals.appSettings.rootcat || P.pageType == 'homepage')	{
 						P.templateID = 'homepageTemplate'
 						}
 					else	{
@@ -2109,19 +2125,22 @@ buyer to 'take with them' as they move between  pages.
 
 var numRequests = 0; //will be incremented for # of requests needed. if zero, execute showPageContent directly instead of as part of ping. returned.
 var catSafeID = P.navcat;
+
 var myAttributes = new Array(); // used to hold all the 'page' attributes that will be needed. passed into appPageGet request.
 var elementID; //used as a shortcut for the tag ID, which is requied on a search element. recycled var.
 
 var tagObj = P;  //used for ping and in handleCallback if ping is skipped.
-tagObj.callback = 'showPageContent'
+tagObj.callback = 'showPageContent';
 tagObj.searchArray = new Array(); //an array of search datapointers. added to _tag so they can be translated in showPageContent
 tagObj.extension = 'myRIA'
+tagObj.lists = new Array(); // all the list id's needed.
+
 
 //goes through template.  Put together a list of all the data needed. Add appropriate calls to Q.
 app.templates[P.templateID].find('[data-bind]').each(function()	{
 
 	var $focusTag = $(this);
-		
+	
 //proceed if data-bind has a value (not empty).
 	if(app.u.isSet($focusTag.attr('data-bind'))){
 		
@@ -2193,6 +2212,16 @@ app.templates[P.templateID].find('[data-bind]').each(function()	{
 					myAttributes.push(tmpAttr);  //set value to the actual value
 					}				
 				
+				}
+			else if(namespace == 'list' && attribute.charAt(0) == '$')	{
+				var listPath = attribute.split('.')[0]
+				tagObj.lists.push(listPath); //attribute formatted as $listname.@products
+				numRequests = app.ext.store_navcats.calls.appNavcatDetail.init(listPath);
+				}
+			else if(namespace == 'list')	{
+				// no src is set.
+				app.u.throwGMessage("In myRIA.u.buildQueriesByTemplate, namespace set to list but invalid SRC ["+attribute+"] is specified... so we don't know where to get the data.");
+				app.u.dump(bindData);
 				}
 			else if(namespace == 'category' && attribute == '@subcategoryDetail' )	{
 //				app.u.dump(" -> category(@subcategoryDetail) found");
@@ -2352,20 +2381,26 @@ else	{
 				
 //app.ext.myRIA.u.handleMinicartUpdate();			
 			handleMinicartUpdate : function(tagObj)	{
-//				app.u.dump("BEGIN myRIA.u.handleMinicartUPdate");
+//				app.u.dump("BEGIN myRIA.u.handleMinicartUPdate"); app.u.dump(tagObj);
 				var r = false; //what's returned. t for cart updated, f for no update.
-				if(app.data[tagObj.datapointer] && app.data[tagObj.datapointer].cart)	{
-					var $appView = $('#appView');
+				var $appView = $('#appView');
+				var itemCount = 0;
+				var subtotal = 0;
+				var total = 0;
+				if(app.data[tagObj.datapointer] && app.data[tagObj.datapointer].sum)	{
 					r = true;
-					var itemCount = app.u.isSet(app.data[tagObj.datapointer].cart['data.item_count']) ? app.data[tagObj.datapointer].cart['data.item_count'] : app.data[tagObj.datapointer].cart['data.add_item_count']
-	//				app.u.dump(" -> itemCount: "+itemCount);
-	//used for updating minicarts.
-					$('.cartItemCount',$appView).text(itemCount);
-					var subtotal = app.u.isSet(app.data[tagObj.datapointer].cart['sum/items_total']) ? app.data[tagObj.datapointer].cart['sum/items_total'] : 0;
-					var total = app.u.isSet(app.data[tagObj.datapointer].cart['sum/order_total']) ? app.data[tagObj.datapointer].cart['sum/order_total'] : 0;
-					$('.cartSubtotal',$appView).text(app.u.formatMoney(subtotal,'$',2,false));
-					$('.cartTotal',$appView).text(app.u.formatMoney(total,'$',2,false));
+					var itemCount = app.u.isSet(app.data[tagObj.datapointer].sum.items_count) || 0;
+					var subtotal = app.data[tagObj.datapointer].sum.items_total;
+					var total = app.data[tagObj.datapointer].sum.order_total;
 					}
+				else	{
+					//cart not in memory yet. use defaults.
+					}
+
+				$('.cartItemCount',$appView).text(itemCount);
+				$('.cartSubtotal',$appView).text(app.u.formatMoney(subtotal,'$',2,false));
+				$('.cartTotal',$appView).text(app.u.formatMoney(total,'$',2,false));
+
 				//no error for cart data not being present. It's a passive function.
 				return r;
 				},

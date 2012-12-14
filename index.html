@@ -71,6 +71,8 @@ css files should be included before any .js file to ensure they are downloaded i
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
+<!--<script type="text/javascript" src="slides.min.jquery.js"></script>-->
+<script type="text/javascript" src="jquery.cycle.all.js"></script>
 
 
 
@@ -106,7 +108,7 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 
 
 
-	<div id='appView'>
+	<div id='appView' class='displayNone'>
 		<div id="header">
 			<div id="headerContent">
 				<ul id="userNav">
@@ -139,6 +141,15 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 		</div>
 		<div id="content">
 			<div id="contentBody">
+				<div class="slideShowContainer">
+					<div class="slideShow">
+						<img class="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
+						<img class="slidePic" src="img/blue-collar-depot-slideshow-2.png" alt="Blue Collar Depot Slideshow" />
+						<img class="slidePic" src="img/blue-collar-depot-slideshow-3.png" alt="Blue Collar Depot Slideshow" />
+					</div>
+					<a class="slideBackButton" href="#"><img src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" /></a>
+					<a class="slideForwardButton" href="#"><img src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" /></a>		
+				</div>
 				<!-- VIEW CONTENT -->
 				<!-- leave the appView div, put your your html here ...  -->
 				
@@ -243,7 +254,7 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 							</tr>
 						</table>						
 					</div>
-					<img id="fbLink" src="img/facebook-fan-page.png" alt="Facebook Fan Page" />
+					<img id="fbLink" src="img/facebook-fan-page.png" alt="Facebook Fan Page" onClick="return showContent('category',{'navcat' : '.'});" />
 					<p id="copyright">All prices are in USD. Copyright &copy; 2012.  Please read our <a onclick="showContent('company',{'show':'privacy'});" href="#">Privacy Policy</a>.<br />
 			E-Commerce solution provided by Zoovy.</p>
 				</div>
@@ -292,19 +303,19 @@ COMMONLY EDITED TEMPLATES
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
 <div id='homepageTemplate'>
-
-	<div id="slideShow">
-		<img id="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
-		<img id="slideBackButton" src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" />
-		<img id="slideForwardButton" src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" />	
-	</div>
-
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'><li id="categoryHeader">CATEGORIES</li></ul>
 	
-	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-
-	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<div class="homeProducts">
+		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'><li id="categoryHeader">CATEGORIES</li></ul>
+		
+		<!--<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+		<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
+	
+		<div id="bestSellerItems">
+			<img src="img/blue-collar-depot-content-popular-work-uniform.png" alt="Popular Work Uniform" />
+			<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","query":{"query_string":{"query":"shirts"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+			<!--<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"best-seller"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>-->
+		</div>
+	</div>
 
 </div>
 
@@ -326,12 +337,6 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 	
-	<div id="slideShow">
-		<img id="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
-		<img id="slideBackButton" src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" />
-		<img id="slideForwardButton" src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" />	
-	</div>	
-
 	<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
 
 	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
@@ -375,11 +380,14 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 
 <ul>
+
+<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 <!--
 Used for the product in a product list (prodlist), usually in the body of a category or the homepage.
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
 -->
+
 <li id='productListTemplate' class='loadingBG  ' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
 	
 	<button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
@@ -609,51 +617,44 @@ this will likely become more flexible in the future. ###
 <div class='prodTabs tabbedProductContent'>
 
 	<ul class='tabs'>
-		<li class='prodDescTab'><a href="#prodDesc" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodDesc_;">Description</a></li>
-		<li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href="#prodDetail" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodDetail_;">Specs</a></li>
-		<li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href="#prodFeatures" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodFeatures_;">Features</a></li>
-		<li class='prodReviewsTab'><a href="#prodReviews" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodReviews_;">Reviews</a></li>
-		<li class='prodVideoTab displayNone' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href="#prodVideo" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodVideo_;">Video</a></li>
-		<li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href="#prodlistAccessoriesContainer" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodAccessories_;">Accessories</a></li>
+		<li class='prodDescTab'><a>Description</a></li>
+		<li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a>Specs</a></li>
+		<li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a>Features</a></li>
+		<li class='prodReviewsTab'><a>Reviews</a></li>
+		<li class='prodVideoTab displayNone' data-bind='var: product(youtube:videoid); format:showIfSet;'><a >Video</a></li>
+		<li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a>Accessories</a></li>
 	</ul>
 	
-<!-- tab content. only 1 databind per element, so there's a container with a dynamically generated id (for tabs or other scripts) and child with the data. -->
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodDesc_;">
+	<div class='tabContent'>
 		<div data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
 	</div>
 
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodDetail_;">
+	<div class='tabContent'>
 		<div data-bind='var: product(zoovy:prod_detail); format:wiki; wikiFormats:myRIA;'></div>
 	</div>
 
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodFeatures_;">
+	<div class='tabContent'>
 		<div data-bind='var: product(zoovy:prod_features); format:wiki; wikiFormats:myRIA;'></div>
 	</div>
 
 
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodVideo_;">
-		<div id="prodVideo" data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
-	</div>
+	<div  class='tabContent'>
 
-	
-	
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodReviews_;">
-		
 		<div class='clearfix alignRight'>
 			<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write Review</button>
 		</div>
 		
 		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(@reviews); format:reviewList; extension:store_product; loadsTemplate:productReviewsTemplateDetail;"></ul>
+
 	</div>
 	
-	
-	<div  data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodAccessories_;">
-	<!--
-		<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
-	-->
+	<div class='tabContent'>
+		<div id="prodVideo" data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
 	</div>
 
-
+	<div class='tabContent'>
+<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
+	</div>
 
 	
 	

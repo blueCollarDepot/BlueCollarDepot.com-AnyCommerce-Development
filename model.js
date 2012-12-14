@@ -81,7 +81,7 @@ app.globalAjax.lastDispatch - keeps track of when the last dispatch occurs. Not 
 function zoovyModel() {
 	var r = {
 	
-		version : "201246",
+		version : "201248",
 	// --------------------------- GENERAL USE FUNCTIONS --------------------------- \\
 	
 	//pass in a json object and the last item id is returned.
@@ -190,7 +190,7 @@ function zoovyModel() {
 					myQ.push($.extend(true,{},app.q[QID][index])); //creates a copy so that myQ can be manipulated without impacting actual Q. allows for _tag to be removed.
 					if(puuid){app.q[QID][index]['pipeUUID'] = puuid}
 //the following are blanked out because they're not 'supported' vars. eventually, we should move this all into _tag so only one field has to be blanked.
-//					delete myQ[c]['_tag']; //blank out rtag to make requests smaller. handleResponse will check if it's set and re-add it to pass into callback.
+					delete myQ[c]['_tag']; //blank out rtag to make requests smaller. handleResponse will check if it's set and re-add it to pass into callback.
 					delete myQ[c]['status'];
 					delete myQ[c]['attempts'];
 					c += 1;
@@ -345,7 +345,7 @@ can't be added to a 'complete' because the complete callback gets executed after
 //		beforeSend: app.model.setHeader, //
 		dataType:"json",
 //ok to pass admin vars on non-admin session. They'll be ignored.
-		data: JSON.stringify({"_uuid":pipeUUID,"_cartid": app.sessionId,"_cmd":"pipeline","@cmds":Q,"_clientid":"admin","_domain":app.vars.domain,"_userid":app.vars.userid,"_deviceid":app.vars.deviceid,"_authtoken":app.vars.authtoken,"_version":app.model.version})
+		data: JSON.stringify({"_uuid":pipeUUID,"_cartid": app.sessionId,"_cmd":"pipeline","@cmds":Q,"_clientid":app.vars._clientid,"_domain":app.vars.domain,"_userid":app.vars.userid,"_deviceid":app.vars.deviceid,"_authtoken":app.vars.authtoken,"_version":app.model.version})
 		});
 	app.globalAjax.requests[QID][pipeUUID].error(function(j, textStatus, errorThrown)	{
 		if(textStatus == 'abort')	{
@@ -1057,8 +1057,9 @@ will return false if datapointer isn't in app.data or local (or if it's too old)
 //			app.u.dump(" -> datapointer = "+datapointer);
 			var local;
 			var r = false;
+			var expires = datapointer == 'authAdminLogin' ? (60*60*24*7) : (60*60*24); //how old the data can be before we fetch new.
 	//checks to see if the request is already in 'this'.
-			if(!$.isEmptyObject(app.data[datapointer]))	{
+			if(app.data && !$.isEmptyObject(app.data[datapointer]))	{
 //				app.u.dump(' -> control already has data');
 				r = true;
 				}
@@ -1067,8 +1068,7 @@ will return false if datapointer isn't in app.data or local (or if it's too old)
 //				app.u.dump(' -> local does have data.');
 	//			app.u.dump(local);
 				if(local.ts)	{
-					if(app.u.unixNow() - local.ts > 60*60*24)	{
-//						app.u.dump(' --> data it is too old :'+(app.u.unixNow() - app.data[datapointer].ts) / (60*60)+" minutes");
+					if((app.u.unixNow() - local.ts) > expires)	{
 						r = false; // data is more than 24 hours old.
 						}
 					else	{
@@ -1077,12 +1077,15 @@ will return false if datapointer isn't in app.data or local (or if it's too old)
 						}
 					}
 				else	{
-//				app.u.dump(' -> neither the control nor local storage have this data.');
+//					app.u.dump(' -> data is local, but old.');
 	//hhhmmm... data is in local, but no ts is set. better get new data.
 					r = false;
 					}
 				}
-			
+			else	{
+//				app.u.dump(' -> data not in memory or local storage.');
+				}
+
 //set app.globalAjax.checkForLocalJSON to true and the app will look for local copies (not local storage) of the json
 			if(r === false && app.globalAjax.checkForLocalJSON)	{
 				if(app.globalAjax.localJSONFolder)	{
@@ -1224,7 +1227,7 @@ will return false if datapointer isn't in app.data or local (or if it's too old)
 			
 			ajaxRequest.error(function(d,e,f){
 				// the templates not loading is pretty much a catastrophic issue.
-				app.u.throwMessage("Uh oh! Something bad happened. If the error persists, please contact Zoovy technical support. error: could not load remote templates. (dev - see console for more details)",true);			
+				app.u.throwMessage("An error has occured.<br \/>Unable to load remote templates for extension (dev - see console for more details).<br \/>If the error persists, please contact Zoovy technical support.",true);			
 				app.u.dump("ERROR! unable to load remote templates");
 				app.u.dump("templateURL: "+templateURL);
 				app.u.dump(e);
@@ -1279,6 +1282,7 @@ will return false if datapointer isn't in app.data or local (or if it's too old)
 					errors += "<li>init not set for extension "+namespace;
 					}
 //whether init passed or failed, load the templates. That way any errors that occur as a result of missing templates are also displayed.
+//If the extension sets willfetchmyowntemplates, then no need to run template load code, the extension will handle adding it's own templates.
 //						app.u.dump(" -> templates.length = "+app.ext[namespace].vars.templates.length);
 				if(app.ext[namespace].vars && app.ext[namespace].vars.templates && !app.ext[namespace].vars.willFetchMyOwnTemplates)	{
 					errors += app.model.loadTemplates(app.ext[namespace].vars.templates);
@@ -1472,7 +1476,7 @@ This is checks for two things:
 		setHeader : function(xhr){
 //			xhr.setRequestHeader('x-auth','sporks');
 			if(app.vars.thisSessionIsAdmin)	{
-				xhr.setRequestHeader('x-clientid','admin'); //set by app
+				xhr.setRequestHeader('x-clientid',app.vars._clientid); //set by app
 				xhr.setRequestHeader('x-domain',app.vars.domain); //what domain is in focus. set by app or user
 				xhr.setRequestHeader('x-userid',app.vars.userid); //what account is in focus. provided by user/ stored locally.
 				xhr.setRequestHeader('x-deviceid',app.vars.deviceid); //the specific device making the requests. stored locally.

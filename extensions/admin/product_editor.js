@@ -72,7 +72,7 @@ var admin_prodEdit = function() {
 					obj["_tag"] = tagObj;
 					app.model.addDispatchToQ(obj,Q);	
 					}
-				}, //adminUIProductPanelList
+				}, //adminUIProductPanelExecute
 
 			adminProductManagementCategoryList : {
 				init : function(tagObj,Q)	{
@@ -88,7 +88,7 @@ var admin_prodEdit = function() {
 				dispatch : function(tagObj,Q)	{
 					app.model.addDispatchToQ({"_cmd":"adminProductManagementCategoriesComplete","_tag":tagObj},Q);	
 					}
-				} //adminUIProductPanelList
+				} //adminProductManagementCategoryList
 
 
 
@@ -113,7 +113,7 @@ var admin_prodEdit = function() {
 				var r = true; //return false if extension won't load for some reason (account config, dependencies, etc).
 				app.rq.push(['css',0,app.vars.baseURL+'extensions/admin/product_editor.css','product_editor_styles']);
 				app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/admin/product_editor.html',theseTemplates);
-				window.savePanel = app.ext.admin.a.saveProductPanel; //for product editor.
+//				window.savePanel = app.ext.admin.a.saveProductPanel; //for product editor. odd. this function doesn't exist. commented out by JT on 2012-11-27
 				window.editProduct = app.ext.admin_prodEdit.a.showPanelsFor;
 				return r;
 				},
@@ -161,13 +161,11 @@ var admin_prodEdit = function() {
 //panelData is an object with panel ids as keys and value TFU for whether or not so load/show the panel content.
 		loadAndShowPanels :	{
 			onSuccess : function(tagObj)	{
-//				app.u.dump("BEGIN admin_prodEdit.callbacks.loadAndShowPanels");
-				var sessionData =  app.storageFunctions.readLocal('session') || {};
-				
-//readLocal returns false if no data local, but an object is needed for the ongoing changes.
-//when attempting to do an if(panelData), it didn't work. think false may have been a string, not a boolean.
-				if(typeof sessionData.productPanels != 'object'){sessionData.productPanels = {}}; 
-				sessionData.productPanels.general = true; //make sure general panel is open.
+				app.u.dump("BEGIN admin_prodEdit.callbacks.loadAndShowPanels");
+				var settings = app.ext.admin.u.devicePreferencesGet('admin_prodEdit');
+//				app.u.dump(" -> settings before extend: "); app.u.dump(settings);
+				settings = $.extend(true,settings,{"openPanel":{"general":true}}); //make sure panel object exits. general panel is always open.
+//				app.u.dump(" -> settings after extend: "); app.u.dump(settings);
 				
 				var pid = app.data[tagObj.datapointer].pid;
 				var $target = $('#productTabMainContent');
@@ -182,15 +180,11 @@ var admin_prodEdit = function() {
 					//pid is assigned to the panel so a given panel can easily detect (data-pid) what pid to update on save.
 					$target.append(app.renderFunctions.transmogrify({'id':'panel_'+panelID,'panelid':panelID,'pid':pid},'productEditorPanelTemplate',app.data[tagObj.datapointer]['@PANELS'][i]));
 
-					if(sessionData.productPanels[panelID])	{
+					if(settings && settings.openPanel[panelID])	{
 						$('#panel_'+panelID+' h3').click(); //open panel. This function also adds the dispatch.
 						}
 					}
-				
-//				app.model.dispatchThis('mutable');
-				
-//				$( "#productTabMainContent" ).sortable();
-				app.storageFunctions.writeLocal('session',sessionData); //update the localStorage session var.
+				app.ext.admin.u.devicePreferencesSet('admin_prodEdit',settings); //update the localStorage session var.
 				}
 			}
 		}, //callbacks
@@ -214,22 +208,18 @@ var admin_prodEdit = function() {
 			},
 
 //t is 'this' passed in from the h3 that contains the icon and link.
+//run when a panel header is clicked. a 'click' may be triggered by the app when the list of panels appears.
 		handlePanel : function(t)	{
+			app.u.dump("BEGIN admin_prodEdit.a.handlePanel");
 			var $header = $(t);
 			var $panel = $('.panelContents',$header.parent());
 			var panelID = $header.parent().data('panelid');
-			var sessionData;
-			$panel.toggle(); //will open or close panel.
+			var settings = app.ext.admin.u.devicePreferencesGet('admin_prodEdit');
+			settings = $.extend(true,settings,{"openPanel":{"general":true}}); //make sure panel object exits. general panel is always open.			
+			$panel.toggle(); //will close an already opened panel or open a closed. the visibility state is used to determine what action to take.
 			
-			if(app.model.fetchData('session'))	{
-				sessionData = app.storageFunctions.readLocal('session'); //localStorage saves value as KVP, not object. get all panel data and save all panel data to avoid data-loss.
-				sessionData.productPanels = sessionData.productPanels || {};
-				}
-			else	{
-				sessionData = {productPanels:{}};
-				}
 			if($panel.is(":visible"))	{
-				sessionData.productPanels[panelID] = true;
+				settings.openPanel[panelID] = true;
 				$header.addClass('ui-accordion-header-active ui-state-active');
 				$('.ui-icon-circle-arrow-e',$header).removeClass('ui-icon-circle-arrow-e').addClass('ui-icon-circle-arrow-s');
 				if($('fieldset',$panel).children().length > 0)	{} //panel contents generated already. just open. form and fieldset generated automatically, so check children of fieldset not the panel itself.
@@ -240,11 +230,12 @@ var admin_prodEdit = function() {
 					}
 				}
 			else	{
-				sessionData.productPanels[panelID] = false;
+				settings.openPanel[panelID] = false;
 				$header.removeClass('ui-accordion-header-active ui-state-active');
 				$('.ui-icon-circle-arrow-s',$header).removeClass('ui-icon-circle-arrow-s').addClass('ui-icon-circle-arrow-e')
 				}
-			app.storageFunctions.writeLocal('session',sessionData); //update the localStorage session var.
+
+			app.ext.admin.u.devicePreferencesSet('admin_prodEdit',settings); //update the localStorage session var.
 			},
 
 //t = this, which is the a tag, not the li. don't link the li or the onCLick will get triggered when the children list items are clicked too, which would be bad.
@@ -312,34 +303,32 @@ var admin_prodEdit = function() {
 
 		u : {
 
-
 			showProductEditor : function(path,P)	{
-//			app.u.dump("BEGIN admin_prodEdit.u.showProductEditor");
+			app.u.dump("BEGIN admin_prodEdit.u.showProductEditor ["+path+"]");
 //			app.u.dump(" -> P: "); app.u.dump(P);
 			
 			window.savePanel = app.ext.admin_prodEdit.a.saveProductPanel;  
 			//always rewrite savePanel. another 'tab' may change the function.
-			//kill any calls.
-			// NOTE - if the product editor gets a default fetchAdmin call, then this code won't be necessary.
-			//it's here to cancel any calls in progress so that if setup then products are clicked quickly, setup doesn't get loaded.
+			//kill any calls in progress so that if setup then product tabs are clicked quickly, setup doesn't get loaded.
 
 			if(!$.isEmptyObject(app.ext.admin.vars.uiRequest))	{
 				app.u.dump("request in progress. Aborting.");
 				app.ext.admin.vars.uiRequest.abort(); //kill any exists requests. The nature of these calls is one at a time.
 				}
 
+//add product page template if not already set.
 			if(!$('#productEditorTemplate').length)	{
 				$(app.u.jqSelector('#',P.targetID)).empty().append(
 					app.renderFunctions.createTemplateInstance('productEditorTemplate')
 					);
-				
+//get and display the list of product management categories.				
 				app.ext.admin_prodEdit.calls.adminProductManagementCategoryList.init(
 					{'callback':'showMangementCats','extension':'admin_prodEdit','targetID':'manCats'},
 					'mutable');
 				app.model.dispatchThis('mutable');
-				
-				
-				
+
+
+//add click actions to the list of tags. Once clicked, a search result for that tag will get displayed in the main edit area.
 				$('.tagFilterList li','#prodLeftCol').each(function(){
 					$(this).addClass('lookLikeLink').click(function(){
 						app.ext.admin_prodEdit.u.prepContentArea4Results();
@@ -348,8 +337,8 @@ var admin_prodEdit = function() {
 						app.model.dispatchThis('mutable');
 						})
 					})
-				
-				
+
+//add click actions to the syndication list items. Once clicked, a search result for that tag will get displayed in the main edit area.
 				$('.mktFilterList li','#prodLeftCol').each(function(){
 					$(this).addClass('lookLikeLink').click(function(){
 						app.ext.admin_prodEdit.u.prepContentArea4Results();
@@ -362,19 +351,16 @@ var admin_prodEdit = function() {
 			else	{
 				//product editor is already on the dom. Right now, only one instance of the editor can be created at a time.
 				}
-
-			// why the hell did it do a fetchAdminResource call ?
-			path = path || "/biz/product/edit.cgi?VERB=WELCOME";
-			P.targetID = "productTabMainContent";
-			$(app.u.jqSelector('#',P.targetID)).empty().append(
-				"<div class='loadingBG'></div>"
-				);
-			app.model.fetchAdminResource(path,P);
 			
-			//$("#productTabMainContent").empty().append(
-			//	app.renderFunctions.createTemplateInstance('productEditorWelcome')
-			//	);
-
+			if(P.pid)	{app.ext.admin_prodEdit.a.showPanelsFor(P.pid)} //if a pid is specified, immediately show the editor for that pid.
+			else if(!path || path == '/biz/product/index.cgi' || path == '/biz/product/edit.cgi?VERB=WELCOME')	{
+				//do nothing. product page template has initial load content.
+				}
+			else	{
+				P.targetID = "productTabMainContent";
+				$(app.u.jqSelector('#',P.targetID)).empty().showLoading();
+				app.model.fetchAdminResource(path,P);
+				}
 			}, //showProductTab 
 
 

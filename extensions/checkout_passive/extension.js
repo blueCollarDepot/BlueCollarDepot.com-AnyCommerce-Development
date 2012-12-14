@@ -164,7 +164,7 @@ a callback was also added which just executes this call, so that checkout COULD 
 				},
 			dispatch : function(stid,qty,tagObj)	{
 //				app.u.dump(' -> adding to PDQ. callback = '+callback)
-				app.model.addDispatchToQ({"_cmd":"updateCart","stid":stid,"quantity":qty,"_tag": tagObj},'immutable');
+				app.model.addDispatchToQ({"_cmd":"cartItemUpdate","stid":stid,"quantity":qty,"_tag": tagObj},'immutable');
 				app.ext.store_checkout.u.nukePayPalEC(); //require paypal re-authentication anytime the cart is updated.
 				}
 			 },
@@ -252,7 +252,15 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed (va
 				var r =false; //returns false if checkout can't load due to account config conflict.
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.init.onSuccess');
 //start this process as early as possible. Errors will be reported independantly of init (result of ajax req. for templates).
-				app.model.fetchNLoadTemplates('extensions/checkout_passive/templates.html',theseTemplates);
+//SANITY: if you remove the baseURL var from the beginning of this, you'll break 1PC.
+				
+				if(app.vars._clientid == '1pc')	{
+					//Do Nothing.  BAD 1pc, go home.
+				}
+				else {
+					app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/checkout_nice/templates.html',theseTemplates);
+				}
+				
 				var msg = false
 				if(!zGlobals || $.isEmptyObject(zGlobals.checkoutSettings))	{
 					msg = app.u.errMsgObject("Uh Oh! It appears an error occured. Please try again. If error persists, please contact the site administrator.");
@@ -267,7 +275,8 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed (va
 					}
 //messaging for the test harness 'success'.
 				else if(app.u.getParameterByName('_testharness'))	{
-					msg = app.u.successMsgObject("<strong>Excellent!<\/strong> Your store meets the requirements to use this one page checkout extension.")
+					msg = app.u.successMsgObject("<strong>Excellent!<\/strong> Your store meets the requirements to use this one page checkout extension.");
+					r = true;
 					}
 				else	{
 					r = true;
@@ -751,7 +760,7 @@ _gaq.push(['_trackEvent','Checkout','Milestone','Shipping method validated']);
 				var safeid,$holder;
 				if($payMethod.val())	{
 					switch($payMethod.val())	{
-						
+//for payment supplemental, can't use required='required' because they're not removed from the DOM if the user switches from echeck to cc (and at that point, they're no longer required						
 						case 'CREDIT':
 							var $paymentCC = $('#payment-cc').removeClass('mandatory');
 							var $paymentMM = $('#payment-mm').removeClass('mandatory');
@@ -762,7 +771,7 @@ _gaq.push(['_trackEvent','Checkout','Milestone','Shipping method validated']);
 							if(!app.u.isValidCCYear($paymentYY.val())){$paymentYY.parent().addClass('mandatory'); valid = 0; errMsg += '<li>please select an expiration year<\/li>'}
 							if($paymentCV.val().length < 3){$paymentCV.parent().addClass('mandatory'); valid = 0; errMsg += '<li>please enter a cvv/cid #<\/li>'}
 							break;
-						
+
 						case 'ECHECK':
 							$('#paymentea').parent().removeClass('mandatory');
 							$('#paymenter').parent().removeClass('mandatory');
@@ -770,15 +779,14 @@ _gaq.push(['_trackEvent','Checkout','Milestone','Shipping method validated']);
 							$('#paymenteb').parent().removeClass('mandatory');
 							$('#paymentes').parent().removeClass('mandatory');
 							$('#paymentei').parent().removeClass('mandatory');
-							if(!$('#paymentea').val())	{valid = 0; errMsg += '<li>please enter account #<\/li>'; $('#paymentea').parent().addClass('mandatory')}
-							if(!$('#paymenter').val())	{valid = 0; errMsg += '<li>please enter routing #<\/li>'; $('#paymenter').parent().addClass('mandatory')}
-							if(!$('#paymenten').val())	{valid = 0; errMsg += '<li>please enter account name<\/li>'; $('#paymenten').parent().addClass('mandatory')}
-							if(!$('#paymenteb').val())	{valid = 0; errMsg += '<li>please enter bank name<\/li>'; $('#paymenteb').parent().addClass('mandatory')}
-							if(!$('#paymentes').val())	{valid = 0; errMsg += '<li>please enter bank state<\/li>'; $('#paymentes').parent().addClass('mandatory')}
-							if(!$('#paymentei').val())	{valid = 0; errMsg += '<li>please enter check #<\/li>'; $('#paymentei').parent().addClass('mandatory')}
+							if(!$('#paymentEA').val())	{valid = 0; errMsg += '<li>please enter account #<\/li>'; $('#paymentEA').parent().addClass('mandatory')}
+							if(!$('#paymentER').val())	{valid = 0; errMsg += '<li>please enter routing #<\/li>'; $('#paymentER').parent().addClass('mandatory')}
+							if(!$('#paymentEN').val())	{valid = 0; errMsg += '<li>please enter account name<\/li>'; $('#paymentEN').parent().addClass('mandatory')}
+							if(!$('#paymentEB').val())	{valid = 0; errMsg += '<li>please enter bank name<\/li>'; $('#paymentEB').parent().addClass('mandatory')}
+							if(!$('#paymentES').val())	{valid = 0; errMsg += '<li>please enter bank state<\/li>'; $('#paymentES').parent().addClass('mandatory')}
+							if(!$('#paymentEI').val())	{valid = 0; errMsg += '<li>please enter check #<\/li>'; $('#paymentEI').parent().addClass('mandatory')}
 							break;
-//eCheck has required=required on it, so the browser will validate. if this causes no issues, we'll start moving all forms over to this instead of 
-//js validation. browser based validation is new at this point. (2012-06-22)
+
 						
 						case 'PO':
 							var $paymentPO = $('#payment-po').removeClass('mandatory');
