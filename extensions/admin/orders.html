@@ -18,11 +18,11 @@
 				<li data-filtervalue='APPROVED'>Approved</li>
 				<li data-filtervalue='PROCESS'>Process</li>
 				<li data-filtervalue='COMPLETED'>Completed</li>
-				<li data-filtervalue='CANCELLED'>Cancelled</li>
+				<li data-filtervalue='DELETED'>Cancelled</li>
 			</ul>
 			</section>
-			
-			
+
+
 			<section class='clearfix'>
 			<h4>Payment Status:</h4>
 			<ul id='orderListFilterPaymentStatus' class='noPadOrMargin filterGroup' data-filter='PAYMENT_VERB'>
@@ -89,35 +89,42 @@
 			<button class='floatLeft' data-btn-action='admin_orders|orderListUpdateSelectAll'>Select All</button>
 			<button class='floatLeft' data-btn-action='admin_orders|orderListUpdateDeselectAll'>De-select All</button>
 	
-		
-			<div class=' floatLeft marginLeft'>
-			<label>Action:</label>
-			<select name='CMD' ID='CMD'>
-				<option value=''></option>
-				<optgroup label='change pool to'>
-					<option value='POOL|RECENT'>Recent</option>
-					<option value='POOL|PENDING'>Pending</option>
-					<option value='POOL|REVIEW'>Review</option>
-					<option value='POOL|HOLD'>Hold</option>
-					<option value='POOL|APPROVED'>Approved</option>
-					<option value='POOL|PROCESS'>Process</option>
-					<option value='POOL|COMPLETED'>Completed</option>
-					<option value='POOL|DELETED'>Cancelled</option>
-				</optgroup>
-				<optgroup label= 'contact'>
-					<option value='MAIL|BULKEMAIL'>Send Email</option>
-				</optgroup>
-				<optgroup label = 'pay'>
-					<option value='PMNT|FLAGASPAID'>Flag as Paid</option>
-				</optgroup><!--
-				<optgroup label='print'>
-					<option value='PRNT|INVOICE'>Invoice</option>
-					<option value='PRNT|PACKSLIP'>Packing Slip</option>
-				</optgroup>	
-					-->
-			</select>
-			<button data-btn-action='admin_orders|orderListUpdateBulk'>Proceed</button>
+			
+			<div class='floatLeft marginLeft bulkEditMenu'>
+			<ul data-ui-role='admin_orders|orderUpdateBulkEditMenu'>
+				<li><a href='#'>Action</a>
+				<ul>
+					<li><a href='#'>Change pool to</a>
+					<ul>
+						<li><a href='#POOL|RECENT'>Recent</a></li>
+						<li><a href='#POOL|PENDING'>Pending</a></li>
+						<li><a href='#POOL|REVIEW'>Review</a></li>
+						<li><a href='#POOL|HOLD'>Hold</a></li>
+						<li><a href='#POOL|APPROVED'>Approved</a></li>
+						<li><a href='#POOL|PROCESS'>Process</a></li>
+						<li><a href='#POOL|COMPLETED'>Completed</a></li>
+						<li><a href='#POOL|DELETED'>Cancelled</a></li>
+					</ul></li>
+
+					<li><a href='#'>Print</a>
+					<ul>
+						<li><a href='#PRNT|INVOICE'>Invoices</a></li>
+						<li><a href='#PRNT|PACKSLIP'>Packing slips</a></li>
+					</ul>
+					</li>
+
+					<li><a href='#'>Send email</a>
+					<ul data-bind="var: admin_orders(emailMessages); format: emailMessagesListItems; extension:admin_orders;">
+					</ul>
+					</li>
+
+					<li><a href='#PMNT|FLAGASPAID'>Flag as paid</a></li>
+
+				</ul>
+				</li>
+			</ul>
 			</div>
+
 		</div>
 		<div id='orderListTableContainer' class='ui-widget-content ui-corner-br'>
 		<table id="orderListTable" class='gridTable'>
@@ -126,7 +133,7 @@
 		<tr>
 			<th></th>
 			<th data-name='ORDERID' title='order id'>order id</th>
-			<th data-name='ORDER_BILL_NAME' title='billing full name'>name</th>
+			<th data-name='ORDER_BILL_NAME' title='billing full name'>customer</th>
 			<th data-name='ORDER_TOTAL' title='order total'>total</th>
 			<th data-name='ORDER_PAYMENT_METHOD' title='payment method'>method</th>
 			<th data-name='ORDER_PAYMENT_STATUS' title='order payment status'>status</th>
@@ -161,7 +168,7 @@
 	<td><span data-bind='var:order(ORDER_PAYMENT_METHOD);format:text;'></span></td>
 	<td><span data-bind='var:order(ORDER_PAYMENT_STATUS);format:paystatus;extension:admin_orders;'></span></td>
 	<td><time data-bind='var:order(CREATED_GMT);format:unix2mdy;'></time></td>
-	<td><span data-bind='var:order(ORDER_BILL_ZONE);format:billzone;extension:admin_orders;'></span></td>
+	<td><span data-bind='var:order(ORDER_SHIP_ZONE);format:billzone;extension:admin_orders;'></span></td>
 	<td><span data-bind='var:order(REVIEW_STATUS);format:reviewStatus;extension:admin_orders;'></span></td>
 	<td><span data-bind='var:order(POOL);format:text;'></span></td>
 	<td><button data-btn-action="admin_orders|orderUpdateShowEditor"  data-bind='var:order(ORDERID);format:assignAttribute; attribute:data-orderid;'>Edit</button></td>
@@ -193,13 +200,12 @@ That'll allow us to easily change the viewer from a modal to a plain dialog to a
 <div class='clearfix marginBottom'>
 
 
-	<div class='floatLeft marginRight'>
+	<hgroup class='floatLeft marginRight'>
 		<h2>Order Status: <select data-bind="var:order(flow/pool); format:orderPoolSelect; extension:admin_orders;" onChange="$(this).addClass('edited'); app.ext.admin_orders.u.updateOrderChangeCount($(this));" data-ui-role="admin_orders|orderUpdatePool"></select></h2>
 		<h3 data-bind="var:order(flow/payment_status);format:paystatus; extension:admin_orders; pretext: Payment Status: ;"></h3>
 		<h5 data-bind="var:order(our/profile);format:text; pretext: profile: ;"></h5>
 		<h5 data-bind="var:order(our/order_ts); format:unix2mdy; showtime:1;"></h5>
-
-	</div>
+	</hgroup>
 
 
 	<div class='floatRight marginLeft '>
@@ -253,7 +259,7 @@ That'll allow us to easily change the viewer from a modal to a plain dialog to a
 		
 		<div><b data-bind='var: cart(sum/balance_due_total); format:orderBalance; className:orderBalanceDue; hideZero:false; currencySign: $; pretext:Balance Due: ; extension:store_cart;'></b></div>
 
-		<button data-bind='var:order(our/orderid);format:assignAttribute; attribute:data-orderid;' onclick="navigateTo('/biz/orders/edit.cgi?CMD=EDIT&amp;OID='+$(this).data('orderid')+'&amp;ts=',{'dialog':true}); return false;" class="button">Edit Contents</button>
+		<button data-bind='var:order(our/orderid);format:assignAttribute; attribute:data-orderid;' disabled='disabled' onclick="navigateTo('/biz/orders/edit.cgi?CMD=EDIT&amp;OID='+$(this).data('orderid')+'&amp;ts=',{'dialog':true}); return false;" class="button">Edit Contents</button>
 
 	</section>
 
@@ -286,24 +292,32 @@ That'll allow us to easily change the viewer from a modal to a plain dialog to a
 	</div>
 
 	</section>
-	
+
+
+
+
 	<h2>Payment Information</h2>
-	<section class='paymentInformation clearfix' id='adminOrdersPaymentMethodsContainer'>
+	<section class='paymentInformation clearfix' id='adminOrdersPaymentMethodsContainer' data-ui-role='orderUpdatePaymentMethodsContainer'>
 	
-	<div class='rightCol'>
-<!--
-<form action='#'>
+	<div class='rightCol' data-ui-role='orderUpdateAddPaymentContainer'>
+
+<form>
 	<fieldset>
 		<legend>Add Payment</legend>
-		<ul class='noPadOrMargin listStyleNone' data-bind='var: getPaymentMethods(@methods); format:payMethodsAsRadioButtons; extension: convertSessionToOrder;'></ul>
+		<div class='labelsAsBreaks' data-bind='var: getPaymentMethods(@methods); format:payMethodsAsRadioButtons; extension: convertSessionToOrder;'></div>
+		<div><label>Amount: <input type='number'  name='amount' /></label></div>
+		<div><label>Note: <input type='text' name='note' /></label></div>
+		<div><button data-btn-action="admin_orders|orderUpdateAddPayment" disabled='disabled'>Add Payment</button></div>
+		<b>coming soon</b>
 	</fieldset>
 </form>
--->
+<!--
 <button onClick="navigateTo('/biz/orders/payment.cgi?ID='+$(this).closest('[data-orderid]').data('orderid')+'&ts=',{'dialog':true}); return false;">Add Payment</button>		
+-->
 	</div>
 
 	<div class='leftCol'>
-	<table class='gridTable'>
+	<table class='gridTable marginBottom'>
 	<thead>
 	<tr>
 		<th>Date</th>
@@ -311,7 +325,8 @@ That'll allow us to easily change the viewer from a modal to a plain dialog to a
 		<th>Amt. Paid</th>
 		<th>Amt. Due</th>
 		<th>Tender</th>
-		<th title='Zoovy Transaction ID'>TID</th>
+		<th title='Transaction ID'>TID</th>
+		<th>Notes</th>
 	</tr>
 	</thead>
 	<tbody data-bind="var: order(@PAYMENTS); loadsTemplate: orderPaymentHistoryTemplate; format:processList; extension: admin;"></tbody>
@@ -319,7 +334,10 @@ That'll allow us to easily change the viewer from a modal to a plain dialog to a
 	</div>
 	
 	</section>
-	
+
+
+
+
 	<h2>Shipping/Tracking Information</h2>
 	<section class='trackingInformation clearfix' data-ui-role='orderUpdateAddTrackingContainer'>
 	
@@ -348,7 +366,7 @@ That'll allow us to easily change the viewer from a modal to a plain dialog to a
 </fieldset>
 </form>
 
-<div class='zhint'>HINT: When you use Zoovys Desktop Order Manager to print out USPS Postage, UPS Airbills, or FedEx Airbills and the tracking #'s and shipping costs are automatically imported. Never re-enter data again!</div>
+<div class='zhint'>HINT: When you use Zoovy's Desktop Order Manager to print out USPS Postage, UPS Airbills, or FedEx Airbills and the tracking #'s and shipping costs are automatically imported. Never re-enter data again!</div>
 
 
 	</div>
@@ -411,11 +429,15 @@ The following templates are used in the 'order detail' modal/view.
 <table>
 <tr id='orderPaymentHistoryTemplate'>
 	<td><time data-bind='var: payment(ts); format:unix2mdy; showtime:true;'></time></td>
-	<td>Something</td>
+	<td><div data-bind="format:paymentActions; extension:admin_orders; useParentData:true;"></div></td>
 	<td><span data-bind='var: payment(amt); format:money;'></span></td>
 	<td><span data-bind='var: payment(due); format:money;'></span></td>
 	<td><span data-bind='var: payment(tender); format:text;'></span></td>
 	<td><span data-bind='var: payment(uuid); format:text;'></span></td>
+	<td>
+	<div data-bind='format:paystatusDetailed; extension:admin_orders; useParentData:true;'></div>
+	<div data-bind='var: payment(note); format:text; pretext:note: ;'></div>
+	</td>
 </tr>
 </table>
 
@@ -514,10 +536,10 @@ used in legacy compat mode (and probably full app mode as well)
 
 
 <address class='shipAddress editableParent' id='orderAddressTemplate'>
-<h6>
+<div>
 	<span data-bind='var:order(firstname);format:text;' class='editable' title='first name'></span>
 	<span data-bind='var:order(lastname);format:text;' class='editable' title='last name'></span>
-</h6>
+</div>
 <div data-bind='var:order(company);format:text;' class='editable' title='company'></div>
 <div data-bind='var:order(address1);format:text;' class='editable' title='address'></div>
 <div data-bind='var:order(address2);format:text;' class='editable' title='address 2'></div>

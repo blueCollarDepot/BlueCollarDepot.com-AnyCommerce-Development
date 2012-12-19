@@ -37,6 +37,7 @@ fieldsets 'can' be defined here if a specific order is desired. If fieldsets are
 	<label><span>Product id:</span><input type='text' name='product_id'  /></label>
 	<label><span>Price: </span><input type='number' class='price' size='5' name='price' /></label>
 	<button onClick="app.ext.convertSessionToOrder.a.addToCart($(this).parent().serializeJSON())" class='ui-button ui-state-default ui-corner-all'>Add</button>
+	<button onClick="app.ext.admin.a.showFinderInModal('CHOOSER');" class='ui-button ui-state-default ui-corner-all'>Find</button>
 	
 </fieldset>
 </form>
@@ -310,7 +311,7 @@ do NOT change any div id's or messaging will not work properly.
 			<table data-bind="var: buyerWalletList(@wallets); format:object2Template; loadsTemplate: buyerWalletsListItem;"></table>
 		</div>
 		<div id='nonStoredPaymentsContainer'>
-			<ul id='chkout-payOptions' class='noPadOrMargin listStyleNone' data-bind='var: getPaymentMethods(@methods); format:payMethodsAsRadioButtons; extension: convertSessionToOrder;'></ul>
+			<div id='chkout-payOptions' class='labelsAsBreaks' data-bind='var: getPaymentMethods(@methods); format:payMethodsAsRadioButtons; extension: convertSessionToOrder;'></div>
 		</div>
 	</div>
 	

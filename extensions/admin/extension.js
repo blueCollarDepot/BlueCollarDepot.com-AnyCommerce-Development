@@ -40,7 +40,7 @@ calls
 var admin = function() {
 // theseTemplates is it's own var because it's loaded in multiple places.
 // here, only the most commonly used templates should be loaded. These get pre-loaded. Otherwise, load the templates when they're needed or in a separate extension (ex: admin_orders)
-	var theseTemplates = new Array('adminProdStdForList','adminProdSimpleForList','adminElasticResult','adminProductFinder','adminMultiPage','domainPanelTemplate','pageSetupTemplate'); 
+	var theseTemplates = new Array('adminProdStdForList','adminProdSimpleForList','adminElasticResult','adminProductFinder','adminMultiPage','domainPanelTemplate','pageSetupTemplate','adminChooserElasticResult','productTemplateChooser'); 
 	var r = {
 		
 	vars : {
@@ -463,7 +463,7 @@ else	{
 	$('#appLogin').show();
 	}
 				}
-			},
+			}, //initExtension
 
 		showDataHTML : {
 			onSuccess : function(tagObj)	{
@@ -596,51 +596,22 @@ else	{
 					for(var i = 0; i < L; i += 1)	{
 						pid = app.data[tagObj.datapointer].hits.hits[i]['_id'];
 //						app.u.dump(" -> "+i+" pid: "+pid);
-						$parent.append(app.renderFunctions.transmogrify({'id':pid,'pid':pid},'adminElasticResult',app.data[tagObj.datapointer].hits.hits[i]['_source']));
+						$parent.append(app.renderFunctions.transmogrify({'id':pid,'pid':pid},tagObj.templateID,app.data[tagObj.datapointer].hits.hits[i]['_source']));
 						}
 					app.ext.admin.u.filterFinderResults();
 					}
 				}
 			}, //handleElasticFinderResults
 
-/*
-REMINDER!!!
-Now that we have three params, findertype, path and attrib, we don't need three callbacks.
-merge these into one.
-JT - 2012-11-21 (on vaca)
-*/
-
 //callback executed after the navcat data is retrieved. the u, does most of the work.
 		addFinderToDom : {
 			onSuccess : function(tagObj)	{
 //				app.u.dump("BEGIN admin.callback.addFinderToDom.success");
-				app.ext.admin.u.addFinder(tagObj.targetID,'NAVCAT',app.data[tagObj.datapointer].id);
-				$('#prodFinder').parent().find('.ui-dialog-title').text('Product Finder: '+app.data[tagObj.datapointer].pretty); //updates modal title
-//				app.u.dump(tagObj);
+				app.ext.admin.u.addFinder(tagObj.targetID,$(app.u.jqSelector('#',tagObj.targetID)).data());
 				}
 			}, //addFinderToDom
 
-//callback executed after the navcat data is retrieved. the u.addfinder does most of the work.
-		addPageFinderToDom : {
-			onSuccess : function(tagObj)	{
-				//app.u.dump("BEGIN admin.callback.addPageFinderToDom.success");
-				//app.u.dump("app.data[tagObj.datapointer]"); app.u.dump(app.data[tagObj.datapointer]);
-				app.ext.admin.u.addFinder(tagObj.targetID,'PAGE',app.data[tagObj.datapointer]._rtag.path,app.data[tagObj.datapointer]._rtag.attrib);
-//				$('#prodFinder').parent().find('.ui-dialog-title').text('Product Finder: '+app.data[tagObj.datapointer].pretty); //updates modal title
-//				app.u.dump(tagObj);
-				}
-			}, //addFinderToDom
-
-//callback executed after the appProductGet data is retrieved for creating a finder, specific to editing an attribute of a product (related items, for example)
-		addPIDFinderToDom : {
-			onSuccess : function(tagObj)	{
-//				app.u.dump("BEGIN admin.callback.addPIDFinderToDom.success");
-				app.ext.admin.u.addFinder(tagObj.targetID,'PRODUCT',tagObj.path,tagObj.datapointer.split('|')[1],$('#prodFinder').attr('data-attrib'));
-				$('#prodFinder').parent().find('.ui-dialog-title').text('Product Finder: '+app.data[tagObj.datapointer]['%attribs']['zoovy:prod_name']+" ("+app.renderFunctions.parseDataVar(tagObj.path)+")"); //updates modal title
-//				app.u.dump(tagObj);
-				}
-			}, //addPIDFinderToDom
-			
+		
 //when a finder for a product attribute is executed, this is the callback.
 		pidFinderChangesSaved : {
 			onSuccess : function(tagObj)	{
@@ -796,7 +767,6 @@ app.ext.admin.u.changeFinderButtonsState('enable'); //make buttons clickable
 	
 		array2ListItems : function($tag,data)	{
 			var L = data.value.length;
-			app.u.dump(" -> cleanValue for array2listItems");
 			app.u.dump(data.value);
 			var $o = $("<ul />"); //what is appended to tag. 
 			for(var i = 0; i < L; i += 1)	{
@@ -944,7 +914,7 @@ else	{
 					app.u.throwGMessage("Warning! path not set for admin.a.showUI");
 					}
 				return false;
-				},
+				}, //showUI
 
 /*
 A generic form handler. 
@@ -1088,32 +1058,84 @@ set as onSubmit="app.ext.admin.a.processForm($(this)); app.model.dispatchThis('m
 				
 				}, //uiProdlistEditorUpdate
 
+
+
+
+
+
 /*
+
+##############################    PRODUCT FINDER
+
 to generate an instance of the finder, run: 
 app.ext.admin.a.addFinderTo() passing in targetID (the element you want the finder appended to) and path (a cat safe id or list id)
 
 */
-			addFinderTo : function(targetID,findertype,path,attrib)	{
-				app.u.dump("BEGIN admin.u.addFinderTo");
-				app.u.dump(" -> findertype: "+findertype);
-				app.u.dump(" -> path: "+path);
-				app.u.dump(" -> attrib: "+attrib);
-				if(findertype == 'PRODUCT')	{
-					app.ext.store_product.calls.appProductGet.init(path,{"callback":"addPIDFinderToDom","extension":"admin","targetID":targetID,"path":path})
+
+
+//currently, executing this function directly is not supported. use the showFinderInModal.
+//once multiple instances of the finder can be opened at one time, this will get used more.
+			addFinderTo : function(targetID,vars)	{
+//				app.u.dump("BEGIN admin.a.addFinderTo('"+targetID+"')"); app.u.dump(vars);
+				$(app.u.jqSelector('#',targetID)).parent().find('.ui-dialog-title').text('loading...'); //empty the title early to avoid confusion.
+				if(vars.findertype == 'PRODUCT')	{
+					app.ext.store_product.calls.appProductGet.init(vars.path,{"callback":"addFinderToDom","extension":"admin","targetID":targetID,"path":vars.path})
 					}
-				else if(findertype == 'NAVCAT')	{
+				else if(vars.findertype == 'NAVCAT')	{
 //Too many f'ing issues with using a local copy of the cat data.
-					app.ext.admin.calls.navcats.appCategoryDetailNoLocal.init(path,{"callback":"addFinderToDom","extension":"admin","targetID":targetID})
+					app.ext.admin.calls.navcats.appCategoryDetailNoLocal.init(vars.path,{"callback":"addFinderToDom","extension":"admin","targetID":targetID})
 					}
-				else if(findertype == 'PAGE')	{
-					app.ext.admin.calls.appPageGet.init({'PATH':path,'@get':[attrib]},{"attrib":attrib,"path":path,"callback":"addPageFinderToDom","extension":"admin","targetID":targetID})			
+				else if(vars.findertype == 'CHOOSER')	{
+					app.ext.admin.u.addFinder(targetID,vars);
+					$(app.u.jqSelector('#',targetID)).parent().find('.ui-dialog-title').text('Product Chooser'); //updates modal title
+					}
+				else if(vars.findertype == 'PAGE')	{
+					$('#finderTargetList').show();
+					app.ext.admin.calls.appPageGet.init({'PATH':vars.path,'@get':[attrib]},{"attrib":vars.attrib,"path":vars.path,"callback":"addFinderToDom","extension":"admin","targetID":targetID})			
 					}
 				else	{
-					app.u.throwGMessage("Warning! Type param for admin.a.addFinderTo is invalid. ["+findertype+"]");
+					app.u.throwGMessage("Warning! Type param for admin.a.addFinderTo is invalid. ["+vars.findertype+"]");
 					}
 				app.model.dispatchThis();
 				}, //addFinderTo
-				
+
+
+//path - category safe id or product attribute in data-bind format:    product(zoovy:accessory_products)
+//vars is for variables. eventually, path and attrib should be move into the vars object.
+//vars will be used to contain all the 'chooser' variables.
+			showFinderInModal : function(findertype,path,attrib,vars)	{
+				if(findertype)	{
+					var $finderModal = $('#prodFinder'), vars = vars || {};
+//a finder has already been opened. empty it.
+					if($finderModal.length > 0)	{
+						$finderModal.empty();
+						}
+					else	{
+						$finderModal = $('<div \/>').attr({'id':'prodFinder','title':'Product Finder'}).appendTo('body');
+						}
+//merge the string based vars into the object so that we have 1 src for all the vars.
+					if(path && !vars.path)	{vars.path = path} else {}
+					if(attrib && !vars.attrib)	{vars.attrib = attrib} else {}
+					if(findertype && !vars.findertype)	{vars.findertype = findertype} else {}
+					$finderModal.data(vars);
+
+//set the following vars as attributes. at the time the finder was built, didn't have a good understanding of .data().
+//eventually, everything will get moved over to .data();
+					$finderModal.attr('data-findertype',findertype);
+					$finderModal.attr('data-path',path);
+					$finderModal.attr('data-attrib',attrib);
+					
+					$finderModal.dialog({modal:true,width:'94%',height:650});
+					app.ext.admin.a.addFinderTo('prodFinder',vars);
+					}
+				else	{
+					app.u.throwGMessage("In admin.u.showFinderInModal, findertype not specified.");
+					}
+				}, //showFinderInModal
+
+
+
+	
 //opens a dialog with a list of domains for selection.
 //a domain being selected for their UI experience is important, so the request is immutable.
 //a domain is necessary so that API knows what data to respond with, including profile and partition specifics.
@@ -1125,31 +1147,7 @@ app.ext.admin.a.addFinderTo() passing in targetID (the element you want the find
 				app.model.dispatchThis('immutable');
 				},	 //showDomainChooser
 				
-//path - category safe id or product attribute in data-bind format:    product(zoovy:accessory_products)
-			showFinderInModal : function(findertype,path,attrib)	{
-				var $finderModal = $('#prodFinder');
-//a finder has already been opened. empty it.
-				if($finderModal.length > 0)	{
-					$finderModal.empty();
-					}
-				else	{
-					$finderModal = $('<div \/>').attr({'id':'prodFinder','title':'Product Finder'}).appendTo('body');
-					}
-//if the finder is for a product attribute, then add a data-sku so we can easily get the sku at any point.
-//likewise, if it is NOT for a product, remove the data-pid (which may be present for a previously opened finder) to avoid any confusion down the road.
-//data-pid is not used to avoid confusion. it's used on the li items in all the lists to denote which product they contain.
-				$finderModal.attr('data-findertype',findertype);
-				$finderModal.attr('data-path',path);
-				$finderModal.attr('data-attrib',attrib);
-				// if (type =='PRODUCT') {
-					// var sku = path; 
-					// if(sku){$finderModal.attr('data-sku',sku)}
-					// else{$finderModal.removeAttr('data-sku')}
-					// }
-				
-				$finderModal.dialog({modal:true,width:'94%',height:650});
-				app.ext.admin.a.addFinderTo('prodFinder',findertype,path,attrib);
-				}, //showFinderInModal
+
 
 			login : function($form){
 				$('#preloadAndLoginContents').showLoading();
@@ -1360,7 +1358,8 @@ app.ext.admin.a.addFinderTo() passing in targetID (the element you want the find
 //					alert(path);
 					app.model.fetchAdminResource(path,P);
 					}
-				},
+				}, //handleShowSection
+
 // !!! when the old showUI goes away, so can this function.
 			getId4UIContent : function(path){
 				return this.getTabFromPath(path)+"Content";
@@ -1383,7 +1382,7 @@ app.ext.admin.a.addFinderTo() passing in targetID (the element you want the find
 					r = 'home'
 					}
 				return r;
-				},
+				}, //getTabFromPath
 	
 //the following function gets executed as part of any fetchAdminResource request. 
 //it's used to output the content in 'html' (part of the response). It uses the targetID passed in the original request.
@@ -1413,30 +1412,30 @@ app.ext.admin.a.addFinderTo() passing in targetID (the element you want the find
 					app.u.dump(" -> viewObj: "); app.u.dump(viewObj);
 					}
 				$target.hideLoading();
-				},
+				}, //uiHandleContentUpdate
 
 
 
-		uiMsgObject : function(msg)	{
-			var obj; //what is returned.
-			if(msg.indexOf('|') == -1)	{
-				obj = {'errid':'#','errmsg':msg,'errtype':'unknown','uiIcon':'ui-icon-z-ise','uiClass':'z-hint'} //some legacy messaging is pipeless (edit order, tracking, for instance).
-				}
-			else	{
-				var tmp = msg.split('|');
-				var message = tmp[tmp.length-1]; //the message is always the last part of the message object.
-				if(message.substring(0,1) == '+')	{message = message.substring(1)}
-				obj = {'errid':'#','errmsg':message,'errtype':tmp[0],'uiIcon':'z-'+tmp[0].toLowerCase(),'uiClass':'z-'+tmp[0].toLowerCase()}
-				if(tmp.length > 2)	{
-//				app.u.dump(' -> tmp.length: '+tmp.length); app.u.dump(tmp);
-					for(i = 1; i < (tmp.length -1); i += 1)	{ //ignore first and last entry which are type and message and are already handled.
-						obj[tmp[i].split(':')[0]] = tmp[i].split(/:(.+)?/)[1]; //the key is what appears before the first : and the value is everything after that. allows for : to be in value
-						}
-//					app.u.dump(" -> obj: "); app.u.dump(obj);
+			uiMsgObject : function(msg)	{
+				var obj; //what is returned.
+				if(msg.indexOf('|') == -1)	{
+					obj = {'errid':'#','errmsg':msg,'errtype':'unknown','uiIcon':'ui-icon-z-ise','uiClass':'z-hint'} //some legacy messaging is pipeless (edit order, tracking, for instance).
 					}
-				}
-			return obj;
-			},
+				else	{
+					var tmp = msg.split('|');
+					var message = tmp[tmp.length-1]; //the message is always the last part of the message object.
+					if(message.substring(0,1) == '+')	{message = message.substring(1)}
+					obj = {'errid':'#','errmsg':message,'errtype':tmp[0],'uiIcon':'z-'+tmp[0].toLowerCase(),'uiClass':'z-'+tmp[0].toLowerCase()}
+					if(tmp.length > 2)	{
+	//				app.u.dump(' -> tmp.length: '+tmp.length); app.u.dump(tmp);
+						for(i = 1; i < (tmp.length -1); i += 1)	{ //ignore first and last entry which are type and message and are already handled.
+							obj[tmp[i].split(':')[0]] = tmp[i].split(/:(.+)?/)[1]; //the key is what appears before the first : and the value is everything after that. allows for : to be in value
+							}
+	//					app.u.dump(" -> obj: "); app.u.dump(obj);
+						}
+					}
+				return obj;
+				}, //uiMsgObject
 
 
 //the following function gets executed as part of any fetchAdminResource request. 
@@ -1502,7 +1501,9 @@ app.ext.admin.a.addFinderTo() passing in targetID (the element you want the find
 				else	{
 //					app.u.dump("WARNING! admin.u.handleBreadcrumb bc is blank. this may be normal.");
 					}
-				},
+				}, //uiHandleBreadcrumb
+
+
 //the 'tabs' referred to here are not the primary nav tabs, but the subset that appears based on what page of the UI the user is in.
 			uiHandleNavTabs : function(tabs)	{
 				var $target = $('#navTabs')// tabs container
@@ -1531,7 +1532,9 @@ app.ext.admin.a.addFinderTo() passing in targetID (the element you want the find
 				else	{
 //					app.u.dump("WARNING! admin.u.uiHandleNavTabs tabs is blank. this may be normal.");
 					}
-				},
+				}, //uiHandleNavTabs
+
+
 // 'data' is the response from the server. includes data.html
 // viewObj is what is passed into fetchAdminResource as the second parameter
 			uiHandleFormRewrites : function(path,data,viewObj)	{
@@ -1551,7 +1554,8 @@ app.ext.admin.a.addFinderTo() passing in targetID (the element you want the find
 					app.model.fetchAdminResource(path,viewObj,formObj); //handles the save.
 					return false;
 					}); //submit
-				},
+				}, //uiHandleFormRewrites
+
 // 'data' is the response from the server. includes data.html
 // viewObj is what is passed into fetchAdminResource as the second parameter
 			uiHandleLinkRewrites : function(path,data,viewObj)	{
@@ -1560,7 +1564,9 @@ app.ext.admin.a.addFinderTo() passing in targetID (the element you want the find
 				$('a',$target).each(function(){
 					app.ext.admin.u.rewriteLink($(this));
 					});
-				},
+				}, //uiHandleLinkRewrites
+
+
 //a separate function from above because it's also used on the mastHead in init.
 
 			rewriteLink : function($a){
@@ -1585,8 +1591,8 @@ app.ext.admin.a.addFinderTo() passing in targetID (the element you want the find
 						return showUI(href);
 						});
 					}
-				},
-			
+				}, //rewriteLink
+
 			linkOffSite : function(url){
 				window.open(url);
 				},
@@ -1724,97 +1730,123 @@ path is the list/category src (ex: .my.safe.id) or a product attribute [ex: prod
 if pid is passed into this function, the finder treats everything as though we're dealing with a product.
 */
 
-			addFinder : function(targetID,findertype,path,attrib){
+			addFinder : function(targetID,vars){
 
 app.u.dump("BEGIN admin.u.addFinder");
+// app.u.dump(" -> targetID: "+targetID);
+app.u.dump(vars);
+
 //jquery likes id's with no special characters.
-var safePath = app.u.makeSafeHTMLId(path);
+var safePath = app.u.makeSafeHTMLId(vars.path);
 var prodlist = new Array();
 
-var $target = $(app.u.jqSelector('#',targetID)).empty(); //empty to make sure we don't get two instances of finder if clicked again.
+var $target = $(app.u.jqSelector('#',targetID));
+// app.u.dump(" -> $target.length: "+$target.length);
 //create and translate the finder template. will populate any data-binds that are set that refrence the category namespace
-$target.append(app.renderFunctions.createTemplateInstance('adminProductFinder',"productFinder_"+app.u.makeSafeHTMLId(path)));
-$('#finderTargetList').removeClass('loadingBG'); //bug in finder!!! if no items, stays in loading. hot fix.
-app.u.dump(" -> got to if/else section. ");
-if(findertype == 'PRODUCT')	{
-	app.u.dump(" -> Product SKU: "+path);
-//for whatever reason, attrib passed in wasn't working. I plan on updating the finder so that attrib, type and passed are never passed back and forth on the api
-//they'll be retrieved using data-path or data-findertype when needed. this is a hot fix.  !!! JT 2012-11-21
-	app.renderFunctions.translateTemplate(app.data['appProductGet|'+path],"productFinder_"+safePath);
+//empty to make sure we don't get two instances of finder if clicked again.
+$target.empty().append(app.renderFunctions.createTemplateInstance('adminProductFinder',"productFinderContents"));
+
+$('#chooserResultContainer').hide();
+$('#adminFinderButtonBar').show();
+$('#finderTargetList').show();
+
+
+if(vars.findertype == 'PRODUCT')	{
+//	app.u.dump(" -> Product SKU: "+path);
+	$target.parent().find('.ui-dialog-title').text('Product Finder: '+app.data['appProductGet|'+vars.path]['%attribs']['zoovy:prod_name']); //updates modal title
+	app.renderFunctions.translateTemplate(app.data['appProductGet|'+vars.path],"productFinderContents");
 	attrib = $('#prodFinder').attr('data-attrib');
-	if(app.data['appProductGet|'+path]['%attribs'][attrib])
-		prodlist = app.ext.store_prodlist.u.cleanUpProductList(app.data['appProductGet|'+path]['%attribs'][attrib]);
+	if(app.data['appProductGet|'+vars.path]['%attribs'][vars.attrib])
+		prodlist = app.ext.store_prodlist.u.cleanUpProductList(app.data['appProductGet|'+vars.path]['%attribs'][vars.attrib]);
 	}
-else if(findertype == 'NAVCAT')	{
-//	app.u.dump(" -> NON product attribute (no pid specified)");
-//	app.renderFunctions.translateTemplate(app.data['appCategoryDetail|'+path],"productFinder_"+safePath);
-	prodlist = app.data['appCategoryDetail|'+path]['@products'];
+else if(vars.findertype == 'NAVCAT')	{
+	$target.parent().find('.ui-dialog-title').text('Product Finder: '+app.data['appCategoryDetail|'+vars.path].pretty); //updates modal title
+	prodlist = app.data['appCategoryDetail|'+vars.path]['@products'];
 	}
-else if(findertype == 'PAGE')	{
-	app.u.dump(" -> is PAGE findertype");
-	if(app.data['appPageGet|'+path]['%page'][attrib])	{
-		prodlist = app.ext.store_prodlist.u.cleanUpProductList(app.data['appPageGet|'+path]['%page'][attrib])
+else if (vars.findertype == 'CHOOSER')	{
+	$('#chooserResultContainer').show();
+	$('#adminFinderButtonBar').hide();
+	$('#finderTargetList').hide();
+	prodlist = []; //no items show up by default.
+	}
+else if(vars.findertype == 'PAGE')	{
+	$target.parent().find('.ui-dialog-title').text('Product Finder: '+app.data['appCategoryDetail|'+vars.path].pretty); //updates modal title
+	if(app.data['appPageGet|'+vars.path]['%page'][vars.attrib])	{
+		prodlist = app.ext.store_prodlist.u.cleanUpProductList(app.data['appPageGet|'+vars.path]['%page'][vars.attrib])
 		}	
 	}
 else	{
-	app.u.throwGMessage("WARNING! findertype not set.");
+	app.u.throwGMessage("WARNING! in admin.u.addFinder, findertype not set or is an unsupported value ["+vars.findertype+"].");
 	}
 //app.u.dump(" -> path: "+path);
 //app.u.dump(" -> prodlist: "+prodlist);
 
-app.ext.store_prodlist.u.buildProductList({
-	"loadsTemplate": prodlist.length < 200 ? "adminProdStdForList" : "adminProdSimpleForList",
-	"items_per_page" : 500, //max out at 500 items
-	"hide_summary" : true, //disable multipage. won't play well w/ sorting, drag, indexing, etc
-	"parentID":"finderTargetList",
-//	"items_per_page":100,
-	"csv":prodlist
-	},$('#finderTargetList'))
-
-
-// connect the results and targetlist together by class for 'sortable'.
-//sortable/selectable example found here:  http://jsbin.com/aweyo5
-$( "#finderTargetList , #finderSearchResults" ).sortable({
-	connectWith:".connectedSortable",
-	items: "li:not(.ui-state-disabled)",
-	handle: ".handle",
-/*
-the 'stop' below is run when an item is dropped.
-jquery automatically handles moving the item from one list to another, so all that needs to be done is changing some attributes.
-the attributes are only changed if the item is dropped into the target list (as opposed to picked up and dropped elsewhere [cancelled])
-this does NOT get executed when items are moved over via selectable and move buttons.
-*/
-	stop: function(event, ui) {
-		var parent = ui.item.parent().attr('id')
-//		app.u.dump(" -> parent id of dropped item: "+ui.item.parent().attr('id'));
-		if(parent == 'finderTargetList')	{
-			ui.item.attr({'data-status':'changed','id':'finderTargetList_'+ui.item.attr('data-pid')});
-			}
-		app.ext.admin.u.updateFinderCurrentItemCount();
-		} 
-	});
-
-//make results panel list items selectable. 
-//only 'li' is selectable otherwise clicking a child node will move just the child over.
-// .ui-state-disabled is added to items in the results list that are already in the category list.
-$("#finderSearchResults").selectable({ filter: 'li',filter: "li:not(.ui-state-disabled)" }); 
-//make category product list only draggable within itself. (can't drag items out).
-$("#finderTargetList").sortable( "option", "containment", 'parent' ); //.bind( "sortupdate", function(event, ui) {app.u.dump($(this).attr('id'))});
-	
-
-//set a data-finderAction on an element with a value of save, moveToTop or moveToBottom.
-//save will save the changes. moveToTop will move selected product from the results over to the top of column the category list.
-//moveToBottom will do the same as moveToTop except put the product at the bottom of the category.
-$('#productFinder_'+safePath+' [data-finderAction]').each(function(){
-	app.ext.admin.u.bindFinderButtons($(this),safePath);
-	});
-
 //bind the action on the search form.
-$('#finderSearchForm').submit(function(event){
-	app.ext.admin.u.handleFinderSearch();
+$('#finderSearchForm').off('submit.search').on('submit.search',function(event){
 	event.preventDefault();
-	return false})
-	app.ext.admin.u.updateFinderCurrentItemCount();
+	app.ext.admin.u.handleFinderSearch(vars.findertype);
+	return false;
+	});
+
+
+if(vars.findertype && vars.findertype == 'CHOOSER')	{
+	
+	}
+else if (vars.findertype)	{
+//build the product list for items that are already selected.
+	app.ext.store_prodlist.u.buildProductList({
+		"loadsTemplate": prodlist.length < 200 ? "adminProdStdForList" : "adminProdSimpleForList",
+		"items_per_page" : 500, //max out at 500 items
+		"hide_summary" : true, //disable multipage. won't play well w/ sorting, drag, indexing, etc
+		"parentID":"finderTargetList",
+	//	"items_per_page":100,
+		"csv":prodlist
+		},$('#finderTargetList'))
+	
+	
+	// connect the results and targetlist together by class for 'sortable'.
+	//sortable/selectable example found here:  http://jsbin.com/aweyo5
+	$( "#finderTargetList , #finderSearchResults" ).sortable({
+		connectWith:".connectedSortable",
+		items: "li:not(.ui-state-disabled)",
+		handle: ".handle",
+	/*
+	the 'stop' below is run when an item is dropped.
+	jquery automatically handles moving the item from one list to another, so all that needs to be done is changing some attributes.
+	the attributes are only changed if the item is dropped into the target list (as opposed to picked up and dropped elsewhere [cancelled])
+	this does NOT get executed when items are moved over via selectable and move buttons.
+	*/
+		stop: function(event, ui) {
+			var parent = ui.item.parent().attr('id')
+	//		app.u.dump(" -> parent id of dropped item: "+ui.item.parent().attr('id'));
+			if(parent == 'finderTargetList')	{
+				ui.item.attr({'data-status':'changed','id':'finderTargetList_'+ui.item.attr('data-pid')});
+				}
+			app.ext.admin.u.updateFinderCurrentItemCount();
+			} 
+		});
+	
+	//make results panel list items selectable. 
+	//only 'li' is selectable otherwise clicking a child node will move just the child over.
+	// .ui-state-disabled is added to items in the results list that are already in the category list.
+	$("#finderSearchResults").selectable({ filter: 'li',filter: "li:not(.ui-state-disabled)" }); 
+	//make category product list only draggable within itself. (can't drag items out).
+	$("#finderTargetList").sortable( "option", "containment", 'parent' ); //.bind( "sortupdate", function(event, ui) {app.u.dump($(this).attr('id'))});
+		
+	
+	//set a data-btn-action on an element with a value of save, moveToTop or moveToBottom.
+	//save will save the changes. moveToTop will move selected product from the results over to the top of column the category list.
+	//moveToBottom will do the same as moveToTop except put the product at the bottom of the category.
+	$('[data-btn-action]',$target).each(function(){
+		app.ext.admin.u.bindFinderButtons($(this),safePath);
+		});
+	
+		app.ext.admin.u.updateFinderCurrentItemCount();
+
+	
+	}
+else	{} //findertype is not declared. The error handling for this has already taken place.
+
 
 
 				
@@ -1851,7 +1883,7 @@ $('#finderSearchForm').submit(function(event){
 				},
 
 //need to be careful about not passing in an empty filter object because elastic doesn't like it. same for query.
-			handleFinderSearch : function()	{
+			handleFinderSearch : function(findertype)	{
 				$('#finderSearchResults').empty().addClass('loadingBG');
 				var qObj = {}; //query object
 				var columnValue = $('#finderSearchQuery').val();
@@ -1861,7 +1893,7 @@ $('#finderSearchForm').submit(function(event){
 				qObj.query =  {"query_string" : {"query" : columnValue}};
 			
 				//dispatch is handled by form submit binder
-				app.ext.store_search.calls.appPublicSearch.init(qObj,{"callback":"handleElasticFinderResults","extension":"admin","parentID":"finderSearchResults","datapointer":"elasticsearch"});
+				app.ext.store_search.calls.appPublicSearch.init(qObj,{"callback":"handleElasticFinderResults","extension":"admin","parentID":"finderSearchResults","datapointer":"elasticsearch","templateID": findertype == 'CHOOSER' ? 'adminChooserElasticResult' : 'adminElasticResult'});
 				app.model.dispatchThis();
 				},
 
@@ -1885,7 +1917,7 @@ $('#finderSearchForm').submit(function(event){
 				}, //filterFinderResults
 
 			changeFinderButtonsState : function(state)	{
-				$dom = $('#prodFinder [data-finderaction]')
+				$dom = $('#prodFinder [data-btn-action]')
 				if(state == 'enable')	{
 					$dom.removeAttr('disabled').removeClass('ui-state-disabled')
 					}
@@ -1898,12 +1930,12 @@ $('#finderSearchForm').submit(function(event){
 				}, //changeFinderButtonsState 
 
 
-//run as part of addFinder. will bind click events to buttons with data-finderAction on them
+//run as part of addFinder. will bind click events to buttons with data-btn-action on them
 			bindFinderButtons : function($button,safePath){
 // ### Move search button into this too. 
 
-//	app.u.dump(" -> finderAction found on element "+$button.attr('id'));
-if($button.attr('data-finderAction') == 'save')	{
+//	app.u.dump(" -> btn-action found on element "+$button.attr('id'));
+if($button.attr('data-btn-action') == 'save')	{
 
 	$button.click(function(event){
 		event.preventDefault();
@@ -1914,7 +1946,7 @@ if($button.attr('data-finderAction') == 'save')	{
 		return false;
 		});
 	}
-else if($button.attr('data-finderAction') == 'selectAll')	{
+else if($button.attr('data-btn-action') == 'selectAll')	{
 	$button.click(function(event){
 		event.preventDefault();
 		$('#finderSearchResults li').not('.ui-state-disabled').addClass('ui-selected');
@@ -1922,13 +1954,13 @@ else if($button.attr('data-finderAction') == 'selectAll')	{
 	}
 //these two else if's are very similar. the important part is that when the items are moved over, the id is modified to match the targetCat 
 //id's. That way when another search is done, the disable class is added correctly.
-else if($button.attr('data-finderAction') == 'moveToTop' || $button.attr('data-finderAction') == 'moveToBottom'){
+else if($button.attr('data-btn-action') == 'moveToTop' || $button.attr('data-btn-action') == 'moveToBottom'){
 	$button.click(function(event){
 		event.preventDefault();
 		$('#finderSearchResults .ui-selected').each(function(){
 			var $copy = $(this).clone();
 			app.u.dump(" -> moving item "+$copy.attr('data-pid'));
-			if($button.attr('data-finderAction') == 'moveToTop')
+			if($button.attr('data-btn-action') == 'moveToTop')
 				$copy.prependTo('#finderTargetList')
 			else
 				$copy.appendTo('#finderTargetList')

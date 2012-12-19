@@ -73,6 +73,8 @@ css files should be included before any .js file to ensure they are downloaded i
 <script type="text/javascript" src="loadscript.js"></script>
 <!--<script type="text/javascript" src="slides.min.jquery.js"></script>-->
 <script type="text/javascript" src="jquery.cycle.all.js"></script>
+<script type="text/javascript" src="jquery.ui.widget.min.js"></script> 
+<script type="text/javascript" src="customTabs.js"></script>
 
 
 
@@ -129,6 +131,72 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 					<a href="#" onClick="return showContent('cart',{});"><img src="img/info-view-cart.png" alt="View Cart" /></a>
 				</div>
 				<div id="nav">
+					<div id="menu">
+						<ul>
+							<li><a href="#" onClick="return showContent('category',{'navcat' : '.'});">Home</a></li>
+							<li>
+								<a href="#" onClick="return showContent('category',{'navcat' : '.automotive'});">Automotives</a>
+								<ul class="subMenu">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Hats & Caps</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Shirts</a></li>
+									<li><a href="#">Sweatshirts & Jackets</a></li>
+									<li><a href="#">Personalized Gear</a></li>
+									<li><a href="#">Team Clothing & Apparel</a></li>	
+								</ul>
+							</li>
+							<li>
+								<a href="#" onClick="return showContent('category',{'navcat' : '.industrial'});">Industrial</a>
+								<ul class="subMenu">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Hats & Caps</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Shirts</a></li>
+									<li><a href="#">Sweatshirts & Jackets</a></li>
+									<li><a href="#">Personalized Gear</a></li>
+									<li><a href="#">Team Clothing & Apparel</a></li>	
+								</ul>
+							</li>
+							<li>
+								<a href="#" onClick="return showContent('category',{'navcat' : '.flame-resistant'});">Flame Resistant
+								</a>
+								<ul class="subMenu">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Hats & Caps</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Shirts</a></li>
+									<li><a href="#">Sweatshirts & Jackets</a></li>
+									<li><a href="#">Personalized Gear</a></li>
+									<li><a href="#">Team Clothing & Apparel</a></li>	
+								</ul>
+							</li>
+							<li>
+								<a href="#" onClick="return showContent('category',{'navcat' : '.restaurant'});">Restaurant</a>
+								<ul class="subMenu">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Hats & Caps</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Shirts</a></li>
+									<li><a href="#">Sweatshirts & Jackets</a></li>
+									<li><a href="#">Personalized Gear</a></li>
+									<li><a href="#">Team Clothing & Apparel</a></li>	
+								</ul>
+							</li>
+							<li>
+								<a href="#" onClick="return showContent('category',{'navcat' : '.embroidery'});">Embroidery</a>
+								<ul class="subMenu">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Hats & Caps</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Shirts</a></li>
+									<li><a href="#">Sweatshirts & Jackets</a></li>
+									<li><a href="#">Personalized Gear</a></li>
+									<li><a href="#">Team Clothing & Apparel</a></li>	
+								</ul>
+							</li>
+						</ul>
+					</div>
 					<div id="search">
 						<img id="searchBox" src="img/search-box.png" alt="Search Box" />
 						<img id="btnSearch" src="img/search-white.png" alt="Search Button" />
@@ -145,7 +213,6 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 					<div class="slideShow">
 						<img class="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
 						<img class="slidePic" src="img/blue-collar-depot-slideshow-2.png" alt="Blue Collar Depot Slideshow" />
-						<img class="slidePic" src="img/blue-collar-depot-slideshow-3.png" alt="Blue Collar Depot Slideshow" />
 					</div>
 					<a class="slideBackButton" href="#"><img src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" /></a>
 					<a class="slideForwardButton" href="#"><img src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" /></a>		
@@ -189,7 +256,43 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 						<p>Free Coupons And Deals!</p>
 						<div>
 							<p>Love saving money? Subscribe to our email newsletter and receive free coupons and discount offers in your email!</p>
-							<img src="img/read-more.png" alt="Read more" onClick="return showContent('customer',{'show' : 'newsletter'});" />
+							<!--<img src="img/read-more.png" alt="Read more" onClick="return showContent('customer',{'show' : 'newsletter'});" />-->
+							<!--<div id="dealsJoin">
+								<form id="frmDeals" name="frmDeals" method="get" action="">
+									<input id="txtDealsEmail" name="txtDealsEmail" type="text" />
+									<img id="btnDealsJoin" src="img/button-join-now.png" alt="Join Newsletter" />
+								</form>
+								<div id="dealsSubmit"></div>	
+							</div>-->
+							<div id="footForm">
+								<form onsubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false" name="subscribeFrm" id="subscribeFrm" action="#">
+									<fieldset class="userInfo borderNone">
+										<table>
+											<tr>
+												<td>
+													<label for="subscribeLogin">Email Address</label>
+												</td>
+												<td>
+													<input type="email" value="" id="subscribeLogin" name="login" size="30" maxlength="50" />		
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label for="subscribeFullname">Full Name</label>
+												</td>
+												<td>
+													<input type="text" value="" id="subscribeFullname" name="fullname" size="30" maxlength="50" />
+												</td>
+											</tr>
+										</table>
+									</fieldset>
+									
+									<fieldset class="borderNone subscriberLists" data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;"><ul class="subscriberLists"><li title="undefined"><input type="checkbox" id="newsletter-1" name="newsletter-1" checked="checked"><label for="newsletter-1">Store Newsletter</label></li></ul></fieldset>
+									
+									<input id="btnSubmit" type="submit" value="Subscribe" class="ui-button-text ui-button ui-state-default ui-corner-all" />
+	
+								</form>
+							</div>
 						</div>
 					</div>										
 				</div>
@@ -617,12 +720,12 @@ this will likely become more flexible in the future. ###
 <div class='prodTabs tabbedProductContent'>
 
 	<ul class='tabs'>
-		<li class='prodDescTab'><a>Description</a></li>
-		<li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a>Specs</a></li>
-		<li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a>Features</a></li>
-		<li class='prodReviewsTab'><a>Reviews</a></li>
-		<li class='prodVideoTab displayNone' data-bind='var: product(youtube:videoid); format:showIfSet;'><a >Video</a></li>
-		<li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a>Accessories</a></li>
+		<li class='prodDescTab'><a href='#'>Description</a></li>
+		<li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href='#'>Specs</a></li>
+		<li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href='#'>Features</a></li>
+		<li class='prodReviewsTab'><a href='#'>Reviews</a></li>
+		<li class='prodVideoTab displayNone' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href='#'>Video</a></li>
+		<li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#'>Accessories</a></li>
 	</ul>
 	
 	<div class='tabContent'>
