@@ -60,8 +60,10 @@ a callback was also added which just executes this call, so that checkout COULD 
 //formerly hardcoded to zContent
 				app.ext.convertSessionToOrder.vars.containerID = containerID;
 				app.ext.convertSessionToOrder.u.createProcessCheckoutModal();
-
-				$(app.u.jqSelector('#',containerID)).append(app.renderFunctions.createTemplateInstance('checkoutTemplate','checkoutContainer')).hideLoading();
+				var $target = $(app.u.jqSelector('#',containerID));
+				$target.append(app.renderFunctions.createTemplateInstance('checkoutTemplate','checkoutContainer')).hideLoading();
+				
+				app.ext.admin.u.handleAppEvents($target)
 
 				if(app.u.determineAuthentication() == 'authenticated')	{
 					app.u.dump(" -> user is logged in. set account creation hidden input to 0");
@@ -197,8 +199,6 @@ a callback was also added which just executes this call, so that checkout COULD 
 
 
 
-
-			
 /*
 Run once checkout form has been filled out (or is thought to be filled out).
 add all form fields to the session/cart (whether form validates or not)
@@ -228,6 +228,12 @@ if server validation passes, the callback handles what to do next (callback is m
 //cc and cv should never go. They're added as part of cartPaymentQ
 				delete serializedCheckout['payment/cc'];
 				delete serializedCheckout['payment/cv'];
+
+/* these fields are in checkout/order create but not 'supported' fields. don't send them */				
+				delete serializedCheckout['giftcard'];
+				delete serializedCheckout['want/bill_to_ship_cb'];
+				delete serializedCheckout['coupon'];
+
 				app.calls.cartSet.init(serializedCheckout);
 
 				var checkoutIsValid = app.ext.convertSessionToOrder.validate.isValid();
@@ -304,6 +310,7 @@ if server validation passes, the callback handles what to do next (callback is m
 //				app.u.dump(" -> tagObj:");  app.u.dump(tagObj);
 				if(app.data[tagObj.datapointer] && app.data[tagObj.datapointer].CID)	{
 					//Match FOund.
+					app.calls.cartSet.init({"customer/cid":app.data[tagObj.datapointer].CID});
 					app.ext.admin.calls.customer.adminCustomerGet.init(app.data[tagObj.datapointer].CID,{'callback':'startCheckout','extension':'convertSessionToOrder'},'immutable');
 					app.model.dispatchThis('immutable');
 					}
@@ -715,7 +722,7 @@ note - the click prevent default is because the renderFormat adds an onclick tha
 					}
 				return valid;
 				}, //validate.chkoutShipMethodsFieldset
-				
+
 //in addition to selecting a pay option, certain extra fields may be present and must be checked for.
 			chkoutPayOptionsFieldset : function()	{
 				var valid = 1;
@@ -726,21 +733,21 @@ note - the click prevent default is because the renderFormat adds an onclick tha
 				var safeid,$holder;
 				if($payMethod.val())	{
 					switch($payMethod.val())	{
-						
+
 						case 'CREDIT':
-							var $paymentCC = $('#payment-cc').removeClass('mandatory');
-							var $paymentMM = $('#payment-mm').removeClass('mandatory');
-							var $paymentYY = $('#payment-yy').removeClass('mandatory');
-							var $paymentCV = $('#payment-cv').removeClass('mandatory');
+							var $paymentCC = $("[name='CC']").removeClass('mandatory');
+							var $paymentMM = $("[name='MM']").removeClass('mandatory');
+							var $paymentYY = $("[name='YY']").removeClass('mandatory');
+							var $paymentCV = $("[name='CV']").removeClass('mandatory');
 							if(!app.u.isValidCC($paymentCC.val())){$paymentCC.parent().addClass('mandatory'); valid = 0; errMsg += '<li>please enter a valid credit card #<\/li>'}
 							if(!app.u.isValidMonth($paymentMM.val())){$paymentMM.parent().addClass('mandatory'); valid = 0; errMsg += '<li>please select an exipration month<\/li>'}
 							if(!app.u.isValidCCYear($paymentYY.val())){$paymentYY.parent().addClass('mandatory'); valid = 0; errMsg += '<li>please select an expiration year<\/li>'}
 							if($paymentCV.val().length < 3){$paymentCV.parent().addClass('mandatory'); valid = 0; errMsg += '<li>please enter a cvv/cid #<\/li>'}
 							break;
-						
+
 //eCheck has required=required on it, so the browser will validate. if this causes no issues, we'll start moving all forms over to this instead of 
 //js validation. browser based validation is new at this point. (2012-06-22)
-						
+
 						case 'PO':
 							var $paymentPO = $('#payment-po').removeClass('mandatory');
 							if(!app.u.isSet($paymentPO.val())){$paymentPO.parent().addClass('mandatory'); valid = 0; errMsg += '<li>please enter a PO #<\/li>'}
@@ -770,7 +777,7 @@ note - the click prevent default is because the renderFormat adds an onclick tha
 //				app.u.dump('END app.ext.convertSessionToOrder.validate.chkoutPayOptionsFieldset. paymethod = '+$payMethod.val()+' and valid = '+valid);
 				return valid;
 				}, //chkoutPayOptionsFieldset
-				
+
 			chkoutBillAddressFieldset: function()	{
 				var valid = 1;
 				var r = true;
@@ -794,7 +801,7 @@ in this case, toggle the address entry form on so that the corrections can be ma
 					}
 				return valid;
 				}, //chkoutBillAddressFieldset
-				
+
 			chkoutShipAddressFieldset : function()	{
 				var valid = 1;
 				var r = true;
@@ -823,6 +830,7 @@ in this case, toggle the address entry form on so that the corrections can be ma
 					}
 				return valid;
 				},
+
 //type = ship or bill/ will validate the respective address entered in checkout.
 			addressIsPopulated : function(TYPE)	{
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.validate.address');
@@ -1135,9 +1143,8 @@ two of it's children are rendered each time the panel is updated (the prodlist a
 					app.renderFunctions.translateTemplate(app.data.buyerWalletList,'storedPaymentsContainer');
 					}
 				$('[type="radio"]',$panelFieldset).click(function(){
-					var val = $(this).val();
-					app.ext.convertSessionToOrder.u.updatePayDetails(val);
-					app.ext.convertSessionToOrder.vars["want/payby"] = val;
+					app.ext.convertSessionToOrder.u.updatePayDetails($panelFieldset);
+					app.ext.convertSessionToOrder.vars["want/payby"] = $(this).val();
 					$("#chkoutPayOptionsFieldsetErrors").addClass("displayNone");
 					})
 				app.u.dump(" -> app.ext.convertSessionToOrder.vars['want/payby']: "+app.ext.convertSessionToOrder.vars['want/payby'])
@@ -1195,7 +1202,7 @@ after using it, too frequently the dispatch would get cancelled/dominated by ano
 //				app.u.dump(" -> P: "); app.u.dump(P);
 				$('#printContainer').empty();
 				$('body').showLoading(); //indicate to client that button was pressed.
-				app.calls.appProfileInfo.init(P.data.profile,{},'immutable');				
+				app.calls.appProfileInfo.init({'profile':P.data.profile},{},'immutable');				
 				app.ext.convertSessionToOrder.calls.adminOrderDetail.init(orderID,{'callback':'printById','merge':'appProfileInfo|'+P.data.profile,'extension':'convertSessionToOrder','templateID':P.data.type.toLowerCase()+'Template'});
 				app.model.dispatchThis('immutable');
 				},
@@ -1302,8 +1309,7 @@ the dom update for the lineitem needs to happen last so that the cart changes ar
 					app.ext.store_checkout.calls.appPaymentMethods.init("updateCheckoutPayOptions");
 
 					app.calls.refreshCart.init({"callback":"updateCheckoutOrderContents","extension":"convertSessionToOrder"},'immutable');  //updates cart object and reloads order contents panel.
-					
-					
+	
 //lineitem template only gets updated if qty > 1 (less than 1 would be a 'remove').
 					if(qty >= 1)	{
 						app.calls.ping.init(tagObj,'immutable');
@@ -1384,7 +1390,15 @@ the dom update for the lineitem needs to happen last so that the cart changes ar
 
 //copy the billing address from the ID into the form fields.
 				app.ext.convertSessionToOrder.u.setAddressFormFromPredefined(addressClass,$t.attr('data-addressId'));
-				$('#data-bill_email').val() == app.data.cartDetail['bill/email']; //for passive, need to make sure email is updated too.
+
+				if(app.data.cartDetail.bill && app.data.cartDetail.bill.email)	{
+					$('#data-bill_email').val(app.data.cartDetail['bill/email']);
+					}
+				else if(app.data.cartDetail.customer && app.data.cartDetail.customer.cid && app.data['adminCustomerGet|'+app.data.cartDetail.customer.cid])	{
+					$('#data-bill_email').val(app.data['adminCustomerGet|'+app.data.cartDetail.customer.cid]['%CUSTOMER']._EMAIL);
+					}
+				else	{}; //no email recorded yet.
+
 //copy all the billing address fields to the shipping address fields, if appropriate.
 				if($('#want-bill_to_ship').val() == '1') {
 					app.ext.store_checkout.u.setShipAddressToBillAddress();
@@ -1415,7 +1429,7 @@ This was done because it is:
 				app.model.dispatchThis('immutable');
 
 				}, //selectPredefinedAddress
-				
+
 
 //allows for setting of 'ship' address when 'ship to bill' is clicked and a predefined address is selected.
 			setAddressFormFromPredefined : function(addressType,addressId)	{
@@ -1479,6 +1493,7 @@ This was done because it is:
 			
 				},
 
+
 //executed when a coupon is submitted. handles ajax call for coupon and also updates cart.
 			handleCouponSubmit : function()	{
 				$('#chkoutSummaryErrors').empty(); //remove any existing errors.
@@ -1486,6 +1501,7 @@ This was done because it is:
 				app.ext.store_checkout.calls.cartCouponAdd.init($('#couponCode').val(),{"callback":'addCouponToCart',"extension":"convertSessionToOrder"}); 
 				app.model.dispatchThis('immutable');
 				}, //handleCouponSubmit
+
 
 //executed when a giftcard is submitted. handles ajax call for giftcard and also updates cart.
 //no 'loadingbg' is needed on button because entire panel goes to loading onsubmit.
@@ -1496,8 +1512,6 @@ This was done because it is:
 				app.ext.convertSessionToOrder.u.handlePanel('chkoutPayOptions');
 				app.model.dispatchThis('immutable');
 				}, //handleGiftcardSubmit
-
-
 
 
 //X will be a 1 or a 0 for checked/not checked, respectively
@@ -1523,7 +1537,6 @@ don't toggle the panel till after preflight has occured. preflight is done once 
 				
 //				app.u.dump('END app.ext.convertSessionToOrder.u.handleCreateAccountCheckbox');
 				}, //handleCreateAccountCheckbox
-
 
 
 
@@ -1571,7 +1584,6 @@ don't toggle the panel till after preflight has occured. preflight is done once 
 					} //supllemental content has already been added.
 
 				}, //updatePayDetails
-
 
 
 
@@ -1866,9 +1878,20 @@ the refreshCart call can come second because none of the following calls are upd
 						}
 					}
 				} //payMethodsAsRadioButtons
-			}
+			}, //renderFomrats
 
-		
+		e : {
+			
+			"cartItemAdd" : function($btn)	{
+				$btn.button();
+				$btn.off('click.cartItemAdd').on('click.cartItemAdd',function(){
+					var $button = $("<button>").text("Add to Order").button().on('click',function(){
+						$form = $('form','#chooserResultContainer');
+						});
+					app.ext.admin.a.showFinderInModal('CHOOSER','','',{'$buttons' : $button})
+					});
+				}
+			}
 		}
 	return r;
 	}

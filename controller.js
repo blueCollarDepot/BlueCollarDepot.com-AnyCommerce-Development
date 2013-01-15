@@ -130,7 +130,8 @@ copying the template into memory was done for two reasons:
 //			app.u.dump("-> "+id+": "+app.u.getParameterByName(id));
 			if(app.vars[id])	{} //already set, do nothing.
 //check url. these get priority of local so admin/support can overwrite.
-			else if(app.u.getParameterByName(id))	{app.vars[id] = app.u.getParameterByName(id);} 
+//uri ONLY gets checked for support. This is so that on redirects back to our UI from a partner interface don't update auth vars.
+			else if(app.u.getParameterByName('trigger') == 'support' && app.u.getParameterByName(id))	{app.vars[id] = app.u.getParameterByName(id);} 
 			else if(localVars[id])	{app.vars[id] = localVars[id]}
 			else	{app.vars[id] = ''}//set to blank by default.
 			}
@@ -182,7 +183,7 @@ A session ID could be passed in through vars, but app.sessionId isn't set until 
 //check localStorage
 		else if(app.model.fetchSessionId())	{
 			app.calls.appCartExists.init(app.model.fetchSessionId(),{'callback':'handleTrySession','datapointer':'appCartExists'});
-			app.model.dispatchThis('immutable');			
+			app.model.dispatchThis('immutable');
 			}
 		else	{
 			app.calls.getValidSessionID.init('handleNewSession');
@@ -242,6 +243,20 @@ _gaq.push(['_trackEvent','Authentication','User Event','Logged in through Facebo
 					app.model.addDispatchToQ(obj,'immutable');
 					}
 				}, //zoovy
+			
+			buyerLogout : {
+				init : function(obj,tagObj)	{
+					this.dispatch(obj,tagObj);
+					return 1;
+					},
+				dispatch : function(obj,tagObj)	{
+					obj["_cmd"] = "buyerLogout";
+					obj["_tag"] = tagObj;
+					obj["_tag"]["datapointer"] = "buyerLogout";
+					app.model.addDispatchToQ(obj,'immutable');
+					}
+				}, //appBuyerLogout
+			
 			authAdminLogout : {
 				init : function(tagObj)	{
 					this.dispatch(tagObj);
@@ -251,15 +266,7 @@ _gaq.push(['_trackEvent','Authentication','User Event','Logged in through Facebo
 					app.model.addDispatchToQ({'_cmd':'authAdminLogout',"_tag":tagObj},'immutable');
 					}
 				}, //authAdminLogout
-			accountLogout : {
-				init : function(obj,tagObj)	{
-					this.dispatch(obj,tagObj);
-					return 1;
-					},
-				dispatch : function(obj,tagObj){
 
-					}				
-				},
 			accountLogin : {
 				init : function(obj,tagObj)	{
 					this.dispatch(obj,tagObj);
@@ -303,6 +310,92 @@ _gaq.push(['_trackEvent','Authentication','User Event','Logged in through Facebo
 				app.model.addDispatchToQ({"_cmd":"appCartCreate","_tag":tagObj},'immutable');
 				}
 			},//getValidSessionID
+
+
+
+
+
+		appCategoryDetail : {
+			init : function(obj,_tag,Q)	{
+				if(obj && obj.safe)	{
+					var r = 0; //will return 1 if a request is needed. if zero is returned, all data needed was in local.
+					_tag = _tag || {};
+					_tag.datapointer = 'appCategoryDetail|'+obj.safe;
+					
+//the model will add the value of _tag.detail into the response so it is stored in the data and can be referenced for future comparison.
+					if(obj.detail)	{_tag.detail = obj.detail} else {}
+					
+//if no detail or detail = fast, but anything is in memory, use it.
+					if(app.model.fetchData(_tag.datapointer) && (!obj.detail || obj.detail=='fast'))	{
+						app.u.handleCallback(_tag)
+						}
+//max is the highest level, so if we have that already, just use it.
+					else if(app.data[_tag.datapointer] && app.data[_tag.datapointer].detail == 'max')	{
+						app.u.handleCallback(_tag);
+						}
+					else if (obj.detail == 'more' && (app.data[_tag.datapointer] && (!app.data[_tag.datapointer].detail == 'more' || app.data[_tag.datapointer].detail == 'max')))	{
+						app.u.handleCallback(_tag);
+						}
+					else 	{
+						r += 1;
+						this.dispatch(obj,_tag,Q);
+						}
+					}
+				else	{
+					app.u.throwGMessage("In calls.appCategoryDetail, obj.safe not passed.");
+					app.u.dump(obj);
+					}
+				return r;
+				},
+			dispatch : function(obj,_tag,Q)	{
+				obj._cmd = "appCategoryDetail";
+				obj._tag = _tag;
+				app.model.addDispatchToQ(obj,Q);	
+				}
+			},//appCategoryDetail
+
+
+
+//get a product record.
+//required params: obj.pid.
+//optional params: obj.withInventory and obj.withVariations
+		appProductGet : {
+			init : function(obj,_tag,Q)	{
+				var r = 0; //will return 1 if a request is needed. if zero is returned, all data needed was in local.
+				if(obj && obj.pid)	{
+					if(typeof obj.pid === 'string')	{obj.pid = obj.pid.toUpperCase();} //will error if obj.pid is a number.
+					
+					_tag = _tag || {};
+					_tag.datapointer = "appProductGet|"+obj.pid;
+//The fetchData will put the data into memory if present, so safe to check app.data... after here.
+					if(app.model.fetchData(_tag.datapointer) == false)	{
+						r = 1;
+						this.dispatch(obj,_tag,Q)
+						}
+//if variations or options are requested, check to see if they've been retrieved before proceeding.
+					else if((obj.withVariations && app.data[_tag.datapointer]['@variations'] === undefined) || (obj.withInventory && app.data[_tag.datapointer]['@inventory'] === undefined))	{
+						r = 1;
+						this.dispatch(obj,_tag,Q);
+						}
+					else 	{
+						app.u.handleCallback(_tag);
+						}
+					}
+				else	{
+					app.u.throwGMessage("In calls.appProductGet, required parameter pid was not passed");
+					app.u.dump(obj);
+					}
+				return r;
+				},
+			dispatch : function(obj,_tag,Q)	{
+				obj["_cmd"] = "appProductGet";
+ 				obj["_tag"] = _tag;
+				app.model.addDispatchToQ(obj,Q);
+				}
+			}, //appProductGet
+
+
+
 
 
 //always uses immutable Q
@@ -384,27 +477,30 @@ _gaq.push(['_trackEvent','Authentication','User Event','Logged in through Facebo
 
 			
 		appProfileInfo : {
-			init : function(profileID,tagObj,Q)	{
-//				app.u.dump("BEGIN app.calls.appProfileInfo.init");
+			init : function(obj,_tag,Q)	{
 				var r = 0; //will return 1 if a request is needed. if zero is returned, all data needed was in local.
-				tagObj = typeof tagObj == 'object' ? tagObj : {};
-				tagObj.datapointer = 'appProfileInfo|'+profileID; //for now, override datapointer for consistency's sake.
+				if(typeof obj == 'object' && (obj.profile || obj.sdomain))	{
+					_tag = _tag || {};
+					_tag.datapointer = 'appProfileInfo|'+(obj.profile || obj.sdomain);
 
-				if(app.model.fetchData(tagObj.datapointer) == false)	{
-					r = 1;
-					this.dispatch(profileID,tagObj,Q);
+					if(app.model.fetchData(_tag.datapointer) == false)	{
+						r = 1;
+						this.dispatch(obj,_tag,Q);
+						}
+					else 	{
+						app.u.handleCallback(_tag)
+						}
 					}
-				else 	{
-					app.u.handleCallback(tagObj)
+				else	{
+					app.u.throwGMessage("In calls.appProfileGet, obj either missing or missing profile or sdomain var.");
+					app.u.dump(obj);
 					}
 
 				return r;
 				}, // init
-			dispatch : function(profileID,tagObj,Q)	{
-				obj = {};
+			dispatch : function(obj,_tag,Q)	{
 				obj['_cmd'] = "appProfileInfo";
-				obj['profile'] = profileID;
-				obj['_tag'] = tagObj;
+				obj['_tag'] = _tag;
 				app.model.addDispatchToQ(obj,Q);
 				} // dispatch
 			}, //appProfileInfo
@@ -577,7 +673,7 @@ app.u.handleCallback(tagObj);
 
 		handleCallback : function(tagObj)	{
 //			app.u.dump("BEGIN u.handleCallback");
-			if(tagObj && tagObj.datapointer){app.data[tagObj.datapointer]['_rtag'] = tagObj} //updates obj in memory to have latest callback.
+//			if(tagObj && tagObj.datapointer && ){app.data[tagObj.datapointer]['_rtag'] = tagObj} //updates obj in memory to have latest callback. -> commented out 2012-12-21. this shouldn't be needed in data.
 			if(tagObj && tagObj.callback){
 //				app.u.dump(" -> callback exists");
 //				app.u.dump(tagObj.callback);
@@ -814,7 +910,7 @@ and model that needed to be permanently displayed had to be converted into an ob
 
 
 		errMsgObject : function(msg,errid)	{
-			return {'errid':errid,'errmsg':msg,'errtype':'apperr','uiIcon':'alert','uiClass':'error'}
+			return {'errid':errid || '#','errmsg':msg,'errtype':'apperr','uiIcon':'alert','uiClass':'error'}
 			},
 		statusMsgObject : function(msg)	{
 			return {'errid':'#','errmsg':msg,'errtype':'statusupdate','uiIcon':'transferthick-e-w','uiClass':'statusupdate'}
@@ -964,7 +1060,7 @@ AUTHENTICATION/USER
 //## allow for targetID to be passed in.
 		logBuyerOut : function()	{
 // ,'targetID':'logMessaging' was removed from the line below in 201239 to give more flexibility to apps. add a class of appMessaging to your app and the log will appear there.
-			app.calls.authentication.zoovyLogout.init({'callback':'showMessaging','message':'Thank you, you are now logged out'});
+			app.calls.authentication.buyerLogout.init({'callback':'showMessaging','message':'Thank you, you are now logged out'});
 			app.calls.refreshCart.init({},'immutable');
 			app.vars.cid = null; //nuke cid as it's used in the soft auth.
 			app.model.dispatchThis('immutable');
@@ -1115,7 +1211,8 @@ TIME/DATE
 			if(showtime)	{
 				r += " ";
 				r += date.getHours();
-				r += ':'+date.getMinutes();
+				r += ':'
+				r += (date.getMinutes() < 10) ? "0"+date.getMinutes()  : date.getMinutes();
 				}
 			return r;
 			},
@@ -1561,14 +1658,14 @@ name Mod 10 or Modulus 10. */
 
 		//found here: http://www.blog.zahidur.com/usa-and-canada-zip-code-validation-using-javascript/
 		 isValidPostalCode : function(postalCode,countryCode) {
+			 app.u.dump("BEGIN app.u.isValidPostalCode. countryCode: "+countryCode);
 			var postalCodeRegex;
 			switch (countryCode) {
 				case "US":
 					postalCodeRegex = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/;
 					break;
 				case "CA":
-			/* postalCodeRegex = /^([A-Z][0-9][A-Z])\s*([0-9][A-Z][0-9])$/; */
-					postalCodeRegex = /^([a-zA-Z][0-9][a-zA-Z])\s*([0-9][a-zA-Z][0-9])$/
+					postalCodeRegex = /^([a-zA-Z][0-9][a-zA-Z])\s*([0-9][a-zA-Z][0-9])?$/;
 					break;
 				default:
 					postalCodeRegex = /^(?:[A-Z0-9]+([- ]?[A-Z0-9]+)*)?$/;
@@ -1620,7 +1717,8 @@ later, it will handle other third party plugins as well.
 				},
 
 
-//Removing all ID's. Using this in UI. will update checkout to use this too.
+//Removing all ID's. Using this in UI. will update checkout to use this too once 201248+ released. 201248 is used by 1PC and it's xmas time
+//The names are also updated to use the new two char codes used by the paymentQ.
 			getSupplementalPaymentInputs2 : function(paymentID,data)	{
 //				app.u.dump("BEGIN control.u.getSupplementalPaymentInputs ["+paymentID+"]");
 //				app.u.dump(" -> data:"); app.u.dump(data);
@@ -1634,39 +1732,26 @@ later, it will handle other third party plugins as well.
 					case 'PAYPALEC' :
 					//paypal supplemental is used for some messaging (select another method or change due to error). leave this here.
 						break;
+
 					case 'CREDIT':
-						tmp += "<label>Credit Card # <input type='text' size='20' name='payment/CC' value='";
-						if(data['payment/CC']){tmp += data['payment/CC']}
-						tmp += "' onKeyPress='return app.u.numbersOnly(event);' /><\/label>";
+						tmp += "<label>Credit Card # <input type='text' size='20' name='CC' value='"+(data['CC'] || "")+"' onKeyPress='return app.u.numbersOnly(event);' /><\/label>";
 //two selects inside a label behaved badly, so  div is used for the container on this row.
-						tmp += "<div>Expiration <select name='payment/MM' required='required'><option><\/option>";
-						tmp += app.u.getCCExpMonths(data['payment/MM']);
+						tmp += "<div>Expiration <select name='MM'><option><\/option>";
+						tmp += app.u.getCCExpMonths(data['MM']);
 						tmp += "<\/select>";
-						tmp += "<select name='payment/YY' required='required'><option value=''><\/option>"+app.u.getCCExpYears(data['payment/YY'])+"<\/select><\/div>";
-						
-						tmp += "<label>CVV/CID <input type='text' size='8' name='payment/CV' onKeyPress='return app.u.numbersOnly(event);' value='";
-						if(data['payment/CV']){tmp += data['payment/CV']}
-						tmp += "'  required='required' /> <span class='ui-icon ui-icon-help pointer' onClick=\"$('#cvvcidHelp').dialog({'modal':true,height:400,width:550});\"></span><\/label>";
+						tmp += "<select name='YY'><option value=''><\/option>"+app.u.getCCExpYears(data['YY'])+"<\/select><\/div>";
+						tmp += "<label>CVV/CID <input type='text' size='8' name='CV' onKeyPress='return app.u.numbersOnly(event);' value='" + (data['CV'] || "") + "'  /> <span class='ui-icon ui-icon-help pointer' onClick=\"$('#cvvcidHelp').dialog({'modal':true,height:400,width:550});\"></span><\/label>";
 						break;
-	
+
 					case 'PO':
-						tmp += "<label>PO #<input type='text' size='15' name='payment/PO' id='payment-po' class=' purchaseOrder' onChange='app.calls.cartSet.init({\"payment/PO\":this.value});' value='";
-						if(data['payment/PO'])
-								tmp += data['payment/PO'];
-						tmp += "' /><\/label>";
+						tmp += "<label>PO #<input type='text' size='15' name='PO' class=' purchaseOrder' value='"+ (data['PO'] || "") +"' /><\/label>";
 						break;
-	
+
 					case 'ECHECK':
-						var echeckFields = {"payment/EA" : "Account #","payment/ER" : "Routing #","payment/EN" : "Account Name","payment/EB" : "Bank Name","payment/ES" : "Bank State","payment/EI" : "Check #"}
+						var echeckFields = {"EA" : "Account #","ER" : "Routing #","EN" : "Account Name","EB" : "Bank Name","ES" : "Bank State","EI" : "Check #"}
 						for(var key in echeckFields) {
 							safeid = app.u.makeSafeHTMLId(key);
-//the info below is added to the pdq but not immediately dispatched because it is low priority. this could be changed if needed.
-//The field is required in checkout. if it needs to be optional elsewhere, remove the required attribute in that code base after this has rendered.
-							tmp += "<label>"+echeckFields[key]+"<input type='text' size='15' name='"+key+"' value='";
-//if the value for this field is set in the data object (cart or invoice), set it here.
-							if(data[key])
-								tmp += data[key];
-							tmp += "' /><\/label>";
+							tmp += "<label>"+echeckFields[key]+"<input type='text' size='15' name='"+key+"' value='" + (data[key] || "") + "' /><\/label>";
 							}
 						break;
 					default:
@@ -1675,9 +1760,7 @@ later, it will handle other third party plugins as well.
 					}
 				if($o != false)	{$o.append(tmp)} //put the li contents into the ul for return.
 				return $o;
-//				app.u.dump(" -> $o:");
-//				app.u.dump($o);
-			},
+				},
 
 
 // This function is in the controller so that it can be kept fairly global. It's used in checkout, store_crm (buyer admin) and will likely be used in admin (orders) at some point.
@@ -1937,7 +2020,7 @@ $r.find('[data-bind]').each(function()	{
 				}
 			if(!app.u.isSet(value) && bindData.defaultValue)	{
 				value = bindData['defaultValue']
-				app.u.dump(' -> used defaultValue ("'+bindData.defaultValue+'") because var had no value.');
+//				app.u.dump(' -> used defaultValue ("'+bindData.defaultValue+'") because var had no value.');
 				}
 			}
 		
@@ -2049,8 +2132,8 @@ return $r;
 			r = v.replace(/.*\(|\)/gi,'');
 			return r;
 			},
-		
-		
+
+
 //as part of the data-bind is a var: for the data location (product: or cart:).
 //this is used to parse that to get to the data.
 //if no namespace is passed (zoovy: or user:) then the 'root' of the object is used.
@@ -2126,12 +2209,15 @@ return $r;
 
 		imageURL : function($tag,data){
 //				app.u.dump('got into displayFunctions.image: "'+data.value+'"');
-			var bgcolor = data.bindData.bgcolor ? data.bindData.bgcolor : 'ffffff'
+			data.bindData.bgcolor = data.bindData.bgcolor || 'ffffff'
 //			app.u.dump(" -> width: "+$tag.width());
 			if(data.value)	{
-				var imgSrc = app.u.makeImage({'tag':0,'w':$tag.attr('width'),'h':$tag.attr('height'),'name':data.value,'b':bgcolor});
-//				app.u.dump('IMGSRC => '+imgSrc);
-				$tag.attr('src',imgSrc);
+//set some recommended/required params.
+				data.bindData.name = data.value;
+				data.bindData.w = $tag.attr('width');
+				data.bindData.h = $tag.attr('height');
+				data.bindData.tag = 0;
+				$tag.attr('src',app.u.makeImage(data.bindData)); //passing in bindData allows for using
 				}
 			else	{
 				$tag.css('display','none'); //if there is no image, hide the src. 
@@ -2321,12 +2407,20 @@ $tmp.empty().remove();
 				}
 			$tag.html(o);
 			}, //text
+
 //for use on inputs. populates val() with the value
 		popVal : function($tag,data){
 			$tag.val(data.value);
 			}, //text
 
-
+//only use this on fields where the value is b
+		popCheckbox : function($tag,data){
+//			app.u.dump(" -> data.value: "+data.value);
+			if(Number(data.value))	{$tag.attr('checked',true);}
+			else if(data.value === 'on')	{$tag.attr('checked',true);}
+			else if(data.value == true)	{$tag.attr('checked',true);}
+			else{} //shouldn't get here if data.value isn't populated.
+			},
 
 
 //will allow an attribute to be set on the tag. attribute:data-stid;var: product(sku); would set data-stid='sku' on tag
