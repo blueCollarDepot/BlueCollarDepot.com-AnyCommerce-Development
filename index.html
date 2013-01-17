@@ -663,6 +663,7 @@ this will likely become more flexible in the future. ###
 	</td>
 
 	<td class='prodSummaryContainer marginBottom no_underline'>
+	<img class="hrcImg" src='blank.gif' data-bind="var: product(user:prod_hazardrisk); format:hrcImgFormat;" />
 	<h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
 	
 	<h5 class='stid' data-bind='var: product(pid); format:text; pretext: Sku: ;'></h5>
@@ -685,7 +686,6 @@ this will likely become more flexible in the future. ###
 	
 <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
 	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div>
-	
 	
 	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
 	

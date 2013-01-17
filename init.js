@@ -138,6 +138,13 @@ app.u.loadApp = function() {
 //will pass in the page info object. (pageType, templateID, pid/navcat/show and more)
 app.u.appInitComplete = function(P)	{
 	app.u.dump("Executing myAppIsLoaded code...");
+	app.renderFormats.hrcImgFormat = function($tag, data)
+		{
+			if(data.value > 0)
+			{
+				$tag.attr("src","img/hazard-risk-category-" + data.value + ".png");
+			}			
+		}
 	}
 
 

@@ -638,3 +638,8 @@ ul.breadcrumb li:first-child a:visited
 {
 	color: purple;
 }
+
+img.hrcImg
+{
+	float: right;
+}
