@@ -33,7 +33,7 @@ var myCreole;
 	"httpURL":"http://www.stage3motorsports.com/"
 	},u:{},rq:[]};*/
 var app = {vars:{ 
-	"release":"20130116131700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130116131700o",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.bluecollardepot.com/",
 	"httpURL":"http://www.bluecollardepot.com/"
@@ -91,20 +91,23 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
 <table>
-<tr>
-	<td><!-- put logo here 
-    <img src="img/BlueCollarDepot_D04a3a1_a.gif" width="389" height="233" alt="img">--></td>
-	<td>
-	<h3>One moment please.</h3> 
-	
-	<div class='alignCenter'>
-	<progress id="appPreViewProgressBar" max="100" value="0" /><br />
-	</div>
-	<div id='appPreViewProgressText'>0% Complete</div>
-	
-	<div class='appMessaging'class='displayNone'></div>
-	</td>
-</tr>
+	<tr>
+		<td>
+			<img src="img/blue-collar-depot-logo.png" alt="Blue Collar Depot Logo" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<h3>One moment please.</h3> 
+		
+		<div class='alignCenter'>
+		<progress id="appPreViewProgressBar" max="100" value="0" /><br />
+		</div>
+		<div id='appPreViewProgressText'>0% Complete</div>
+		
+		<div class='appMessaging'class='displayNone'></div>
+		</td>
+	</tr>
 </table>
 </div>
 

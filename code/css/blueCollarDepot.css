@@ -1,3 +1,8 @@
+div#appPreView
+{
+	margin: 100px auto;
+	width: 255px;
+}
 div#header
 {
 	background: url('../../img/blue-collar-depot-header-background.png') repeat-x;
@@ -642,4 +647,8 @@ ul.breadcrumb li:first-child a:visited
 img.hrcImg
 {
 	float: right;
+}
+
+.tabContent ul li {
+  list-style: disc outside none;
 }
