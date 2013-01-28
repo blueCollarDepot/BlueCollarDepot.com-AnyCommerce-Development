@@ -649,6 +649,10 @@ img.hrcImg
 	float: right;
 }
 
-.tabContent ul li {
-  list-style: disc outside none;
+.tabContent ul
+{
+	margin-left: 20px;
 }
+	.tabContent ul li {
+	  list-style: disc outside none;
+	}
