@@ -653,6 +653,7 @@ img.hrcImg
 {
 	margin-left: 20px;
 }
-	.tabContent ul li {
+	.tabContent ul li 
+	{
 	  list-style: disc outside none;
 	}
