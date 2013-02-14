@@ -5,7 +5,7 @@ div#appPreView
 }
 div#header
 {
-	background: url('../../img/blue-collar-depot-header-background.png') repeat-x;
+	background: url('../images/blue-collar-depot-header-background.png') repeat-x;
 	height: 202px;
 	position: relative;
 	width: 100%;
@@ -220,7 +220,7 @@ div#header
 				}
 div#content
 {
-	background: url('../../img/blue-collar-depot-content-background.png') repeat;
+	background: url('../images/blue-collar-depot-content-background.png') repeat;
 	position: relative;
 	width: 100%;
 }
@@ -546,7 +546,7 @@ div.catName
 
 ul.breadcrumb
 {
-	background: url('../../img/blue-collar-depot-content-background.png') repeat;
+	background: url('../images/blue-collar-depot-content-background.png') repeat;
 	font-family: Tahoma;
 	font-size: 12px;
 	height: 42px;
