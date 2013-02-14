@@ -153,7 +153,7 @@ div#header
 								padding: 10px 19px 16px 19px;
 								text-shadow: 1px 1px 1px #646464;
 							}						
-					div#header div#headerContent div#nav div#menu > ul > li > div.subMenu/*, div#header div#headerContent div#nav div#menu > ul > li > div.subMenu ul*/
+					div#header div#headerContent div#nav div#menu > ul > li > div.subMenu
 					{
 						border-top: 3px solid #2d70c1;
 						display: none;
@@ -656,4 +656,4 @@ img.hrcImg
 	.tabContent ul li 
 	{
 	  list-style: disc outside none;
-	}
+	} 
