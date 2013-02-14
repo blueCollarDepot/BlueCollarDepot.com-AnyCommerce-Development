@@ -153,7 +153,7 @@ div#header
 								padding: 10px 19px 16px 19px;
 								text-shadow: 1px 1px 1px #646464;
 							}						
-					div#header div#headerContent div#nav div#menu > ul li ul.subMenu 
+					div#header div#headerContent div#nav div#menu > ul > li > div.subMenu/*, div#header div#headerContent div#nav div#menu > ul > li > div.subMenu ul*/
 					{
 						border-top: 3px solid #2d70c1;
 						display: none;
@@ -161,7 +161,7 @@ div#header
 						position: absolute;
 						top: 33px;
 					}					
-						div#header div#headerContent div#nav div#menu > ul li ul.subMenu li
+						div#header div#headerContent div#nav div#menu > ul > li > div.subMenu > ul > li
 						{
 							background-color: #FFFFFF;
 							border-left: 0px solid #FFFFFF;
@@ -172,7 +172,7 @@ div#header
 							position: relative;
 							width: 190px;
 						}	
-							div#header div#headerContent div#nav div#menu > ul li ul.subMenu li a
+							div#header div#headerContent div#nav div#menu > ul > li > div.subMenu > ul > li > a
 							{	
 								color: #0a3b74;
 								left: 20px;
@@ -182,7 +182,7 @@ div#header
 								text-decoration: none;
 								top: 6px;
 							}
-								div#header div#headerContent div#nav div#menu > ul li ul.subMenu li a:hover
+								div#header div#headerContent div#nav div#menu > ul > li > div.subMenu > ul > li > a:hover
 								{	
 									background-color: #FFFFFF;
 									border: 0px solid #FFFFFF;

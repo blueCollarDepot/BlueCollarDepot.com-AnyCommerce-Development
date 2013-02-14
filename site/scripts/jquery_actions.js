@@ -7,7 +7,7 @@ $(document).ready(function()
     	prev:   '.slideForwardButton' 
  	});
  	
- 	$("ul.subMenu").mouseover(function()
+ 	$("div.subMenu").mouseover(function()
  	{
 		$(this).siblings("a").css("background-color","#2d70c1");
 		$(this).siblings("a").css("border","1px solid #0a3c76");
@@ -16,23 +16,23 @@ $(document).ready(function()
 		$(this).siblings("a").css("padding","10px 19px 16px 19px");
 		$(this).siblings("a").css("text-shadow","1px 1px 1px #646464");		
  	});
- 	$("ul.subMenu").mouseout(function()
+ 	$("div.subMenu").mouseout(function()
  	{
 		$(this).siblings("a").attr("style","");
  	}); 	
- 	$("div#nav div#menu ul li").mouseover(function()
+ 	$("div#nav div#menu > ul > li").mouseover(function()
  	{
- 		if($(this).has("ul").length)
+ 		if($(this).has("div").length)
  		{
- 			$(this).children("ul").show();
+ 			$(this).children("div").show();
  		}
  	});
  	
- 	$("div#nav div#menu ul li").mouseout(function()
+ 	$("div#nav div#menu > ul > li").mouseout(function()
  	{
- 		if($(this).has("ul").length)
+ 		if($(this).has("div").length)
  		{
- 			$(this).children("ul").hide();
+ 			$(this).children("div").hide();
  		}
  	});		
 
