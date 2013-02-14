@@ -77,7 +77,8 @@ div#header
 			position: absolute;
 			right: 10px;
 			top: 115px;
-			width: 593px;
+			/*width: 593px;*/
+			width: 600px; /* ADDED FOR IE */
 		}		
 			div#header div#headerContent div#info img
 			{
@@ -657,9 +658,3 @@ img.hrcImg
 	{
 	  list-style: disc outside none;
 	}
-
-/* ADDED FOR IE */
-div#header div#headerContent div#info
-{
-	width: 600px;
-}
