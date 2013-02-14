@@ -659,7 +659,7 @@ img.hrcImg
 	}
 
 /* ADDED FOR IE */
-div#info
+div#header div#headerContent div#info
 {
 	width: 600px;
 }
