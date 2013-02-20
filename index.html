@@ -12,7 +12,7 @@
 <meta property="og:description" content="" id='ogDescription' />
 
 
-<base href='http://55ba36a5fb.pop.zoovy.net/' /><!-- leave blank so it works for a local file -->
+<base href='' /><!-- leave blank so it works for a local file -->
 
 
 
@@ -33,10 +33,10 @@ var myCreole;
 	"httpURL":"http://www.stage3motorsports.com/"
 	},u:{},rq:[]};*/
 var app = {vars:{ 
-	"release":"20130219223000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130220130100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
-	"httpsURL":"https://ssl.zoovy.com/s=55ba36a5fb.pop.zoovy.net/",
-	"httpURL":"http://55ba36a5fb.pop.zoovy.net/"
+	"httpsURL":"https://ssl.zoovy.com/s=www.bluecollardepot.com/",
+	"httpURL":"http://www.bluecollardepot.com/"
 	},u:{},rq:[]};
 /*var app = {vars:{ 
 	"release":"20121206122900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
@@ -59,16 +59,25 @@ all css includes need to be after the js that changes the base url.
 css files should be included before any .js file to ensure they are downloaded in parallel
 -->
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/redmond/jquery-ui.css" />
-<link rel="stylesheet" href="site/styles/reset.css" />
-<link rel="stylesheet" href="site/styles/blueCollarDepot.css" />
-<!--[if IE]><link rel="stylesheet" href="site/styles/blueCollarDepot_ie.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
+<link rel="stylesheet"href="code/css/reset.css"  >
+<!--<link rel="stylesheet"href="code/css/text.css" >
+<link rel="stylesheet"href="code/css/960.css" >-->
+<link rel="stylesheet" href="code/css/blueCollarDepot.css">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<!--[if lt IE 8]><link rel="stylesheet" href="../../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
+<!--<script type="text/javascript" src="slides.min.jquery.js"></script>-->
+<script type="text/javascript" src="jquery.cycle.all.js"></script>
 <script type="text/javascript" src="jquery.ui.widget.min.js"></script> 
 <script type="text/javascript" src="customTabs.js"></script>
-<script type="text/javascript" src="site/scripts/jquery.cycle.all.js"></script>
+
+
+
 
 <script type="text/javascript">
 app.u.loadScript(app.vars.baseURL+"init.js");
@@ -82,25 +91,22 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
 <table>
-	<tr>
-		<td>
-			<img src="site/images/blue-collar-depot-logo.png" alt="Blue Collar Depot Logo" />
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<h3>One moment please.</h3> 
-		 
-		<div class='alignCenter'>
-		<progress id="appPreViewProgressBar" max="100" value="0" /><br />
-		</div>
-		<div id='appPreViewProgressText'>0% Complete</div>
-		 
-		<div class='appMessaging'class='displayNone'></div>
-		</td>
-	</tr>
+<tr>
+	<td><!-- put logo here 
+    <img src="img/BlueCollarDepot_D04a3a1_a.gif" width="389" height="233" alt="img">--></td>
+	<td>
+	<h3>One moment please.</h3> 
+	
+	<div class='alignCenter'>
+	<progress id="appPreViewProgressBar" max="100" value="0" /><br />
+	</div>
+	<div id='appPreViewProgressText'>0% Complete</div>
+	
+	<div class='appMessaging'class='displayNone'></div>
+	</td>
+</tr>
 </table>
-</div> 
+</div>
 
 
 
@@ -109,20 +115,20 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 			<div id="headerContent">
 				<ul id="userNav">
 					<li><a href="#" onClick="return showContent('customer',{'show' : 'myaccount'});">My Account</a>|</li>
-					<li><a href="#" onclick="showContent('company',{'show':'contact'});">Contact</a>|</li>
+					<li><a href="#" onClick="showContent('company',{'show':'contact'});">Contact</a>|</li>
 					<li><a href="#" onClick="return showContent('customer',{'show' : 'lists'});">Wish Lists</a>|</li>
 					<li><a href="#" onClick="return showContent('category',{'navcat' : '.gift-certificates'});">Gift Certificates</a></li>
 				</ul>
 				<a id="logo" href="#" onClick="return showContent('category',{'navcat' : '.'});">
-					<img src="site/images/blue-collar-depot-logo.png" alt="Blue Collar Depot Logo" />
+					<img src="img/blue-collar-depot-logo.png" alt="Blue Collar Depot Logo" />
 				</a>
 				<p id="callUs">
 					Call us on (877) 855-8566
 				</p>
 				<div id="info">
-					<img src="site/images/info-free-returns.png" alt="Free Returns on Products Exchanges" onclick="showContent('company',{'show':'returns'});"/>
-					<img src="site/images/info-best-price-guaranteed.png" alt="120% Price Watch - Best Price Guaranteed" onClick="return showContent('category',{'navcat' : '.price-watch'});" />
-					<a href="#" onClick="return showContent('cart',{});"><img src="site/images/info-view-cart.png" alt="View Cart" /></a>
+					<img src="img/info-free-returns.png" alt="Free Returns on Products Exchanges" onClick="showContent('company',{'show':'returns'});"/>
+					<img src="img/info-best-price-guaranteed.png" alt="120% Price Watch - Best Price Guaranteed" onClick="return showContent('category',{'navcat' : '.price-watch'});" />
+					<a href="#" onClick="return showContent('cart',{});"><img src="img/info-view-cart.png" alt="View Cart" /></a>
 				</div>
 				<div id="nav">
 					<div id="menu">
@@ -130,80 +136,70 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 							<li><a href="#" onClick="return showContent('category',{'navcat' : '.'});">Home</a></li>
 							<li>
 								<a href="#" onClick="return showContent('category',{'navcat' : '.automotive'});">Automotives</a>
-								<div class="subMenu">
-									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Hats & Caps</a></li>
-										<li><a href="#">Jerseys</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Sweatshirts & Jackets</a></li>
-										<li><a href="#">Personalized Gear</a></li>
-										<li><a href="#">Team Clothing & Apparel</a></li>	
-									</ul>
-								</div>
+								<ul class="subMenu">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Hats & Caps</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Shirts</a></li>
+									<li><a href="#">Sweatshirts & Jackets</a></li>
+									<li><a href="#">Personalized Gear</a></li>
+									<li><a href="#">Team Clothing & Apparel</a></li>	
+								</ul>
 							</li>
 							<li>
 								<a href="#" onClick="return showContent('category',{'navcat' : '.industrial'});">Industrial</a>
-								<div class="subMenu">
-									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Hats & Caps</a></li>
-										<li><a href="#">Jerseys</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Sweatshirts & Jackets</a></li>
-										<li><a href="#">Personalized Gear</a></li>
-										<li><a href="#">Team Clothing & Apparel</a></li>	
-									</ul>
-								</div>
+								<ul class="subMenu">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Hats & Caps</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Shirts</a></li>
+									<li><a href="#">Sweatshirts & Jackets</a></li>
+									<li><a href="#">Personalized Gear</a></li>
+									<li><a href="#">Team Clothing & Apparel</a></li>	
+								</ul>
 							</li>
 							<li>
 								<a href="#" onClick="return showContent('category',{'navcat' : '.flame-resistant'});">Flame Resistant
 								</a>
-								<div class="subMenu">
-									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Hats & Caps</a></li>
-										<li><a href="#">Jerseys</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Sweatshirts & Jackets</a></li>
-										<li><a href="#">Personalized Gear</a></li>
-										<li><a href="#">Team Clothing & Apparel</a></li>	
-									</ul>
-								</div>
+								<ul class="subMenu">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Hats & Caps</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Shirts</a></li>
+									<li><a href="#">Sweatshirts & Jackets</a></li>
+									<li><a href="#">Personalized Gear</a></li>
+									<li><a href="#">Team Clothing & Apparel</a></li>	
+								</ul>
 							</li>
 							<li>
 								<a href="#" onClick="return showContent('category',{'navcat' : '.restaurant'});">Restaurant</a>
-								<div class="subMenu">
-									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Hats & Caps</a></li>
-										<li><a href="#">Jerseys</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Sweatshirts & Jackets</a></li>
-										<li><a href="#">Personalized Gear</a></li>
-										<li><a href="#">Team Clothing & Apparel</a></li>										
-									</ul>
-								</div>
+								<ul class="subMenu">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Hats & Caps</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Shirts</a></li>
+									<li><a href="#">Sweatshirts & Jackets</a></li>
+									<li><a href="#">Personalized Gear</a></li>
+									<li><a href="#">Team Clothing & Apparel</a></li>	
+								</ul>
 							</li>
 							<li>
 								<a href="#" onClick="return showContent('category',{'navcat' : '.embroidery'});">Embroidery</a>
-								<div class="subMenu">
-									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Hats & Caps</a></li>
-										<li><a href="#">Jerseys</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Sweatshirts & Jackets</a></li>
-										<li><a href="#">Personalized Gear</a></li>
-										<li><a href="#">Team Clothing & Apparel</a></li>	
-									</ul>
-								</div>
+								<ul class="subMenu">
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Hats & Caps</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Shirts</a></li>
+									<li><a href="#">Sweatshirts & Jackets</a></li>
+									<li><a href="#">Personalized Gear</a></li>
+									<li><a href="#">Team Clothing & Apparel</a></li>	
+								</ul>
 							</li>
 						</ul>
 					</div>
 					<div id="search">
-						<img id="searchBox" src="site/images/search-box.png" alt="Search Box" />
-						<img id="btnSearch" src="site/images/search-white.png" alt="Search Button" />
+						<img id="searchBox" src="img/search-box.png" alt="Search Box" />
+						<img id="btnSearch" src="img/search-white.png" alt="Search Button" />
 						<form id="headerSearchFrm" name="headerSearchFrm" action="#" class="productSearchForm" method="get">
 							<input id="txtSearch" name="KEYWORDS" type="text" value="Search..." class="productSearchKeyword handleDefault" />
 						</form>
@@ -215,11 +211,11 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 			<div id="contentBody">
 				<div class="slideShowContainer">
 					<div class="slideShow">
-						<img class="slidePic" src="site/images/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
-						<img class="slidePic" src="site/images/blue-collar-depot-slideshow-2.png" alt="Blue Collar Depot Slideshow" />
+						<img class="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
+						<img class="slidePic" src="img/blue-collar-depot-slideshow-2.png" alt="Blue Collar Depot Slideshow" />
 					</div>
-					<a class="slideBackButton" href="#"><img src="site/images/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" /></a>
-					<a class="slideForwardButton" href="#"><img src="site/images/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" /></a>		
+					<a class="slideBackButton" href="#"><img src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" /></a>
+					<a class="slideForwardButton" href="#"><img src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" /></a>		
 				</div>
 				<!-- VIEW CONTENT -->
 				<!-- leave the appView div, put your your html here ...  -->
@@ -245,31 +241,31 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 					<div class="footModal">
 						<p>Business To Business</p>
 						<div>
-							<p>We supply directly to businesses, schools, local and state government. <a href="#" onClick="return showContent('category',{'navcat' : '.b2b'});">Learn more &#187;</a></p>
-							<img src="site/images/read-more.png" alt="Read more" onClick="return showContent('category',{'navcat' : '.b2b'});" />
+							<p>We supply directly to businesses, schools, local and state government. <a href="#" onClick="return showContent('category',{'navcat' : '.b2b'});">Learn more »</a></p>
+							<img src="img/read-more.png" alt="Read more" onClick="return showContent('category',{'navcat' : '.b2b'});" />
 						</div>
 					</div>
 					<div class="footModal">
 						<p>Free Shipping & Returns</p>
 						<div>
 							<p>We supply directly to Get FREE SHIPPING on all orders of $48 or More! Save Gas and shop online for FREE SHIPPING! Blue Collar Depot offers FREE RETURNS for exchanges! businesses, schools, local and state government.</p>
-							<img src="site/images/read-more.png" alt="Read more" onClick="return showContent('category',{'navcat' : '.return-policy'});" />
+							<img src="img/read-more.png" alt="Read more" onClick="return showContent('category',{'navcat' : '.return-policy'});" />
 						</div>
 					</div>
 					<div class="footModal">
 						<p>Free Coupons And Deals!</p>
 						<div>
 							<p>Love saving money? Subscribe to our email newsletter and receive free coupons and discount offers in your email!</p>
-							<!--<img src="site/images/read-more.png" alt="Read more" onClick="return showContent('customer',{'show' : 'newsletter'});" />-->
+							<!--<img src="img/read-more.png" alt="Read more" onClick="return showContent('customer',{'show' : 'newsletter'});" />-->
 							<!--<div id="dealsJoin">
 								<form id="frmDeals" name="frmDeals" method="get" action="">
 									<input id="txtDealsEmail" name="txtDealsEmail" type="text" />
-									<img id="btnDealsJoin" src="site/images/button-join-now.png" alt="Join Newsletter" />
+									<img id="btnDealsJoin" src="img/button-join-now.png" alt="Join Newsletter" />
 								</form>
 								<div id="dealsSubmit"></div>	
 							</div>-->
 							<div id="footForm">
-								<form onsubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false" name="subscribeFrm" id="subscribeFrm" action="#">
+								<form onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false" name="subscribeFrm" id="subscribeFrm" action="#">
 									<fieldset class="userInfo borderNone">
 										<table>
 											<tr>
@@ -320,7 +316,7 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 								<td><a href="#">Payment Options</a></td>
 							</tr>
 							<tr>
-								<td><a href="#" onclick="showContent('company',{'show':'privacy'});">Privacy & Security</a></td>
+								<td><a href="#" onClick="showContent('company',{'show':'privacy'});">Privacy & Security</a></td>
 							</tr>
 						</table>
 						<table>
@@ -351,7 +347,7 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 								<td><a href="#" onClick="return showContent('category',{'navcat' : '.new-releases'});">New Products</a></td>
 							</tr>
 							<tr>
-								<td><a href="#" onclick="showContent('company',{'show':'contact'});">Customer Service</a></td>
+								<td><a href="#" onClick="showContent('company',{'show':'contact'});">Customer Service</a></td>
 							</tr>
 							<tr>
 								<td><a href="#">Shipping</a></td>
@@ -361,8 +357,8 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 							</tr>
 						</table>						
 					</div>
-					<img id="fbLink" src="site/images/facebook-fan-page.png" alt="Facebook Fan Page" onClick="return showContent('category',{'navcat' : '.'});" />
-					<p id="copyright">All prices are in USD. Copyright &copy; 2012.  Please read our <a onclick="showContent('company',{'show':'privacy'});" href="#">Privacy Policy</a>.<br />
+					<img id="fbLink" src="img/facebook-fan-page.png" alt="Facebook Fan Page" onClick="return showContent('category',{'navcat' : '.'});" />
+					<p id="copyright">All prices are in USD. Copyright &copy; 2012.  Please read our <a onClick="showContent('company',{'show':'privacy'});" href="#">Privacy Policy</a>.<br />
 			E-Commerce solution provided by Zoovy.</p>
 				</div>
 			</div>
@@ -418,7 +414,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
 	
 		<div id="bestSellerItems">
-			<img src="site/images/blue-collar-depot-content-popular-work-uniform.png" alt="Popular Work Uniform" />
+			<img src="img/blue-collar-depot-content-popular-work-uniform.png" alt="Popular Work Uniform" />
 			<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","query":{"query_string":{"query":"shirts"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 			<!--<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"best-seller"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>-->
 		</div>
@@ -1657,7 +1653,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 </div>
-<script type="text/javascript" src="site/scripts/jquery_actions.js"></script>
+<script type="text/javascript" src="actions.js"></script>
 
 </body>
 </html>
