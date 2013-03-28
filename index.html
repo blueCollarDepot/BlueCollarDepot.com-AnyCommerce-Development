@@ -1222,7 +1222,7 @@ So the cart template should contain these two elements and the extension should 
 <table class='cartContainer'>
 <tr>
 	<td class='cartStuffContainer'>
-	<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist'></ul>
+	<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin  lineItemProdlist'></ul>
 	</td>
 
 	<td class='cartSummaryTotalsContainer'>
@@ -1313,8 +1313,10 @@ So the cart template should contain these two elements and the extension should 
 		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(full_product.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>
 	
 		<h4 data-bind='var: product(prod_name); format:text; '></h4>
-		
+		<!--
 		<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
+		-->
+		<div data-bind='var: product(%options); format:optionsList;'></div>
 		
 		<div>
 		qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='var: product(qty); format:cartItemQty;extension:store_cart;' size='3' />

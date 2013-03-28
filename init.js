@@ -130,6 +130,19 @@ app.u.loadApp = function() {
 		app.vars.rq = null; //to get here, all these resources have been loaded. nuke record to keep DOM clean and avoid any duplication.
 		var tmp = new zController(app);
 //instantiate wiki parser.
+
+
+		app.renderFormats.optionsList = function($tag, data){
+			//app.u.dump(data.value);
+			for(var key in data.value){
+				var $option = $('<div></div>');
+				$option.append($('<span>'+data.value[key].prompt+': </span>'));
+				$option.append($('<span>'+data.value[key].data+'</span>'));
+				$tag.append($option);
+				}
+			}
+
+
 		myCreole = new Parse.Simple.Creole();
 }
 
