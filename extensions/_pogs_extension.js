@@ -64,78 +64,415 @@ var pogs_blueCollar = function() {
 			}, //callbacks
 
 		variations : {
-			renderOptionLABELDADDYLIST : function(pog){
-				app.u.dump(pog);
-				var $option = $('<div></div>')
-				var $input = $('<input type="hidden" name="'+pog.id+'"/>');
-				var $teamlist = $("<div class='mlbcategorylist' style='height:200px;overflow:auto;width:150px;display:inline-block;'></div>");
-				var $optionlist= $("<div id='ldicons_"+pog.fieldname+"' style='height:200px;overflow:auto;width:250px;display:inline-block;'></div>");
-				$option.append($input);
-				$option.append($teamlist);
-				$option.append($optionlist);
+			renderOptionSELECT: function(pog) {
+//	app.u.dump('BEGIN renderOptionSELECT for pog '+pog.id+' and safe id = '+safeid);
+	var pogid = pog.id;
+	var $parentDiv = $("<span \/>");
+	var $selectList = $("<select>").attr({"name":pogid});
+    var i = 0;
+    var len = pog.options.length;
 
-				$teamlist.append($('<div><a class="pointer">Baltimore Orioles</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('orioles',$optionlist);}))
-						.append($('<div><a class="pointer">Boston Red Sox</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('redsox',$optionlist);}))
-						.append($('<div><a class="pointer">Chicago White Sox</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('whitesox',$optionlist);}))
-						.append($('<div><a class="pointer">Cleveland Indians</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('indians',$optionlist);}))
-						.append($('<div><a class="pointer">Detroit Tigers</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('tigers',$optionlist);}))
-						.append($('<div><a class="pointer">Kansas City Royals</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('royals',$optionlist);}))
-						.append($('<div><a class="pointer">LA Angels of Anaheim</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('LAA',$optionlist);}))
-						.append($('<div><a class="pointer">Minnesota Twins</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('twins',$optionlist);}))
-						.append($('<div><a class="pointer">New York Yankees</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('yankees',$optionlist);}))
-						.append($('<div><a class="pointer">Oakland Athletics</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('athletics',$optionlist);}))
-						.append($('<div><a class="pointer">Seattle Mariners</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('mariners',$optionlist);}))
-						.append($('<div><a class="pointer">Tampa Bay Rays</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('bayrays',$optionlist);}))
-						.append($('<div><a class="pointer">Toronto Blue Jays</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('bluejays',$optionlist);}))
-						.append($('<div><a class="pointer">Texas Rangers</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('rangers',$optionlist);}))
-						.append($('<div><a class="pointer">Arizona Diamondbacks</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('arizona',$optionlist);}))
-						.append($('<div><a class="pointer">Atlanta Braves</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('braves',$optionlist);}))
-						.append($('<div><a class="pointer">Chicago Cubs</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('cubs',$optionlist);}))
-						.append($('<div><a class="pointer">Cincinnati Reds</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('reds',$optionlist);}))
-						.append($('<div><a class="pointer">Colorado Rockies</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('rockies',$optionlist);}))
-						.append($('<div><a class="pointer">Houston Astros</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('houston',$optionlist);}))
-						.append($('<div><a class="pointer">Los Angeles Dodgers</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('dodgers',$optionlist);}))
-						.append($('<div><a class="pointer">Miami Marlins</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('marlins',$optionlist);}))
-						.append($('<div><a class="pointer">Milwaukee Brewers</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('brewers',$optionlist);}))
-						.append($('<div><a class="pointer">New York Mets</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('mets',$optionlist);}))
-						.append($('<div><a class="pointer">Philadelphia Phillies</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('phillies',$optionlist);}))
-						.append($('<div><a class="pointer">Pittsburgh Pirates</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('pirates',$optionlist);}))
-						.append($('<div><a class="pointer">St. Louis Cardinals</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('cardinals',$optionlist);}))
-						.append($('<div><a class="pointer">San Diego Padres</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('padres',$optionlist);}))
-						.append($('<div><a class="pointer">San Francisco Giants</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('giants',$optionlist);}))
-						.append($('<div><a class="pointer">Washington Nationals</a></div>').bind('click',function(){app.ext.pogs_blueCollar.a.openIconDetails('nationals',$optionlist);}));
+	var selOption; //used to hold each option added to the select
+	var optionTxt;
 
-				$option.append('<div class="labelPreview"></div>')
-				return $option;
-				},
-			renderOptionCUSTOMIZERNOTICE : function(pog){
-				$option = $("<input type='hidden' name='AK'/>");
+//if the option is 'optional' AND has more than one option, add blank prompt. If required, add a please choose prompt first.
+	if(len > 0)	{
 
-				$atcForm = $('.prodViewerAddToCartForm', (app.ext.pogs_blueCollar.vars.prodContext ? app.ext.pogs_blueCollar.vars.prodContext : $('#mainContentArea')))
-				$atcForm.unbind('submit').attr('onSubmit','');
-				$atcForm.bind('submit', function(){
-					var $notice = $('<div><div>'+pog.prompt+'</div></div>');
+		optionTxt = (pog['optional'] == 1) ?  "Please choose" :  "Please choose (required)";
+		selOption = "<option value='' disable='disabled' selected='selected'>"+optionTxt+"<\/option>";
+		$selectList.append(selOption);
+		}
+//adds options to the select list.
+    while (i < len) {
+		optionTxt = pog['options'][i]['prompt'];
+		if(pog['options'][i]['p'])
+			optionTxt += pogs.handlePogPrice(pog['options'][i]['p']); //' '+pog['options'][i]['p'][0]+'$'+pog['options'][i]['p'].substr(1);
+			var sel_opt_price = pogs.handlePogPrice(pog['options'][i]['p']).replace("$", "").replace("+", "").replace(" ", "");
+		selOption = "<option value='"+pog['options'][i]['v']+"' title='"+sel_opt_price+"'>"+optionTxt+"<\/option>";
+		$selectList.append(selOption);
+		i++;
+		}
 
-					var $button = $('<div class="alignRight"><button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">I agree</span></button></div>');
-					$button.bind('click',function(){
-						$notice.dialog('close');
-						$option.val("ON");
-						app.ext.myRIA.u.addItemToCart($atcForm,{'action':'modal'}); 
-						return false;
-						});
+//	app.u.dump(" -> pogid: "+pogid);
+//	app.u.dump(" -> pog hint: "+pog['ghint']);
+	$selectList.appendTo($parentDiv);
+	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+	return $parentDiv;
+	},
 
-					$notice.append($button);
+// timer permitting, rewrite this. create an object for each optgroup and use that objects id to save options into.
+// during each loop, add the optgroup id to a separate array and at the end, use that array to add each optgroup to selectlist. 
+// may be a bit faster than this. cleaner too.
+renderOptionBIGLIST: function(pog) {
 
-					$notice.dialog({'modal':'true','title':'Custom Product Agreement', 'width':400});
-					return false;
-				});
+	var pogid = pog.id;
+	var selOptions = '';
+	var lastOptGrp,selValues;
+	var inc = 0;
+    var len = pog.options.length;
+	var $parentDiv = $("<span \/>");
+	var $selectList = $("<select \/>").attr({"name":pogid}).addClass("zform_select zform_biglist");
+//sets the first options on both select lists.
+	$selectList.append("<option value='' disable='disabled' selected='selected'>Please Choose...<\/option>");
+
+	//output ? with hint in hidden div IF ghint is set
+//	if(pog['ghint'])
+//		pogs.showHintIcon(pogid,pog['ghint']);
+
+/*
+create first optgroup.
+These are here instead of in the while loop to save a lookup during each iteration. Otherwise we need to 
+check if at iteration 1 (inc = 0) each time in the loop. this is gives us a tighter loop.
+*/
+	selValues = pog['options'][inc]['prompt'].split('|');
+	lastOptGrp = selValues[0];
+	selOptions += "<optgroup label='"+selValues[0]+"'>"; //add option to first dropdown list.
+	while (inc < len) {
+
+//selValues[0] = first dropdown prompt/opt group.
+//selValues[1] = second dropdown prompt.
+		selValues = pog['options'][inc]['prompt'].split('|');
+		optGrp = selValues[0];
+
+//at each 'change' of grouping, add the current group to the select list.
+		if(optGrp != lastOptGrp)	{
+			selOptions += "<\/optgroup><optgroup label='"+selValues[0]+"'>"; //add option to first dropdown list.
+			}
+
+		selOptions += "<option value='"+pog['options'][inc]['v']+"'>"+selValues[1]+"<\/option>\n";
+		lastOptGrp = selValues[0]
+		inc += 1;
+		}
+	selOptions += "<\/optgroup>";
+
+//	app.u.dump(selOptions);
+
+	$selectList.append(selOptions).appendTo($parentDiv); //append optgroups.
+
+	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+	return $parentDiv;
+
+	}, //renderOptionBIGLIST
 
 
-				return $option
-				},
+
+//upgraded to jquery.
+renderOptionIMGSELECT: function(pog) {
+//	app.u.dump('BEGIN renderOptionIMGSELECT for pog '+pog.id);
+	var pogid = pog.id;
+	var $parentDiv = $("<span \/>").addClass('imgSelectContainer');
+	var $selectList = $("<select>").attr({"name":pogid}).addClass('zform_select').bind('change', function(e){
+		var thumbnail = $("option:selected",$(this)).attr('data-thumbnail');
+		var img_txt = app.u.makeImage({"name":"","lib":app.username})
+		$(this).closest('.imgSelectContainer').find('img').attr('src',app.u.makeImage({"name":thumbnail,"tag":false,"lib":app.username})).attr({"title":img_txt});
+		});
+    var i = 0;
+    var len = pog.options.length;
+
+	var selOption; //used to hold each option added to the select
+	var optionTxt;
+
+//if the option is 'optional' AND has more than one option, add blank prompt. If required, add a please choose prompt first.
+	if(len > 0)	{
+		optionTxt = (pog['optional'] == 1) ?  "Please choose" :  "Please choose (required)";
+		selOption = "<option value='' disabled='disabled' selected='selected'>"+optionTxt+"<\/option>";
+		$selectList.append(selOption);
+		}
+//adds options to the select list.
+
+    while (i < len) {
+		optionTxt = pog['options'][i]['prompt'];
+		if(pog['options'][i]['p'])
+			optionTxt += pogs.handlePogPrice(pog['options'][i]['p']); //' '+pog['options'][i]['p'][0]+'$'+pog['options'][i]['p'].substr(1);
+			img_sel_price = pogs.handlePogPrice(pog['options'][i]['p']).replace("$", "").replace("+", "").replace(" ", "");
+		selOption = "<option name='"+img_sel_price+"' value='"+pog['options'][i]['v']+"' data-thumbnail='"+pog['options'][i]['img']+"' id='option_"+pogid+""+pog['options'][i]['v']+"'>"+optionTxt+"<\/option>";
+
+
+		$selectList.append(selOption);
+		i++;
+		}
+
+	$selectList.appendTo($parentDiv);
+
+	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+
+	$imageDiv = $('<div>').addClass('imageselect_image');
+	$imageDiv.html(app.u.makeImage({"w":pog.width,"h":pog.height,"name":"blank.gif","b":"FFFFFF","tag":true,"lib":app.username,"id":"selectImg_"+pogid}));
+	$imageDiv.appendTo($parentDiv);
+//	app.u.dump('END renderOptionIMGSELECT for pog '+pog.id);
+	return $parentDiv;
+	},
+
+//upgraded to jquery. needs css love.
+renderOptionRADIO: function(pog)	{
+	var pogid = pog.id;
+
+	var $parentDiv = $("<span \/>");
+
+//display ? with hint in hidden div IF ghint is set
+	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+    var i = 0;
+    var len = pog['options'].length;
+	while (i < len) {
+		$parentDiv.append($('<input>').attr({type: "radio", name: pogid, value: pog['options'][i]['v']}).after(pog['options'][i]['prompt']).wrap($("<label \/>")));
+		i++;
+		}
+	return $parentDiv;
+	},
+
+
+//upgraded to jquery.
+renderOptionCB: function(pog) {
+	var pogid = pog.id;
+	var $parentDiv = $("<span \/>");
+	$('<input>').attr({type: "checkbox", name: pogid, value: 'ON'}).appendTo($parentDiv);
+//Creates the 'hidden input' form field in the DOM which is used to let the cart know that the checkbox element was present and it's absense in the form post means it wasn't checked.		
+	$('<input>').attr({type: "hidden", name: "pog_"+pogid+"_cb", value: '1'}).appendTo($parentDiv);
+
+	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+	return $parentDiv;
+
+	},
+
+
+
+//upgraded to jquery.
+renderOptionHIDDEN: function(pog) {
+	var pogid = pog.id;
+//hidden attributes don't need a label. !!!
+//cant set the value to null in IE because it will literally write out 'undefined'. this statement should handle undefined, defined and blank just fine.
+	var defaultValue = app.u.isSet(pog['default']) ?  pog['default'] : "";
+	var $parentDiv = $("<span \/>");
+//Creates the 'hidden input' form field in the DOM which is used to let the cart know that the checkbox element was present and it's absense in the form post means it wasn't checked.		
+	$parentDiv.append($('<input>').attr({type: "hidden", name: pogid, value: defaultValue}));
+
+	return $parentDiv;
+	},
+
+
+//upgraded to jquery.
+renderOptionATTRIBS: function(pog)	{
+//attributes are used with finders. They don't do anything and they don't require a form element in the add to cart.. BUT we may want to do something merchant specific, so here it is.... to overide...
+//	document.getElementById("div_"+safeid).style.display = 'none'; !!!
+	},
+
+
+
+//upgraded to jquery.
+renderOptionTEXT: function(pog) {
+	var pogid = pog.id;
+//cant set the value to null in IE because it will literally write out 'undefined'. this statement should handle undefined, defined and blank just fine.
+	var defaultValue = app.u.isSet(pog['default']) ?  pog['default'] : "";
+	var $parentDiv = $("<span \/>");
+//Creates the 'hidden input' form field in the DOM which is used to let the cart know that the checkbox element was present and it's absense in the form post means it wasn't checked.		
+	var $textbox = $('<input>').attr({type: "text", name: pogid, value: defaultValue});
+	if(pog['maxlength'])	{
+		$textbox.keyup(function(){
+			if (this.value.length > (pog['maxlength'] - 1)) // if too long...trim it!
+		        this.value = this.value.substring(0, pog['maxlength']);
+			});
+		}
+	$parentDiv.append($textbox);
+	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+	return $parentDiv;
+	},
+
+
+
+
+//upgraded to jquery.
+renderOptionCALENDAR: function(pog) {
+	var pogid = pog.id;
+
+	var defaultValue = app.u.isSet(pog['default']) ?  pog['default'] : "";
+
+	var $parentDiv = $("<span \/>");
+	var $textbox = $('<input>').attr({type: "text", name:pogid, value: defaultValue}).addClass('zform_textbox').datepicker({altFormat: "DD, d MM, yy"});
+	$parentDiv.append($textbox);
+
+	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+
+//if the rush prompt is set, display it under the form.
+	if(pog.rush_prompt)	{
+		$parentDiv.append("<div class='zhint'>"+pog['rush_prompt']+"<\/div>");
+		}
+
+	return $parentDiv;
+	},
+
+
+
+
+
+
+renderOptionNUMBER: function(pog) {
+	var pogid = pog.id;
+//cant set the value to null in IE because it will literally write out 'undefined'. this statement should handle undefined, defined and blank just fine.
+	var defaultValue = app.u.isSet(pog['default']) ?  pog['default'] : "";
+	var $parentDiv = $("<span \/>");
+//right now, 'number' isn't widely supported, so a JS regex is added to strip non numeric characters
+	var $textbox = $('<input>').attr({type: "number", name: pogid, value: defaultValue}).keyup(function(){
+		this.value = this.value.replace(/[^0-9]/g, '');
+		});
+
+	if(pog['max'])
+		$textbox.attr('max',pog['max']);
+	if(pog['min'])
+		$textbox.attr('max',pog['max']);
+
+	$parentDiv.append($textbox);
+	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+	return $parentDiv;
+
+	},
+
+
+
+
+
+renderOptionTEXTAREA: function(pog) {
+	var pogid = pog.id;
+//cant set the value to null in IE because it will literally write out 'undefined'. this statement should handle undefined, defined and blank just fine.
+	var defaultValue = app.u.isSet(pog['default']) ?  pog['default'] : "";
+	var $parentDiv = $("<span \/>");
+//Creates the 'hidden input' form field in the DOM which is used to let the cart know that the checkbox element was present and it's absense in the form post means it wasn't checked.		
+	var $textbox = $('<textarea>').attr({name: pogid, value: defaultValue});
+	$parentDiv.append($textbox);
+	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+	return $parentDiv;
+
+	},
+
+
+
+
+//needs testing.
+renderOptionREADONLY: function(pog) {
+	return $("<span class='zsmall'>"+pog['default']+"<\/span>");
+	},
+
+
+
+//create an override for IMGGRID to be used for webapp. no radio button, just thumbnails that, on click, will set a hidden input. !!!!!!!!!!!!!
+//also explore frameworks (jqueryui or jquerymobile ?) for better handling of form display.
+
+renderOptionIMGGRID: function(pog)	{
+
+	var pogid = pog.id;
+
+	var $parentDiv = $("<span \/>");
+	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+
+	var $radioInput; //used to create the radio button element.
+	var radioLabel; //used to create the radio button label.
+	var thumbnail; //guess what this holds
+	var up_thumbnail;
+    var i = 0;
+    var len = pog['options'].length;
+	while (i < len) {
+		thum_tit = pogid+"_"+pog['options'][i]['v'];
+		img_price = pogs.handlePogPrice(pog['options'][i]['p']).replace("$", "").replace("+", "").replace(" ", "");
+		thumbnail = app.u.makeImage({"w":pog.width,"h":pog.height,"name":pog['options'][i]['img'],"b":"FFFFFF","tag":true,"lib":app.username});
+		thumbnail_up = $(thumbnail).attr({"title":thum_tit, "name":img_price});
+		radioLabel = "<label>"+pog['options'][i]['prompt']+"<\/label>";
+		$radioInput = $('<input>').attr({type: "radio", name: pogid, value: pog['options'][i]['v'], class:"img_"+thum_tit});
+		$parentDiv.append(thumbnail_up).append($radioInput)/*.append(radioLabel)*/.wrap("<span class='floatLeft'><\/span>");
+		i++
+		}
+
+	return $parentDiv;
+
+	},
+
+
+renderOptionUNKNOWN: function(pog) {
+	return("UNKNOWN "+pog.type+": "+pog.prompt+" / "+pog.id);
+	},
+
+/*
+// !!! this'll need fixin
+showHintIcon : function(pogid,pogHint)	{
+//	app.u.dump("BEGIN variations.showHintIcon");
+	return "<span class='ghint_qmark_container'><a href='#' onclick='$(this).parent().next().toggle(); return false;' class='ghint_qmark'>?<\/a></span><div style='display:none;' class='zhint'>"+pogHint+"</div>";
+	},
+
+
+
+
+
+
+//there's a lot of logic with how price should be displayed.  This is a dumbed down version.
+//app.u.formatMoney is not used here because the text is formatted by the merchant (we leave it alone).
+ handlePogPrice : function(P)	{
+	var price;
+//Puts the + sign, if present, in the correct spot
+	if(P.charAt(0) == '+')	{
+		price = " +$"+P.substr(1);
+		}
+//Puts the - sign, if present, in the correct spot
+	else if (P.charAt(0) == "-")
+		price = " -$"+P.substr(1);
+//If a $ is already present, do not add one.
+	else if (P.charAt(0) == "$")
+		price = " "+P;
+	else
+		price = " $"+P;
+	return price;
+
+	},
+
+renderOption: function(pog,pid) {
+	var pogid = pog.id;
+
+//add a div to the dom that surrounds the pog
+	var $formFieldDiv = $("<div>").addClass("zform_div").addClass("pogType_"+pog.type);
+	var $optionObj; //what is returned from the eval (the entire options object).
+//if ghint is set, use that as the title attribute, otherwise use the prompt.
+	var labelTitle = (pog.ghint) ? pog.ghint : pog.prompt;
+
+
+//create the label (prompt) for the form input and make it a child of the newly created div.
+	var $formFieldLabel = $('<label>').attr({"title":labelTitle}).text(pog.prompt);
+
+	$formFieldDiv.append($formFieldLabel);
+
+//Push the new div into a div with id JSONPogDisplay as a new child.
+//	var $displayObject = $("#JSONPogDisplay_"+pid);
+//	$displayObject.append($formFieldDiv);   /// NOTE the form ID on this should probably be auto-generated from the element ID.
+
+    if (this.handlers["pogid."+pogid]) {
+      $optionObj = eval("this."+this.handlers["pogid."+pogid]+"(pog)");
+      }
+    else if (this.handlers["type."+pog.type]) {
+      $optionObj = eval("this."+this.handlers["type."+pog.type]+"(pog)");
+      }
+    else {
+      $optionObj = eval("this."+this.handlers["unknown."]+"(pog)");
+      }
+	$formFieldDiv.append($optionObj);
+	return $formFieldDiv;
+  }
+
+	});
+	*/
+	
+	
 			xinit : function(){
-				this.addHandler("pogid","CH","renderOptionLABELDADDYLIST");
-				this.addHandler("pogid","AK","renderOptionCUSTOMIZERNOTICE");
+				this.addHandler("type","text","renderOptionTEXT");
+				this.addHandler("type","radio","renderOptionRADIO");
+				this.addHandler("type","select","renderOptionSELECT");
+				this.addHandler("type","imgselect","renderOptionIMGSELECT");
+				this.addHandler("type","number","renderOptionNUMBER");
+				this.addHandler("type","cb","renderOptionCB");
+				this.addHandler("type","attribs","renderOptionATTRIBS");
+				this.addHandler("type","readonly","renderOptionREADONLY");
+				this.addHandler("type","hidden","renderOptionHIDDEN");
+				this.addHandler("type","assembly","renderOptionHIDDEN");
+				this.addHandler("type","textarea","renderOptionTEXTAREA");
+				this.addHandler("type","imggrid","renderOptionIMGGRID");
+				this.addHandler("type","calendar","renderOptionCALENDAR");
+				this.addHandler("type","biglist","renderOptionBIGLIST");
+				this.addHandler("unknown","","renderOptionUNKNOWN");
 				}
 			},
 
