@@ -50,7 +50,7 @@ var pogs_blueCollar = function() {
 						app.u.dump("Extending Pogs");
 
 						$.extend(handlePogs.prototype,app.ext.pogs_blueCollar.variations);
-						UpdateMLBIcons = app.ext.pogs_blueCollar.a.updateMLBIcons;
+						//UpdateMLBIcons = app.ext.pogs_blueCollar.a.updateMLBIcons;
 						}
 					else {
 						app.u.dump("Retrying Pog Extension");
@@ -64,7 +64,7 @@ var pogs_blueCollar = function() {
 			}, //callbacks
 
 		variations : {
-			renderOptionSELECT: function(pog) {
+	$('').bind('change',renderOptionSELECT: function(pog) {
 //	app.u.dump('BEGIN renderOptionSELECT for pog '+pog.id+' and safe id = '+safeid);
 	var pogid = pog.id;
 	var $parentDiv = $("<span \/>");
@@ -98,12 +98,13 @@ var pogs_blueCollar = function() {
 	$selectList.appendTo($parentDiv);
 	if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
 	return $parentDiv;
-	},
+	}
+		);
 
 // timer permitting, rewrite this. create an object for each optgroup and use that objects id to save options into.
 // during each loop, add the optgroup id to a separate array and at the end, use that array to add each optgroup to selectlist. 
 // may be a bit faster than this. cleaner too.
-renderOptionBIGLIST: function(pog) {
+$('').bind('change', renderOptionBIGLIST: function(pog) {
 
 	var pogid = pog.id;
 	var selOptions = '';
@@ -481,6 +482,7 @@ renderOption: function(pog,pid) {
 //actions are functions triggered by a user interaction, such as a click/tap.
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
+			/*
 			openIconDetails : function(team, $target){
 				var queryString = "?iconname=" + team ;
 				var jsonp_url = "http://www.labeldaddy.com/widget/getIcons.php" + queryString + "&jsoncallback=?";
@@ -493,6 +495,7 @@ renderOption: function(pog,pid) {
 				$('input[name=CH]', app.ext.pogs_blueCollar.vars.prodContext).val(iconset);
 				app.ext.pogs_blueCollar.u.showLabelPreview();
 				}
+				*/
 			}, //Actions
 
 ////////////////////////////////////   RENDERFORMATS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -507,6 +510,7 @@ renderOption: function(pog,pid) {
 //utilities are typically functions that are exected by an event or action.
 //any functions that are recycled should be here.
 		u : {
+			/*
 			showLabelPreview : function(){
 
 				var labelName = $('input[name=CJ]', app.ext.pogs_blueCollar.vars.prodContext).val();
@@ -520,6 +524,7 @@ renderOption: function(pog,pid) {
 					$('.labelPreview', app.ext.pogs_blueCollar.vars.prodContext).html(data.html);
 					});
 				}
+				*/
 			}, //u [utilities]
 
 //app-events are added to an element through data-app-event="extensionName|functionName"
