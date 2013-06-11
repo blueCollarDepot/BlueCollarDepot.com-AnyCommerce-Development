@@ -238,6 +238,8 @@ var pogs_blueCollar = function() {
 				
 				$(".customizeOptions").show();
 				$(".customBut").hide();
+				$(".nonOptATC").hide();
+				
 				
 			}
 			/*

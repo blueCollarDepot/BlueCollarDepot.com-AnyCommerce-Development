@@ -658,14 +658,57 @@ this will likely become more flexible in the future. ###
 <tr>
 	<td class='imageContainer'>
 <!--<img src='%PROJECT_URL%/blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox;' width='340' height='340' /> -->
-
-<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
-
-	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
-	<img src='blank.gif' class='prodBigImage' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='340' height='340' />
-
-</div>
-
+<div class="custom_product_lt">
+    <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix custom_image_container'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
+    
+        <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
+        <img src='blank.gif' class='prodBigImage' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='340' height='340' />
+    
+   <div class="custom_reflective_strp">
+      <ul class="front_stripe">
+          <li id="ref0B_f"></li>
+          <li id="ref0A_f"></li>
+          <li id="ref09_f"></li>
+          <li id="ref08_f"></li>
+          <li id="ref05_f"></li>
+      </ul>
+      <ul class="back_stripe">
+          <li id="ref0B_b"></li>
+          <li id="ref0A_b"></li>
+          <li id="ref09_b"></li>
+          <li id="ref08_b"></li>
+          <li id="ref05_b"></li>
+      </ul>
+      </div>
+      <div class="custom_logo">
+          <ul class="front_logo">
+              <li id="log_02"></li>
+              <li id="log_03"></li>
+              <li id="log_04"></li>
+              <li id="log_05"></li>
+          </ul>
+          <ul class="back_logo" >
+              <li id="log_00"></li>
+              <li id="log_01"></li>
+          </ul>
+      </div>
+    <div class="custom_image_rotate" style="visibility:hidden;">
+      <button name="clb6rb_b" id="custom_back">Back</button>
+      <button name="clb6rb" id="custom_front">Front</button>
+    </div>
+        </div>
+        <div class="custom_other_images">
+            <ul data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
+                <li class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' border="0" height="75" width="70"></li>
+                <li class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' border="0" height="75" width="70"></li>
+                <li class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' border="0" height="75" width="70"></li>
+                <li class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image5); format:imageURL;' border="0" height="75" width="70"></li>
+                <li class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image6); format:imageURL;' border="0" height="75" width="70"></li>
+                <li class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image7); format:imageURL;' border="0" height="75" width="70"></li>
+                <li class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image8); format:imageURL;' border="0" height="75" width="70"></li>
+            </ul>
+        </div>
+    </div>
 
 	</td>
 
@@ -694,9 +737,84 @@ this will likely become more flexible in the future. ###
 	
      <button class="customBut" onClick="app.ext.pogs_blueCollar.a.customizeProductOptions();">Customize</button>
         <div class="customizeOptions displayNone">
-        customization display area
-        
+        <div class="custom_product_rt">
+        	<div class="custom_product_rt_top">
+				<h2>Customization Options</h2>
+				<p class="custom_price"><label>Price  </label>$<span class='basePrice' data-bind='var: product(zoovy:base_price); format:money; hideZero:false;'></span></p>
+			</div>
+
+			<div id="accordion">
+				<h3>Reflective Striping</h3>
+				<div class="add_reflective_stripes">
+					<div data-bind='var: product(pid); format:custom_sog_reflective; extension:store_product;' class='borderNone'></div>
+					<div class="selected_options">
+							<label>Selected Position </label>
+							<div class="selected_options_list">
+								<p class="sel_option_sty"><label>Style </label><span></span></p>
+								<div class="sel_option_loc">
+									<p style="border-bottom:none;"><label>Positions </label></p>
+								</div>
+							</div>
+						</div>
+				</div>
+				<h3>Logo</h3>
+				<div class="add_Logo">
+					<div data-bind='var: product(pid); format:custom_sog_logo; extension:store_product;' class='borderNone'></div>
+					<div class="logo_buts"><button class="logo_ok" name="">Ok</button>		<!--<button class="logo_cancel" name="">Cancel</button>--></div>
+					<div class="selected_logo_options">
+						<label>Selected Position and Logo </label>
+						<div class="selected_logo_options_list">
+
+						</div>
+					</div>
+				</div>
+				<h3>Embroidered Text</h3>
+				<div class="add_embroidery">
+					<div data-bind='var: product(pid); format:custom_sog_embroidered; extension:store_product;' class='borderNone'></div>
+					<div class="embroid_but"><button id="embroid_ok" name="">Ok</button></div>
+					<div class="selected_embroid_options">
+						<label>Selected Position, Style and Text :</label>
+						<div class="selected_embroid_options_list">
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<input type="button" class="opt_apply" value="Apply" />
+			<input type='submit' style="margin-top:10px;" value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
+
         </div>
+    </div>	
+<div class="sel_opt_all" style="display:inline-block;">
+	<div class="refs_option_wrap" style="display:none;">
+		<div class="refs_option">
+			<h3>Selected Reflective Stripes</h3>
+			<div class="sel_refs_option">
+				<p><label>Reflective Stripe Style</label></p>
+				<p class="sel_refs_sty"><span></span></p>
+				<p><label>Reflective Stripe Position</label></p>
+			</div>
+		</div>
+	</div>
+	<div class="log_option_wrap" style="display:none;">
+		<div class="log_option">
+			<h3>Selected Logo</h3>
+			<div class="sel_log_option">
+
+			</div>
+		</div>
+	</div>
+	<div class="emb_option_wrap" style="display:none;">
+		<div class="emb_option">
+			<h3>Selected Embroidered Text</h3>
+			<div class="sel_emb_option">
+
+			</div>
+		</div>
+	</div>
+</div>
+        
     
     <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
 	
@@ -705,7 +823,7 @@ this will likely become more flexible in the future. ###
 		<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product; pretext:Quantity: ;' class='borderNone'></fieldset>
         
 	
-		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
+		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone nonOptATC' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
 	</form>
 	
 
