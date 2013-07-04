@@ -235,10 +235,14 @@ var pogs_blueCollar = function() {
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
 			customizeProductOptions: function(){
-				
-				$(".customizeOptions").show();
-				$(".customBut").hide();
-				
+				if($(".customBut").html() == "Show Customizer");{
+					$(".customizeOptions").show();
+					$(".customBut").html("Hide Customizer");
+				}
+				if($(".customBut").html() == "Hide Customizer"){
+					$(".customizeOptions").hide();
+					$(".customBut").html("Show Customizer");
+				}
 			}
 			/*
 			openIconDetails : function(team, $target){

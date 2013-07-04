@@ -662,9 +662,8 @@ this will likely become more flexible in the future. ###
 <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
 
 	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
-	<img src='blank.gif' class='prodBigImage' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='340' height='340' />
-
-</div>
+		<img src='blank.gif' class='prodBigImage' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='340' height='340' />
+	</div>
 
 
 	</td>
@@ -692,7 +691,7 @@ this will likely become more flexible in the future. ###
     <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
 	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div>
 	
-     <button class="customBut" onClick="app.ext.pogs_blueCollar.a.customizeProductOptions();">Customize</button>
+     <button class="customBut" onClick="app.ext.pogs_blueCollar.a.customizeProductOptions();">Show Customizer</button>
         <div class="customizeOptions displayNone">
         customization display area
         
