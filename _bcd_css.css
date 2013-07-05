@@ -3,7 +3,7 @@
 	margin-bottom:10px;
 }
 .customizeOptions{
-	background-color:blue;
-	height:100px;
-	width:200px;
+	height: 300px;
+    width: 90%;
+	border:solid 1px black;
 }

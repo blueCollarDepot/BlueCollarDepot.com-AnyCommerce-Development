@@ -98,6 +98,47 @@ var pogs_blueCollar = function() {
 				if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
 				return $parentDiv;
 				},
+				
+				
+				renderOptionCUSTOMSELECTCOLOR: function(pog,safeid) {
+				//	app.u.dump('BEGIN renderOptionCUSTOMSELECTCOLOR for pog '+pog.id+' and safe id = '+safeid);
+				var pogid = pog.id;
+				var $parentDiv = $("<span \/>");
+				var $selectList = $("<select>").attr({"id":"pog_"+safeid,"name":"pog_"+pogid}).addClass('zform_select');
+				var i = 0;
+				var len = pog.options.length;
+				
+				var selOption; //used to hold each option added to the select
+				var optionTxt;
+				
+				//if the option is 'optional' AND has more than one option, add blank prompt. If required, add a please choose prompt first.
+				if(len > 0)	{
+					optionTxt = (pog['optional'] == 1) ?  "" :  "Please choose (required)";
+					selOption = "<option value='' disable='disabled' selected='selected'>"+optionTxt+"<\/option>";
+					$selectList.append(selOption);
+					}
+				//adds options to the select list.
+				while (i < len) {
+					optionTxt = pog['options'][i]['prompt'];
+					if(pog['options'][i]['p'])
+					optionTxt += pogs.handlePogPrice(pog['options'][i]['p']); //' '+pog['options'][i]['p'][0]+'$'+pog['options'][i]['p'].substr(1);
+					selOption = "<option value='"+pog['options'][i]['v']+"' id='option_"+pogid+""+pog['options'][i]['v']+"'>"+optionTxt+"<\/option>";
+					$selectList.append(selOption);
+					i++;
+					}
+				
+				//	app.u.dump(" -> pogid: "+pogid);
+				//	app.u.dump(" -> pog hint: "+pog['ghint']);
+				$selectList.bind('change', function(){ 
+					customizeColorOptions();
+					app.u.dump("Added onchange event to color option.");
+				})
+				$selectList.appendTo($parentDiv);
+				if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+				return $parentDiv;
+				},
+				
+				
 			renderOptionCUSTOMBIGLIST: function(pog,safeid) {
 
 				var pogid = pog.id;
@@ -218,7 +259,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","A0","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","A1","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","A2","renderOptionCUSTOMSELECT");
-				this.addHandler("pogid","A3","renderOptionCUSTOMSELECT");
+				this.addHandler("pogid","A3","renderOptionCUSTOMSELECTCOLOR");
 				this.addHandler("pogid","A5","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","A6","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","A7","renderOptionCUSTOMSELECT");
@@ -235,14 +276,37 @@ var pogs_blueCollar = function() {
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
 			customizeProductOptions: function(){
-				if($(".customBut").html() == "Show Customizer");{
+				//app.u.dump("Start customizeProductOptions onClick function");
+				if($(".customBut").val() === "showCustomizer"){
+					//app.u.dump("value equals show customizer. Showing customizer");
 					$(".customizeOptions").show();
+					$(".atcVarStandard").hide();
+					$(".prodBigImage").hide();
+					$(".customizerImageCont").show();
+					$(".prodThumbs").hide();
+					
 					$(".customBut").html("Hide Customizer");
+					$(".customBut").val("hideCustomizer");
+					
 				}
-				if($(".customBut").html() == "Hide Customizer"){
-					$(".customizeOptions").hide();
-					$(".customBut").html("Show Customizer");
+				else{
+					if($(".customBut").val() === "hideCustomizer"){
+						//app.u.dump("value equals hide customizer. Hiding customizer");
+						$(".customizeOptions").hide();
+						$(".atcVarStandard").show();
+						$(".prodBigImage").show();
+						$(".customizerImageCont").hide();
+						$(".prodThumbs").show();
+						
+						$(".customBut").html("Show Customizer");
+						$(".customBut").val("showCustomizer");
+					}
 				}
+			},
+			
+			customizeColorOptions: function(){
+				app.u.dump("color onchange option is running");
+				app.u.dump($("#pog_A3").val());
 			}
 			/*
 			openIconDetails : function(team, $target){
