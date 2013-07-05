@@ -133,9 +133,10 @@ var pogs_blueCollar = function() {
 				$selectList.bind('change', function(){ 
 					//app.ext.pogs_blueCollar.a.customizeColorOptions();
 					//app.u.dump("Added onchange event to color option.");
+					app.u.dump(safeid);
+
 					colorSelectValue = $selectList.val();
-					app.u.dump($selectList.val());
-					
+					//app.u.dump($selectList.val());
 					switch(colorSelectValue)
 					{
 						case "00":

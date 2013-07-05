@@ -42,7 +42,20 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 				}
 			}
 		else	{} //couldn't find the tab to tabificate.
-	}]);
+	
+	
+	
+	//*****CUSTOMIZER FUNCTIONALITY****	
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	app.u.dump(safePID);
+	if(safePID === "CED2"){
+		$(".customBut").show();
+	}
+	else{
+		$(".customBut").hide();
+	}
+		
+}]);
 
 app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.httpURL+'jquery/config.js' : app.vars.baseURL+'jquery/config.js']); //The config.js is dynamically generated.
 app.rq.push(['script',0,app.vars.baseURL+'model.js']); //'validator':function(){return (typeof zoovyModel == 'function') ? true : false;}}
