@@ -129,9 +129,40 @@ var pogs_blueCollar = function() {
 				
 				//	app.u.dump(" -> pogid: "+pogid);
 				//	app.u.dump(" -> pog hint: "+pog['ghint']);
+				var colorSelectValue = $selectList.val();
 				$selectList.bind('change', function(){ 
-					customizeColorOptions();
-					app.u.dump("Added onchange event to color option.");
+					//app.ext.pogs_blueCollar.a.customizeColorOptions();
+					//app.u.dump("Added onchange event to color option.");
+					colorSelectValue = $selectList.val();
+					app.u.dump($selectList.val());
+					
+					switch(colorSelectValue)
+					{
+						case "00":
+							$(".ppCustomizerColorOption").hide();
+							$(".ppCustomizerColorTan").show();
+							break; 
+							
+						case "02":
+							$(".ppCustomizerColorOption").hide();
+							$(".ppCustomizerColorBlue").show();
+							break; 
+							
+						case "04":
+							$(".ppCustomizerColorOption").hide();
+							$(".ppCustomizerColorNavyBlue").show();
+							break; 
+							
+						case "05":
+							$(".ppCustomizerColorOption").hide();
+							$(".ppCustomizerColorOrange").show();
+							break;
+							
+						default: 
+							$(".ppCustomizerColorOption").hide();
+							$(".ppCustomizerColorTan").show();
+							break; 
+					}
 				})
 				$selectList.appendTo($parentDiv);
 				if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
