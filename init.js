@@ -48,7 +48,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 	//*****CUSTOMIZER FUNCTIONALITY****	
 	var $context = $(app.u.jqSelector('#',P.parentID));
 	app.u.dump(safePID);
-	if(safePID === "CED2"){
+	if(safePID === "OVERALLSTEST1"){
 		$(".customBut").show();
 	}
 	else{
