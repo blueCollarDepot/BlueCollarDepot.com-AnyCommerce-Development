@@ -145,18 +145,18 @@ var pogs_blueCollar = function() {
 					var pogid = pog.id;
 					var $parentDiv = $("<span \/>"); // = $('#div_'+safeid);
 					var $checkbox = $('<input>').attr({type: "checkbox", name: "pog_"+pogid, value: 'OFF', id: "pog_"+safeid});
-					$checkbox.data("switched", false);
+					$checkbox.val("OFF");
 					//Creates the 'hidden input' form field in the DOM which is used to let the cart know that the checkbox element was present and it's absense in the form post means it wasn't checked.		
 					var $hidden = $('<input>').attr({type: "hidden", name: "pog_"+pogid+"_cb", value: '0', id: "pog_"+safeid});
 					$checkbox.bind('change', function(){
-						if($checkbox.data("switched") === false){
-							$checkbox.data("switched", true);
-							//app.u.dump("Checkbox is off. Switching on. Checkbox = " + $checkbox.val);
+						if($checkbox.val() === "OFF"){
+							$checkbox.val("ON");
+							app.u.dump("Checkbox is off. Switching on. Checkbox = " + $checkbox.val());
 							app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 						}
 						else{
-							$checkbox.data("switched", false);
-							//app.u.dump("Checkbox is on. Switching off. Checkbox = " + $checkbox.val);
+							$checkbox.val("OFF");
+							app.u.dump("Checkbox is on. Switching off. Checkbox = " + $checkbox.val());
 							app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 						}
 					})
@@ -305,14 +305,23 @@ var pogs_blueCollar = function() {
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
 			customizeProductOptions: function(){
+				
 				//app.u.dump("Start customizeProductOptions onClick function");
 				if($(".customBut").val() === "showCustomizer"){
 					//app.u.dump("value equals show customizer. Showing customizer");
-					$(".customizeOptions").show();
-					$(".atcVarStandard").hide();
 					$(".prodBigImage").hide();
 					$(".customizerImageCont").show();
 					$(".prodThumbs").hide();
+					
+					$("#div_AF").show();
+					$("#div_AG").show();
+					$("#div_AJ").show();
+					$("#div_AK").show();
+					$("#div_AL").show();
+					$("#div_AI").show();
+					$("#div_AM").show();
+					$("#div_AN").show();
+					$("#div_AA").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -321,11 +330,19 @@ var pogs_blueCollar = function() {
 				else{
 					if($(".customBut").val() === "hideCustomizer"){
 						//app.u.dump("value equals hide customizer. Hiding customizer");
-						$(".customizeOptions").hide();
-						$(".atcVarStandard").show();
 						$(".prodBigImage").show();
 						$(".customizerImageCont").hide();
 						$(".prodThumbs").show();
+						
+						$("#div_AF").hide();
+						$("#div_AG").hide();
+						$("#div_AJ").hide();
+						$("#div_AK").hide();
+						$("#div_AL").hide();
+						$("#div_AI").hide();
+						$("#div_AM").hide();
+						$("#div_AN").hide();
+						$("#div_AA").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -403,10 +420,10 @@ var pogs_blueCollar = function() {
 					switch($("#pog_AF").data('stripeType'))
 					{
 						case "yellow2":
-							//app.u.dump("#pog_AF = " + $('#pog_AF'));
-							if($('#pog_AF').data("switched", true)){
+							app.u.dump($('#pog_AJ').val());
+							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Calves");
-								ctx.drawImage(stripeImg,0,0);
+								ctx.drawImage(stripeImg,197,380);
 							}
 							break; 
 						

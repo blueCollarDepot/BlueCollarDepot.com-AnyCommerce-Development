@@ -673,7 +673,7 @@ this will likely become more flexible in the future. ###
             <img src='product_customization/images/productimages/bulwark_navyblue_customizer_image.jpg' id="ppCustomizerColorNavyBlue" class="ppCustomizerColorOption displayNone" alt='' width='500' height='500' />
 			
 			<!--YELLOW STRIPE 2" IMAGES-->
-			<img src='product_customization/images/stripeimages/yellow_2_1n/calves.png' id="yellow1Calves" alt='' />
+			<img src='product_customization/images/stripeimages/yellow_2_1n/calves.png' id="yellow1Calves" alt='' width='90' height='34' />
 			
         </div>
 		<!--****END IMAGE CONTAINER****-->
@@ -707,23 +707,11 @@ this will likely become more flexible in the future. ###
 	
      <button class="customBut" value="showCustomizer" onClick="app.ext.pogs_blueCollar.a.customizeProductOptions();">Show Customizer</button>
         
-        <!--**BEGIN CUSTOMIZER CODE**--> 
-        <div class="customizeOptions displayNone">
-            <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
-                <fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
-                <fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product; pretext:Quantity: ;' class='borderNone'></fieldset>
-                <input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
-            </form>
-        </div>
-         <!--**END CUSTOMIZER CODE**--> 
+       
     
-    <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix atcVarStandard' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
-	
-
-		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
+    <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
+		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone atcVarStandardCont'></fieldset>
 		<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product; pretext:Quantity: ;' class='borderNone'></fieldset>
-        
-	
 		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
 	</form>
 	

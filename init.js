@@ -54,6 +54,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 	else{
 		$(".customBut").hide();
 	}
+	
 		
 }]);
 
