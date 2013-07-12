@@ -100,7 +100,7 @@ var pogs_blueCollar = function() {
 				},
 				
 				
-				renderOptionCUSTOMSELECTCOLOR: function(pog,safeid) {
+				renderOptionCUSTOMSELECTDROPDOWN: function(pog,safeid) {
 				//	app.u.dump('BEGIN renderOptionCUSTOMSELECTCOLOR for pog '+pog.id+' and safe id = '+safeid);
 				var pogid = pog.id;
 				var $parentDiv = $("<span \/>");
@@ -131,44 +131,41 @@ var pogs_blueCollar = function() {
 				//	app.u.dump(" -> pog hint: "+pog['ghint']);
 				var colorSelectValue = $selectList.val();
 				$selectList.bind('change', function(){ 
-					//app.ext.pogs_blueCollar.a.customizeColorOptions();
-					//app.u.dump("Added onchange event to color option.");
-					app.u.dump(safeid);
-
-					colorSelectValue = $selectList.val();
-					//app.u.dump($selectList.val());
-					switch(colorSelectValue)
-					{
-						case "00":
-							$(".ppCustomizerColorOption").hide();
-							$(".ppCustomizerColorTan").show();
-							break; 
-							
-						case "02":
-							$(".ppCustomizerColorOption").hide();
-							$(".ppCustomizerColorBlue").show();
-							break; 
-							
-						case "04":
-							$(".ppCustomizerColorOption").hide();
-							$(".ppCustomizerColorNavyBlue").show();
-							break; 
-							
-						case "05":
-							$(".ppCustomizerColorOption").hide();
-							$(".ppCustomizerColorOrange").show();
-							break;
-							
-						default: 
-							$(".ppCustomizerColorOption").hide();
-							$(".ppCustomizerColorTan").show();
-							break; 
-					}
+					app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 				})
 				$selectList.appendTo($parentDiv);
 				if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
 				return $parentDiv;
-				},
+				}, //END renderOptionCUSTOMSELECTDROPDOWN
+				
+				
+				
+				
+				renderOptionCUSTOMCHECKBOX: function(pog,safeid) {
+					var pogid = pog.id;
+					var $parentDiv = $("<span \/>"); // = $('#div_'+safeid);
+					var $checkbox = $('<input>').attr({type: "checkbox", name: "pog_"+pogid, value: 'OFF', id: "pog_"+safeid});
+					$checkbox.data("switched", false);
+					//Creates the 'hidden input' form field in the DOM which is used to let the cart know that the checkbox element was present and it's absense in the form post means it wasn't checked.		
+					var $hidden = $('<input>').attr({type: "hidden", name: "pog_"+pogid+"_cb", value: '0', id: "pog_"+safeid});
+					$checkbox.bind('change', function(){
+						if($checkbox.data("switched") === false){
+							$checkbox.data("switched", true);
+							//app.u.dump("Checkbox is off. Switching on. Checkbox = " + $checkbox.val);
+							app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
+						}
+						else{
+							$checkbox.data("switched", false);
+							//app.u.dump("Checkbox is on. Switching off. Checkbox = " + $checkbox.val);
+							app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
+						}
+					})
+					$parentDiv.append($checkbox).append($hidden);
+					if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+					return $parentDiv;
+				},//END renderOptionCUSTOMCHECKBOX
+				
+				
 				
 				
 			renderOptionCUSTOMBIGLIST: function(pog,safeid) {
@@ -264,6 +261,7 @@ var pogs_blueCollar = function() {
 				return $parentDiv;
 				},//renderOptionCUSTOMIMGSELECT
 				
+				
 				renderOptionCUSTOMRADIO: function(pog,safeid)	{
 					var pogid = pog.id;
 				
@@ -291,13 +289,12 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","A0","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","A1","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","A2","renderOptionCUSTOMSELECT");
-				this.addHandler("pogid","A3","renderOptionCUSTOMSELECTCOLOR");
+				this.addHandler("pogid","A3","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","A5","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","A6","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","A7","renderOptionCUSTOMSELECT");
-				this.addHandler("pogid","QQ","renderOptionCUSTOMBIGLIST");
-				this.addHandler("pogid","QQ","renderOptionCUSTOMIMGSELECT");
-				this.addHandler("pogid","QQ","renderOptionCUSTOMRADIO");
+				this.addHandler("pogid","AF","renderOptionCUSTOMSELECTDROPDOWN");
+				this.addHandler("pogid","AJ","renderOptionCUSTOMCHECKBOX");
 			}
 				
 			},
@@ -334,6 +331,107 @@ var pogs_blueCollar = function() {
 						$(".customBut").val("showCustomizer");
 					}
 				}
+			},
+			
+			UpdateCustomizerImage: function(){
+				
+				var c=document.getElementById("customizerCanvas");
+				var ctx=c.getContext("2d");
+				ctx.clearRect(0,0,500,500);
+				
+				//**DRAW MAIN PRODUCT IMAGE**//
+				var colorSelectValue = $("#pog_A3").val();
+				switch(colorSelectValue)
+				{
+					case "00":
+						var prodImg=document.getElementById("ppCustomizerColorTan");
+						ctx.drawImage(prodImg,0,0);
+						break; 
+						
+					case "02":
+						var prodImg=document.getElementById("ppCustomizerColorBlue");
+						ctx.drawImage(prodImg,0,0);
+						break; 
+						
+					case "04":
+						var prodImg=document.getElementById("ppCustomizerColorNavyBlue");
+						ctx.drawImage(prodImg,0,0);
+						break; 
+						
+					case "05":
+						var prodImg=document.getElementById("ppCustomizerColorOrange");
+						ctx.drawImage(prodImg,0,0);
+						break;
+						
+					default: 
+						var prodImg=document.getElementById("ppCustomizerColorTan");
+						ctx.drawImage(prodImg,0,0);
+						break; 
+				}
+				
+				//**SELECT STRIPE TYPE**//
+				var stripeTypeSelectValue = $("#pog_AF").val();
+				switch(stripeTypeSelectValue)
+				{
+					case "00":
+						$("#pog_AF").data('stripeType',"yellow2");
+						break; 
+						
+					case "01":
+						$("#pog_AF").data('stripeType',"yellSilvYell2");
+						break; 
+						
+					case "02":
+						$("#pog_AF").data('stripeType',"silver2");
+						break; 
+					
+					case "03":
+						$("#pog_AF").data('stripeType',"yellow1");
+						break;
+						
+					case "04":
+						$("#pog_AF").data('stripeType',"orange1");
+						break;
+						
+					case "05":
+						$("#pog_AF").data('stripeType',"silver1");
+						break;
+				}
+				
+				//**ADD CALVES STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_AF").data('stripeType')){
+					switch($("#pog_AF").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump("#pog_AF = " + $('#pog_AF'));
+							if($('#pog_AF').data("switched", true)){
+								var stripeImg=document.getElementById("yellow1Calves");
+								ctx.drawImage(stripeImg,0,0);
+							}
+							break; 
+						
+						case "01":
+							
+							break; 
+						
+						case "02":
+							
+							break; 
+					
+						case "03":
+							
+							break;
+						
+						case "04":
+							
+							break;
+						
+						case "05":
+							
+							break;
+					}
+				}
+				
 			},
 			
 			customizeColorOptions: function(){
