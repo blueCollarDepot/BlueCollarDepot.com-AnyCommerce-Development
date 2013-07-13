@@ -295,6 +295,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","A7","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","AF","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","AJ","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AK","renderOptionCUSTOMCHECKBOX");
 			}
 				
 			},
@@ -420,31 +421,46 @@ var pogs_blueCollar = function() {
 					switch($("#pog_AF").data('stripeType'))
 					{
 						case "yellow2":
-							app.u.dump($('#pog_AJ').val());
+							//app.u.dump($('#pog_AJ').val());
 							if($('#pog_AJ').val() === "ON"){
-								var stripeImg=document.getElementById("yellow1Calves");
+								var stripeImg=document.getElementById("yellow2Calves");
 								ctx.drawImage(stripeImg,197,380);
 							}
 							break; 
 						
-						case "01":
-							
+						case "yellSilvYell2":
+							if($('#pog_AJ').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2Calves");
+								ctx.drawImage(stripeImg,197,380);
+							}
 							break; 
 						
-						case "02":
-							
+						case "silver2":
+							if($('#pog_AJ').val() === "ON"){
+								var stripeImg=document.getElementById("silv2Calves");
+								ctx.drawImage(stripeImg,197,380);
+							}
 							break; 
 					
-						case "03":
-							
+						case "yellow1":
+							if($('#pog_AJ').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1Calves");
+								ctx.drawImage(stripeImg,197,380);
+							}
 							break;
 						
-						case "04":
-							
+						case "orange1":
+							if($('#pog_AJ').val() === "ON"){
+								//var stripeImg=document.getElementById("orange1Calves");
+								//ctx.drawImage(stripeImg,197,380);
+							}
 							break;
 						
-						case "05":
-							
+						case "silver1":
+							if($('#pog_AJ').val() === "ON"){
+								var stripeImg=document.getElementById("silv1Calves");
+								ctx.drawImage(stripeImg,197,380);
+							}
 							break;
 					}
 				}
