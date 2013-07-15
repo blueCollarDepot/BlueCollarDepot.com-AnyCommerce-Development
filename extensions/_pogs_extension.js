@@ -296,6 +296,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AF","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","AJ","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AK","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AL","renderOptionCUSTOMCHECKBOX");
 			}
 				
 			},
@@ -357,6 +358,7 @@ var pogs_blueCollar = function() {
 				var ctx=c.getContext("2d");
 				ctx.clearRect(0,0,500,500);
 				
+				
 				//**DRAW MAIN PRODUCT IMAGE**//
 				var colorSelectValue = $("#pog_A3").val();
 				switch(colorSelectValue)
@@ -386,6 +388,8 @@ var pogs_blueCollar = function() {
 						ctx.drawImage(prodImg,0,0);
 						break; 
 				}
+				//**END MAIN IMAGE**//
+				
 				
 				//**SELECT STRIPE TYPE**//
 				var stripeTypeSelectValue = $("#pog_AF").val();
@@ -415,6 +419,8 @@ var pogs_blueCollar = function() {
 						$("#pog_AF").data('stripeType',"silver1");
 						break;
 				}
+				//**END STRIPE TYPE**//
+				
 				
 				//**ADD CALVES STRIPE TO IMAGE BASED ON STRIPE TYPE**//
 				if($("#pog_AF").data('stripeType')){
@@ -465,6 +471,8 @@ var pogs_blueCollar = function() {
 							break;
 					}
 				}
+				//**END CALVES STRIPE**//
+				
 				
 				//**ADD FOREARM STRIPE TO IMAGE BASED ON STRIPE TYPE**//
 				if($("#pog_AF").data('stripeType')){
@@ -515,6 +523,59 @@ var pogs_blueCollar = function() {
 							break;
 					}
 				}
+				//**END FOREARM STRIPE**//
+				
+				
+				//**ADD KNEE STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_AF").data('stripeType')){
+					switch($("#pog_AF").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AJ').val());
+							if($('#pog_AL').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2Knees");
+								ctx.drawImage(stripeImg,195,350);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_AL').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2Knees");
+								ctx.drawImage(stripeImg,195,350);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_AL').val() === "ON"){
+								var stripeImg=document.getElementById("silv2Knees");
+								ctx.drawImage(stripeImg,195,350);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_AL').val() === "ON"){
+								//CHANGE BACK TO NEW YELLOW 1 IMAGE ONCE THE NEW IMAGES HAVE BEEN RECIEVED.
+								var stripeImg=document.getElementById("yellow2Knees");
+								ctx.drawImage(stripeImg,161,160);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_AL').val() === "ON"){
+								//var stripeImg=document.getElementById("orange1Knees");
+								//ctx.drawImage(stripeImg,161,160);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_AL').val() === "ON"){
+								var stripeImg=document.getElementById("silv1Knees");
+								ctx.drawImage(stripeImg,195,350);
+							}
+							break;
+					}
+				}
+				//**END KNEE STRIPE**//
 				
 			},
 			
