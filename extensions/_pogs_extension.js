@@ -444,7 +444,8 @@ var pogs_blueCollar = function() {
 					
 						case "yellow1":
 							if($('#pog_AJ').val() === "ON"){
-								var stripeImg=document.getElementById("yellow1Calves");
+								//CHANGE BACK TO NEW YELLOW 1 IMAGE ONCE THE NEW IMAGES HAVE BEEN RECIEVED.
+								var stripeImg=document.getElementById("yellow2Calves");
 								ctx.drawImage(stripeImg,197,380);
 							}
 							break;
@@ -460,6 +461,56 @@ var pogs_blueCollar = function() {
 							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("silv1Calves");
 								ctx.drawImage(stripeImg,197,380);
+							}
+							break;
+					}
+				}
+				
+				//**ADD FOREARM STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_AF").data('stripeType')){
+					switch($("#pog_AF").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AJ').val());
+							if($('#pog_AK').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2Forearms");
+								ctx.drawImage(stripeImg,161,160);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_AK').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2Forearms");
+								ctx.drawImage(stripeImg,160,160);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_AK').val() === "ON"){
+								var stripeImg=document.getElementById("silv2Forearms");
+								ctx.drawImage(stripeImg,160,160);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_AK').val() === "ON"){
+								//CHANGE BACK TO NEW YELLOW 1 IMAGE ONCE THE NEW IMAGES HAVE BEEN RECIEVED.
+								var stripeImg=document.getElementById("yellow2Forearms");
+								ctx.drawImage(stripeImg,161,160);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_AK').val() === "ON"){
+								//var stripeImg=document.getElementById("orange1Forearms");
+								//ctx.drawImage(stripeImg,161,160);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_AK').val() === "ON"){
+								var stripeImg=document.getElementById("silv1Forearms");
+								ctx.drawImage(stripeImg,162,160);
 							}
 							break;
 					}
