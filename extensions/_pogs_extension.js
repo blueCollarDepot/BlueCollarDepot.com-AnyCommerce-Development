@@ -151,12 +151,12 @@ var pogs_blueCollar = function() {
 					$checkbox.bind('change', function(){
 						if($checkbox.val() === "OFF"){
 							$checkbox.val("ON");
-							app.u.dump("Checkbox is off. Switching on. Checkbox = " + $checkbox.val());
+							//app.u.dump("Checkbox is off. Switching on. Checkbox = " + $checkbox.val());
 							app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 						}
 						else{
 							$checkbox.val("OFF");
-							app.u.dump("Checkbox is on. Switching off. Checkbox = " + $checkbox.val());
+							//app.u.dump("Checkbox is on. Switching off. Checkbox = " + $checkbox.val());
 							app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 						}
 					})
@@ -297,6 +297,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AJ","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AK","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AL","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AN","renderOptionCUSTOMCHECKBOX");
 			}
 				
 			},
@@ -556,7 +557,7 @@ var pogs_blueCollar = function() {
 							if($('#pog_AL').val() === "ON"){
 								//CHANGE BACK TO NEW YELLOW 1 IMAGE ONCE THE NEW IMAGES HAVE BEEN RECIEVED.
 								var stripeImg=document.getElementById("yellow2Knees");
-								ctx.drawImage(stripeImg,161,160);
+								ctx.drawImage(stripeImg,195,350);
 							}
 							break;
 						
@@ -576,6 +577,58 @@ var pogs_blueCollar = function() {
 					}
 				}
 				//**END KNEE STRIPE**//
+				
+				
+				//**ADD THIGH STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_AF").data('stripeType')){
+					switch($("#pog_AF").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_AN').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2Thighs");
+								ctx.drawImage(stripeImg,192,320);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_AN').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2Thighs");
+								ctx.drawImage(stripeImg,193,320);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_AN').val() === "ON"){
+								var stripeImg=document.getElementById("silv2Thighs");
+								ctx.drawImage(stripeImg,193,320);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_AN').val() === "ON"){
+								//CHANGE BACK TO NEW YELLOW 1 IMAGE ONCE THE NEW IMAGES HAVE BEEN RECIEVED.
+								var stripeImg=document.getElementById("yellow2Thighs");
+								ctx.drawImage(stripeImg,193,320);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_AN').val() === "ON"){
+								//var stripeImg=document.getElementById("orange1Thighs");
+								//ctx.drawImage(stripeImg,161,160);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_AN').val() === "ON"){
+								var stripeImg=document.getElementById("silv1Thighs");
+								ctx.drawImage(stripeImg,193,320);
+							}
+							break;
+					}
+				}
+				//**END THIGH STRIPE**//
 				
 			},
 			
