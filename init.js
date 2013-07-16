@@ -50,11 +50,40 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 	app.u.dump(safePID);
 	if(safePID === "OVERALLSTEST1"){
 		$(".customBut").show();
+		
+		$("<div class='customizerMenu'>"
+			+ "<div class='customizerCatCont' onClick='app.ext.pogs_blueCollar.a.toggleHideShowStriping()'>"
+			+ "<label>Reflective Striping</label></div><div class='stipeCustomizer'></div>"
+			+ "<div class='customizerCatCont' onClick='app.ext.pogs_blueCollar.a.toggleHideShowEmbroidery()'>"
+			+ "<label>Embrodiery</label></div><div class='embroideryCustomizer'></div>"
+			
+        + "</div>").appendTo('#JSONPogDisplay_OVERALLS-TEST1');
+		$("#div_AF").appendTo(".stipeCustomizer");
+		$("#div_AK").appendTo(".stipeCustomizer");
+		$("#div_AN").appendTo(".stipeCustomizer");
+		$("#div_AL").appendTo(".stipeCustomizer");
+		$("#div_AJ").appendTo(".stipeCustomizer");
+		
+		$("#div_AG").appendTo(".embroideryCustomizer");
+		$("#div_AI").appendTo(".embroideryCustomizer");
+		$("#div_AM").appendTo(".embroideryCustomizer");
+		$("#div_AA").appendTo(".embroideryCustomizer");
+		
+		if($('.stipeCustomizer',$context).data('collapseOrExpanded')) {} //do nothing, content already added.
+		else {
+			$('.stipeCustomizer',$context).data('collapseOrExpanded',true).append();
+		}
+	    if($('.embroideryCustomizer',$context).data('collapseOrExpanded')) {} //do nothing, content already added.
+		else {
+			$('.embroideryCustomizer',$context).data('collapseOrExpanded',true).append();
+		}
+		$(".customizerMenu").hide();
+		
 	}
 	else{
 		$(".customBut").hide();
 	}
-	
+	//*****END CUSTOMIZER FUNCTIONALITY****	
 		
 }]);
 

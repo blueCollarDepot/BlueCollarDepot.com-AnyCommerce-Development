@@ -286,18 +286,16 @@ var pogs_blueCollar = function() {
 					
 	
 			xinit : function(){
-				this.addHandler("pogid","A0","renderOptionCUSTOMSELECT");
-				this.addHandler("pogid","A1","renderOptionCUSTOMSELECT");
-				this.addHandler("pogid","A2","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","A3","renderOptionCUSTOMSELECTDROPDOWN");
-				this.addHandler("pogid","A5","renderOptionCUSTOMSELECT");
-				this.addHandler("pogid","A6","renderOptionCUSTOMSELECT");
-				this.addHandler("pogid","A7","renderOptionCUSTOMSELECT");
 				this.addHandler("pogid","AF","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","AJ","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AK","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AL","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AN","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AG","");
+				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AA","renderOptionCUSTOMCHECKBOX");
 			}
 				
 			},
@@ -314,6 +312,7 @@ var pogs_blueCollar = function() {
 					//app.u.dump("value equals show customizer. Showing customizer");
 					$(".prodBigImage").hide();
 					$(".customizerImageCont").show();
+					$(".customizerMenu").show();
 					$(".prodThumbs").hide();
 					
 					$("#div_AF").show();
@@ -335,6 +334,7 @@ var pogs_blueCollar = function() {
 						//app.u.dump("value equals hide customizer. Hiding customizer");
 						$(".prodBigImage").show();
 						$(".customizerImageCont").hide();
+						$(".customizerMenu").hide();
 						$(".prodThumbs").show();
 						
 						$("#div_AF").hide();
@@ -631,7 +631,28 @@ var pogs_blueCollar = function() {
 			customizeColorOptions: function(){
 				app.u.dump("color onchange option is running");
 				app.u.dump($("#pog_A3").val());
-			}
+			},
+			
+			toggleHideShowStriping : function(){
+					if($('.stipeCustomizer').data('collapseOrExpanded') === true){
+						$('.stipeCustomizer').slideUp(1000);
+						$('.stipeCustomizer').data('collapseOrExpanded',false).append();
+					}
+					else{
+						$('.stipeCustomizer').slideDown(1000);
+						$('.stipeCustomizer').data('collapseOrExpanded',true).append();
+					}
+				},
+			toggleHideShowEmbroidery  : function(){
+					if($('.embroideryCustomizer').data('collapseOrExpanded') === true){
+						$('.embroideryCustomizer').slideUp(1000);
+						$('.embroideryCustomizer').data('collapseOrExpanded',false).append();
+					}
+					else{
+						$('.embroideryCustomizer').slideDown(1000);
+						$('.embroideryCustomizer').data('collapseOrExpanded',true).append();
+					}
+				},
 			/*
 			openIconDetails : function(team, $target){
 				var queryString = "?iconname=" + team ;
