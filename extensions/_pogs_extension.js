@@ -451,16 +451,15 @@ var pogs_blueCollar = function() {
 					
 						case "yellow1":
 							if($('#pog_AJ').val() === "ON"){
-								//CHANGE BACK TO NEW YELLOW 1 IMAGE ONCE THE NEW IMAGES HAVE BEEN RECIEVED.
-								var stripeImg=document.getElementById("yellow2Calves");
+								var stripeImg=document.getElementById("yellow1Calves");
 								ctx.drawImage(stripeImg,197,380);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AJ').val() === "ON"){
-								//var stripeImg=document.getElementById("orange1Calves");
-								//ctx.drawImage(stripeImg,197,380);
+								var stripeImg=document.getElementById("orange1Calves");
+								ctx.drawImage(stripeImg,197,380);
 							}
 							break;
 						
@@ -503,16 +502,15 @@ var pogs_blueCollar = function() {
 					
 						case "yellow1":
 							if($('#pog_AK').val() === "ON"){
-								//CHANGE BACK TO NEW YELLOW 1 IMAGE ONCE THE NEW IMAGES HAVE BEEN RECIEVED.
-								var stripeImg=document.getElementById("yellow2Forearms");
-								ctx.drawImage(stripeImg,161,160);
+								var stripeImg=document.getElementById("yellow1Forearms");
+								ctx.drawImage(stripeImg,165,160);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AK').val() === "ON"){
-								//var stripeImg=document.getElementById("orange1Forearms");
-								//ctx.drawImage(stripeImg,161,160);
+								var stripeImg=document.getElementById("orange1Forearms");
+								ctx.drawImage(stripeImg,161,160);
 							}
 							break;
 						
@@ -555,16 +553,15 @@ var pogs_blueCollar = function() {
 					
 						case "yellow1":
 							if($('#pog_AL').val() === "ON"){
-								//CHANGE BACK TO NEW YELLOW 1 IMAGE ONCE THE NEW IMAGES HAVE BEEN RECIEVED.
-								var stripeImg=document.getElementById("yellow2Knees");
+								var stripeImg=document.getElementById("yellow1Knees");
 								ctx.drawImage(stripeImg,195,350);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AL').val() === "ON"){
-								//var stripeImg=document.getElementById("orange1Knees");
-								//ctx.drawImage(stripeImg,161,160);
+								var stripeImg=document.getElementById("orange1Knees");
+								ctx.drawImage(stripeImg,195,350);
 							}
 							break;
 						
@@ -607,16 +604,15 @@ var pogs_blueCollar = function() {
 					
 						case "yellow1":
 							if($('#pog_AN').val() === "ON"){
-								//CHANGE BACK TO NEW YELLOW 1 IMAGE ONCE THE NEW IMAGES HAVE BEEN RECIEVED.
-								var stripeImg=document.getElementById("yellow2Thighs");
+								var stripeImg=document.getElementById("yellow1Thighs");
 								ctx.drawImage(stripeImg,193,320);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AN').val() === "ON"){
-								//var stripeImg=document.getElementById("orange1Thighs");
-								//ctx.drawImage(stripeImg,161,160);
+								var stripeImg=document.getElementById("orange1Thighs");
+								ctx.drawImage(stripeImg,193,320);
 							}
 							break;
 						
