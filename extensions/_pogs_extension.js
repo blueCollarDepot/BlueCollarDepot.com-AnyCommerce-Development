@@ -384,6 +384,16 @@ var pogs_blueCollar = function() {
 						ctx.drawImage(prodImg,0,0);
 						break;
 						
+					case "06":
+						var prodImg=document.getElementById("ppCustomizerColorBlue");
+						ctx.drawImage(prodImg,0,0);
+						break; 
+						
+					case "0D":
+						var prodImg=document.getElementById("ppCustomizerColorNavyBlue");
+						ctx.drawImage(prodImg,0,0);
+						break; 
+						
 					default: 
 						var prodImg=document.getElementById("ppCustomizerColorTan");
 						ctx.drawImage(prodImg,0,0);
