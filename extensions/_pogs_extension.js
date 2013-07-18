@@ -292,6 +292,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AK","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AL","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AN","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AO","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AG","");
 				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
@@ -324,6 +325,7 @@ var pogs_blueCollar = function() {
 					$("#div_AM").show();
 					$("#div_AN").show();
 					$("#div_AA").show();
+					$("#div_AO").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -346,6 +348,7 @@ var pogs_blueCollar = function() {
 						$("#div_AM").hide();
 						$("#div_AN").hide();
 						$("#div_AA").hide();
+						$("#div_AO").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -634,7 +637,58 @@ var pogs_blueCollar = function() {
 							break;
 					}
 				}
-				//**END THIGH STRIPE**//
+				//**END PANT BOTTOM CUFF STRIPE**//
+				
+				
+				//**ADD PANT BOTTOM CUFF STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_AF").data('stripeType')){
+					switch($("#pog_AF").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_AO').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2PantCuff");
+								ctx.drawImage(stripeImg,200,456);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_AO').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2PantCuff");
+								ctx.drawImage(stripeImg,200,456);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_AO').val() === "ON"){
+								var stripeImg=document.getElementById("silv2PantCuff");
+								ctx.drawImage(stripeImg,200,456);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_AO').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1PantCuff");
+								ctx.drawImage(stripeImg,200,456);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_AO').val() === "ON"){
+								var stripeImg=document.getElementById("orange1PantCuff");
+								ctx.drawImage(stripeImg,200,456);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_AO').val() === "ON"){
+								var stripeImg=document.getElementById("silv1PantCuff");
+								ctx.drawImage(stripeImg,200,456);
+							}
+							break;
+					}
+				}
+				//**END PANT BOTTOM CUFF STRIPE**//
 				
 			},
 			
