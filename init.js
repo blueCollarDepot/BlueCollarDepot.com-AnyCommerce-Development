@@ -55,9 +55,31 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "<div class='customizerCatCont' onClick='app.ext.pogs_blueCollar.a.toggleHideShowStriping()'>"
 			+ "<label>Reflective Striping</label></div><div class='stipeCustomizer'></div>"
 			+ "<div class='customizerCatCont' onClick='app.ext.pogs_blueCollar.a.toggleHideShowEmbroidery()'>"
-			+ "<label>Embrodiery</label></div><div class='embroideryCustomizer'></div>"
+			+ "<label>Embrodiery</label></div>"
+			+ "   <div class='embroideryCustomizer'>"
+			+ "     <div class='embroideryCont'>"
+			+ "			<div class='floatLeft clearLeft'>"
+			+ "		 		<label class='floatLeft'>Left Chest Pocket</label><input type='checkbox' class='leftPocket' onClick='app.ext.pogs_blueCollar.a.toggleHideShowLeftPocket()' />"
+			+ " 	 		<div class='leftPocketCont'></div>"
+			+ "			</div>"
+			+ "			<div class='floatLeft clearLeft'>"
+			+ "	 	 		<label class='floatLeft'>Right Chest Pocket</label><input type='checkbox' class='rightPocket' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightPocket()' />"
+			+ "	     		<div class='rightPocketCont'></div>"
+			+ "			</div>"
+			+ "			<div class='floatLeft clearLeft'>"
+			+ "		 		<span class='floatLeft'>Left Shoulder</span><input type='checkbox' class='leftShoulder' onClick='app.ext.pogs_blueCollar.a.toggleHideShowLeftShoulder()' />"
+			+ "   	 		<div class='leftShoulderCont'></div>"
+			+ "			</div>"
+			+ "			<div class='floatLeft clearLeft'>"
+			+ "	  	 		<span class='floatLeft'>Right Shoulder</span><input type='checkbox' class='rightShoulder' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightShoulder()' />"
+			+ "      		<div class='rightShoulderCont'></div>"
+			+ "			</div>"
+			+ "   	</div>"
+			+ "     <div class='oldEmbroiderySogs'>"
+			+ "     </div>"
+			+ "  </div>"
+			+ "</div>").appendTo('#JSONPogDisplay_OVERALLS-TEST1');
 			
-        + "</div>").appendTo('#JSONPogDisplay_OVERALLS-TEST1');
 		$("#div_AF").appendTo(".stipeCustomizer");
 		$("#div_AK").appendTo(".stipeCustomizer");
 		$("#div_AN").appendTo(".stipeCustomizer");
@@ -65,19 +87,46 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		$("#div_AJ").appendTo(".stipeCustomizer");
 		$("#div_AO").appendTo(".stipeCustomizer");
 		
-		$("#div_AG").appendTo(".embroideryCustomizer");
-		$("#div_AI").appendTo(".embroideryCustomizer");
-		$("#div_AM").appendTo(".embroideryCustomizer");
-		$("#div_AA").appendTo(".embroideryCustomizer");
+		$("#div_AG").appendTo(".oldEmbroiderySogs");
+		$("#div_AI").appendTo(".oldEmbroiderySogs");
+		$("#div_AM").appendTo(".oldEmbroiderySogs");
+		$("#div_AA").appendTo(".oldEmbroiderySogs");
 		
 		if($('.stipeCustomizer',$context).data('collapseOrExpanded')) {} //do nothing, content already added.
 		else {
 			$('.stipeCustomizer',$context).data('collapseOrExpanded',true).append();
 		}
+		
 	    if($('.embroideryCustomizer',$context).data('collapseOrExpanded')) {} //do nothing, content already added.
 		else {
 			$('.embroideryCustomizer',$context).data('collapseOrExpanded',true).append();
 		}
+		
+		if($('.leftPocketCont',$context).data('collapseOrExpanded')) {} //do nothing, content already added.
+		else {
+			$('.leftPocketCont',$context).data('collapseOrExpanded',false).append();
+		}
+		$(".leftPocketCont").hide();
+		
+		if($('.rightPocketCont',$context).data('collapseOrExpanded')) {} //do nothing, content already added.
+		else {
+			$('.rightPocketCont',$context).data('collapseOrExpanded',false).append();
+		}
+		$(".rightPocketCont").hide();
+		
+		if($('.leftShoulderCont',$context).data('collapseOrExpanded')) {} //do nothing, content already added.
+		else {
+			$('.leftShoulderCont',$context).data('collapseOrExpanded',false).append();
+		}
+		$(".leftShoulderCont").hide();
+		
+		if($('.rightShoulderCont',$context).data('collapseOrExpanded')) {} //do nothing, content already added.
+		else {
+			$('.rightShoulderCont',$context).data('collapseOrExpanded',false).append();
+		}
+		$(".rightShoulderCont").hide();
+		
+		
 		$(".customizerMenu").hide();
 		
 	}

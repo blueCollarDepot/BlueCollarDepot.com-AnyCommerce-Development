@@ -717,6 +717,46 @@ var pogs_blueCollar = function() {
 						$('.embroideryCustomizer').data('collapseOrExpanded',true).append();
 					}
 				},
+			toggleHideShowLeftPocket : function(){
+					if($('.leftPocketCont').data('collapseOrExpanded') === true){
+						$('.leftPocketCont').slideUp(1000);
+						$('.leftPocketCont').data('collapseOrExpanded',false).append();
+					}
+					else{
+						$('.leftPocketCont').slideDown(1000);
+						$('.leftPocketCont').data('collapseOrExpanded',true).append();
+					}
+				},
+			toggleHideShowRightPocket : function(){
+					if($('.rightPocketCont').data('collapseOrExpanded') === true){
+						$('.rightPocketCont').slideUp(1000);
+						$('.rightPocketCont').data('collapseOrExpanded',false).append();
+					}
+					else{
+						$('.rightPocketCont').slideDown(1000);
+						$('.rightPocketCont').data('collapseOrExpanded',true).append();
+					}
+				},
+			toggleHideShowLeftShoulder : function(){
+					if($('.leftShoulderCont').data('collapseOrExpanded') === true){
+						$('.leftShoulderCont').slideUp(1000);
+						$('.leftShoulderCont').data('collapseOrExpanded',false).append();
+					}
+					else{
+						$('.leftShoulderCont').slideDown(1000);
+						$('.leftShoulderCont').data('collapseOrExpanded',true).append();
+					}
+				},
+			toggleHideShowRightShoulder : function(){
+					if($('.rightShoulderCont').data('collapseOrExpanded') === true){
+						$('.rightShoulderCont').slideUp(1000);
+						$('.rightShoulderCont').data('collapseOrExpanded',false).append();
+					}
+					else{
+						$('.rightShoulderCont').slideDown(1000);
+						$('.rightShoulderCont').data('collapseOrExpanded',true).append();
+					}
+				},
 			/*
 			openIconDetails : function(team, $target){
 				var queryString = "?iconname=" + team ;

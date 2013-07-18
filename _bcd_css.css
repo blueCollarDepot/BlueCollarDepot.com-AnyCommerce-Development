@@ -26,3 +26,51 @@
     line-height: 30px;
     padding-left: 25px;
 }
+.leftPocket{
+}
+.leftPocketCont{
+	clear:left;
+	float:left;
+}
+.rightPocket{
+}
+.rightPocketCont{
+	clear:left;
+	float:left;
+}
+.leftShoulder{
+}
+.leftShoulderCont{
+	clear:left;
+	float:left;
+}
+.rightShoulder{
+}
+.rightShoulderCont{
+	clear:left;
+	float:left;
+}
+.blockInline{
+	display:block;
+}
+.clearLeft{
+	clear:left;
+}
+.embroideryCont{
+	border-left: 1px solid #1456A0;
+    border-right: 1px solid #1456A0;
+    clear: left;
+    float: left;
+    margin-left: -1px;
+    width: 100%;
+}
+.oldEmbroiderySogs{
+	border-left: 1px solid #1456A0;
+    border-right: 1px solid #1456A0;
+	border-bottom: 1px solid #1456A0;
+    clear: left;
+    float: left;
+    margin-left: -1px;
+    width: 100%;
+	border-top:solid 2px black;
+}
