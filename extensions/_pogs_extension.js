@@ -463,6 +463,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("silv2Calves");
 								ctx.drawImage(stripeImg,56,390);
+								var stripeImg=document.getElementById("silv2CalvesBack");
+								ctx.drawImage(stripeImg,313,400);
 							}
 							break; 
 					
@@ -470,6 +472,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Calves");
 								ctx.drawImage(stripeImg,56,390);
+								var stripeImg=document.getElementById("yellow1CalvesBack");
+								ctx.drawImage(stripeImg,313,400);
 							}
 							break;
 						
@@ -518,6 +522,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("silv2Forearms");
 								ctx.drawImage(stripeImg,25,175);
+								var stripeImg=document.getElementById("silv2ForearmsBack");
+								ctx.drawImage(stripeImg,272,175);
 							}
 							break; 
 					
@@ -525,6 +531,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Forearms");
 								ctx.drawImage(stripeImg,25,175);
+								var stripeImg=document.getElementById("yellow1ForearmsBack");
+								ctx.drawImage(stripeImg,272,175);
 							}
 							break;
 						
@@ -573,6 +581,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AL').val() === "ON"){
 								var stripeImg=document.getElementById("silv2Knees");
 								ctx.drawImage(stripeImg,56,355);
+								var stripeImg=document.getElementById("silv2KneesBack");
+								ctx.drawImage(stripeImg,312,355);
 							}
 							break; 
 					
@@ -580,6 +590,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AL').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Knees");
 								ctx.drawImage(stripeImg,56,355);
+								var stripeImg=document.getElementById("yellow1KneesBack");
+								ctx.drawImage(stripeImg,312,355);
 							}
 							break;
 						
@@ -628,6 +640,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AN').val() === "ON"){
 								var stripeImg=document.getElementById("silv2Thighs");
 								ctx.drawImage(stripeImg,56,320);
+								var stripeImg=document.getElementById("silv2ThighsBack");
+								ctx.drawImage(stripeImg,311,310);
 							}
 							break; 
 					
@@ -635,6 +649,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AN').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Thighs");
 								ctx.drawImage(stripeImg,56,320);
+								var stripeImg=document.getElementById("yellow1ThighsBack");
+								ctx.drawImage(stripeImg,311,310);
 							}
 							break;
 						
@@ -683,6 +699,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AO').val() === "ON"){
 								var stripeImg=document.getElementById("silv2PantCuff");
 								ctx.drawImage(stripeImg,56,460);
+								var stripeImg=document.getElementById("silv2PantCuffBack");
+								ctx.drawImage(stripeImg,315,475);
 							}
 							break; 
 					
@@ -690,6 +708,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AO').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1PantCuff");
 								ctx.drawImage(stripeImg,56,460);
+								var stripeImg=document.getElementById("yellow1PantCuffBack");
+								ctx.drawImage(stripeImg,315,475);
 							}
 							break;
 						
