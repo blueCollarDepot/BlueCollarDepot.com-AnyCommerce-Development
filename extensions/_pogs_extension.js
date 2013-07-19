@@ -445,6 +445,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2Calves");
 								ctx.drawImage(stripeImg,56,390);
+								var stripeImg=document.getElementById("yellow2CalvesBack");
+								ctx.drawImage(stripeImg,313,400);
 							}
 							break; 
 						
@@ -496,6 +498,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2Forearms");
 								ctx.drawImage(stripeImg,25,175);
+								var stripeImg=document.getElementById("yellow2ForearmsBack");
+								ctx.drawImage(stripeImg,272,175);
 							}
 							break; 
 						
@@ -547,6 +551,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AL').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2Knees");
 								ctx.drawImage(stripeImg,56,355);
+								var stripeImg=document.getElementById("yellow2KneesBack");
+								ctx.drawImage(stripeImg,312,355);
 							}
 							break; 
 						
@@ -598,6 +604,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AN').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2Thighs");
 								ctx.drawImage(stripeImg,56,320);
+								var stripeImg=document.getElementById("yellow2ThighsBack");
+								ctx.drawImage(stripeImg,311,310);
 							}
 							break; 
 						
@@ -649,6 +657,8 @@ var pogs_blueCollar = function() {
 							if($('#pog_AO').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2PantCuff");
 								ctx.drawImage(stripeImg,56,460);
+								var stripeImg=document.getElementById("yellow2PantCuffBack");
+								ctx.drawImage(stripeImg,315,475);
 							}
 							break; 
 						
