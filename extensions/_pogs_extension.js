@@ -700,20 +700,28 @@ var pogs_blueCollar = function() {
 			toggleHideShowStriping : function(){
 					if($('.stipeCustomizer').data('collapseOrExpanded') === true){
 						$('.stipeCustomizer').slideUp(1000);
+						$(".customizerSectionClosedStripe").show();
+						$(".customizerSectionOpenStripe").hide();
 						$('.stipeCustomizer').data('collapseOrExpanded',false).append();
 					}
 					else{
 						$('.stipeCustomizer').slideDown(1000);
+						$(".customizerSectionClosedStripe").hide();
+						$(".customizerSectionOpenStripe").show();
 						$('.stipeCustomizer').data('collapseOrExpanded',true).append();
 					}
 				},
 			toggleHideShowEmbroidery  : function(){
 					if($('.embroideryCustomizer').data('collapseOrExpanded') === true){
 						$('.embroideryCustomizer').slideUp(1000);
+						$(".customizerSectionClosedEmbroid").show();
+						$(".customizerSectionOpenEmbroid").hide();
 						$('.embroideryCustomizer').data('collapseOrExpanded',false).append();
 					}
 					else{
 						$('.embroideryCustomizer').slideDown(1000);
+						$(".customizerSectionClosedEmbroid").hide();
+						$(".customizerSectionOpenEmbroid").show();
 						$('.embroideryCustomizer').data('collapseOrExpanded',true).append();
 					}
 				},
