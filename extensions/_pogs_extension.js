@@ -444,42 +444,42 @@ var pogs_blueCollar = function() {
 							//app.u.dump($('#pog_AJ').val());
 							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2Calves");
-								ctx.drawImage(stripeImg,197,380);
+								ctx.drawImage(stripeImg,56,390);
 							}
 							break; 
 						
 						case "yellSilvYell2":
 							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2Calves");
-								ctx.drawImage(stripeImg,197,380);
+								ctx.drawImage(stripeImg,56,390);
 							}
 							break; 
 						
 						case "silver2":
 							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("silv2Calves");
-								ctx.drawImage(stripeImg,197,380);
+								ctx.drawImage(stripeImg,56,390);
 							}
 							break; 
 					
 						case "yellow1":
 							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Calves");
-								ctx.drawImage(stripeImg,197,380);
+								ctx.drawImage(stripeImg,56,390);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("orange1Calves");
-								ctx.drawImage(stripeImg,197,380);
+								ctx.drawImage(stripeImg,56,390);
 							}
 							break;
 						
 						case "silver1":
 							if($('#pog_AJ').val() === "ON"){
 								var stripeImg=document.getElementById("silv1Calves");
-								ctx.drawImage(stripeImg,197,380);
+								ctx.drawImage(stripeImg,56,390);
 							}
 							break;
 					}
@@ -495,42 +495,42 @@ var pogs_blueCollar = function() {
 							//app.u.dump($('#pog_AJ').val());
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2Forearms");
-								ctx.drawImage(stripeImg,161,160);
+								ctx.drawImage(stripeImg,25,175);
 							}
 							break; 
 						
 						case "yellSilvYell2":
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2Forearms");
-								ctx.drawImage(stripeImg,160,160);
+								ctx.drawImage(stripeImg,25,175);
 							}
 							break; 
 						
 						case "silver2":
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("silv2Forearms");
-								ctx.drawImage(stripeImg,160,160);
+								ctx.drawImage(stripeImg,25,175);
 							}
 							break; 
 					
 						case "yellow1":
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Forearms");
-								ctx.drawImage(stripeImg,165,160);
+								ctx.drawImage(stripeImg,25,175);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("orange1Forearms");
-								ctx.drawImage(stripeImg,161,160);
+								ctx.drawImage(stripeImg,25,175);
 							}
 							break;
 						
 						case "silver1":
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("silv1Forearms");
-								ctx.drawImage(stripeImg,162,160);
+								ctx.drawImage(stripeImg,25,175);
 							}
 							break;
 					}
@@ -546,42 +546,42 @@ var pogs_blueCollar = function() {
 							//app.u.dump($('#pog_AJ').val());
 							if($('#pog_AL').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2Knees");
-								ctx.drawImage(stripeImg,195,350);
+								ctx.drawImage(stripeImg,56,355);
 							}
 							break; 
 						
 						case "yellSilvYell2":
 							if($('#pog_AL').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2Knees");
-								ctx.drawImage(stripeImg,195,350);
+								ctx.drawImage(stripeImg,56,355);
 							}
 							break; 
 						
 						case "silver2":
 							if($('#pog_AL').val() === "ON"){
 								var stripeImg=document.getElementById("silv2Knees");
-								ctx.drawImage(stripeImg,195,350);
+								ctx.drawImage(stripeImg,56,355);
 							}
 							break; 
 					
 						case "yellow1":
 							if($('#pog_AL').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Knees");
-								ctx.drawImage(stripeImg,195,350);
+								ctx.drawImage(stripeImg,56,355);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AL').val() === "ON"){
 								var stripeImg=document.getElementById("orange1Knees");
-								ctx.drawImage(stripeImg,195,350);
+								ctx.drawImage(stripeImg,56,355);
 							}
 							break;
 						
 						case "silver1":
 							if($('#pog_AL').val() === "ON"){
 								var stripeImg=document.getElementById("silv1Knees");
-								ctx.drawImage(stripeImg,195,350);
+								ctx.drawImage(stripeImg,56,355);
 							}
 							break;
 					}
@@ -597,42 +597,42 @@ var pogs_blueCollar = function() {
 							//app.u.dump($('#pog_AN').val());
 							if($('#pog_AN').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2Thighs");
-								ctx.drawImage(stripeImg,192,320);
+								ctx.drawImage(stripeImg,56,320);
 							}
 							break; 
 						
 						case "yellSilvYell2":
 							if($('#pog_AN').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2Thighs");
-								ctx.drawImage(stripeImg,193,320);
+								ctx.drawImage(stripeImg,56,320);
 							}
 							break; 
 						
 						case "silver2":
 							if($('#pog_AN').val() === "ON"){
 								var stripeImg=document.getElementById("silv2Thighs");
-								ctx.drawImage(stripeImg,193,320);
+								ctx.drawImage(stripeImg,56,320);
 							}
 							break; 
 					
 						case "yellow1":
 							if($('#pog_AN').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Thighs");
-								ctx.drawImage(stripeImg,193,320);
+								ctx.drawImage(stripeImg,56,320);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AN').val() === "ON"){
 								var stripeImg=document.getElementById("orange1Thighs");
-								ctx.drawImage(stripeImg,193,320);
+								ctx.drawImage(stripeImg,56,320);
 							}
 							break;
 						
 						case "silver1":
 							if($('#pog_AN').val() === "ON"){
 								var stripeImg=document.getElementById("silv1Thighs");
-								ctx.drawImage(stripeImg,193,320);
+								ctx.drawImage(stripeImg,56,320);
 							}
 							break;
 					}
@@ -648,42 +648,42 @@ var pogs_blueCollar = function() {
 							//app.u.dump($('#pog_AN').val());
 							if($('#pog_AO').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2PantCuff");
-								ctx.drawImage(stripeImg,200,456);
+								ctx.drawImage(stripeImg,56,460);
 							}
 							break; 
 						
 						case "yellSilvYell2":
 							if($('#pog_AO').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2PantCuff");
-								ctx.drawImage(stripeImg,200,456);
+								ctx.drawImage(stripeImg,56,460);
 							}
 							break; 
 						
 						case "silver2":
 							if($('#pog_AO').val() === "ON"){
 								var stripeImg=document.getElementById("silv2PantCuff");
-								ctx.drawImage(stripeImg,200,456);
+								ctx.drawImage(stripeImg,56,460);
 							}
 							break; 
 					
 						case "yellow1":
 							if($('#pog_AO').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1PantCuff");
-								ctx.drawImage(stripeImg,200,456);
+								ctx.drawImage(stripeImg,56,460);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AO').val() === "ON"){
 								var stripeImg=document.getElementById("orange1PantCuff");
-								ctx.drawImage(stripeImg,200,456);
+								ctx.drawImage(stripeImg,56,460);
 							}
 							break;
 						
 						case "silver1":
 							if($('#pog_AO').val() === "ON"){
 								var stripeImg=document.getElementById("silv1PantCuff");
-								ctx.drawImage(stripeImg,200,456);
+								ctx.drawImage(stripeImg,56,460);
 							}
 							break;
 					}
