@@ -362,7 +362,7 @@ var pogs_blueCollar = function() {
 				var ctx=c.getContext("2d");
 				ctx.clearRect(0,0,500,500);
 				
-				
+				//****CUSTOMIZER IMAGE DRAWING FUNCTIONS****//
 				//**DRAW MAIN PRODUCT IMAGE**//
 				var colorSelectValue = $("#pog_A3").val();
 				switch(colorSelectValue)
@@ -751,11 +751,7 @@ var pogs_blueCollar = function() {
 				//**END PANT BOTTOM CUFF STRIPE**//
 				
 			},
-			
-			customizeColorOptions: function(){
-				app.u.dump("color onchange option is running");
-				app.u.dump($("#pog_A3").val());
-			},
+			//****END CUSTOMIZER IMAGE DRAWING FUNCTIONS****//
 			
 			toggleHideShowStriping : function(){
 					if($('.stipeCustomizer').data('collapseOrExpanded') === true){
@@ -785,10 +781,14 @@ var pogs_blueCollar = function() {
 						$('.embroideryCustomizer').data('collapseOrExpanded',true).append();
 					}
 				},
+				
+			//**EMBRROIDERY/LOGO CLICK FUNCTIONS**//
 			toggleHideShowLeftPocket : function(){
 					if($('.leftPocketCont').data('collapseOrExpanded') === true){
 						$('.leftPocketCont').slideUp(1000);
 						$('.leftPocketCont').data('collapseOrExpanded',false).append();
+						$(".lpRadioEmbroid").prop('checked', false);
+						$(".lpRadioLogo").prop('checked', false);
 					}
 					else{
 						$('.leftPocketCont').slideDown(1000);
@@ -799,6 +799,8 @@ var pogs_blueCollar = function() {
 					if($('.rightPocketCont').data('collapseOrExpanded') === true){
 						$('.rightPocketCont').slideUp(1000);
 						$('.rightPocketCont').data('collapseOrExpanded',false).append();
+						$(".rpRadioEmbroid").prop('checked', false);
+						$(".rpRadioLogo").prop('checked', false);
 					}
 					else{
 						$('.rightPocketCont').slideDown(1000);
@@ -809,6 +811,8 @@ var pogs_blueCollar = function() {
 					if($('.leftShoulderCont').data('collapseOrExpanded') === true){
 						$('.leftShoulderCont').slideUp(1000);
 						$('.leftShoulderCont').data('collapseOrExpanded',false).append();
+						$(".lsRadioEmbroid").prop('checked', false);
+						$(".lsRadioLogo").prop('checked', false);
 					}
 					else{
 						$('.leftShoulderCont').slideDown(1000);
@@ -819,12 +823,66 @@ var pogs_blueCollar = function() {
 					if($('.rightShoulderCont').data('collapseOrExpanded') === true){
 						$('.rightShoulderCont').slideUp(1000);
 						$('.rightShoulderCont').data('collapseOrExpanded',false).append();
+						$(".rsRadioEmbroid").prop('checked', false);
+						$(".rsRadioLogo").prop('checked', false);
 					}
 					else{
 						$('.rightShoulderCont').slideDown(1000);
 						$('.rightShoulderCont').data('collapseOrExpanded',true).append();
 					}
 				},
+				
+				toggleHideShowLeftPocketEmbroid : function(){
+					if($('.lpRadioEmbroid').attr("checked", "checked")){
+						$('.leftPocketLogoCont').slideUp(1000);
+						$('.leftPocketEmbroidCont').slideDown(1000);
+					}
+				},
+				toggleHideShowLeftPocketLogo : function(){
+					if($('.lpRadioLogo').attr("checked", "checked")){
+						$('.leftPocketEmbroidCont').slideUp(1000);
+						$('.leftPocketLogoCont').slideDown(1000);
+					}
+				},
+				toggleHideShowRightPocketEmbroid : function(){
+					if($('.rpRadioEmbroid').attr("checked", "checked")){
+						$('.rightPocketLogoCont').slideUp(1000);
+						$('.rightPocketEmbroidCont').slideDown(1000);
+					}
+				},
+				toggleHideShowRightPocketLogo : function(){
+					if($('.rpRadioLogo').attr("checked", "checked")){
+						$('.rightPocketEmbroidCont').slideUp(1000);
+						$('.rightPocketLogoCont').slideDown(1000);
+					}
+				},
+				toggleHideShowLeftShoulderEmbroid : function(){
+					if($('.lsRadioEmbroid').attr("checked", "checked")){
+						$('.rightPocketLogoCont').slideUp(1000);
+						$('.rightPocketEmbroidCont').slideDown(1000);
+					}
+				},
+				toggleHideShowLeftShoulderLogo : function(){
+					if($('.lsRadioLogo').attr("checked", "checked")){
+						$('.leftShoulderEmbroidCont').slideUp(1000);
+						$('.leftShoulderLogoCont').slideDown(1000);
+					}
+				},
+				toggleHideShowRightShoulderEmbroid : function(){
+					if($('.rsRadioEmbroid').attr("checked", "checked")){
+						$('.rightPocketLogoCont').slideUp(1000);
+						$('.rightPocketEmbroidCont').slideDown(1000);
+					}
+				},
+				toggleHideShowRightShoulderLogo : function(){
+					if($('.rsRadioLogo').attr("checked", "checked")){
+						$('.rightShoulderEmbroidCont').slideUp(1000);
+						$('.rightShoulderLogoCont').slideDown(1000);
+					}
+				},
+				//**END EMBRROIDERY/LOGO CLICK FUNCTIONS**//
+				
+				
 			/*
 			openIconDetails : function(team, $target){
 				var queryString = "?iconname=" + team ;

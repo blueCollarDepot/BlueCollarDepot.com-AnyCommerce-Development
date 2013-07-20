@@ -31,24 +31,28 @@
 .leftPocketCont{
 	clear:left;
 	float:left;
+	padding-left:10px;
 }
 .rightPocket{
 }
 .rightPocketCont{
 	clear:left;
 	float:left;
+	padding-left:10px;
 }
 .leftShoulder{
 }
 .leftShoulderCont{
 	clear:left;
 	float:left;
+	padding-left:10px;
 }
 .rightShoulder{
 }
 .rightShoulderCont{
 	clear:left;
 	float:left;
+	padding-left:10px;
 }
 .blockInline{
 	display:block;
