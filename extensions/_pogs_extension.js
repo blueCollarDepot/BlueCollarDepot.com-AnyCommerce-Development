@@ -771,45 +771,45 @@ var pogs_blueCollar = function() {
 						case "yellSilvYell2":
 							if($('#pog_AR').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2AllAround");
-								ctx.drawImage(stripeImg,56,460);
+								ctx.drawImage(stripeImg,37,140);
 								var stripeImg=document.getElementById("yellSilvYell2AllAroundBack");
-								ctx.drawImage(stripeImg,315,475);
+								ctx.drawImage(stripeImg,294,134);
 							}
 							break; 
 						
 						case "silver2":
 							if($('#pog_AR').val() === "ON"){
 								var stripeImg=document.getElementById("silv2AllAround");
-								ctx.drawImage(stripeImg,56,460);
+								ctx.drawImage(stripeImg,37,140);
 								var stripeImg=document.getElementById("silv2AllAroundBack");
-								ctx.drawImage(stripeImg,315,475);
+								ctx.drawImage(stripeImg,294,134);
 							}
 							break; 
 					
 						case "yellow1":
 							if($('#pog_AR').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1AllAround");
-								ctx.drawImage(stripeImg,56,460);
+								ctx.drawImage(stripeImg,37,140);
 								var stripeImg=document.getElementById("yellow1AllAroundBack");
-								ctx.drawImage(stripeImg,315,475);
+								ctx.drawImage(stripeImg,294,134);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AR').val() === "ON"){
 								var stripeImg=document.getElementById("orange1AllAround");
-								ctx.drawImage(stripeImg,56,460);
+								ctx.drawImage(stripeImg,37,140);
 								var stripeImg=document.getElementById("orange1AllAroundBack");
-								ctx.drawImage(stripeImg,315,475);
+								ctx.drawImage(stripeImg,294,134);
 							}
 							break;
 						
 						case "silver1":
 							if($('#pog_AR').val() === "ON"){
 								var stripeImg=document.getElementById("silv1AllAround");
-								ctx.drawImage(stripeImg,56,460);
+								ctx.drawImage(stripeImg,37,140);
 								var stripeImg=document.getElementById("silv1AllAroundBack");
-								ctx.drawImage(stripeImg,315,475);
+								ctx.drawImage(stripeImg,294,134);
 							}
 							break;
 					}
