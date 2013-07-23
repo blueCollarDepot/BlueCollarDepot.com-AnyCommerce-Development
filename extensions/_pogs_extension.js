@@ -289,10 +289,11 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","A3","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","AF","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","AJ","renderOptionCUSTOMCHECKBOX");
-				this.addHandler("pogid","AK","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AV","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AL","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AN","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AO","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AR","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AG","");
 				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
@@ -319,13 +320,14 @@ var pogs_blueCollar = function() {
 					$("#div_AF").show();
 					$("#div_AG").show();
 					$("#div_AJ").show();
-					$("#div_AK").show();
+					$("#div_AV").show();
 					$("#div_AL").show();
 					$("#div_AI").show();
 					$("#div_AM").show();
 					$("#div_AN").show();
 					$("#div_AA").show();
 					$("#div_AO").show();
+					$("#div_AR").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -342,13 +344,14 @@ var pogs_blueCollar = function() {
 						$("#div_AF").hide();
 						$("#div_AG").hide();
 						$("#div_AJ").hide();
-						$("#div_AK").hide();
+						$("#div_AV").hide();
 						$("#div_AL").hide();
 						$("#div_AI").hide();
 						$("#div_AM").hide();
 						$("#div_AN").hide();
 						$("#div_AA").hide();
 						$("#div_AO").hide();
+						$("#div_AR").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -505,7 +508,7 @@ var pogs_blueCollar = function() {
 					{
 						case "yellow2":
 							//app.u.dump($('#pog_AJ').val());
-							if($('#pog_AK').val() === "ON"){
+							if($('#pog_AV').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2Forearms");
 								ctx.drawImage(stripeImg,25,175);
 								var stripeImg=document.getElementById("yellow2ForearmsBack");
@@ -514,7 +517,7 @@ var pogs_blueCollar = function() {
 							break; 
 						
 						case "yellSilvYell2":
-							if($('#pog_AK').val() === "ON"){
+							if($('#pog_AV').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2Forearms");
 								ctx.drawImage(stripeImg,25,175);
 								var stripeImg=document.getElementById("yellSilvYell2ForearmsBack");
@@ -523,7 +526,7 @@ var pogs_blueCollar = function() {
 							break; 
 						
 						case "silver2":
-							if($('#pog_AK').val() === "ON"){
+							if($('#pog_AV').val() === "ON"){
 								var stripeImg=document.getElementById("silv2Forearms");
 								ctx.drawImage(stripeImg,25,175);
 								var stripeImg=document.getElementById("silv2ForearmsBack");
@@ -532,7 +535,7 @@ var pogs_blueCollar = function() {
 							break; 
 					
 						case "yellow1":
-							if($('#pog_AK').val() === "ON"){
+							if($('#pog_AV').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Forearms");
 								ctx.drawImage(stripeImg,25,175);
 								var stripeImg=document.getElementById("yellow1ForearmsBack");
@@ -541,7 +544,7 @@ var pogs_blueCollar = function() {
 							break;
 						
 						case "orange1":
-							if($('#pog_AK').val() === "ON"){
+							if($('#pog_AV').val() === "ON"){
 								var stripeImg=document.getElementById("orange1Forearms");
 								ctx.drawImage(stripeImg,25,175);
 								var stripeImg=document.getElementById("orange1ForearmsBack");
@@ -550,7 +553,7 @@ var pogs_blueCollar = function() {
 							break;
 						
 						case "silver1":
-							if($('#pog_AK').val() === "ON"){
+							if($('#pog_AV').val() === "ON"){
 								var stripeImg=document.getElementById("silv1Forearms");
 								ctx.drawImage(stripeImg,25,175);
 								var stripeImg=document.getElementById("silv1ForearmsBack");
@@ -685,7 +688,7 @@ var pogs_blueCollar = function() {
 							break;
 					}
 				}
-				//**END PANT BOTTOM CUFF STRIPE**//
+				//**END THIGH STRIPE**//
 				
 				
 				//**ADD PANT BOTTOM CUFF STRIPE TO IMAGE BASED ON STRIPE TYPE**//
@@ -749,6 +752,69 @@ var pogs_blueCollar = function() {
 					}
 				}
 				//**END PANT BOTTOM CUFF STRIPE**//
+				
+				
+				//**ADD ALL AROUND SHIRT STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_AF").data('stripeType')){
+					switch($("#pog_AF").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_AR').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2AllAround");
+								ctx.drawImage(stripeImg,37,140);
+								var stripeImg=document.getElementById("yellow2AllAroundBack");
+								ctx.drawImage(stripeImg,294,134);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_AR').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2AllAround");
+								ctx.drawImage(stripeImg,56,460);
+								var stripeImg=document.getElementById("yellSilvYell2AllAroundBack");
+								ctx.drawImage(stripeImg,315,475);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_AR').val() === "ON"){
+								var stripeImg=document.getElementById("silv2AllAround");
+								ctx.drawImage(stripeImg,56,460);
+								var stripeImg=document.getElementById("silv2AllAroundBack");
+								ctx.drawImage(stripeImg,315,475);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_AR').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1AllAround");
+								ctx.drawImage(stripeImg,56,460);
+								var stripeImg=document.getElementById("yellow1AllAroundBack");
+								ctx.drawImage(stripeImg,315,475);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_AR').val() === "ON"){
+								var stripeImg=document.getElementById("orange1AllAround");
+								ctx.drawImage(stripeImg,56,460);
+								var stripeImg=document.getElementById("orange1AllAroundBack");
+								ctx.drawImage(stripeImg,315,475);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_AR').val() === "ON"){
+								var stripeImg=document.getElementById("silv1AllAround");
+								ctx.drawImage(stripeImg,56,460);
+								var stripeImg=document.getElementById("silv1AllAroundBack");
+								ctx.drawImage(stripeImg,315,475);
+							}
+							break;
+					}
+				}
+				//**END ALL AROUND SHIRT STRIPE**//
 				
 			},
 			//****END CUSTOMIZER IMAGE DRAWING FUNCTIONS****//

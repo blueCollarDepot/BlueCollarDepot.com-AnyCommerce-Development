@@ -102,11 +102,12 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "</div>").appendTo('#JSONPogDisplay_OVERALLS-TEST1');
 			
 		$("#div_AF").appendTo(".stipeCustomizer");
-		$("#div_AK").appendTo(".stipeCustomizer");
+		$("#div_AV").appendTo(".stipeCustomizer");
 		$("#div_AN").appendTo(".stipeCustomizer");
 		$("#div_AL").appendTo(".stipeCustomizer");
 		$("#div_AJ").appendTo(".stipeCustomizer");
 		$("#div_AO").appendTo(".stipeCustomizer");
+		$("#div_AR").appendTo(".stipeCustomizer");
 		
 		$("#div_AG").appendTo(".oldEmbroiderySogs");
 		$("#div_AI").appendTo(".oldEmbroiderySogs");
