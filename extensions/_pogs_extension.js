@@ -292,7 +292,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AV","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AL","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AN","renderOptionCUSTOMCHECKBOX");
-				this.addHandler("pogid","AO","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AP","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AR","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AY","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","B8","renderOptionCUSTOMCHECKBOX");
@@ -328,7 +328,7 @@ var pogs_blueCollar = function() {
 					$("#div_AM").show();
 					$("#div_AN").show();
 					$("#div_AA").show();
-					$("#div_AO").show();
+					$("#div_AP").show();
 					$("#div_AR").show();
 					$("#div_AY").show();
 					$("#div_B8").show();
@@ -354,7 +354,7 @@ var pogs_blueCollar = function() {
 						$("#div_AM").hide();
 						$("#div_AN").hide();
 						$("#div_AA").hide();
-						$("#div_AO").hide();
+						$("#div_AP").hide();
 						$("#div_AR").hide();
 						$("#div_AY").hide();
 						$("#div_B8").hide();
@@ -754,7 +754,7 @@ var pogs_blueCollar = function() {
 					{
 						case "yellow2":
 							//app.u.dump($('#pog_AN').val());
-							if($('#pog_AO').val() === "ON"){
+							if($('#pog_AP').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2PantCuff");
 								ctx.drawImage(stripeImg,56,460);
 								var stripeImg=document.getElementById("yellow2PantCuffBack");
@@ -763,7 +763,7 @@ var pogs_blueCollar = function() {
 							break; 
 						
 						case "yellSilvYell2":
-							if($('#pog_AO').val() === "ON"){
+							if($('#pog_AP').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2PantCuff");
 								ctx.drawImage(stripeImg,56,460);
 								var stripeImg=document.getElementById("yellSilvYell2PantCuffBack");
@@ -772,7 +772,7 @@ var pogs_blueCollar = function() {
 							break; 
 						
 						case "silver2":
-							if($('#pog_AO').val() === "ON"){
+							if($('#pog_AP').val() === "ON"){
 								var stripeImg=document.getElementById("silv2PantCuff");
 								ctx.drawImage(stripeImg,56,460);
 								var stripeImg=document.getElementById("silv2PantCuffBack");
@@ -781,7 +781,7 @@ var pogs_blueCollar = function() {
 							break; 
 					
 						case "yellow1":
-							if($('#pog_AO').val() === "ON"){
+							if($('#pog_AP').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1PantCuff");
 								ctx.drawImage(stripeImg,56,460);
 								var stripeImg=document.getElementById("yellow1PantCuffBack");
@@ -790,7 +790,7 @@ var pogs_blueCollar = function() {
 							break;
 						
 						case "orange1":
-							if($('#pog_AO').val() === "ON"){
+							if($('#pog_AP').val() === "ON"){
 								var stripeImg=document.getElementById("orange1PantCuff");
 								ctx.drawImage(stripeImg,56,460);
 								var stripeImg=document.getElementById("orange1PantCuffBack");
@@ -799,7 +799,7 @@ var pogs_blueCollar = function() {
 							break;
 						
 						case "silver1":
-							if($('#pog_AO').val() === "ON"){
+							if($('#pog_AP').val() === "ON"){
 								var stripeImg=document.getElementById("silv1PantCuff");
 								ctx.drawImage(stripeImg,56,460);
 								var stripeImg=document.getElementById("silv1PantCuffBack");
