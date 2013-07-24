@@ -294,6 +294,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AN","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AO","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AR","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AY","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AG","");
 				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
@@ -328,6 +329,7 @@ var pogs_blueCollar = function() {
 					$("#div_AA").show();
 					$("#div_AO").show();
 					$("#div_AR").show();
+					$("#div_AY").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -352,6 +354,7 @@ var pogs_blueCollar = function() {
 						$("#div_AA").hide();
 						$("#div_AO").hide();
 						$("#div_AR").hide();
+						$("#div_AY").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -754,7 +757,7 @@ var pogs_blueCollar = function() {
 				//**END PANT BOTTOM CUFF STRIPE**//
 				
 				
-				//**ADD ALL AROUND SHIRT STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				//**ADD ALL AROUND COVERALL STRIPE TO IMAGE BASED ON STRIPE TYPE**//
 				if($("#pog_AF").data('stripeType')){
 					switch($("#pog_AF").data('stripeType'))
 					{
@@ -814,7 +817,58 @@ var pogs_blueCollar = function() {
 							break;
 					}
 				}
-				//**END ALL AROUND SHIRT STRIPE**//
+				//**END ALL AROUND COVERALL STRIPE**//
+				
+				
+				//**ADD FULL X ON BACK STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_AF").data('stripeType')){
+					switch($("#pog_AF").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2FullXBack");
+								ctx.drawImage(stripeImg,302,27);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2FullXBack");
+								ctx.drawImage(stripeImg,302,27);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("silv2FullXBack");
+								ctx.drawImage(stripeImg,303,27);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1FullXBack");
+								ctx.drawImage(stripeImg,302,27);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("orange1FullXBack");
+								ctx.drawImage(stripeImg,305,32);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("silv1FullXBack");
+								ctx.drawImage(stripeImg,303,29);
+							}
+							break;
+					}
+				}
+				//**END FULL X ON BACK STRIPE**//
 				
 			},
 			//****END CUSTOMIZER IMAGE DRAWING FUNCTIONS****//
