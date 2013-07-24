@@ -295,6 +295,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AO","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AR","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AY","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","B8","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AG","");
 				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
@@ -330,6 +331,7 @@ var pogs_blueCollar = function() {
 					$("#div_AO").show();
 					$("#div_AR").show();
 					$("#div_AY").show();
+					$("#div_B8").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -355,6 +357,7 @@ var pogs_blueCollar = function() {
 						$("#div_AO").hide();
 						$("#div_AR").hide();
 						$("#div_AY").hide();
+						$("#div_B8").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -440,6 +443,57 @@ var pogs_blueCollar = function() {
 						break;
 				}
 				//**END STRIPE TYPE**//
+				
+				
+				//**ADD SIDESEAM WAIST TO BOTTOM STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_AF").data('stripeType')){
+					switch($("#pog_AF").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_B8').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2Sideseam");
+								ctx.drawImage(stripeImg,50,234);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_B8').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2Sideseam");
+								ctx.drawImage(stripeImg,50,234);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_B8').val() === "ON"){
+								var stripeImg=document.getElementById("silv2Sideseam");
+								ctx.drawImage(stripeImg,48,234);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_B8').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1Sideseam");
+								ctx.drawImage(stripeImg,50,234);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_B8').val() === "ON"){
+								var stripeImg=document.getElementById("orange1Sideseam");
+								ctx.drawImage(stripeImg,50,234);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_B8').val() === "ON"){
+								var stripeImg=document.getElementById("silv1Sideseam");
+								ctx.drawImage(stripeImg,50,234);
+							}
+							break;
+					}
+				}
+				//**END SIDESEAM WAIST TO BOTTOM STRIPE**//
 				
 				
 				//**ADD CALVES STRIPE TO IMAGE BASED ON STRIPE TYPE**//
@@ -757,6 +811,57 @@ var pogs_blueCollar = function() {
 				//**END PANT BOTTOM CUFF STRIPE**//
 				
 				
+				//**ADD FULL X ON BACK STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_AF").data('stripeType')){
+					switch($("#pog_AF").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2FullXBack");
+								ctx.drawImage(stripeImg,302,27);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2FullXBack");
+								ctx.drawImage(stripeImg,302,27);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("silv2FullXBack");
+								ctx.drawImage(stripeImg,303,27);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1FullXBack");
+								ctx.drawImage(stripeImg,302,27);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("orange1FullXBack");
+								ctx.drawImage(stripeImg,305,32);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_AY').val() === "ON"){
+								var stripeImg=document.getElementById("silv1FullXBack");
+								ctx.drawImage(stripeImg,303,29);
+							}
+							break;
+					}
+				}
+				//**END FULL X ON BACK STRIPE**//
+				
+				
 				//**ADD ALL AROUND COVERALL STRIPE TO IMAGE BASED ON STRIPE TYPE**//
 				if($("#pog_AF").data('stripeType')){
 					switch($("#pog_AF").data('stripeType'))
@@ -820,55 +925,6 @@ var pogs_blueCollar = function() {
 				//**END ALL AROUND COVERALL STRIPE**//
 				
 				
-				//**ADD FULL X ON BACK STRIPE TO IMAGE BASED ON STRIPE TYPE**//
-				if($("#pog_AF").data('stripeType')){
-					switch($("#pog_AF").data('stripeType'))
-					{
-						case "yellow2":
-							//app.u.dump($('#pog_AN').val());
-							if($('#pog_AY').val() === "ON"){
-								var stripeImg=document.getElementById("yellow2FullXBack");
-								ctx.drawImage(stripeImg,302,27);
-							}
-							break; 
-						
-						case "yellSilvYell2":
-							if($('#pog_AY').val() === "ON"){
-								var stripeImg=document.getElementById("yellSilvYell2FullXBack");
-								ctx.drawImage(stripeImg,302,27);
-							}
-							break; 
-						
-						case "silver2":
-							if($('#pog_AY').val() === "ON"){
-								var stripeImg=document.getElementById("silv2FullXBack");
-								ctx.drawImage(stripeImg,303,27);
-							}
-							break; 
-					
-						case "yellow1":
-							if($('#pog_AY').val() === "ON"){
-								var stripeImg=document.getElementById("yellow1FullXBack");
-								ctx.drawImage(stripeImg,302,27);
-							}
-							break;
-						
-						case "orange1":
-							if($('#pog_AY').val() === "ON"){
-								var stripeImg=document.getElementById("orange1FullXBack");
-								ctx.drawImage(stripeImg,305,32);
-							}
-							break;
-						
-						case "silver1":
-							if($('#pog_AY').val() === "ON"){
-								var stripeImg=document.getElementById("silv1FullXBack");
-								ctx.drawImage(stripeImg,303,29);
-							}
-							break;
-					}
-				}
-				//**END FULL X ON BACK STRIPE**//
 				
 			},
 			//****END CUSTOMIZER IMAGE DRAWING FUNCTIONS****//
