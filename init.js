@@ -101,7 +101,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "  </div>"
 			+ "</div>").appendTo('#JSONPogDisplay_OVERALLS-TEST1');
 			
-		$("#div_AF").appendTo(".stipeCustomizer");
+		$("#div_A9").appendTo(".stipeCustomizer");
 		$("#div_AV").appendTo(".stipeCustomizer");
 		$("#div_AN").appendTo(".stipeCustomizer");
 		$("#div_AL").appendTo(".stipeCustomizer");

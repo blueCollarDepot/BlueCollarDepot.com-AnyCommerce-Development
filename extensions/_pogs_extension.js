@@ -287,7 +287,7 @@ var pogs_blueCollar = function() {
 	
 			xinit : function(){
 				this.addHandler("pogid","A3","renderOptionCUSTOMSELECTDROPDOWN");
-				this.addHandler("pogid","AF","renderOptionCUSTOMSELECTDROPDOWN");
+				this.addHandler("pogid","A9","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","AJ","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AV","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AL","renderOptionCUSTOMCHECKBOX");
@@ -319,7 +319,7 @@ var pogs_blueCollar = function() {
 					$(".customizerMenu").show();
 					$(".prodThumbs").hide();
 					
-					$("#div_AF").show();
+					$("#div_A9").show();
 					$("#div_AG").show();
 					$("#div_AJ").show();
 					$("#div_AV").show();
@@ -345,7 +345,7 @@ var pogs_blueCollar = function() {
 						$(".customizerMenu").hide();
 						$(".prodThumbs").show();
 						
-						$("#div_AF").hide();
+						$("#div_A9").hide();
 						$("#div_AG").hide();
 						$("#div_AJ").hide();
 						$("#div_AV").hide();
@@ -415,39 +415,39 @@ var pogs_blueCollar = function() {
 				
 				
 				//**SELECT STRIPE TYPE**//
-				var stripeTypeSelectValue = $("#pog_AF").val();
+				var stripeTypeSelectValue = $("#pog_A9").val();
 				switch(stripeTypeSelectValue)
 				{
 					case "00":
-						$("#pog_AF").data('stripeType',"yellow2");
+						$("#pog_A9").data('stripeType',"yellow2");
 						break; 
 						
 					case "01":
-						$("#pog_AF").data('stripeType',"yellSilvYell2");
+						$("#pog_A9").data('stripeType',"yellSilvYell2");
 						break; 
 						
 					case "02":
-						$("#pog_AF").data('stripeType',"silver2");
+						$("#pog_A9").data('stripeType',"silver2");
 						break; 
 					
 					case "03":
-						$("#pog_AF").data('stripeType',"yellow1");
+						$("#pog_A9").data('stripeType',"yellow1");
 						break;
 						
 					case "04":
-						$("#pog_AF").data('stripeType',"orange1");
+						$("#pog_A9").data('stripeType',"orange1");
 						break;
 						
 					case "05":
-						$("#pog_AF").data('stripeType',"silver1");
+						$("#pog_A9").data('stripeType',"silver1");
 						break;
 				}
 				//**END STRIPE TYPE**//
 				
 				
 				//**ADD SIDESEAM WAIST TO BOTTOM STRIPE TO IMAGE BASED ON STRIPE TYPE**//
-				if($("#pog_AF").data('stripeType')){
-					switch($("#pog_AF").data('stripeType'))
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
 					{
 						case "yellow2":
 							//app.u.dump($('#pog_AN').val());
@@ -497,8 +497,8 @@ var pogs_blueCollar = function() {
 				
 				
 				//**ADD CALVES STRIPE TO IMAGE BASED ON STRIPE TYPE**//
-				if($("#pog_AF").data('stripeType')){
-					switch($("#pog_AF").data('stripeType'))
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
 					{
 						case "yellow2":
 							//app.u.dump($('#pog_AJ').val());
@@ -560,8 +560,8 @@ var pogs_blueCollar = function() {
 				
 				
 				//**ADD FOREARM STRIPE TO IMAGE BASED ON STRIPE TYPE**//
-				if($("#pog_AF").data('stripeType')){
-					switch($("#pog_AF").data('stripeType'))
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
 					{
 						case "yellow2":
 							//app.u.dump($('#pog_AJ').val());
@@ -623,8 +623,8 @@ var pogs_blueCollar = function() {
 				
 				
 				//**ADD KNEE STRIPE TO IMAGE BASED ON STRIPE TYPE**//
-				if($("#pog_AF").data('stripeType')){
-					switch($("#pog_AF").data('stripeType'))
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
 					{
 						case "yellow2":
 							//app.u.dump($('#pog_AJ').val());
@@ -686,8 +686,8 @@ var pogs_blueCollar = function() {
 				
 				
 				//**ADD THIGH STRIPE TO IMAGE BASED ON STRIPE TYPE**//
-				if($("#pog_AF").data('stripeType')){
-					switch($("#pog_AF").data('stripeType'))
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
 					{
 						case "yellow2":
 							//app.u.dump($('#pog_AN').val());
@@ -749,8 +749,8 @@ var pogs_blueCollar = function() {
 				
 				
 				//**ADD PANT BOTTOM CUFF STRIPE TO IMAGE BASED ON STRIPE TYPE**//
-				if($("#pog_AF").data('stripeType')){
-					switch($("#pog_AF").data('stripeType'))
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
 					{
 						case "yellow2":
 							//app.u.dump($('#pog_AN').val());
@@ -812,8 +812,8 @@ var pogs_blueCollar = function() {
 				
 				
 				//**ADD FULL X ON BACK STRIPE TO IMAGE BASED ON STRIPE TYPE**//
-				if($("#pog_AF").data('stripeType')){
-					switch($("#pog_AF").data('stripeType'))
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
 					{
 						case "yellow2":
 							//app.u.dump($('#pog_AN').val());
@@ -863,8 +863,8 @@ var pogs_blueCollar = function() {
 				
 				
 				//**ADD ALL AROUND COVERALL STRIPE TO IMAGE BASED ON STRIPE TYPE**//
-				if($("#pog_AF").data('stripeType')){
-					switch($("#pog_AF").data('stripeType'))
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
 					{
 						case "yellow2":
 							//app.u.dump($('#pog_AN').val());
