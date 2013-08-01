@@ -296,6 +296,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AR","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AY","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","B8","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","AX","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AG","");
 				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
@@ -332,6 +333,7 @@ var pogs_blueCollar = function() {
 					$("#div_AR").show();
 					$("#div_AY").show();
 					$("#div_B8").show();
+					$("#div_AX").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -358,6 +360,7 @@ var pogs_blueCollar = function() {
 						$("#div_AR").hide();
 						$("#div_AY").hide();
 						$("#div_B8").hide();
+						$("#div_AX").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -403,6 +406,15 @@ var pogs_blueCollar = function() {
 						
 					case "0D":
 						var prodImg=document.getElementById("ppCustomizerColorNavyBlue");
+						ctx.drawImage(prodImg,0,0);
+						break; 
+						
+					case "01":
+						var prodImg=document.getElementById("ppCustomizerColorGrey");
+						ctx.drawImage(prodImg,0,0);
+						break; 
+					case "03":
+						var prodImg=document.getElementById("ppCustomizerColorRed");
 						ctx.drawImage(prodImg,0,0);
 						break; 
 						
@@ -923,6 +935,57 @@ var pogs_blueCollar = function() {
 					}
 				}
 				//**END ALL AROUND COVERALL STRIPE**//
+				
+				
+				//**ADD DOUBLE HORIZONTAL BACK TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_AX').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2DoubleBack");
+								ctx.drawImage(stripeImg,281,48);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_AX').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2DoubleBack");
+								ctx.drawImage(stripeImg,286,57);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_AX').val() === "ON"){
+								var stripeImg=document.getElementById("silv2DoubleBack");
+								ctx.drawImage(stripeImg,286,57);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_AX').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1DoubleBack");
+								ctx.drawImage(stripeImg,286,57);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_AX').val() === "ON"){
+								var stripeImg=document.getElementById("orange1DoubleBack");
+								ctx.drawImage(stripeImg,286,57);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_AX').val() === "ON"){
+								var stripeImg=document.getElementById("silv1DoubleBack");
+								ctx.drawImage(stripeImg,286,57);
+							}
+							break;
+					}
+				}
+				//**END DOUBLE HORIZONTAL BACK STRIPE**//
 				
 				
 				
