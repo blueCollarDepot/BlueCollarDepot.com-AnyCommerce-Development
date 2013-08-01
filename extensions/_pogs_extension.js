@@ -297,6 +297,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AY","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","B8","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AX","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","B0","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AG","");
 				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
@@ -334,6 +335,7 @@ var pogs_blueCollar = function() {
 					$("#div_AY").show();
 					$("#div_B8").show();
 					$("#div_AX").show();
+					$("#div_B0").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -361,6 +363,7 @@ var pogs_blueCollar = function() {
 						$("#div_AY").hide();
 						$("#div_B8").hide();
 						$("#div_AX").hide();
+						$("#div_B0").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -988,6 +991,56 @@ var pogs_blueCollar = function() {
 				//**END DOUBLE HORIZONTAL BACK STRIPE**//
 				
 				
+				//**ADD SINGLE HORIZONTAL BACK TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_B0').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2SingleBack");
+								ctx.drawImage(stripeImg,285,59);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_B0').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2SingleBack");
+								ctx.drawImage(stripeImg,286,57);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_B0').val() === "ON"){
+								var stripeImg=document.getElementById("silv2SingleBack");
+								ctx.drawImage(stripeImg,286,57);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_B0').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1SingleBack");
+								ctx.drawImage(stripeImg,286,57);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_B0').val() === "ON"){
+								var stripeImg=document.getElementById("orange1SingleBack");
+								ctx.drawImage(stripeImg,286,57);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_B0').val() === "ON"){
+								var stripeImg=document.getElementById("silv1SingleBack");
+								ctx.drawImage(stripeImg,286,57);
+							}
+							break;
+					}
+				}
+				//**END SINGLE HORIZONTAL BACK STRIPE**//
+
 				
 			},
 			//****END CUSTOMIZER IMAGE DRAWING FUNCTIONS****//
