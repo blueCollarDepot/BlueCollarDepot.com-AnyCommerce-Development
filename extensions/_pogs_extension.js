@@ -1006,35 +1006,35 @@ var pogs_blueCollar = function() {
 						case "yellSilvYell2":
 							if($('#pog_B0').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2SingleBack");
-								ctx.drawImage(stripeImg,286,57);
+								ctx.drawImage(stripeImg,285,59);
 							}
 							break; 
 						
 						case "silver2":
 							if($('#pog_B0').val() === "ON"){
 								var stripeImg=document.getElementById("silv2SingleBack");
-								ctx.drawImage(stripeImg,286,57);
+								ctx.drawImage(stripeImg,285,59);
 							}
 							break; 
 					
 						case "yellow1":
 							if($('#pog_B0').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1SingleBack");
-								ctx.drawImage(stripeImg,286,57);
+								ctx.drawImage(stripeImg,284,59);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_B0').val() === "ON"){
 								var stripeImg=document.getElementById("orange1SingleBack");
-								ctx.drawImage(stripeImg,286,57);
+								ctx.drawImage(stripeImg,284,59);
 							}
 							break;
 						
 						case "silver1":
 							if($('#pog_B0').val() === "ON"){
 								var stripeImg=document.getElementById("silv1SingleBack");
-								ctx.drawImage(stripeImg,286,57);
+								ctx.drawImage(stripeImg,284,59);
 							}
 							break;
 					}
