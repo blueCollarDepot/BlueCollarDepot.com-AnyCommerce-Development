@@ -113,6 +113,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		$("#div_AX").appendTo(".stipeCustomizer");
 		$("#div_B0").appendTo(".stipeCustomizer");
 		$("#div_B1").appendTo(".stipeCustomizer");
+		$("#div_AZ").appendTo(".stipeCustomizer");
 		
 		$("#div_AG").appendTo(".oldEmbroiderySogs");
 		$("#div_AI").appendTo(".oldEmbroiderySogs");
