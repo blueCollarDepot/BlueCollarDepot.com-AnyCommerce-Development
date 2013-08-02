@@ -300,6 +300,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","B0","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","B1","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AZ","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","B6","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AG","");
 				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
@@ -340,6 +341,7 @@ var pogs_blueCollar = function() {
 					$("#div_B0").show();
 					$("#div_B1").show();
 					$("#div_AZ").show();
+					$("#div_B6").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -370,6 +372,7 @@ var pogs_blueCollar = function() {
 						$("#div_B0").hide();
 						$("#div_B1").hide();
 						$("#div_AZ").hide();
+						$("#div_B6").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -1148,6 +1151,56 @@ var pogs_blueCollar = function() {
 					}
 				}
 				//**END HORIZONTAL UNDERFRONT POCKETS STRIPE**//
+				
+				//**ADD LOWER MIDDLE BACK TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_B6').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2LowerMiddleBack");
+								ctx.drawImage(stripeImg,318,125);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_B6').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2LowerMiddleBack");
+								ctx.drawImage(stripeImg,317,125);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_B6').val() === "ON"){
+								var stripeImg=document.getElementById("silv2LowerMiddleBack");
+								ctx.drawImage(stripeImg,317,125);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_B6').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1LowerMiddleBack");
+								ctx.drawImage(stripeImg,317,125);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_B6').val() === "ON"){
+								var stripeImg=document.getElementById("orange1LowerMiddleBack");
+								ctx.drawImage(stripeImg,317,125);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_B6').val() === "ON"){
+								var stripeImg=document.getElementById("silv1LowerMiddleBack");
+								ctx.drawImage(stripeImg,317,125);
+							}
+							break;
+					}
+				}
+				//**END LOWER MIDDLE BACK STRIPE**//
 
 				
 			},
