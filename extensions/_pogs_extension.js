@@ -302,6 +302,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AZ","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","B6","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AK","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","B5","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AG","");
 				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
@@ -344,6 +345,7 @@ var pogs_blueCollar = function() {
 					$("#div_AZ").show();
 					$("#div_B6").show();
 					$("#div_AK").show();
+					$("#div_B5").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -376,6 +378,7 @@ var pogs_blueCollar = function() {
 						$("#div_AZ").hide();
 						$("#div_B6").hide();
 						$("#div_AK").hide();
+						$("#div_B5").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -1254,6 +1257,56 @@ var pogs_blueCollar = function() {
 					}
 				}
 				//**END BOTH SLEEVES BICEPS STRIPE**//
+				
+				//**ADD SHOULDER TO CUFF IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_B5').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2ShoulderToCuff");
+								ctx.drawImage(stripeImg,11,38);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_B5').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2ShoulderToCuff");
+								ctx.drawImage(stripeImg,11,38);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_B5').val() === "ON"){
+								var stripeImg=document.getElementById("silv2ShoulderToCuff");
+								ctx.drawImage(stripeImg,11,38);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_B5').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1ShoulderToCuff");
+								ctx.drawImage(stripeImg,19,38);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_B5').val() === "ON"){
+								var stripeImg=document.getElementById("orange1ShoulderToCuff");
+								ctx.drawImage(stripeImg,11,38);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_B5').val() === "ON"){
+								var stripeImg=document.getElementById("silv1ShoulderToCuff");
+								ctx.drawImage(stripeImg,15,38);
+							}
+							break;
+					}
+				}
+				//**END SHOULDER TO CUFF STRIPE**//
 
 				
 			},
