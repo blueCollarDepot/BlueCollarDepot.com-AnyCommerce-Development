@@ -303,6 +303,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","B6","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AK","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","B5","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","B7","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AG","");
 				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
@@ -346,6 +347,7 @@ var pogs_blueCollar = function() {
 					$("#div_B6").show();
 					$("#div_AK").show();
 					$("#div_B5").show();
+					$("#div_B7").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -379,6 +381,7 @@ var pogs_blueCollar = function() {
 						$("#div_B6").hide();
 						$("#div_AK").hide();
 						$("#div_B5").hide();
+						$("#div_B7").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -1307,6 +1310,56 @@ var pogs_blueCollar = function() {
 					}
 				}
 				//**END SHOULDER TO CUFF STRIPE**//
+				
+				//**ADD SHOULDER TO SHOULDER IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_B7').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2ShoulderToShoulder");
+								ctx.drawImage(stripeImg,285,38);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_B7').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2ShoulderToShoulder");
+								ctx.drawImage(stripeImg,285,38);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_B7').val() === "ON"){
+								var stripeImg=document.getElementById("silv2ShoulderToShoulder");
+								ctx.drawImage(stripeImg,287,38);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_B7').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1ShoulderToShoulder");
+								ctx.drawImage(stripeImg,284,33);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_B7').val() === "ON"){
+								var stripeImg=document.getElementById("orange1ShoulderToShoulder");
+								ctx.drawImage(stripeImg,284,34);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_B7').val() === "ON"){
+								var stripeImg=document.getElementById("silv1ShoulderToShoulder");
+								ctx.drawImage(stripeImg,284,34);
+							}
+							break;
+					}
+				}
+				//**END SHOULDER TO SHOULDER STRIPE**//
 
 				
 			},
