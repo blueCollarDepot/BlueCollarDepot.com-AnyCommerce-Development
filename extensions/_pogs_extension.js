@@ -1466,6 +1466,11 @@ var pogs_blueCollar = function() {
 						$('.leftPocketCont').data('collapseOrExpanded',false).append();
 						$(".lpRadioEmbroid").prop('checked', false);
 						$(".lpRadioLogo").prop('checked', false);
+						$('.leftPocketEmbroidCont').slideUp(1000);
+						$('.leftPocketLogoCont').slideUp(1000);
+						$("#pog_BD").val("");
+						$("#pog_BE").find('option:first').attr('selected','selected');
+						$("#pog_A8").find('option:first').attr('selected','selected');
 					}
 					else{
 						$('.leftPocketCont').slideDown(1000);
@@ -1478,6 +1483,11 @@ var pogs_blueCollar = function() {
 						$('.rightPocketCont').data('collapseOrExpanded',false).append();
 						$(".rpRadioEmbroid").prop('checked', false);
 						$(".rpRadioLogo").prop('checked', false);
+						$('.rightPocketEmbroidCont').slideUp(1000);
+						$('.rightPocketLogoCont').slideUp(1000);
+						$("#pog_BG").val("");
+						$("#pog_BH").find('option:first').attr('selected','selected');
+						$("#pog_BI").find('option:first').attr('selected','selected');
 					}
 					else{
 						$('.rightPocketCont').slideDown(1000);
@@ -1490,6 +1500,11 @@ var pogs_blueCollar = function() {
 						$('.leftShoulderCont').data('collapseOrExpanded',false).append();
 						$(".lsRadioEmbroid").prop('checked', false);
 						$(".lsRadioLogo").prop('checked', false);
+						$('.leftShoulderEmbroidCont').slideUp(1000);
+						$('.leftShoulderLogoCont').slideUp(1000);
+						$("#pog_BJ").val("");
+						$("#pog_BK").find('option:first').attr('selected','selected');
+						$("#pog_BL").find('option:first').attr('selected','selected');
 					}
 					else{
 						$('.leftShoulderCont').slideDown(1000);
@@ -1502,6 +1517,11 @@ var pogs_blueCollar = function() {
 						$('.rightShoulderCont').data('collapseOrExpanded',false).append();
 						$(".rsRadioEmbroid").prop('checked', false);
 						$(".rsRadioLogo").prop('checked', false);
+						$('.rightShoulderEmbroidCont').slideUp(1000);
+						$('.rightShoulderLogoCont').slideUp(1000);
+						$("#pog_BM").val("");
+						$("#pog_BN").find('option:first').attr('selected','selected');
+						$("#pog_BO").find('option:first').attr('selected','selected');
 					}
 					else{
 						$('.rightShoulderCont').slideDown(1000);
@@ -1519,6 +1539,9 @@ var pogs_blueCollar = function() {
 					if($('.lpRadioLogo').attr("checked", "checked")){
 						$('.leftPocketEmbroidCont').slideUp(1000);
 						$('.leftPocketLogoCont').slideDown(1000);
+						$("#pog_BD").val("");
+						$("#pog_BE").find('option:first').attr('selected','selected');
+						$("#pog_A8").find('option:first').attr('selected','selected');
 					}
 				},
 				toggleHideShowRightPocketEmbroid : function(){
@@ -1531,6 +1554,9 @@ var pogs_blueCollar = function() {
 					if($('.rpRadioLogo').attr("checked", "checked")){
 						$('.rightPocketEmbroidCont').slideUp(1000);
 						$('.rightPocketLogoCont').slideDown(1000);
+						$("#pog_BG").val("");
+						$("#pog_BH").find('option:first').attr('selected','selected');
+						$("#pog_BI").find('option:first').attr('selected','selected');
 					}
 				},
 				toggleHideShowLeftShoulderEmbroid : function(){
@@ -1543,6 +1569,9 @@ var pogs_blueCollar = function() {
 					if($('.lsRadioLogo').attr("checked", "checked")){
 						$('.leftShoulderEmbroidCont').slideUp(1000);
 						$('.leftShoulderLogoCont').slideDown(1000);
+						$("#pog_BJ").val("");
+						$("#pog_BK").find('option:first').attr('selected','selected');
+						$("#pog_BL").find('option:first').attr('selected','selected');
 					}
 				},
 				toggleHideShowRightShoulderEmbroid : function(){
@@ -1555,6 +1584,9 @@ var pogs_blueCollar = function() {
 					if($('.rsRadioLogo').attr("checked", "checked")){
 						$('.rightShoulderEmbroidCont').slideUp(1000);
 						$('.rightShoulderLogoCont').slideDown(1000);
+						$("#pog_BM").val("");
+						$("#pog_BN").find('option:first').attr('selected','selected');
+						$("#pog_BO").find('option:first').attr('selected','selected');
 					}
 				},
 				//**END EMBRROIDERY/LOGO CLICK FUNCTIONS**//

@@ -216,6 +216,10 @@ div.rightShoulderEmbroidCont div#div_BN{
 div.rightShoulderEmbroidCont div#div_BO{
 	display:block !important;
 }
+.logoEmbroidMenu p{
+	text-decoration:underline;
+	margin-bottom:15px;
+}
 #yellow1Calves{
 }
 .logoEmbroidMenu{
