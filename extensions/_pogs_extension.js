@@ -1243,21 +1243,21 @@ var pogs_blueCollar = function() {
 						case "yellow1":
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Biceps");
-								ctx.drawImage(stripeImg,32,85);
+								ctx.drawImage(stripeImg,30,85);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("orange1Biceps");
-								ctx.drawImage(stripeImg,32,85);
+								ctx.drawImage(stripeImg,30,85);
 							}
 							break;
 						
 						case "silver1":
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("silv1Biceps");
-								ctx.drawImage(stripeImg,32,85);
+								ctx.drawImage(stripeImg,30,85);
 							}
 							break;
 					}
