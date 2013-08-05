@@ -304,6 +304,7 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AK","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","B5","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","B7","renderOptionCUSTOMCHECKBOX");
+				this.addHandler("pogid","BC","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AG","");
 				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
@@ -348,6 +349,7 @@ var pogs_blueCollar = function() {
 					$("#div_AK").show();
 					$("#div_B5").show();
 					$("#div_B7").show();
+					$("#div_BC").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -382,6 +384,7 @@ var pogs_blueCollar = function() {
 						$("#div_AK").hide();
 						$("#div_B5").hide();
 						$("#div_B7").hide();
+						$("#div_BC").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -1360,6 +1363,68 @@ var pogs_blueCollar = function() {
 					}
 				}
 				//**END SHOULDER TO SHOULDER STRIPE**//
+				
+				//**ADD SUSPENDERS WAIST STRIPE TO IMAGE BASED ON STRIPE TYPE**//
+				if($("#pog_A9").data('stripeType')){
+					switch($("#pog_A9").data('stripeType'))
+					{
+						case "yellow2":
+							//app.u.dump($('#pog_AN').val());
+							if($('#pog_BC').val() === "ON"){
+								var stripeImg=document.getElementById("yellow2Suspenders");
+								ctx.drawImage(stripeImg,53,15);
+								var stripeImg=document.getElementById("yellow2SuspendersBack");
+								ctx.drawImage(stripeImg,304,20);
+							}
+							break; 
+						
+						case "yellSilvYell2":
+							if($('#pog_BC').val() === "ON"){
+								var stripeImg=document.getElementById("yellSilvYell2Suspenders");
+								ctx.drawImage(stripeImg,53,15);
+								var stripeImg=document.getElementById("yellSilvYell2SuspendersBack");
+								ctx.drawImage(stripeImg,305,17);
+							}
+							break; 
+						
+						case "silver2":
+							if($('#pog_BC').val() === "ON"){
+								var stripeImg=document.getElementById("silv2Suspenders");
+								ctx.drawImage(stripeImg,53,12);
+								var stripeImg=document.getElementById("silv2SuspendersBack");
+								ctx.drawImage(stripeImg,304,15);
+							}
+							break; 
+					
+						case "yellow1":
+							if($('#pog_BC').val() === "ON"){
+								var stripeImg=document.getElementById("yellow1Suspenders");
+								ctx.drawImage(stripeImg,58,160);
+								var stripeImg=document.getElementById("yellow1SuspendersBack");
+								ctx.drawImage(stripeImg,310,156);
+							}
+							break;
+						
+						case "orange1":
+							if($('#pog_BC').val() === "ON"){
+								var stripeImg=document.getElementById("orange1Suspenders");
+								ctx.drawImage(stripeImg,58,161);
+								var stripeImg=document.getElementById("orange1SuspendersBack");
+								ctx.drawImage(stripeImg,310,156);
+							}
+							break;
+						
+						case "silver1":
+							if($('#pog_BC').val() === "ON"){
+								var stripeImg=document.getElementById("silv1Suspenders");
+								ctx.drawImage(stripeImg,58,161);
+								var stripeImg=document.getElementById("silv1SuspendersBack");
+								ctx.drawImage(stripeImg,310,156);
+							}
+							break;
+					}
+				}
+				//**END SUSPENDERS WAIST STRIPE**//
 
 				
 			},
