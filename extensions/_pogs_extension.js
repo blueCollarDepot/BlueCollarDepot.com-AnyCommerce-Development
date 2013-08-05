@@ -1399,27 +1399,27 @@ var pogs_blueCollar = function() {
 						case "yellow1":
 							if($('#pog_BC').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Suspenders");
-								ctx.drawImage(stripeImg,58,160);
+								ctx.drawImage(stripeImg,50,17);
 								var stripeImg=document.getElementById("yellow1SuspendersBack");
-								ctx.drawImage(stripeImg,310,156);
+								ctx.drawImage(stripeImg,303,15);
 							}
 							break;
 						
 						case "orange1":
 							if($('#pog_BC').val() === "ON"){
 								var stripeImg=document.getElementById("orange1Suspenders");
-								ctx.drawImage(stripeImg,58,161);
+								ctx.drawImage(stripeImg,52,5);
 								var stripeImg=document.getElementById("orange1SuspendersBack");
-								ctx.drawImage(stripeImg,310,156);
+								ctx.drawImage(stripeImg,308,20);
 							}
 							break;
 						
 						case "silver1":
 							if($('#pog_BC').val() === "ON"){
 								var stripeImg=document.getElementById("silv1Suspenders");
-								ctx.drawImage(stripeImg,58,161);
+								ctx.drawImage(stripeImg,52,15);
 								var stripeImg=document.getElementById("silv1SuspendersBack");
-								ctx.drawImage(stripeImg,310,156);
+								ctx.drawImage(stripeImg,303,13);
 							}
 							break;
 					}
