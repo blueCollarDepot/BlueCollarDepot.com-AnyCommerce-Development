@@ -144,5 +144,81 @@
 .atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BC{
 	display:none;
 }
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BD{
+	display:none;
+}
+div.leftPocketEmbroidCont div#div_BD{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BE{
+	display:none;
+}
+div.leftPocketEmbroidCont div#div_BE{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_A8{
+	display:none;
+}
+div.leftPocketEmbroidCont div#div_A8{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BG{
+	display:none;
+}
+div.rightPocketEmbroidCont div#div_BG{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BH{
+	display:none;
+}
+div.rightPocketEmbroidCont div#div_BH{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BI{
+	display:none;
+}
+div.rightPocketEmbroidCont div#div_BI{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BJ{
+	display:none;
+}
+div.leftShoulderEmbroidCont div#div_BJ{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BK{
+	display:none;
+}
+div.leftShoulderEmbroidCont div#div_BK{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BL{
+	display:none;
+}
+div.leftShoulderEmbroidCont div#div_BL{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BM{
+	display:none;
+}
+div.rightShoulderEmbroidCont div#div_BM{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BN{
+	display:none;
+}
+div.rightShoulderEmbroidCont div#div_BN{
+	display:block !important;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_BO{
+	display:none;
+}
+div.rightShoulderEmbroidCont div#div_BO{
+	display:block !important;
+}
 #yellow1Calves{
+}
+.logoEmbroidMenu{
+	border: 1px solid #1456A0;
+	display:none;
 }

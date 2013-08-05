@@ -1535,8 +1535,8 @@ var pogs_blueCollar = function() {
 				},
 				toggleHideShowLeftShoulderEmbroid : function(){
 					if($('.lsRadioEmbroid').attr("checked", "checked")){
-						$('.rightPocketLogoCont').slideUp(1000);
-						$('.rightPocketEmbroidCont').slideDown(1000);
+						$('.leftShoulderLogoCont').slideUp(1000);
+						$('.leftShoulderEmbroidCont').slideDown(1000);
 					}
 				},
 				toggleHideShowLeftShoulderLogo : function(){
@@ -1547,8 +1547,8 @@ var pogs_blueCollar = function() {
 				},
 				toggleHideShowRightShoulderEmbroid : function(){
 					if($('.rsRadioEmbroid').attr("checked", "checked")){
-						$('.rightPocketLogoCont').slideUp(1000);
-						$('.rightPocketEmbroidCont').slideDown(1000);
+						$('.rightShoulderLogoCont').slideUp(1000);
+						$('.rightShoulderEmbroidCont').slideDown(1000);
 					}
 				},
 				toggleHideShowRightShoulderLogo : function(){

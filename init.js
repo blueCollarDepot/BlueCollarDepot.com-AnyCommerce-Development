@@ -62,37 +62,37 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "			<div class='floatLeft clearLeft'>"
 			+ "		 		<label class='floatLeft'>Left Chest Pocket</label><input type='checkbox' class='leftPocket' onClick='app.ext.pogs_blueCollar.a.toggleHideShowLeftPocket()' />"
 			+ " 	 		<div class='leftPocketCont'>"
-			+ "					<input type='radio' class='lpRadioEmbroid' name='lpradio' value='embroidery'>Embroidery<br>"
+			+ "					<input type='radio' class='lpRadioEmbroid' name='lpradio' value='embroidery' onClick='app.ext.pogs_blueCollar.a.toggleHideShowLeftPocketEmbroid()'>Embroidery<br>"
+			+ "					<div class='leftPocketEmbroidCont logoEmbroidMenu'></div>"
 			+ "					<input type='radio' class='lpRadioLogo' name='lpradio' value='logo' onClick='app.ext.pogs_blueCollar.a.toggleHideShowLeftPocketLogo()'>Logo"
-			+ "					<div class='leftPocketEmbroidCont'></div>"
-			+ "					<div class='leftPocketLogoCont'></div>"
+			+ "					<div class='leftPocketLogoCont logoEmbroidMenu'></div>"
 			+ "				</div>"
 			+ "			</div>"
 			+ "			<div class='floatLeft clearLeft'>"
 			+ "	 	 		<label class='floatLeft'>Right Chest Pocket</label><input type='checkbox' class='rightPocket' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightPocket()' />"
 			+ "	     		<div class='rightPocketCont'>"
 			+ "					<input type='radio' class='rpRadioEmbroid' name='rpradio' value='embroidery' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightPocketEmbroid()'>Embroidery<br>"
+			+ "					<div class='rightPocketEmbroidCont logoEmbroidMenu'></div>"
 			+ "					<input type='radio' class='rpRadioLogo' name='rpradio' value='logo' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightPocketLogo()'>Logo"
-			+ "					<div class='rightPocketEmbroidCont'></div>"
-			+ "					<div class='rightPocketLogoCont'></div>"
+			+ "					<div class='rightPocketLogoCont logoEmbroidMenu'></div>"
 			+ "				</div>"
 			+ "			</div>"
 			+ "			<div class='floatLeft clearLeft'>"
 			+ "		 		<label class='floatLeft'>Left Shoulder</label><input type='checkbox' class='leftShoulder' onClick='app.ext.pogs_blueCollar.a.toggleHideShowLeftShoulder()' />"
 			+ "   	 		<div class='leftShoulderCont'>"
 			+ "					<input type='radio' class='lsRadioEmbroid' name='lsradio' value='embroidery' onClick='app.ext.pogs_blueCollar.a.toggleHideShowLeftShoulderEmbroid()'>Embroidery<br>"
+			+ "					<div class='leftShoulderEmbroidCont logoEmbroidMenu'></div>"
 			+ "					<input type='radio' class='lsRadioLogo' name='lsradio' value='logo' onClick='app.ext.pogs_blueCollar.a.toggleHideShowLeftShoulderLogo()'>Logo"
-			+ "					<div class='leftShoulderEmbroidCont'></div>"
-			+ "					<div class='leftShoulderLogoCont'></div>"
+			+ "					<div class='leftShoulderLogoCont logoEmbroidMenu'></div>"
 			+ "				</div>"
 			+ "			</div>"
 			+ "			<div class='floatLeft clearLeft'>"
 			+ "	  	 		<label class='floatLeft'>Right Shoulder</label><input type='checkbox' class='rightShoulder' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightShoulder()' />"
 			+ "      		<div class='rightShoulderCont'>"
 			+ "					<input type='radio' class='rsRadioEmbroid' name='rsradio' value='embroidery' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightShoulderEmbroid()'>Embroidery<br>"
+			+ "					<div class='rightShoulderEmbroidCont logoEmbroidMenu'></div>"
 			+ "					<input type='radio' class='rsRadioLogo' name='rsradio' value='logo' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightShoulderLogo()'>Logo"
-			+ "					<div class='rightShoulderEmbroidCont'></div>"
-			+ "					<div class='rightShoulderLogoCont'></div>"
+			+ "					<div class='rightShoulderLogoCont logoEmbroidMenu'></div>"
 			+ "				</div>"
 			+ "			</div>"
 			+ "   	</div>"
@@ -100,6 +100,8 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "     </div>"
 			+ "  </div>"
 			+ "</div>").appendTo('#JSONPogDisplay_OVERALLS-TEST1');
+			
+		$(".atcVariations").addClass("atcVarStandardCont");
 			
 		$("#div_A9").appendTo(".stipeCustomizer");
 		$("#div_AV").appendTo(".stipeCustomizer");
@@ -120,10 +122,18 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		$("#div_B7").appendTo(".stipeCustomizer");
 		$("#div_BC").appendTo(".stipeCustomizer");
 		
-		$("#div_AG").appendTo(".oldEmbroiderySogs");
-		$("#div_AI").appendTo(".oldEmbroiderySogs");
-		$("#div_AM").appendTo(".oldEmbroiderySogs");
-		$("#div_AA").appendTo(".oldEmbroiderySogs");
+		$("#div_BD").appendTo(".leftPocketEmbroidCont");
+		$("#div_BE").appendTo(".leftPocketEmbroidCont");
+		$("#div_A8").appendTo(".leftPocketEmbroidCont");
+		$("#div_BG").appendTo(".rightPocketEmbroidCont");
+		$("#div_BH").appendTo(".rightPocketEmbroidCont");
+		$("#div_BI").appendTo(".rightPocketEmbroidCont");
+		$("#div_BJ").appendTo(".leftShoulderEmbroidCont");
+		$("#div_BK").appendTo(".leftShoulderEmbroidCont");
+		$("#div_BL").appendTo(".leftShoulderEmbroidCont");
+		$("#div_BM").appendTo(".rightShoulderEmbroidCont");
+		$("#div_BN").appendTo(".rightShoulderEmbroidCont");
+		$("#div_BO").appendTo(".rightShoulderEmbroidCont");
 		
 		if($('.stipeCustomizer',$context).data('collapseOrExpanded')) {} //do nothing, content already added.
 		else {
