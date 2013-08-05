@@ -166,58 +166,23 @@ var pogs_blueCollar = function() {
 				},//END renderOptionCUSTOMCHECKBOX
 				
 				
+				renderOptionCUSTOMTEXTAREA: function(pog,safeid) {
+					var pogid = pog.id;
+				//cant set the value to null in IE because it will literally write out 'undefined'. this statement should handle undefined, defined and blank just fine.
+					var defaultValue = app.u.isSet(pog['default']) ?  pog['default'] : "";
+					var $parentDiv = $("<span \/>");// = $('#div_'+safeid);
+				//Creates the 'hidden input' form field in the DOM which is used to let the cart know that the checkbox element was present and it's absense in the form post means it wasn't checked.		
+					var $textbox = $('<textarea>').attr({name: "pog_"+pogid, value: defaultValue, id: "pog_"+safeid}).addClass('zform_textarea');
+					$textbox.bind('change', function(){
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
+					})
+					$parentDiv.append($textbox);
+					if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+					return $parentDiv;
+				
+				},//END renderOptionCUSTOMTEXTAREA
 				
 				
-			renderOptionCUSTOMBIGLIST: function(pog,safeid) {
-
-				var pogid = pog.id;
-				var selOptions = '';
-				var lastOptGrp,selValues;
-				var inc = 0;
-				var len = pog.options.length;
-				var $parentDiv = $("<span \/>");
-				var $selectList = $("<select \/>").attr({"id":"pog_"+safeid,"name":"pog_"+pogid}).addClass("zform_select zform_biglist");
-			//sets the first options on both select lists.
-				$selectList.append("<option value='' disable='disabled' selected='selected'>Please Choose...<\/option>");
-			
-				//output ? with hint in hidden div IF ghint is set
-			//	if(pog['ghint'])
-			//		pogs.showHintIcon(pogid,pog['ghint']);
-			
-			/*
-			create first optgroup.
-			These are here instead of in the while loop to save a lookup during each iteration. Otherwise we need to 
-			check if at iteration 1 (inc = 0) each time in the loop. this is gives us a tighter loop.
-			*/
-				selValues = pog['options'][inc]['prompt'].split('|');
-				lastOptGrp = selValues[0];
-				selOptions += "<optgroup label='"+selValues[0]+"'>"; //add option to first dropdown list.
-				while (inc < len) {
-			
-			//selValues[0] = first dropdown prompt/opt group.
-			//selValues[1] = second dropdown prompt.
-					selValues = pog['options'][inc]['prompt'].split('|');
-					optGrp = selValues[0];
-			
-			//at each 'change' of grouping, add the current group to the select list.
-					if(optGrp != lastOptGrp)	{
-						selOptions += "<\/optgroup><optgroup label='"+selValues[0]+"'>"; //add option to first dropdown list.
-						}
-					
-					selOptions += "<option value='"+pog['options'][inc]['v']+"'>"+selValues[1]+"<\/option>\n";
-					lastOptGrp = selValues[0]
-					inc += 1;
-					}
-				selOptions += "<\/optgroup>";
-				
-			//	app.u.dump(selOptions);
-				$selectList.bind('change', function(){}) //**fix me**
-				$selectList.append(selOptions).appendTo($parentDiv); //append optgroups.
-				
-				if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
-				return $parentDiv;
-				
-				}, //renderOptionBIGLIST
 	
 			renderOptionCUSTOMIMGSELECT: function(pog,safeid) {
 			//	app.u.dump('BEGIN renderOptionIMGSELECT for pog '+pog.id);
@@ -286,6 +251,7 @@ var pogs_blueCollar = function() {
 					
 	
 			xinit : function(){
+				//Stipe options
 				this.addHandler("pogid","A3","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","A9","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","AJ","renderOptionCUSTOMCHECKBOX");
@@ -305,10 +271,12 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","B5","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","B7","renderOptionCUSTOMCHECKBOX");
 				this.addHandler("pogid","BC","renderOptionCUSTOMCHECKBOX");
-				this.addHandler("pogid","AG","");
-				this.addHandler("pogid","AI","renderOptionCUSTOMCHECKBOX");
-				this.addHandler("pogid","AM","renderOptionCUSTOMCHECKBOX");
-				this.addHandler("pogid","AA","renderOptionCUSTOMCHECKBOX");
+				
+				//Embroidery options
+				this.addHandler("pogid","BE","renderOptionCUSTOMSELECTDROPDOWN");
+				this.addHandler("pogid","A8","renderOptionCUSTOMSELECTDROPDOWN");
+				this.addHandler("pogid","BD","renderOptionCUSTOMTEXTAREA");
+				
 			}
 				
 			},
@@ -351,6 +319,10 @@ var pogs_blueCollar = function() {
 					$("#div_B7").show();
 					$("#div_BC").show();
 					
+					$("#div_BE").show();
+					$("#div_A8").show();
+					$("#div_BD").show();
+					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
 					
@@ -385,6 +357,10 @@ var pogs_blueCollar = function() {
 						$("#div_B5").hide();
 						$("#div_B7").hide();
 						$("#div_BC").hide();
+						
+						$("#div_BE").hide();
+						$("#div_A8").hide();
+						$("#div_BD").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -1425,6 +1401,15 @@ var pogs_blueCollar = function() {
 					}
 				}
 				//**END SUSPENDERS WAIST STRIPE**//
+			//**END STRIPE CUSTOMIZER IMAGE DRAWING**// 
+				
+				
+			//**BEGIN EMBROIDERY/LOGO IMAGE DRAWING**//
+				//**BEGIN LEFT POCKET EMBROIDERY SECTION**//
+				if(($("#pog_BD").val() !== "") && ($("#pog_BE").val() !== "") && ($("#pog_A8").val() !== "")){
+					app.u.dump("All 3 options have values, add image to the customizer");
+					
+				}
 
 				
 			},
