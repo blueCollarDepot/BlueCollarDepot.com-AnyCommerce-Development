@@ -1491,7 +1491,7 @@ var pogs_blueCollar = function() {
 							ctx.font = '9pt "Yesteryear"';
 						break;
 					}
-					ctx.fillText(($("#pog_BD").val()),48,61);
+					ctx.fillText(($("#pog_BD").val()),49,61);
 				}
 				//**END LEFT POCKET EMBROIDERY SECTION**//
 				
