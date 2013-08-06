@@ -276,6 +276,9 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","BE","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","A8","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","BD","renderOptionCUSTOMTEXTAREA");
+				this.addHandler("pogid","BH","renderOptionCUSTOMSELECTDROPDOWN");
+				this.addHandler("pogid","BI","renderOptionCUSTOMSELECTDROPDOWN");
+				this.addHandler("pogid","BG","renderOptionCUSTOMTEXTAREA");
 				
 			}
 				
@@ -322,6 +325,9 @@ var pogs_blueCollar = function() {
 					$("#div_BE").show();
 					$("#div_A8").show();
 					$("#div_BD").show();
+					$("#div_BH").show();
+					$("#div_BI").show();
+					$("#div_BG").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -361,6 +367,9 @@ var pogs_blueCollar = function() {
 						$("#div_BE").hide();
 						$("#div_A8").hide();
 						$("#div_BD").hide();
+						$("#div_BH").hide();
+						$("#div_BI").hide();
+						$("#div_BG").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -1407,9 +1416,147 @@ var pogs_blueCollar = function() {
 			//**BEGIN EMBROIDERY/LOGO IMAGE DRAWING**//
 				//**BEGIN LEFT POCKET EMBROIDERY SECTION**//
 				if(($("#pog_BD").val() !== "") && ($("#pog_BE").val() !== "") && ($("#pog_A8").val() !== "")){
-					app.u.dump("All 3 options have values, add image to the customizer");
+					//app.u.dump("All 3 options have values, add image to the customizer");
 					
+					switch($("#pog_BE").val())
+					{
+						case "00": //BLACK
+							ctx.fillStyle = 'black';
+						break;
+						case "01": //JAY BLUE
+							ctx.fillStyle = '#00568b';
+						break;
+						case "02": //EMERALD
+							ctx.fillStyle = '#4BB74C';
+						break;
+						case "03": //WHEAT
+							ctx.fillStyle = '#F5DEB3';
+						break;
+						case "04": //FLAG BLUE
+							ctx.fillStyle = ' #002868';
+						break;
+						case "05": //BLUE BIRD
+							ctx.fillStyle = '#244B6C';
+						break;
+						case "06": //MI
+							ctx.fillStyle = '#B22222';
+						break;
+						case "07": //WHITE
+							ctx.fillStyle = 'white';
+						break;
+					}
+					
+					switch($("#pog_A8").val())
+					{
+						case "00": //8MM BLOCK 22CHARS
+							ctx.font = '3pt Arial';
+						break;
+						case "01": //10MM BLOCK 18CHARS
+							ctx.font = '3pt Arial';
+						break;
+						case "02": //12MM BLOCK 16CHARS
+							ctx.font = '4pt Arial';
+						break;
+						case "03": //15MM BLOCK 14CHARS
+							ctx.font = '4.5pt Arial';
+						break;
+						case "04": //18MM BLOCK 11CHARS
+							ctx.font = '5.5pt Arial';
+						break;
+						case "05": //25MM BLOCK 8CHARS
+							ctx.font = '6.5pt Arial';
+						break;
+						case "06": //8MM SCRIPT 30CHARS
+							ctx.font = '2pt "Yesteryear"';
+						break;
+						case "07": //12MM SCRIPT 19CHARS
+							ctx.font = '4pt "Yesteryear"';
+						break;
+						case "08": //15MM SCRIPT 17CHARS
+							ctx.font = '4.5pt "Yesteryear"';
+						break;
+						case "09": //18MM SCRIPT 12CHARS
+							ctx.font = '7pt "Yesteryear"';
+						break;
+						case "0A": //25MM SCRIPT 8CHARS
+							ctx.font = '9pt "Yesteryear"';
+						break;
+					}
+					ctx.fillText(($("#pog_BD").val()),48,61);
 				}
+				//**END LEFT POCKET EMBROIDERY SECTION**//
+				
+				//**BEGIN RIGHT POCKET EMBROIDERY SECTION**//
+				if(($("#pog_BH").val() !== "") && ($("#pog_BI").val() !== "") && ($("#pog_BG").val() !== "")){
+					//app.u.dump("All 3 options have values, add image to the customizer");
+					
+					switch($("#pog_BH").val())
+					{
+						case "00": //BLACK
+							ctx.fillStyle = 'black';
+						break;
+						case "01": //JAY BLUE
+							ctx.fillStyle = '#00568b';
+						break;
+						case "02": //EMERALD
+							ctx.fillStyle = '#4BB74C';
+						break;
+						case "03": //WHEAT
+							ctx.fillStyle = '#F5DEB3';
+						break;
+						case "04": //FLAG BLUE
+							ctx.fillStyle = ' #002868';
+						break;
+						case "05": //BLUE BIRD
+							ctx.fillStyle = '#244B6C';
+						break;
+						case "06": //MI
+							ctx.fillStyle = '#B22222';
+						break;
+						case "07": //WHITE
+							ctx.fillStyle = 'white';
+						break;
+					}
+					
+					switch($("#pog_BI").val())
+					{
+						case "00": //8MM BLOCK 22CHARS
+							ctx.font = '3pt Arial';
+						break;
+						case "01": //10MM BLOCK 18CHARS
+							ctx.font = '3pt Arial';
+						break;
+						case "02": //12MM BLOCK 16CHARS
+							ctx.font = '4pt Arial';
+						break;
+						case "03": //15MM BLOCK 14CHARS
+							ctx.font = '4.5pt Arial';
+						break;
+						case "04": //18MM BLOCK 11CHARS
+							ctx.font = '5.5pt Arial';
+						break;
+						case "05": //25MM BLOCK 8CHARS
+							ctx.font = '6.5pt Arial';
+						break;
+						case "06": //8MM SCRIPT 30CHARS
+							ctx.font = '2pt "Yesteryear"';
+						break;
+						case "07": //12MM SCRIPT 19CHARS
+							ctx.font = '4pt "Yesteryear"';
+						break;
+						case "08": //15MM SCRIPT 17CHARS
+							ctx.font = '4.5pt "Yesteryear"';
+						break;
+						case "09": //18MM SCRIPT 12CHARS
+							ctx.font = '7pt "Yesteryear"';
+						break;
+						case "0A": //25MM SCRIPT 8CHARS
+							ctx.font = '9pt "Yesteryear"';
+						break;
+					}
+					ctx.fillText(($("#pog_BG").val()),120,61);
+				}
+				//**END RIGHT POCKET EMBROIDERY SECTION**//
 
 				
 			},
@@ -1456,6 +1603,7 @@ var pogs_blueCollar = function() {
 						$("#pog_BD").val("");
 						$("#pog_BE").find('option:first').attr('selected','selected');
 						$("#pog_A8").find('option:first').attr('selected','selected');
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 					else{
 						$('.leftPocketCont').slideDown(1000);
@@ -1473,6 +1621,7 @@ var pogs_blueCollar = function() {
 						$("#pog_BG").val("");
 						$("#pog_BH").find('option:first').attr('selected','selected');
 						$("#pog_BI").find('option:first').attr('selected','selected');
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 					else{
 						$('.rightPocketCont').slideDown(1000);
@@ -1490,6 +1639,7 @@ var pogs_blueCollar = function() {
 						$("#pog_BJ").val("");
 						$("#pog_BK").find('option:first').attr('selected','selected');
 						$("#pog_BL").find('option:first').attr('selected','selected');
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 					else{
 						$('.leftShoulderCont').slideDown(1000);
@@ -1507,6 +1657,7 @@ var pogs_blueCollar = function() {
 						$("#pog_BM").val("");
 						$("#pog_BN").find('option:first').attr('selected','selected');
 						$("#pog_BO").find('option:first').attr('selected','selected');
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 					else{
 						$('.rightShoulderCont').slideDown(1000);
@@ -1518,6 +1669,7 @@ var pogs_blueCollar = function() {
 					if($('.lpRadioEmbroid').attr("checked", "checked")){
 						$('.leftPocketLogoCont').slideUp(1000);
 						$('.leftPocketEmbroidCont').slideDown(1000);
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
 				toggleHideShowLeftPocketLogo : function(){
@@ -1527,12 +1679,14 @@ var pogs_blueCollar = function() {
 						$("#pog_BD").val("");
 						$("#pog_BE").find('option:first').attr('selected','selected');
 						$("#pog_A8").find('option:first').attr('selected','selected');
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
 				toggleHideShowRightPocketEmbroid : function(){
 					if($('.rpRadioEmbroid').attr("checked", "checked")){
 						$('.rightPocketLogoCont').slideUp(1000);
 						$('.rightPocketEmbroidCont').slideDown(1000);
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
 				toggleHideShowRightPocketLogo : function(){
@@ -1542,12 +1696,14 @@ var pogs_blueCollar = function() {
 						$("#pog_BG").val("");
 						$("#pog_BH").find('option:first').attr('selected','selected');
 						$("#pog_BI").find('option:first').attr('selected','selected');
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
 				toggleHideShowLeftShoulderEmbroid : function(){
 					if($('.lsRadioEmbroid').attr("checked", "checked")){
 						$('.leftShoulderLogoCont').slideUp(1000);
 						$('.leftShoulderEmbroidCont').slideDown(1000);
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
 				toggleHideShowLeftShoulderLogo : function(){
@@ -1557,12 +1713,14 @@ var pogs_blueCollar = function() {
 						$("#pog_BJ").val("");
 						$("#pog_BK").find('option:first').attr('selected','selected');
 						$("#pog_BL").find('option:first').attr('selected','selected');
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
 				toggleHideShowRightShoulderEmbroid : function(){
 					if($('.rsRadioEmbroid').attr("checked", "checked")){
 						$('.rightShoulderLogoCont').slideUp(1000);
 						$('.rightShoulderEmbroidCont').slideDown(1000);
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
 				toggleHideShowRightShoulderLogo : function(){
@@ -1572,6 +1730,7 @@ var pogs_blueCollar = function() {
 						$("#pog_BM").val("");
 						$("#pog_BN").find('option:first').attr('selected','selected');
 						$("#pog_BO").find('option:first').attr('selected','selected');
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
 				//**END EMBRROIDERY/LOGO CLICK FUNCTIONS**//
