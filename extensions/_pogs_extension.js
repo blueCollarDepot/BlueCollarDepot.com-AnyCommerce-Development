@@ -279,6 +279,9 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","BH","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","BI","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","BG","renderOptionCUSTOMTEXTAREA");
+				this.addHandler("pogid","BK","renderOptionCUSTOMSELECTDROPDOWN");
+				this.addHandler("pogid","BL","renderOptionCUSTOMSELECTDROPDOWN");
+				this.addHandler("pogid","BJ","renderOptionCUSTOMTEXTAREA");
 				
 			}
 				
@@ -328,6 +331,9 @@ var pogs_blueCollar = function() {
 					$("#div_BH").show();
 					$("#div_BI").show();
 					$("#div_BG").show();
+					$("#div_BK").show();
+					$("#div_BL").show();
+					$("#div_BJ").show();
 					
 					$(".customBut").html("Hide Customizer");
 					$(".customBut").val("hideCustomizer");
@@ -370,6 +376,9 @@ var pogs_blueCollar = function() {
 						$("#div_BH").hide();
 						$("#div_BI").hide();
 						$("#div_BG").hide();
+						$("#div_BK").hide();
+						$("#div_BL").hide();
+						$("#div_BJ").hide();
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
@@ -1557,6 +1566,124 @@ var pogs_blueCollar = function() {
 					ctx.fillText(($("#pog_BG").val()),120,61);
 				}
 				//**END RIGHT POCKET EMBROIDERY SECTION**//
+				
+				//**BEGIN LEFT SHOULDER EMBROIDERY SECTION**//
+				if(($("#pog_BK").val() !== "") && ($("#pog_BL").val() !== "") && ($("#pog_BJ").val() !== "")){
+					//app.u.dump("All 3 options have values, add image to the customizer");
+					
+					ctx.strokeRect(183,58,28,15);
+					
+					ctx.moveTo(215,55);
+					ctx.lineTo(240,35);
+					ctx.stroke();
+					
+					switch(($("#pog_A3").val())){
+					case "00":
+						ctx.fillStyle = '#d2b48c'; //TAN
+						break; 
+						
+					case "02":
+						ctx.fillStyle = '#0000C8'; //ROYAL BLUE
+						break; 
+						
+					case "04":
+						ctx.fillStyle = '#000032'; //NAVY BLUE
+						break; 
+						
+					case "05":
+						ctx.fillStyle = '#FF6600'; //ORANGE
+						break;
+						
+					case "06":
+						ctx.fillStyle = '#0000C8'; //ROYAL BLUE
+						break; 
+						
+					case "0D":
+						ctx.fillStyle = '#000032'; //NAVY BLUE
+						break; 
+						
+					case "01":
+						ctx.fillStyle = 'GRAY'; //GRAY
+						break;
+						
+					case "03":
+						ctx.fillStyle = '#AD221F'; //RED
+						break; 
+						
+					default: 
+						ctx.fillStyle = '#d2b48c'; //TAN
+						break; 
+					}
+					ctx.fillRect(243,16,60,15);
+					
+					switch($("#pog_BK").val())
+					{
+						case "00": //BLACK
+							ctx.fillStyle = 'black';
+						break;
+						case "01": //JAY BLUE
+							ctx.fillStyle = '#00568b';
+						break;
+						case "02": //EMERALD
+							ctx.fillStyle = '#4BB74C';
+						break;
+						case "03": //WHEAT
+							ctx.fillStyle = '#F5DEB3';
+						break;
+						case "04": //FLAG BLUE
+							ctx.fillStyle = ' #002868';
+						break;
+						case "05": //BLUE BIRD
+							ctx.fillStyle = '#244B6C';
+						break;
+						case "06": //MI
+							ctx.fillStyle = '#B22222';
+						break;
+						case "07": //WHITE
+							ctx.fillStyle = 'white';
+						break;
+					}
+					
+					switch($("#pog_BL").val())
+					{
+						case "00": //8MM BLOCK 22CHARS
+							ctx.font = '3pt Arial';
+						break;
+						case "01": //10MM BLOCK 18CHARS
+							ctx.font = '4.5pt Arial';
+						break;
+						case "02": //12MM BLOCK 16CHARS
+							ctx.font = '4.5pt Arial';
+						break;
+						case "03": //15MM BLOCK 14CHARS
+							ctx.font = '5pt Arial';
+						break;
+						case "04": //18MM BLOCK 11CHARS
+							ctx.font = '6.5pt Arial';
+						break;
+						case "05": //25MM BLOCK 8CHARS
+							ctx.font = '9pt Arial';
+						break;
+						case "06": //8MM SCRIPT 30CHARS
+							ctx.font = '3pt "Yesteryear"';
+						break;
+						case "07": //12MM SCRIPT 19CHARS
+							ctx.font = '5.5pt "Yesteryear"';
+						break;
+						case "08": //15MM SCRIPT 17CHARS
+							ctx.font = '6pt "Yesteryear"';
+						break;
+						case "09": //18MM SCRIPT 12CHARS
+							ctx.font = '8.5pt "Yesteryear"';
+						break;
+						case "0A": //25MM SCRIPT 8CHARS
+							ctx.font = '11.5pt "Yesteryear"';
+						break;
+					}
+					
+					ctx.fillText(($("#pog_BJ").val()),250,27);
+				}
+				//**END LEFT SHOULDER EMBROIDERY SECTION**//
 
 				
 			},
