@@ -2228,6 +2228,44 @@ var pogs_blueCollar = function() {
 				},
 				//**END EMBRROIDERY/LOGO CLICK FUNCTIONS**//
 				
+				resetAllStripes : function(){
+					$("#pog_AV").prop('checked', false);
+					$("#pog_AL").prop('checked', false);
+					$("#pog_AJ").prop('checked', false);
+					$("#pog_AP").prop('checked', false);
+					$("#pog_AR").prop('checked', false);
+					$("#pog_AY").prop('checked', false);
+					$("#pog_B8").prop('checked', false);
+					$("#pog_AX").prop('checked', false);
+					$("#pog_B0").prop('checked', false);
+					$("#pog_B1").prop('checked', false);
+					$("#pog_AZ").prop('checked', false);
+					$("#pog_B6").prop('checked', false);
+					$("#pog_AK").prop('checked', false);
+					$("#pog_B5").prop('checked', false);
+					$("#pog_B7").prop('checked', false);
+					$("#pog_BC").prop('checked', false);
+					
+					$("#pog_AV").val("OFF");
+					$("#pog_AL").val("OFF");
+					$("#pog_AJ").val("OFF");
+					$("#pog_AP").val("OFF");
+					$("#pog_AR").val("OFF");
+					$("#pog_AY").val("OFF");
+					$("#pog_B8").val("OFF");
+					$("#pog_AX").val("OFF");
+					$("#pog_B0").val("OFF");
+					$("#pog_B1").val("OFF");
+					$("#pog_AZ").val("OFF");
+					$("#pog_B6").val("OFF");
+					$("#pog_AK").val("OFF");
+					$("#pog_B5").val("OFF");
+					$("#pog_B7").val("OFF");
+					$("#pog_BC").val("OFF");
+					
+					app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
+				}
+				
 				
 			/*
 			openIconDetails : function(team, $target){

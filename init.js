@@ -54,7 +54,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		$("<div class='customizerMenu'>"
 			+ "<div class='customizerCatCont' onClick='app.ext.pogs_blueCollar.a.toggleHideShowStriping()'>"
 			+ "<label>Reflective Striping</label><label class='floatRight customizerSectionClosedStripe displayNone'>&#9654;</label><label class='floatRight customizerSectionOpenStripe'>&#9660;</label></div>"
-			+ "<div class='stipeCustomizer'></div>"
+			+ "<div class='stipeCustomizer'><a class='stripeReset' onClick='app.ext.pogs_blueCollar.a.resetAllStripes()'>Reset Stripe Selections</a></div>"
 			+ "<div class='customizerCatCont' onClick='app.ext.pogs_blueCollar.a.toggleHideShowEmbroidery()'>"
 			+ "<label>Embrodiery/Logos</label><label class='floatRight customizerSectionClosedEmbroid displayNone'>&#9654;</label><label class='floatRight customizerSectionOpenEmbroid'>&#9660;</label></div>"
 			+ "   <div class='embroideryCustomizer'>"
