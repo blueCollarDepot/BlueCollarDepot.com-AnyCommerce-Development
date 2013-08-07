@@ -1432,7 +1432,62 @@ var pogs_blueCollar = function() {
 				
 				
 			//**BEGIN EMBROIDERY/LOGO IMAGE DRAWING**//
+				//**BEGIN EMBROIDERY SECTION**//
 				//**BEGIN LEFT POCKET EMBROIDERY SECTION**//
+					/**BEGIN CHARACTER LIMITING FUNCTIONALITY FOR EMBROIDERY TEXT ENTRY FOR LEFT POCKET**/
+						var limit;
+						switch($("#pog_A8").val()){
+							case "00": //8MM BLOCK 22CHARS
+								limit = 22;
+							break;
+							case "01": //12MM BLOCK 18CHARS
+								limit = 18;
+							break;
+							case "02": //12MM BLOCK 16CHARS
+								limit = 16;
+							break;
+							case "03": //15MM BLOCK 14CHARS
+								limit = 14;
+							break;
+							case "04": //18MM BLOCK 11CHARS
+								limit = 11;
+							break;
+							case "05": //25MM BLOCK 8CHARS
+								limit = 8;
+							break;
+							case "06": //8MM SCRIPT 30CHARS
+								limit = 30;
+							break;
+							case "07": //12MM SCRIPT 19CHARS
+								limit = 19;
+							break;
+							case "08": //15MM SCRIPT 17CHARS
+								limit = 17;
+							break;
+							case "09": //18MM SCRIPT 12CHARS
+								limit = 12;
+							break;
+							case "0A": //25MM SCRIPT 8CHARS
+								limit = 8;
+							break;
+						}
+						  
+						//get the current text inside the textarea  
+						var text = $("#pog_BD").val();  
+						//count the number of characters in the text  
+						var chars = text.length;  
+				  
+						//check if there are more characters then allowed  
+						if(chars > limit){  
+							//and if there are use substr to get the text before the limit  
+							var new_text = text.substr(0, limit);  
+				  
+							//and change the current text with the new text  
+							$("#pog_BD").val(new_text);  
+						}
+					/**END CHARACTER LIMITING FUNCTIONALITY FOR EMBROIDERY TEXT ENTRY FOR LEFT POCKET**/
+
+				
 				if(($("#pog_BH").val() !== "") && ($("#pog_BI").val() !== "") && ($("#pog_BG").val() !== "")){
 					//app.u.dump("All 3 options have values, add image to the customizer");
 					
@@ -1505,6 +1560,60 @@ var pogs_blueCollar = function() {
 				//**END LEFT POCKET EMBROIDERY SECTION**//
 				
 				//**BEGIN RIGHT POCKET EMBROIDERY SECTION**//
+				
+					/**BEGIN CHARACTER LIMITING FUNCTIONALITY FOR EMBROIDERY TEXT ENTRY FOR RIGHT POCKET**/
+						var limit;
+						switch($("#pog_BI").val()){
+							case "00": //8MM BLOCK 22CHARS
+								limit = 22;
+							break;
+							case "01": //12MM BLOCK 18CHARS
+								limit = 18;
+							break;
+							case "02": //12MM BLOCK 16CHARS
+								limit = 16;
+							break;
+							case "03": //15MM BLOCK 14CHARS
+								limit = 14;
+							break;
+							case "04": //18MM BLOCK 11CHARS
+								limit = 11;
+							break;
+							case "05": //25MM BLOCK 8CHARS
+								limit = 8;
+							break;
+							case "06": //8MM SCRIPT 30CHARS
+								limit = 30;
+							break;
+							case "07": //12MM SCRIPT 19CHARS
+								limit = 19;
+							break;
+							case "08": //15MM SCRIPT 17CHARS
+								limit = 17;
+							break;
+							case "09": //18MM SCRIPT 12CHARS
+								limit = 12;
+							break;
+							case "0A": //25MM SCRIPT 8CHARS
+								limit = 8;
+							break;
+						}
+						  
+						//get the current text inside the textarea  
+						var text = $("#pog_BG").val();  
+						//count the number of characters in the text  
+						var chars = text.length;  
+				  
+						//check if there are more characters then allowed  
+						if(chars > limit){  
+							//and if there are use substr to get the text before the limit  
+							var new_text = text.substr(0, limit);  
+				  
+							//and change the current text with the new text  
+							$("#pog_BG").val(new_text);  
+						}
+					/**END CHARACTER LIMITING FUNCTIONALITY FOR EMBROIDERY TEXT ENTRY FOR RIGHT POCKET**/
+				
 				if(($("#pog_BE").val() !== "") && ($("#pog_A8").val() !== "") && ($("#pog_BD").val() !== "")){
 					//app.u.dump("All 3 options have values, add image to the customizer");
 					
@@ -1577,6 +1686,60 @@ var pogs_blueCollar = function() {
 				//**END RIGHT POCKET EMBROIDERY SECTION**//
 				
 				//**BEGIN LEFT SHOULDER EMBROIDERY SECTION**//
+				
+				/**BEGIN CHARACTER LIMITING FUNCTIONALITY FOR EMBROIDERY TEXT ENTRY FOR LEFT SHOULDER**/
+						var limit;
+						switch($("#pog_BL").val()){
+							case "00": //8MM BLOCK 22CHARS
+								limit = 22;
+							break;
+							case "01": //12MM BLOCK 18CHARS
+								limit = 18;
+							break;
+							case "02": //12MM BLOCK 16CHARS
+								limit = 16;
+							break;
+							case "03": //15MM BLOCK 14CHARS
+								limit = 14;
+							break;
+							case "04": //18MM BLOCK 11CHARS
+								limit = 11;
+							break;
+							case "05": //25MM BLOCK 8CHARS
+								limit = 8;
+							break;
+							case "06": //8MM SCRIPT 30CHARS
+								limit = 30;
+							break;
+							case "07": //12MM SCRIPT 19CHARS
+								limit = 19;
+							break;
+							case "08": //15MM SCRIPT 17CHARS
+								limit = 17;
+							break;
+							case "09": //18MM SCRIPT 12CHARS
+								limit = 12;
+							break;
+							case "0A": //25MM SCRIPT 8CHARS
+								limit = 8;
+							break;
+						}
+						  
+						//get the current text inside the textarea  
+						var text = $("#pog_BJ").val();  
+						//count the number of characters in the text  
+						var chars = text.length;  
+				  
+						//check if there are more characters then allowed  
+						if(chars > limit){  
+							//and if there are use substr to get the text before the limit  
+							var new_text = text.substr(0, limit);  
+				  
+							//and change the current text with the new text  
+							$("#pog_BJ").val(new_text);  
+						}
+					/**END CHARACTER LIMITING FUNCTIONALITY FOR EMBROIDERY TEXT ENTRY FOR LEFT SHOULDER**/
+				
 				if(($("#pog_BK").val() !== "") && ($("#pog_BL").val() !== "") && ($("#pog_BJ").val() !== "")){
 					//app.u.dump("All 3 options have values, add image to the customizer");
 					
@@ -1707,6 +1870,60 @@ var pogs_blueCollar = function() {
 				//**END LEFT SHOULDER EMBROIDERY SECTION**//
 				
 				//**BEGIN RIGHT SHOULDER EMBROIDERY SECTION**//
+				
+				/**BEGIN CHARACTER LIMITING FUNCTIONALITY FOR EMBROIDERY TEXT ENTRY FOR RIGHT SHOULDER**/
+						var limit;
+						switch($("#pog_BO").val()){
+							case "00": //8MM BLOCK 22CHARS
+								limit = 22;
+							break;
+							case "01": //12MM BLOCK 18CHARS
+								limit = 18;
+							break;
+							case "02": //12MM BLOCK 16CHARS
+								limit = 16;
+							break;
+							case "03": //15MM BLOCK 14CHARS
+								limit = 14;
+							break;
+							case "04": //18MM BLOCK 11CHARS
+								limit = 11;
+							break;
+							case "05": //25MM BLOCK 8CHARS
+								limit = 8;
+							break;
+							case "06": //8MM SCRIPT 30CHARS
+								limit = 30;
+							break;
+							case "07": //12MM SCRIPT 19CHARS
+								limit = 19;
+							break;
+							case "08": //15MM SCRIPT 17CHARS
+								limit = 17;
+							break;
+							case "09": //18MM SCRIPT 12CHARS
+								limit = 12;
+							break;
+							case "0A": //25MM SCRIPT 8CHARS
+								limit = 8;
+							break;
+						}
+						  
+						//get the current text inside the textarea  
+						var text = $("#pog_BM").val();  
+						//count the number of characters in the text  
+						var chars = text.length;  
+				  
+						//check if there are more characters then allowed  
+						if(chars > limit){  
+							//and if there are use substr to get the text before the limit  
+							var new_text = text.substr(0, limit);  
+				  
+							//and change the current text with the new text  
+							$("#pog_BM").val(new_text);  
+						}
+					/**END CHARACTER LIMITING FUNCTIONALITY FOR EMBROIDERY TEXT ENTRY FOR RIGHT SHOULDER**/
+				
 				if(($("#pog_BN").val() !== "") && ($("#pog_BO").val() !== "") && ($("#pog_BM").val() !== "")){
 					//app.u.dump("All 3 options have values, add image to the customizer");
 					
@@ -1831,6 +2048,8 @@ var pogs_blueCollar = function() {
 					}
 				}
 				//**END RIGHT SHOULDER EMBROIDERY SECTION**//
+				//**END EMBROIDERY SECTION**//
+			//**END EMBROIDERY/LOGO IMAGE DRAWING**//
 
 				
 			},
