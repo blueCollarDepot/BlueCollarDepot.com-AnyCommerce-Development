@@ -1698,7 +1698,7 @@ var pogs_blueCollar = function() {
 						break;
 						case "0A": //25MM SCRIPT 8CHARS
 							ctx.font = '18pt "Yesteryear"';
-							ctx.fillText(($("#pog_BJ").val()),243,20);
+							ctx.fillText(($("#pog_BJ").val()),243,24);
 						break;
 					}
 					
@@ -1752,7 +1752,7 @@ var pogs_blueCollar = function() {
 						ctx.fillStyle = '#d2b48c'; //TAN
 						break; 
 					}
-					ctx.fillRect(0,10,60,15);
+					ctx.fillRect(0,0,93,25);
 					
 					switch($("#pog_BN").val())
 					{
@@ -1785,41 +1785,50 @@ var pogs_blueCollar = function() {
 					switch($("#pog_BO").val())
 					{
 						case "00": //8MM BLOCK 22CHARS
-							ctx.font = '3pt Arial';
+							ctx.font = '6pt Arial';
+							ctx.fillText(($("#pog_BM").val()),6,16);
 						break;
 						case "01": //10MM BLOCK 18CHARS
-							ctx.font = '4.5pt Arial';
+							ctx.font = '7pt Arial';
+							ctx.fillText(($("#pog_BM").val()),6,16);
 						break;
 						case "02": //12MM BLOCK 16CHARS
-							ctx.font = '4.5pt Arial';
+							ctx.font = '8pt Arial';
+							ctx.fillText(($("#pog_BM").val()),2,16);
 						break;
 						case "03": //15MM BLOCK 14CHARS
-							ctx.font = '5pt Arial';
+							ctx.font = '9pt Arial';
+							ctx.fillText(($("#pog_BM").val()),3,17);
 						break;
 						case "04": //18MM BLOCK 11CHARS
-							ctx.font = '6.5pt Arial';
+							ctx.font = '12pt Arial';
+							ctx.fillText(($("#pog_BM").val()),3,17);
 						break;
 						case "05": //25MM BLOCK 8CHARS
-							ctx.font = '9pt Arial';
+							ctx.font = '16pt Arial';
+							ctx.fillText(($("#pog_BM").val()),6,19);
 						break;
 						case "06": //8MM SCRIPT 30CHARS
-							ctx.font = '3pt "Yesteryear"';
+							ctx.font = '6pt "Yesteryear"';
+							ctx.fillText(($("#pog_BM").val()),5,14);
 						break;
 						case "07": //12MM SCRIPT 19CHARS
-							ctx.font = '5.5pt "Yesteryear"';
+							ctx.font = '10pt "Yesteryear"';
+							ctx.fillText(($("#pog_BM").val()),4,16);
 						break;
 						case "08": //15MM SCRIPT 17CHARS
-							ctx.font = '6pt "Yesteryear"';
+							ctx.font = '11pt "Yesteryear"';
+							ctx.fillText(($("#pog_BM").val()),3,15);
 						break;
 						case "09": //18MM SCRIPT 12CHARS
-							ctx.font = '8.5pt "Yesteryear"';
+							ctx.font = '14pt "Yesteryear"';
+							ctx.fillText(($("#pog_BM").val()),6,15);
 						break;
 						case "0A": //25MM SCRIPT 8CHARS
-							ctx.font = '11.5pt "Yesteryear"';
+							ctx.font = '18pt "Yesteryear"';
+							ctx.fillText(($("#pog_BM").val()),13,18);
 						break;
 					}
-					
-					ctx.fillText(($("#pog_BM").val()),6,21);
 				}
 				//**END RIGHT SHOULDER EMBROIDERY SECTION**//
 
