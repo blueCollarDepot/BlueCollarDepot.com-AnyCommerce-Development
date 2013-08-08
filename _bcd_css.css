@@ -302,3 +302,14 @@ div.rightShoulderEmbroidCont div#div_BO{
 	float:right;
 	margin-right:5px;
 }
+.embroideryCont{
+	padding-bottom:5px;
+	padding-top:3px;
+}
+.embroideryCont input{
+	float:right;
+	margin-right:5px;
+}
+.embroidCatCont{
+	width:100%;
+}
