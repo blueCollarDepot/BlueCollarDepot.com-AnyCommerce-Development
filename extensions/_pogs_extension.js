@@ -4665,8 +4665,24 @@ var pogs_blueCollar = function() {
 					$("#pog_AA").find('option:first').attr('selected','selected');
 					$(".leftPocketState").find('option:first').attr('selected','selected');
 					$("#div_AB").val("");
-					
-					
+					$("#pog_BH").find('option:first').attr('selected','selected');
+					$("#pog_BI").find('option:first').attr('selected','selected');
+					$("#pog_BG").val("");
+					$("#pog_AA").find('option:first').attr('selected','selected');
+					$(".rightPocketState").find('option:first').attr('selected','selected');
+					$("#div_AE").val("");
+					$("#pog_BK").find('option:first').attr('selected','selected');
+					$("#pog_BL").find('option:first').attr('selected','selected');
+					$("#pog_BJ").val("");
+					$("#pog_AF").find('option:first').attr('selected','selected');
+					$(".leftShoulderState").find('option:first').attr('selected','selected');
+					$("#div_AG").val("");
+					$("#pog_BN").find('option:first').attr('selected','selected');
+					$("#pog_BO").find('option:first').attr('selected','selected');
+					$("#pog_BM").val("");
+					$("#pog_AH").find('option:first').attr('selected','selected');
+					$(".rightShoulderState").find('option:first').attr('selected','selected');
+					$("#div_AI").val("");
 					app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 				}
 				
