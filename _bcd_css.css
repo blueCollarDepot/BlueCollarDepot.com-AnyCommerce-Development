@@ -269,6 +269,19 @@ div.rightShoulderEmbroidCont div#div_BO{
 .leftPocketLogoCont div#div_AB{
 	display:none;
 }
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_AC{
+	display:none;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_AE{
+	display:none;
+}
+.rightPocketLogoCont div#div_AC{
+	display:block !important;
+}
+.rightPocketLogoCont div#div_AE{
+	display:none;
+}
+
 .stateContLP{
 	display:none;
 }
@@ -335,18 +348,21 @@ div.rightShoulderEmbroidCont div#div_BO{
 }
 .rightPocketCont{
 	width:100%;
+	padding-left:10px;
 }
 .rightPocketCont input{
 	margin-right: 30px;
 }
 .leftShoulderCont{
 	width:100%;
+	padding-left:10px;
 }
 .leftShoulderCont input{
 	margin-right: 30px;
 }
 .rightShoulderCont{
 	width:100%;
+	padding-left:10px;
 }
 .rightShoulderCont input{
 	margin-right: 30px;
@@ -354,3 +370,14 @@ div.rightShoulderEmbroidCont div#div_BO{
 .leftPocketCustomLogoMess{
 	color:red;
 }
+.rightPocketCustomLogoMess{
+	color:red;
+}
+.leftShoulderCustomLogoMess{
+	color:red;
+}
+.rightShoulderCustomLogoMess{
+	color:red;
+}
+
+
