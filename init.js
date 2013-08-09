@@ -59,6 +59,8 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "<label>Embrodiery/Logos</label><label class='floatRight customizerSectionClosedEmbroid displayNone'>&#9654;</label><label class='floatRight customizerSectionOpenEmbroid'>&#9660;</label></div>"
 			+ "   <div class='embroideryCustomizer'>"
 			+ "     <div class='embroideryCont'>"
+			+ "     <p class='embroidTitle'>Locations:</p>"
+			+ "     <a class='embroidLogoReset' onClick='app.ext.pogs_blueCollar.a.resetAllEmbroidLogo()'>Reset Embroidery/Logo Selections</a>"
 			+ "			<div class='floatLeft clearLeft embroidCatCont'>"
 			+ "		 		<label class='floatLeft'>Left Chest Pocket</label><input type='checkbox' class='leftPocket' onClick='app.ext.pogs_blueCollar.a.toggleHideShowLeftPocket()' />"
 			+ " 	 		<div class='leftPocketCont'>"
@@ -84,6 +86,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "                     </div>"
 			+ "                     <p class='displayNone leftPocketCustomLogoMess'>After placing order, a representative will contact you to discuss your logo.</p>"
 			+ "                 </div>"
+			+ "             </div>"
 			+ "			</div>"
 			+ "			<div class='floatLeft clearLeft embroidCatCont'>"
 			+ "	 	 		<label class='floatLeft'>Right Chest Pocket</label><input type='checkbox' class='rightPocket' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightPocket()' />"
@@ -145,7 +148,25 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "					<input type='radio' class='rsRadioEmbroid' name='rsradio' value='embroidery' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightShoulderEmbroid()'>Embroidery<br>"
 			+ "					<input type='radio' class='rsRadioLogo' name='rsradio' value='logo' onClick='app.ext.pogs_blueCollar.a.toggleHideShowRightShoulderLogo()'>Logo"
 			+ "					<div class='rightShoulderEmbroidCont logoEmbroidMenu'><p>Please select a value/enter your text for all boxes below if you want embroidery for this section to avoid any delays in processing time.</p></div>"
-			+ "					<div class='rightShoulderLogoCont logoEmbroidMenu'></div>"
+			+ "					<div class='rightShoulderLogoCont logoEmbroidMenu'>"
+			+ "                     <div class='stateContRS displayNone'>"
+			+ "                 		<label>Select State</label>"
+			+ "                     	<select class='rightShoulderState' onClick='app.ext.pogs_blueCollar.a.UpdateCustomizerImage()'>"
+			+ "                 			<option selected='selected' disable='disabled' value=''>Please choose (required)</option>"
+			+ "	                 			<option value='00'>Alabama</option><option value='01'>Alaska</option><option value='02'>Arizona</option><option value='03'>Arkansas</option><option value='04'>California</option>"
+			+ "                 			<option value='05'>Colorado</option><option value='06'>Connecticut</option><option value='07'>Delaware</option><option value='08'>Florida</option><option value='09'>Georgia</option>"
+			+ "                 			<option value='10'>Hawaii</option><option value='11'>Idaho</option><option value='12'>Illinois</option><option value='13'>Indiana</option><option value='14'>Iowa</option>"
+			+ "                 			<option value='15'>Kansas</option><option value='16'>Kentucky</option><option value='17'>Louisiana</option><option value='18'>Maine</option><option value='19'>Maryland</option>"
+			+ "                 			<option value='20'>Massachusetts</option><option value='21'>Michigan</option><option value='22'>Minnesota</option><option value='23'>Mississippi</option><option value='24'>Missouri</option>"
+			+ "                 			<option value='25'>Montana</option><option value='26'>Nebraska</option><option value='27'>Nevada</option><option value='28'>New Hampshire</option><option value='29'>New Jersey</option>"
+			+ "                 			<option value='30'>New Mexico</option><option value='31'>New York</option><option value='32'>North Carolina</option><option value='33'>North Dakota</option><option value='34'>Ohio</option>"
+			+ "                 			<option value='35'>Oklahoma</option><option value='36'>Oregon</option><option value='37'>Pennsylvania</option><option value='38'>Rhode Island</option><option value='39'>South Carolina</option>"
+			+ "                 			<option value='40'>South Dakota</option><option value='41'>Tennessee</option><option value='42'>Texas</option><option value='43'>Utah</option><option value='44'>Vermont</option>"
+			+ "                 			<option value='45'>Virginia</option><option value='46'>Washington</option><option value='47'>West Virginia</option><option value='48'>Wisconsin</option><option value='49'>Wyoming</option>"
+			+ "                 		</select>"
+			+ "                     </div>"
+			+ "                     <p class='displayNone rightShoulderCustomLogoMess'>After placing order, a representative will contact you to discuss your logo.</p>"
+			+ "                 </div>"
 			+ "				</div>"
 			+ "			</div>"
 			+ "   	</div>"
@@ -194,6 +215,8 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		$("#div_AE").appendTo(".rightPocketLogoCont");
 		$(".stateContLS").before($("#div_AF"));
 		$("#div_AG").appendTo(".leftShoulderLogoCont");
+		$(".stateContRS").before($("#div_AH"));
+		$("#div_AI").appendTo(".rightShoulderLogoCont");
 		
 		if($('.stipeCustomizer',$context).data('collapseOrExpanded')) {} //do nothing, content already added.
 		else {

@@ -290,6 +290,18 @@ div.rightShoulderEmbroidCont div#div_BO{
 .leftShoulderLogoCont div#div_AG{
 	display:none;
 }
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_AH{
+	display:none;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_AI{
+	display:none;
+}
+.rightShoulderLogoCont div#div_AH{
+	display:block !important;
+}
+.rightShoulderLogoCont div#div_AI{
+	display:none;
+}
 
 .stateContLP{
 	display:none;
@@ -310,6 +322,7 @@ div.rightShoulderEmbroidCont div#div_BO{
     padding-left: 5px;
     padding-top: 5px;
     width: 420px;
+	margin-bottom:5px;
 }
 .stripeReset{
 	border: 1px solid #084691;
@@ -328,24 +341,44 @@ div.rightShoulderEmbroidCont div#div_BO{
 	color:white;
 	background-color:#084691;
 }
+.embroidLogoReset{
+	border: 1px solid #084691;
+    border-radius: 5px 5px 5px 5px;
+    color: #084691;
+    cursor: pointer;
+    display: block;
+    margin-top: 5px;
+	margin-right:5px;
+    padding-bottom: 1px;
+    padding-left: 9px;
+    width: 230px;
+	float:right;
+}
+.embroidLogoReset:hover{
+	color:white;
+	background-color:#084691;
+}
 .stipeCustomizer{
 	padding-bottom:5px;
 	padding-top:3px;
+	padding-left:5px;
 }
 .stipeCustomizer input{
 	float:right;
 	margin-right:5px;
 }
+.embroideryCustomizer{
+}
 .embroideryCont{
-	padding-bottom:5px;
 	padding-top:3px;
 }
 .embroideryCont input{
 	float:right;
-	margin-right:5px;
+	margin-right:10px;
 }
 .embroidCatCont{
 	width:100%;
+	margin-left:5px;
 }
 .leftPocketCont{
 	width:100%;
@@ -387,6 +420,11 @@ div.rightShoulderEmbroidCont div#div_BO{
 }
 .rightShoulderCustomLogoMess{
 	color:red;
+}
+.embroidTitle{
+	float:left;
+	text-decoration:underline;
+	margin-left:5px;
 }
 
 
