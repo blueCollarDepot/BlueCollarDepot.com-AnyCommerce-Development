@@ -130,9 +130,6 @@
 .atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_AJ{
 	display:none;
 }
-.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_AG{
-	display:none;
-}
 .atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_AV{
 	display:none;
 }
@@ -279,6 +276,18 @@ div.rightShoulderEmbroidCont div#div_BO{
 	display:block !important;
 }
 .rightPocketLogoCont div#div_AE{
+	display:none;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_AF{
+	display:none;
+}
+.atcVarStandardCont div#JSONPogDisplay_OVERALLS-TEST1 div#div_AG{
+	display:none;
+}
+.leftShoulderLogoCont div#div_AF{
+	display:block !important;
+}
+.leftShoulderLogoCont div#div_AG{
 	display:none;
 }
 

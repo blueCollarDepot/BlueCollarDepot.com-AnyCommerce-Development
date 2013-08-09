@@ -291,6 +291,8 @@ var pogs_blueCollar = function() {
 				this.addHandler("pogid","AB","renderOptionCUSTOMTEXTAREA");
 				this.addHandler("pogid","AC","renderOptionCUSTOMSELECTDROPDOWN");
 				this.addHandler("pogid","AE","renderOptionCUSTOMTEXTAREA");
+				this.addHandler("pogid","AF","renderOptionCUSTOMSELECTDROPDOWN");
+				this.addHandler("pogid","AG","renderOptionCUSTOMTEXTAREA");
 				
 			}
 				
@@ -312,7 +314,6 @@ var pogs_blueCollar = function() {
 					$(".prodThumbs").hide();
 					
 					$("#div_A9").show();
-					$("#div_AG").show();
 					$("#div_AJ").show();
 					$("#div_AV").show();
 					$("#div_AL").show();
@@ -2067,7 +2068,7 @@ var pogs_blueCollar = function() {
 						switch($("#pog_AA").val()){
 							case "00": //US Flag
 								var stripeImg=document.getElementById("usPatchLP");
-								ctx.drawImage(stripeImg,50,49);
+								ctx.drawImage(stripeImg,123,49);
 								$(".leftPocketState").val("");
 								$("#pog_AB").val("");
 								$(".stateContLP").slideUp(500);
@@ -2078,402 +2079,402 @@ var pogs_blueCollar = function() {
 								switch($(".leftPocketState").val()){
 									case "00": //ALABAMA	
 										$("#pog_AB").val("Alabama");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "01": //Alaska
 										$("#pog_AB").val("Alaska");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "02": //Arizona
 										$("#pog_AB").val("Arizona");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "03": //Arkansas							
 										$("#pog_AB").val("Arkansas");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "04": //California
 										$("#pog_AB").val("California");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "05": //Colorado
 										$("#pog_AB").val("Colorado");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "06": //Connecticut
 										$("#pog_AB").val("Connecticut");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "07": //Delaware
 										$("#pog_AB").val("Delaware");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "08": //Florida
 										$("#pog_AB").val("Florida");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "09": //Georgia
 										$("#pog_AB").val("Georgia");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "10": //Hawaii
 										$("#pog_AB").val("Hawaii");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "11": //Idaho
 										$("#pog_AB").val("Idaho");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "12": //Illinois
 										$("#pog_AB").val("Illinois");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "13": //Indiana
 										$("#pog_AB").val("Indiana");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "14": //Iowa
 										$("#pog_AB").val("Iowa");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "15": //Kansas
 										$("#pog_AB").val("Kansas");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "16": //Kentucky
 										$("#pog_AB").val("Kentucky");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "17": //Louisiana
 										$("#pog_AB").val("Louisiana");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "18": //Maine
 										$("#pog_AB").val("Maine");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "19": //Maryland
 										$("#pog_AB").val("Maryland");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "20": //Massachusetts
 										$("#pog_AB").val("Massachusetts");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "21": //Michigan
 										$("#pog_AB").val("Michigan");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "22": //Minnesota
 										$("#pog_AB").val("Minnesota");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "23": //Mississippi
 										$("#pog_AB").val("Mississippi");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "24": //Missouri
 										$("#pog_AB").val("Missouri");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "25": //Montana
 										$("#pog_AB").val("Montana");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "26": //Nebraska
 										$("#pog_AB").val("Nebraska");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "27": //Nevada
 										$("#pog_AB").val("Nevada");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "28": //New Hampshire
 										$("#pog_AB").val("New Hampshire");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "29": //New Jersey
 										$("#pog_AB").val("New Jersey");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "30": //New Mexico
 										$("#pog_AB").val("New Mexico");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "31": //New York
 										$("#pog_AB").val("New York");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "32": //North Carolina
 										$("#pog_AB").val("North Carolina");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "33": //North Dakota
 										$("#pog_AB").val("North Dakota");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "34": //Ohio
 										$("#pog_AB").val("Ohio");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "35": //Oklahoma
 										$("#pog_AB").val("Oklahoma");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "36": //Oregon
 										$("#pog_AB").val("Oregon");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "37": //Pennsylvania
 										$("#pog_AB").val("Pennsylvania");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "38": //Rhode Island
 										$("#pog_AB").val("Rhode Island");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "39": //South Carolina
 										$("#pog_AB").val("South Carolina");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "40": //South Dakota
 										$("#pog_AB").val("South Dakota");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "41": //Tennessee
 										$("#pog_AB").val("Tennessee");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "42": //Texas
 										$("#pog_AB").val("Texas");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "43": //Utah
 										$("#pog_AB").val("Utah");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "44": //Vermont
 										$("#pog_AB").val("Vermont");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "45": //Virginia
 										$("#pog_AB").val("Virginia");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "46": //Washington
 										$("#pog_AB").val("Washington");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "47": //West Virginia
 										$("#pog_AB").val("West Virginia");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "48": //Wisconsin
 										$("#pog_AB").val("Wisconsin");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
                                 break;
 									
 									case "49": //Wyoming
 										$("#pog_AB").val("Wyoming");
-                                ctx.strokeRect(50,50,30,15);
+                                ctx.strokeRect(123,49,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",56,56);
-								ctx.fillText("Flag",57,63);
+								ctx.fillText("State",129,56);
+								ctx.fillText("Flag",130,62);
 								break;
 									
 								default: 
@@ -2485,11 +2486,11 @@ var pogs_blueCollar = function() {
 							break;
 							
 							case "02": //Custom Logo
-								ctx.strokeRect(50,50,30,15);
+								ctx.strokeRect(123,49,30,15);
 								ctx.font = '4pt Arial';
-								ctx.fillText("Your Logo",53,56);
+								ctx.fillText("Your Logo",126,55);
 								ctx.font = '5pt Arial';
-								ctx.fillText("Here",57,63);
+								ctx.fillText("Here",130,62);
 								
 								$(".leftPocketState").val("");
 								$("#pog_AB").val("");
@@ -2505,7 +2506,7 @@ var pogs_blueCollar = function() {
 						switch($("#pog_AC").val()){
 							case "00": //US Flag
 								var stripeImg=document.getElementById("usPatchLP");
-								ctx.drawImage(stripeImg,123,49);
+								ctx.drawImage(stripeImg,50,49);
 								$(".rightPocketState").val("");
 								$("#pog_AE").val("");
 								$(".stateContRP").slideUp(500);
@@ -2516,402 +2517,402 @@ var pogs_blueCollar = function() {
 								switch($(".rightPocketState").val()){
 									case "00": //ALABAMA	
 										$("#pog_AE").val("Alabama");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "01": //Alaska
 										$("#pog_AE").val("Alaska");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "02": //Arizona
 										$("#pog_AE").val("Arizona");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "03": //Arkansas							
 										$("#pog_AE").val("Arkansas");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "04": //California
 										$("#pog_AE").val("California");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "05": //Colorado
 										$("#pog_AE").val("Colorado");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "06": //Connecticut
 										$("#pog_AE").val("Connecticut");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "07": //Delaware
 										$("#pog_AE").val("Delaware");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "08": //Florida
 										$("#pog_AE").val("Florida");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "09": //Georgia
 										$("#pog_AE").val("Georgia");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "10": //Hawaii
 										$("#pog_AE").val("Hawaii");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "11": //Idaho
 										$("#pog_AE").val("Idaho");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "12": //Illinois
 										$("#pog_AE").val("Illinois");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "13": //Indiana
 										$("#pog_AE").val("Indiana");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "14": //Iowa
 										$("#pog_AE").val("Iowa");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "15": //Kansas
 										$("#pog_AE").val("Kansas");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "16": //Kentucky
 										$("#pog_AE").val("Kentucky");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "17": //Louisiana
 										$("#pog_AE").val("Louisiana");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "18": //Maine
 										$("#pog_AE").val("Maine");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "19": //Maryland
 										$("#pog_AE").val("Maryland");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "20": //Massachusetts
 										$("#pog_AE").val("Massachusetts");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "21": //Michigan
 										$("#pog_AE").val("Michigan");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "22": //Minnesota
 										$("#pog_AE").val("Minnesota");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "23": //Mississippi
 										$("#pog_AE").val("Mississippi");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "24": //Missouri
 										$("#pog_AE").val("Missouri");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "25": //Montana
 										$("#pog_AE").val("Montana");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "26": //Nebraska
 										$("#pog_AE").val("Nebraska");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "27": //Nevada
 										$("#pog_AE").val("Nevada");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "28": //New Hampshire
 										$("#pog_AE").val("New Hampshire");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "29": //New Jersey
 										$("#pog_AE").val("New Jersey");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "30": //New Mexico
 										$("#pog_AE").val("New Mexico");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "31": //New York
 										$("#pog_AE").val("New York");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "32": //North Carolina
 										$("#pog_AE").val("North Carolina");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "33": //North Dakota
 										$("#pog_AE").val("North Dakota");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "34": //Ohio
 										$("#pog_AE").val("Ohio");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "35": //Oklahoma
 										$("#pog_AE").val("Oklahoma");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "36": //Oregon
 										$("#pog_AE").val("Oregon");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "37": //Pennsylvania
 										$("#pog_AE").val("Pennsylvania");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "38": //Rhode Island
 										$("#pog_AE").val("Rhode Island");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "39": //South Carolina
 										$("#pog_AE").val("South Carolina");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "40": //South Dakota
 										$("#pog_AE").val("South Dakota");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "41": //Tennessee
 										$("#pog_AE").val("Tennessee");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "42": //Texas
 										$("#pog_AE").val("Texas");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "43": //Utah
 										$("#pog_AE").val("Utah");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "44": //Vermont
 										$("#pog_AE").val("Vermont");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "45": //Virginia
 										$("#pog_AE").val("Virginia");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "46": //Washington
 										$("#pog_AE").val("Washington");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "47": //West Virginia
 										$("#pog_AE").val("West Virginia");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "48": //Wisconsin
 										$("#pog_AE").val("Wisconsin");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
                                 break;
 									
 									case "49": //Wyoming
 										$("#pog_AE").val("Wyoming");
-                                ctx.strokeRect(123,49,30,15);
+                                ctx.strokeRect(50,50,30,15);
 								ctx.font = '5pt Arial';
-								ctx.fillText("State",129,56);
-								ctx.fillText("Flag",130,62);
+								ctx.fillText("State",56,56);
+								ctx.fillText("Flag",57,63);
 								break;
 									
 								default: 
@@ -2923,11 +2924,11 @@ var pogs_blueCollar = function() {
 							break;
 							
 							case "02": //Custom Logo
-								ctx.strokeRect(123,49,30,15);
+								ctx.strokeRect(50,50,30,15);
 								ctx.font = '4pt Arial';
-								ctx.fillText("Your Logo",126,55);
+								ctx.fillText("Your Logo",53,56);
 								ctx.font = '5pt Arial';
-								ctx.fillText("Here",130,62);
+								ctx.fillText("Here",57,63);
 								
 								$(".rightPocketState").val("");
 								$("#pog_AE").val("");
@@ -2937,6 +2938,808 @@ var pogs_blueCollar = function() {
 						}
 					}
 					//**END RIGHT POCKET LOGO SECTION**//
+					
+					//**BEGIN LEFT SHOULDER LOGO SECTION**//
+					if($("#pog_AF").val() !== ""){
+						switch($("#pog_AF").val()){
+							case "00": //US Flag
+								ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+								var stripeImg=document.getElementById("usPatchLP");
+								ctx.drawImage(stripeImg,240,18);
+								$(".leftShoulderState").val("");
+								$("#pog_AG").val("");
+								$(".stateContRP").slideUp(500);
+								$(".leftShoulderCustomLogoMess").slideUp(500);
+							break;
+							
+							case "01": //State Flag
+								switch($(".leftShoulderState").val()){
+									case "00": //ALABAMA	
+										$("#pog_AG").val("Alabama");
+								ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "01": //Alaska
+										$("#pog_AG").val("Alaska");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "02": //Arizona
+										$("#pog_AG").val("Arizona");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "03": //Arkansas							
+										$("#pog_AG").val("Arkansas");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "04": //California
+										$("#pog_AG").val("California");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "05": //Colorado
+										$("#pog_AG").val("Colorado");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "06": //Connecticut
+										$("#pog_AG").val("Connecticut");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "07": //Delaware
+										$("#pog_AG").val("Delaware");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "08": //Florida
+										$("#pog_AG").val("Florida");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "09": //Georgia
+										$("#pog_AG").val("Georgia");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "10": //Hawaii
+										$("#pog_AG").val("Hawaii");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "11": //Idaho
+										$("#pog_AG").val("Idaho");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "12": //Illinois
+										$("#pog_AG").val("Illinois");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "13": //Indiana
+										$("#pog_AG").val("Indiana");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "14": //Iowa
+										$("#pog_AG").val("Iowa");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "15": //Kansas
+										$("#pog_AG").val("Kansas");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "16": //Kentucky
+										$("#pog_AG").val("Kentucky");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "17": //Louisiana
+										$("#pog_AG").val("Louisiana");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "18": //Maine
+										$("#pog_AG").val("Maine");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "19": //Maryland
+										$("#pog_AG").val("Maryland");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "20": //Massachusetts
+										$("#pog_AG").val("Massachusetts");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "21": //Michigan
+										$("#pog_AG").val("Michigan");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "22": //Minnesota
+										$("#pog_AG").val("Minnesota");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "23": //Mississippi
+										$("#pog_AG").val("Mississippi");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "24": //Missouri
+										$("#pog_AG").val("Missouri");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "25": //Montana
+										$("#pog_AG").val("Montana");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "26": //Nebraska
+										$("#pog_AG").val("Nebraska");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "27": //Nevada
+										$("#pog_AG").val("Nevada");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "28": //New Hampshire
+										$("#pog_AG").val("New Hampshire");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "29": //New Jersey
+										$("#pog_AG").val("New Jersey");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "30": //New Mexico
+										$("#pog_AG").val("New Mexico");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "31": //New York
+										$("#pog_AG").val("New York");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "32": //North Carolina
+										$("#pog_AG").val("North Carolina");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "33": //North Dakota
+										$("#pog_AG").val("North Dakota");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "34": //Ohio
+										$("#pog_AG").val("Ohio");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "35": //Oklahoma
+										$("#pog_AG").val("Oklahoma");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "36": //Oregon
+										$("#pog_AG").val("Oregon");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "37": //Pennsylvania
+										$("#pog_AG").val("Pennsylvania");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "38": //Rhode Island
+										$("#pog_AG").val("Rhode Island");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "39": //South Carolina
+										$("#pog_AG").val("South Carolina");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "40": //South Dakota
+										$("#pog_AG").val("South Dakota");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "41": //Tennessee
+										$("#pog_AG").val("Tennessee");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "42": //Texas
+										$("#pog_AG").val("Texas");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "43": //Utah
+										$("#pog_AG").val("Utah");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "44": //Vermont
+										$("#pog_AG").val("Vermont");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "45": //Virginia
+										$("#pog_AG").val("Virginia");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "46": //Washington
+										$("#pog_AG").val("Washington");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "47": //West Virginia
+										$("#pog_AG").val("West Virginia");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "48": //Wisconsin
+										$("#pog_AG").val("Wisconsin");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+                                break;
+									
+									case "49": //Wyoming
+										$("#pog_AG").val("Wyoming");
+                                ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+                                
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '5pt Arial';
+								ctx.fillText("State",246,25);
+								ctx.fillText("Flag",248,31);
+								break;
+									
+								default: 
+									$("#pog_AG").val("");
+								break; 
+								}
+								$(".stateContLS").slideDown(500);
+								$(".leftShoulderCustomLogoMess").slideUp(500);
+							break;
+							
+							case "02": //Custom Logo
+								ctx.strokeRect(183,58,30,15);
+								ctx.beginPath(); 
+								ctx.moveTo(215,55);
+								ctx.lineTo(240,35);
+								ctx.stroke();
+								//ctx.strokeRect(230,5,30,15);
+							
+								ctx.strokeRect(240,18,30,15);
+								ctx.font = '4pt Arial';
+								ctx.fillText("Your Logo",243,24);
+								ctx.font = '5pt Arial';
+								ctx.fillText("Here",248,31);
+								
+								$(".leftShoulderState").val("");
+								$("#pog_AG").val("");
+								$(".stateContLS").slideUp(500);
+								$(".leftShoulderCustomLogoMess").slideDown(500);
+							break;
+						}
+					}
+					//**END LEFT SHOULDER LOGO SECTION**//
+
 				//**END LOGO SECTION**//
 			//**END EMBROIDERY/LOGO IMAGE DRAWING**// 
 
@@ -3033,6 +3836,12 @@ var pogs_blueCollar = function() {
 						$("#pog_BJ").val("");
 						$("#pog_BK").find('option:first').attr('selected','selected');
 						$("#pog_BL").find('option:first').attr('selected','selected');
+						
+						$("#pog_AF").val("");
+						$(".leftShoulderState").val("");
+						$("#pog_AG").val("");
+						$(".stateContLS").hide();
+						$(".leftShoulderCustomLogoMess").hide();
 						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 					else{
@@ -3109,6 +3918,12 @@ var pogs_blueCollar = function() {
 					if($('.lsRadioEmbroid').attr("checked", "checked")){
 						$('.leftShoulderLogoCont').slideUp(1000);
 						$('.leftShoulderEmbroidCont').slideDown(1000);
+						
+						$("#pog_AF").val("");
+						$(".leftShoulderState").val("");
+						$("#pog_AG").val("");
+						$(".stateContLS").hide();
+						$(".leftShoulderCustomLogoMess").hide();
 						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
