@@ -82,7 +82,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "                 			<option value='45'>Virginia</option><option value='46'>Washington</option><option value='47'>West Virginia</option><option value='48'>Wisconsin</option><option value='49'>Wyoming</option>"
 			+ "                 		</select>"
 			+ "                     </div>"
-			+ "                     <p class='displayNone leftPocketCustomLogoMess'>After placing order, a representative will contact you to discuss your Logo.</p>"
+			+ "                     <p class='displayNone leftPocketCustomLogoMess'>After placing order, a representative will contact you to discuss your logo.</p>"
 			+ "                 </div>"
 			+ "			</div>"
 			+ "			<div class='floatLeft clearLeft embroidCatCont'>"
