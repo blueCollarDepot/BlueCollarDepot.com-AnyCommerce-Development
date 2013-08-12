@@ -4659,30 +4659,69 @@ var pogs_blueCollar = function() {
 				},
 				
 				resetAllEmbroidLogo : function(){
+					$(".leftPocket").prop('checked', false);
+					$('.leftPocketCont').slideUp(1000);
+					$('.leftPocketCont').data('collapseOrExpanded',false).append();
+					$(".lpRadioEmbroid").prop('checked', false);
+					$(".lpRadioLogo").prop('checked', false);
+					$('.leftPocketEmbroidCont').slideUp(1000);
+					$('.leftPocketLogoCont').slideUp(1000);
+					$("#pog_BD").val("");
 					$("#pog_BE").find('option:first').attr('selected','selected');
 					$("#pog_A8").find('option:first').attr('selected','selected');
-					$("#pog_BD").val("");
-					$("#pog_AA").find('option:first').attr('selected','selected');
-					$(".leftPocketState").find('option:first').attr('selected','selected');
-					$("#div_AB").val("");
+					$("#pog_AA").val("");
+					$(".leftPocketState").val("");
+					$("#pog_AB").val("");
+					$(".stateContLP").hide();
+					$(".leftPocketCustomLogoMess").hide();
+
+					$(".rightPocket").prop('checked', false);
+					$('.rightPocketCont').slideUp(1000);
+					$('.rightPocketCont').data('collapseOrExpanded',false).append();
+					$(".rpRadioEmbroid").prop('checked', false);
+					$(".rpRadioLogo").prop('checked', false);
+					$('.rightPocketEmbroidCont').slideUp(1000);
+					$('.rightPocketLogoCont').slideUp(1000);
+					$("#pog_BG").val("");
 					$("#pog_BH").find('option:first').attr('selected','selected');
 					$("#pog_BI").find('option:first').attr('selected','selected');
-					$("#pog_BG").val("");
-					$("#pog_AA").find('option:first').attr('selected','selected');
-					$(".rightPocketState").find('option:first').attr('selected','selected');
-					$("#div_AE").val("");
+					$("#pog_AC").val("");
+					$(".rightPocketState").val("");
+					$("#pog_AE").val("");
+					$(".stateContRP").hide();
+					$(".rightPocketCustomLogoMess").hide();
+
+					$(".leftShoulder").prop('checked', false);
+					$('.leftShoulderCont').slideUp(1000);
+					$('.leftShoulderCont').data('collapseOrExpanded',false).append();
+					$(".lsRadioEmbroid").prop('checked', false);
+					$(".lsRadioLogo").prop('checked', false);
+					$('.leftShoulderEmbroidCont').slideUp(1000);
+					$('.leftShoulderLogoCont').slideUp(1000);
+					$("#pog_BJ").val("");
 					$("#pog_BK").find('option:first').attr('selected','selected');
 					$("#pog_BL").find('option:first').attr('selected','selected');
-					$("#pog_BJ").val("");
-					$("#pog_AF").find('option:first').attr('selected','selected');
-					$(".leftShoulderState").find('option:first').attr('selected','selected');
-					$("#div_AG").val("");
+					$("#pog_AF").val("");
+					$(".leftShoulderState").val("");
+					$("#pog_AG").val("");
+					$(".stateContLS").hide();
+					$(".leftShoulderCustomLogoMess").hide();
+
+					$(".rightShoulder").prop('checked', false);
+					$('.rightShoulderCont').slideUp(1000);
+					$('.rightShoulderCont').data('collapseOrExpanded',false).append();
+					$(".rsRadioEmbroid").prop('checked', false);
+					$(".rsRadioLogo").prop('checked', false);
+					$('.rightShoulderEmbroidCont').slideUp(1000);
+					$('.rightShoulderLogoCont').slideUp(1000);
+					$("#pog_BM").val("");
 					$("#pog_BN").find('option:first').attr('selected','selected');
 					$("#pog_BO").find('option:first').attr('selected','selected');
-					$("#pog_BM").val("");
-					$("#pog_AH").find('option:first').attr('selected','selected');
-					$(".rightShoulderState").find('option:first').attr('selected','selected');
-					$("#div_AI").val("");
+					$("#pog_AH").val("");
+					$(".rightShoulderState").val("");
+					$("#pog_AI").val("");
+					$(".stateContLS").hide();
+					$(".rightShoulderCustomLogoMess").hide();
 					app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 				}
 				

@@ -351,8 +351,9 @@ div.rightShoulderEmbroidCont div#div_BO{
 	margin-right:5px;
     padding-bottom: 1px;
     padding-left: 9px;
-    width: 230px;
+    width: 217px;
 	float:right;
+	margin-bottom: 5px;
 }
 .embroidLogoReset:hover{
 	color:white;
