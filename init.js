@@ -175,7 +175,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "  </div>"
 			+ "	 <div class='CustomPriceTotalCont'>"
 			+ "   	<div class='customizerCatCont'><label>Price</label></div>"
-			+ "     <h5 class='floatLeft'>Options:</h5><h5 class='floatRight'>Prices:</h5>"
+			+ "     <h5 class='floatLeft'>Option</h5><h5 class='floatRight'>Price</h5>"
 			+ "     "
 			+ "   	<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: New Total Price: ;'></h4>"
 			+ "	 </div>"
