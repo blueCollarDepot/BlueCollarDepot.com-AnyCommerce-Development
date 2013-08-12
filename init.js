@@ -176,8 +176,9 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			+ "	 <div class='CustomPriceTotalCont'>"
 			+ "   	<div class='customizerCatCont'><label>Price</label></div>"
 			+ "     <h5 class='floatLeft'>Option</h5><h5 class='floatRight'>Price</h5>"
-			+ "     "
-			+ "   	<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: New Total Price: ;'></h4>"
+			+ "     <div class='selectedOptionPriceList'>"
+			+ "     </div>"
+			+ "		<h2 class='selectedOptionsTotalPrice'></h2>"
 			+ "	 </div>"
 			+ "</div>"
 			+ "</div>").appendTo('#JSONPogDisplay_OVERALLS-TEST1');

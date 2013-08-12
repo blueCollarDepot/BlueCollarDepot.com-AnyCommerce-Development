@@ -432,6 +432,15 @@ div.rightShoulderEmbroidCont div#div_BO{
 float:left;
 }
 .CustomPriceTotalCont h5{
+text-decoration:underline;
+}
+.selectedOptionPriceList{
+float:left;
+clear:both;
+}
+.selectedOptionsTotalPrice{
+float:right;
+clear:both;
 }
 
 
