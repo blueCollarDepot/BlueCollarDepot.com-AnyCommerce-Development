@@ -404,6 +404,106 @@ var pogs_blueCollar = function() {
 						
 						$(".customBut").html("Show Customizer");
 						$(".customBut").val("showCustomizer");
+						
+						$(".leftPocket").prop('checked', false);
+						$('.leftPocketCont').slideUp(1000);
+						$('.leftPocketCont').data('collapseOrExpanded',false).append();
+						$(".lpRadioEmbroid").prop('checked', false);
+						$(".lpRadioLogo").prop('checked', false);
+						$('.leftPocketEmbroidCont').slideUp(1000);
+						$('.leftPocketLogoCont').slideUp(1000);
+						$("#pog_BD").val("");
+						$("#pog_BE").find('option:first').attr('selected','selected');
+						$("#pog_A8").find('option:first').attr('selected','selected');
+						$("#pog_AA").val("");
+						$(".leftPocketState").val("");
+						$("#pog_AB").val("");
+						$(".stateContLP").hide();
+						$(".leftPocketCustomLogoMess").hide();
+
+						$(".rightPocket").prop('checked', false);
+						$('.rightPocketCont').slideUp(1000);
+						$('.rightPocketCont').data('collapseOrExpanded',false).append();
+						$(".rpRadioEmbroid").prop('checked', false);
+						$(".rpRadioLogo").prop('checked', false);
+						$('.rightPocketEmbroidCont').slideUp(1000);
+						$('.rightPocketLogoCont').slideUp(1000);
+						$("#pog_BG").val("");
+						$("#pog_BH").find('option:first').attr('selected','selected');
+						$("#pog_BI").find('option:first').attr('selected','selected');
+						$("#pog_AC").val("");
+						$(".rightPocketState").val("");
+						$("#pog_AE").val("");
+						$(".stateContRP").hide();
+						$(".rightPocketCustomLogoMess").hide();
+
+						$(".leftShoulder").prop('checked', false);
+						$('.leftShoulderCont').slideUp(1000);
+						$('.leftShoulderCont').data('collapseOrExpanded',false).append();
+						$(".lsRadioEmbroid").prop('checked', false);
+						$(".lsRadioLogo").prop('checked', false);
+						$('.leftShoulderEmbroidCont').slideUp(1000);
+						$('.leftShoulderLogoCont').slideUp(1000);
+						$("#pog_BJ").val("");
+						$("#pog_BK").find('option:first').attr('selected','selected');
+						$("#pog_BL").find('option:first').attr('selected','selected');
+						$("#pog_AF").val("");
+						$(".leftShoulderState").val("");
+						$("#pog_AG").val("");
+						$(".stateContLS").hide();
+						$(".leftShoulderCustomLogoMess").hide();
+
+						$(".rightShoulder").prop('checked', false);
+						$('.rightShoulderCont').slideUp(1000);
+						$('.rightShoulderCont').data('collapseOrExpanded',false).append();
+						$(".rsRadioEmbroid").prop('checked', false);
+						$(".rsRadioLogo").prop('checked', false);
+						$('.rightShoulderEmbroidCont').slideUp(1000);
+						$('.rightShoulderLogoCont').slideUp(1000);
+						$("#pog_BM").val("");
+						$("#pog_BN").find('option:first').attr('selected','selected');
+						$("#pog_BO").find('option:first').attr('selected','selected');
+						$("#pog_AH").val("");
+						$(".rightShoulderState").val("");
+						$("#pog_AI").val("");
+						$(".stateContLS").hide();
+						$(".rightShoulderCustomLogoMess").hide();
+						
+						$("#pog_A9").val("");
+						$("#pog_AV").prop('checked', false);
+						$("#pog_AL").prop('checked', false);
+						$("#pog_AJ").prop('checked', false);
+						$("#pog_AP").prop('checked', false);
+						$("#pog_AR").prop('checked', false);
+						$("#pog_AY").prop('checked', false);
+						$("#pog_B8").prop('checked', false);
+						$("#pog_AX").prop('checked', false);
+						$("#pog_B0").prop('checked', false);
+						$("#pog_B1").prop('checked', false);
+						$("#pog_AZ").prop('checked', false);
+						$("#pog_B6").prop('checked', false);
+						$("#pog_AK").prop('checked', false);
+						$("#pog_B5").prop('checked', false);
+						$("#pog_B7").prop('checked', false);
+						$("#pog_BC").prop('checked', false);
+						
+						$("#pog_AV").val("OFF");
+						$("#pog_AL").val("OFF");
+						$("#pog_AJ").val("OFF");
+						$("#pog_AP").val("OFF");
+						$("#pog_AR").val("OFF");
+						$("#pog_AY").val("OFF");
+						$("#pog_B8").val("OFF");
+						$("#pog_AX").val("OFF");
+						$("#pog_B0").val("OFF");
+						$("#pog_B1").val("OFF");
+						$("#pog_AZ").val("OFF");
+						$("#pog_B6").val("OFF");
+						$("#pog_AK").val("OFF");
+						$("#pog_B5").val("OFF");
+						$("#pog_B7").val("OFF");
+						$("#pog_BC").val("OFF");
+						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				}
 			},
