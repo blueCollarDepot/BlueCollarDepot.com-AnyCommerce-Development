@@ -187,7 +187,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			
 		$("#div_A9").appendTo(".stipeCustomizer");
 		$("#div_AV").appendTo(".stipeCustomizer");
-		$("#div_AN").appendTo(".stipeCustomizer");
+		$("#div_AU").appendTo(".stipeCustomizer");
 		$("#div_AL").appendTo(".stipeCustomizer");
 		$("#div_AJ").appendTo(".stipeCustomizer");
 		$("#div_AP").appendTo(".stipeCustomizer");
