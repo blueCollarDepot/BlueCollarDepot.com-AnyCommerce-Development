@@ -518,6 +518,9 @@ var pogs_blueCollar = function() {
 				$('.selectedOptionsTotalPrice').text('');
 				var totalPrice = 9.99;
 				
+				totalPrice += 15.00;
+				$('<div style="width:458px; clear:both;"><p class="floatLeft">One time setup fee</p><p class="floatRight">$15.00</p></div> <br/><br/>').appendTo(".selectedOptionPriceList");
+				
 				//****CUSTOMIZER IMAGE DRAWING FUNCTIONS****//
 				//**DRAW MAIN PRODUCT IMAGE**//
 				var colorSelectValue = $("#pog_A3").val();
@@ -1894,7 +1897,7 @@ var pogs_blueCollar = function() {
 				}
 				//**END SUSPENDERS WAIST STRIPE**//
 			//**END STRIPE CUSTOMIZER IMAGE DRAWING**// 
-				
+			$('<br/><br/>').appendTo(".selectedOptionPriceList");
 				
 			//**BEGIN EMBROIDERY/LOGO IMAGE DRAWING**//
 				//**BEGIN EMBROIDERY SECTION**//
@@ -2614,6 +2617,8 @@ var pogs_blueCollar = function() {
 				//**END RIGHT SHOULDER EMBROIDERY SECTION**//
 				//**END EMBROIDERY SECTION**//
 				
+				$('<br/><br/>').appendTo(".selectedOptionPriceList");
+				
 				//**BEGIN LOGO SECTION**//
 					//**BEGIN LEFT POCKET LOGO SECTION**//
 					if($("#pog_AA").val() !== ""){
@@ -2625,6 +2630,8 @@ var pogs_blueCollar = function() {
 								$("#pog_AB").val("");
 								$(".stateContLP").slideUp(500);
 								$(".leftPocketCustomLogoMess").slideUp(500);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket US flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
 							
 							case "01": //State Flag
@@ -2635,6 +2642,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "01": //Alaska
@@ -2643,6 +2653,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "02": //Arizona
@@ -2651,6 +2664,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "03": //Arkansas							
@@ -2659,6 +2675,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "04": //California
@@ -2667,6 +2686,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "05": //Colorado
@@ -2675,6 +2697,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "06": //Connecticut
@@ -2683,6 +2708,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "07": //Delaware
@@ -2691,6 +2719,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "08": //Florida
@@ -2699,6 +2730,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "09": //Georgia
@@ -2707,6 +2741,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "10": //Hawaii
@@ -2715,6 +2752,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "11": //Idaho
@@ -2723,6 +2763,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "12": //Illinois
@@ -2731,6 +2774,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "13": //Indiana
@@ -2739,6 +2785,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "14": //Iowa
@@ -2747,6 +2796,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "15": //Kansas
@@ -2755,6 +2807,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "16": //Kentucky
@@ -2763,6 +2818,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "17": //Louisiana
@@ -2771,6 +2829,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "18": //Maine
@@ -2779,6 +2840,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "19": //Maryland
@@ -2787,6 +2851,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "20": //Massachusetts
@@ -2795,6 +2862,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "21": //Michigan
@@ -2803,6 +2873,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "22": //Minnesota
@@ -2811,6 +2884,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "23": //Mississippi
@@ -2819,6 +2895,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "24": //Missouri
@@ -2827,6 +2906,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "25": //Montana
@@ -2835,6 +2917,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "26": //Nebraska
@@ -2843,6 +2928,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "27": //Nevada
@@ -2851,6 +2939,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "28": //New Hampshire
@@ -2859,6 +2950,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "29": //New Jersey
@@ -2867,6 +2961,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "30": //New Mexico
@@ -2875,6 +2972,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "31": //New York
@@ -2883,6 +2983,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "32": //North Carolina
@@ -2891,6 +2994,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "33": //North Dakota
@@ -2899,6 +3005,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "34": //Ohio
@@ -2907,6 +3016,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "35": //Oklahoma
@@ -2915,6 +3027,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "36": //Oregon
@@ -2923,6 +3038,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "37": //Pennsylvania
@@ -2931,6 +3049,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "38": //Rhode Island
@@ -2939,6 +3060,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "39": //South Carolina
@@ -2947,6 +3071,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "40": //South Dakota
@@ -2955,6 +3082,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "41": //Tennessee
@@ -2963,6 +3093,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "42": //Texas
@@ -2971,6 +3104,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "43": //Utah
@@ -2979,6 +3115,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "44": //Vermont
@@ -2987,6 +3126,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "45": //Virginia
@@ -2995,6 +3137,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "46": //Washington
@@ -3003,6 +3148,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "47": //West Virginia
@@ -3011,6 +3159,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "48": //Wisconsin
@@ -3019,6 +3170,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "49": //Wyoming
@@ -3027,6 +3181,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",129,56);
 								ctx.fillText("Flag",130,62);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 								break;
 									
 								default: 
@@ -3048,6 +3205,8 @@ var pogs_blueCollar = function() {
 								$("#pog_AB").val("");
 								$(".stateContLP").slideUp(500);
 								$(".leftPocketCustomLogoMess").slideDown(500);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket custom logo</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
 						}
 					}
@@ -3063,6 +3222,8 @@ var pogs_blueCollar = function() {
 								$("#pog_AE").val("");
 								$(".stateContRP").slideUp(500);
 								$(".rightPocketCustomLogoMess").slideUp(500);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket US flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
 							
 							case "01": //State Flag
@@ -3073,6 +3234,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "01": //Alaska
@@ -3081,6 +3244,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "02": //Arizona
@@ -3089,6 +3254,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "03": //Arkansas							
@@ -3097,6 +3264,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "04": //California
@@ -3105,6 +3274,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "05": //Colorado
@@ -3113,6 +3284,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "06": //Connecticut
@@ -3121,6 +3294,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "07": //Delaware
@@ -3129,6 +3304,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "08": //Florida
@@ -3137,6 +3314,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "09": //Georgia
@@ -3145,6 +3324,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "10": //Hawaii
@@ -3153,6 +3334,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "11": //Idaho
@@ -3161,6 +3344,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "12": //Illinois
@@ -3169,6 +3354,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "13": //Indiana
@@ -3177,6 +3364,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "14": //Iowa
@@ -3185,6 +3374,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "15": //Kansas
@@ -3193,6 +3384,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "16": //Kentucky
@@ -3201,6 +3394,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "17": //Louisiana
@@ -3209,6 +3404,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "18": //Maine
@@ -3217,6 +3414,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "19": //Maryland
@@ -3225,6 +3424,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "20": //Massachusetts
@@ -3233,6 +3434,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "21": //Michigan
@@ -3241,6 +3444,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "22": //Minnesota
@@ -3249,6 +3454,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "23": //Mississippi
@@ -3257,6 +3464,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "24": //Missouri
@@ -3265,6 +3474,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "25": //Montana
@@ -3273,6 +3484,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "26": //Nebraska
@@ -3281,6 +3494,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "27": //Nevada
@@ -3289,6 +3504,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "28": //New Hampshire
@@ -3297,6 +3514,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "29": //New Jersey
@@ -3305,6 +3524,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "30": //New Mexico
@@ -3313,6 +3534,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "31": //New York
@@ -3321,6 +3544,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "32": //North Carolina
@@ -3329,6 +3554,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "33": //North Dakota
@@ -3337,6 +3564,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "34": //Ohio
@@ -3345,6 +3574,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "35": //Oklahoma
@@ -3353,6 +3584,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "36": //Oregon
@@ -3361,6 +3594,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "37": //Pennsylvania
@@ -3369,6 +3604,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "38": //Rhode Island
@@ -3377,6 +3614,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "39": //South Carolina
@@ -3385,6 +3624,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "40": //South Dakota
@@ -3393,6 +3634,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "41": //Tennessee
@@ -3401,6 +3644,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "42": //Texas
@@ -3409,6 +3654,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "43": //Utah
@@ -3417,6 +3664,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "44": //Vermont
@@ -3425,6 +3674,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "45": //Virginia
@@ -3433,6 +3684,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "46": //Washington
@@ -3441,6 +3694,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "47": //West Virginia
@@ -3449,6 +3704,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "48": //Wisconsin
@@ -3457,6 +3714,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "49": //Wyoming
@@ -3465,6 +3724,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",56,56);
 								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 								break;
 									
 								default: 
@@ -3486,6 +3747,8 @@ var pogs_blueCollar = function() {
 								$("#pog_AE").val("");
 								$(".stateContRP").slideUp(500);
 								$(".rightPocketCustomLogoMess").slideDown(500);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket custom logo</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
 						}
 					}
@@ -3507,6 +3770,8 @@ var pogs_blueCollar = function() {
 								$("#pog_AG").val("");
 								$(".stateContLS").slideUp(500);
 								$(".leftShoulderCustomLogoMess").slideUp(500);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder US flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
 							
 							case "01": //State Flag
@@ -3524,6 +3789,9 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
 								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "01": //Alaska
@@ -3538,7 +3806,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "02": //Arizona
@@ -3553,7 +3823,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "03": //Arkansas							
@@ -3568,7 +3840,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "04": //California
@@ -3583,7 +3857,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "05": //Colorado
@@ -3598,7 +3874,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "06": //Connecticut
@@ -3613,7 +3891,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "07": //Delaware
@@ -3628,7 +3908,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "08": //Florida
@@ -3643,7 +3925,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "09": //Georgia
@@ -3658,7 +3942,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "10": //Hawaii
@@ -3673,7 +3959,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "11": //Idaho
@@ -3688,7 +3976,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "12": //Illinois
@@ -3703,7 +3993,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "13": //Indiana
@@ -3718,7 +4010,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "14": //Iowa
@@ -3733,7 +4027,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "15": //Kansas
@@ -3748,7 +4044,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "16": //Kentucky
@@ -3763,7 +4061,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "17": //Louisiana
@@ -3778,7 +4078,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "18": //Maine
@@ -3793,7 +4095,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "19": //Maryland
@@ -3808,7 +4112,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "20": //Massachusetts
@@ -3823,7 +4129,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "21": //Michigan
@@ -3838,7 +4146,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "22": //Minnesota
@@ -3853,7 +4163,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "23": //Mississippi
@@ -3868,7 +4180,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "24": //Missouri
@@ -3883,7 +4197,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "25": //Montana
@@ -3898,7 +4214,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "26": //Nebraska
@@ -3913,7 +4231,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "27": //Nevada
@@ -3928,7 +4248,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "28": //New Hampshire
@@ -3943,7 +4265,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "29": //New Jersey
@@ -3958,7 +4282,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "30": //New Mexico
@@ -3973,7 +4299,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "31": //New York
@@ -3988,7 +4316,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "32": //North Carolina
@@ -4003,7 +4333,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "33": //North Dakota
@@ -4018,7 +4350,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "34": //Ohio
@@ -4033,7 +4367,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "35": //Oklahoma
@@ -4048,7 +4384,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "36": //Oregon
@@ -4063,7 +4401,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "37": //Pennsylvania
@@ -4078,7 +4418,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "38": //Rhode Island
@@ -4093,7 +4435,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "39": //South Carolina
@@ -4108,7 +4452,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "40": //South Dakota
@@ -4123,7 +4469,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "41": //Tennessee
@@ -4138,7 +4486,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "42": //Texas
@@ -4153,7 +4503,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "43": //Utah
@@ -4168,7 +4520,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "44": //Vermont
@@ -4183,7 +4537,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "45": //Virginia
@@ -4198,7 +4554,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "46": //Washington
@@ -4213,7 +4571,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "47": //West Virginia
@@ -4228,7 +4588,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "48": //Wisconsin
@@ -4243,7 +4605,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "49": //Wyoming
@@ -4258,7 +4622,9 @@ var pogs_blueCollar = function() {
 								ctx.strokeRect(240,18,30,15);
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",246,25);
-								ctx.fillText("Flag",248,31);
+								ctx.fillText("Flag",57,63);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 								break;
 									
 								default: 
@@ -4287,6 +4653,8 @@ var pogs_blueCollar = function() {
 								$("#pog_AG").val("");
 								$(".stateContLS").slideUp(500);
 								$(".leftShoulderCustomLogoMess").slideDown(500);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder custom logo</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
 						}
 					}
@@ -4306,6 +4674,8 @@ var pogs_blueCollar = function() {
 								$("#pog_AI").val("");
 								$(".stateContRS").slideUp(500);
 								$(".rightShoulderCustomLogoMess").slideUp(500);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder US flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
 							
 							case "01": //State Flag
@@ -4320,6 +4690,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "01": //Alaska
@@ -4332,6 +4704,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "02": //Arizona
@@ -4344,6 +4718,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "03": //Arkansas							
@@ -4356,6 +4732,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "04": //California
@@ -4368,6 +4746,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "05": //Colorado
@@ -4380,6 +4760,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "06": //Connecticut
@@ -4392,6 +4774,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "07": //Delaware
@@ -4404,6 +4788,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "08": //Florida
@@ -4416,6 +4802,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "09": //Georgia
@@ -4428,6 +4816,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "10": //Hawaii
@@ -4440,6 +4830,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "11": //Idaho
@@ -4452,6 +4844,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "12": //Illinois
@@ -4464,6 +4858,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "13": //Indiana
@@ -4476,6 +4872,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "14": //Iowa
@@ -4488,6 +4886,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "15": //Kansas
@@ -4500,6 +4900,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "16": //Kentucky
@@ -4512,6 +4914,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "17": //Louisiana
@@ -4524,6 +4928,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "18": //Maine
@@ -4536,6 +4942,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "19": //Maryland
@@ -4548,6 +4956,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "20": //Massachusetts
@@ -4560,6 +4970,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "21": //Michigan
@@ -4572,6 +4984,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "22": //Minnesota
@@ -4584,6 +4998,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "23": //Mississippi
@@ -4596,6 +5012,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "24": //Missouri
@@ -4608,6 +5026,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "25": //Montana
@@ -4620,6 +5040,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "26": //Nebraska
@@ -4632,6 +5054,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "27": //Nevada
@@ -4644,6 +5068,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "28": //New Hampshire
@@ -4656,6 +5082,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "29": //New Jersey
@@ -4668,6 +5096,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "30": //New Mexico
@@ -4680,6 +5110,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "31": //New York
@@ -4692,6 +5124,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "32": //North Carolina
@@ -4704,6 +5138,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "33": //North Dakota
@@ -4716,6 +5152,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "34": //Ohio
@@ -4728,6 +5166,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "35": //Oklahoma
@@ -4740,6 +5180,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "36": //Oregon
@@ -4752,6 +5194,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "37": //Pennsylvania
@@ -4764,6 +5208,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "38": //Rhode Island
@@ -4776,6 +5222,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "39": //South Carolina
@@ -4788,6 +5236,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "40": //South Dakota
@@ -4800,6 +5250,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "41": //Tennessee
@@ -4812,6 +5264,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "42": //Texas
@@ -4824,6 +5278,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "43": //Utah
@@ -4836,6 +5292,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "44": //Vermont
@@ -4848,6 +5306,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "45": //Virginia
@@ -4860,6 +5320,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "46": //Washington
@@ -4872,6 +5334,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "47": //West Virginia
@@ -4884,6 +5348,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "48": //Wisconsin
@@ -4896,6 +5362,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
                                 break;
 									
 									case "49": //Wyoming
@@ -4908,6 +5376,8 @@ var pogs_blueCollar = function() {
 								ctx.font = '5pt Arial';
 								ctx.fillText("State",20,18);
 								ctx.fillText("Flag",22,24);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder state flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 								break;
 									
 								default: 
@@ -4933,6 +5403,8 @@ var pogs_blueCollar = function() {
 								$("#pog_AG").val("");
 								$(".stateContRS").slideUp(500);
 								$(".rightShoulderCustomLogoMess").slideDown(500);
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder custom logo</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
 						}
 					}
