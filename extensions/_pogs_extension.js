@@ -929,8 +929,8 @@ var pogs_blueCollar = function() {
 								var stripeImg=document.getElementById("yellow2ThighsBack");
 								ctx.drawImage(stripeImg,311,310);
 								
-								totalPrice += 10.35;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch thigh stripes</p><p class="floatRight">$10.35</p></div>').appendTo(".selectedOptionPriceList");
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 2-inch thigh stripes</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
 							}
 							break; 
 						
@@ -941,8 +941,8 @@ var pogs_blueCollar = function() {
 								var stripeImg=document.getElementById("yellSilvYell2ThighsBack");
 								ctx.drawImage(stripeImg,311,310);
 								
-								totalPrice += 12.55;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch thigh stripes</p><p class="floatRight">$12.55</p></div>').appendTo(".selectedOptionPriceList");
+								totalPrice += 15.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow-Silver-Yellow 2-inch thigh stripes</p><p class="floatRight">$15.00</p></div>').appendTo(".selectedOptionPriceList");
 							}
 							break; 
 						
@@ -953,8 +953,8 @@ var pogs_blueCollar = function() {
 								var stripeImg=document.getElementById("silv2ThighsBack");
 								ctx.drawImage(stripeImg,311,310);
 								
-								totalPrice += 9.70;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch thigh stripes</p><p class="floatRight">$9.70</p></div>').appendTo(".selectedOptionPriceList");
+								totalPrice += 13.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 2-inch thigh stripes</p><p class="floatRight">$13.00</p></div>').appendTo(".selectedOptionPriceList");
 							}
 							break; 
 					
@@ -965,8 +965,8 @@ var pogs_blueCollar = function() {
 								var stripeImg=document.getElementById("yellow1ThighsBack");
 								ctx.drawImage(stripeImg,311,310);
 								
-								totalPrice += 8.25;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch thigh stripes</p><p class="floatRight">$8.25</p></div>').appendTo(".selectedOptionPriceList");
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 1-inch thigh stripes</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
 							}
 							break;
 						
@@ -977,8 +977,8 @@ var pogs_blueCollar = function() {
 								var stripeImg=document.getElementById("orange1ThighsBack");
 								ctx.drawImage(stripeImg,311,310);
 								
-								totalPrice += 7.65;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch thigh stripes</p><p class="floatRight">$7.65</p></div>').appendTo(".selectedOptionPriceList");
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Orange 1-inch thigh stripes</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
 							}
 							break;
 						
@@ -989,8 +989,8 @@ var pogs_blueCollar = function() {
 								var stripeImg=document.getElementById("silv1ThighsBack");
 								ctx.drawImage(stripeImg,311,310);
 								
-								totalPrice += 8.00;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch thigh stripes</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
+								totalPrice += 13.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch thigh stripes</p><p class="floatRight">$13.00</p></div>').appendTo(".selectedOptionPriceList");
 							}
 							break;
 					}
