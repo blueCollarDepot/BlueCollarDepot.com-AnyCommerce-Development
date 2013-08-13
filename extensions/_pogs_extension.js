@@ -1534,7 +1534,7 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,317,125);
 								
 								totalPrice += 8.00;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow-Silver-Yellow 2-inch calf stripes stripe</p>$8.00<p class="floatRight">$</p></div>').appendTo(".selectedOptionPriceList");
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow-Silver-Yellow 2-inch calf stripes stripe</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 
 							}
 							break; 
@@ -1545,7 +1545,7 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,317,125);
 								
 								totalPrice += 6.00;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 2-inch calf stripes stripe</p>$6.00<p class="floatRight">$</p></div>').appendTo(".selectedOptionPriceList");
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 2-inch calf stripes stripe</p><p class="floatRight">$6.00</p></div>').appendTo(".selectedOptionPriceList");
 
 							}
 							break; 
@@ -1556,7 +1556,7 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,317,125);
 								
 								totalPrice += 7.00;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 1-inch calf stripes stripe</p>$7.00<p class="floatRight">$</p></div>').appendTo(".selectedOptionPriceList");
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 1-inch calf stripes stripe</p><p class="floatRight">$7.00</p></div>').appendTo(".selectedOptionPriceList");
 
 							}
 							break;
@@ -1567,7 +1567,7 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,317,125);
 								
 								totalPrice += 7.00;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Orange 1-inch calf stripes stripe</p>$7.00<p class="floatRight">$</p></div>').appendTo(".selectedOptionPriceList");
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Orange 1-inch calf stripes stripe</p><p class="floatRight">$7.00</p></div>').appendTo(".selectedOptionPriceList");
 
 							}
 							break;
@@ -1578,7 +1578,7 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,317,125);
 								
 								totalPrice += 6.00;
-								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch calf stripes stripe</p>$6.00<p class="floatRight">$</p></div>').appendTo(".selectedOptionPriceList");
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch calf stripes stripe</p><p class="floatRight">$6.00</p></div>').appendTo(".selectedOptionPriceList");
 
 							}
 							break;
@@ -1595,6 +1595,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2Biceps");
 								ctx.drawImage(stripeImg,32,85);
+								
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 2-inch bicep stripes stripe</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 						
@@ -1602,6 +1606,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2Biceps");
 								ctx.drawImage(stripeImg,32,85);
+								
+								totalPrice += 15.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow-Silver-Yellow 2-inch bicep stripes stripe</p>$15.00<p class="floatRight">$</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 						
@@ -1609,6 +1617,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("silv2Biceps");
 								ctx.drawImage(stripeImg,32,85);
+								
+								totalPrice += 13.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 2-inch bicep stripes stripe</p><p class="floatRight">$13.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 					
@@ -1616,6 +1628,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1Biceps");
 								ctx.drawImage(stripeImg,30,85);
+								
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 1-inch bicep stripes stripe</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 						
@@ -1623,6 +1639,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("orange1Biceps");
 								ctx.drawImage(stripeImg,30,85);
+								
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Orange 1-inch bicep stripes stripe</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 						
@@ -1630,6 +1650,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_AK').val() === "ON"){
 								var stripeImg=document.getElementById("silv1Biceps");
 								ctx.drawImage(stripeImg,30,85);
+								
+								totalPrice += 13.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch bicep stripes stripe</p><p class="floatRight">$13.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 					}
@@ -1645,6 +1669,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B5').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2ShoulderToCuff");
 								ctx.drawImage(stripeImg,11,38);
+								
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 2-inch shoulder to cuff stripes stripe</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 						
@@ -1652,6 +1680,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B5').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2ShoulderToCuff");
 								ctx.drawImage(stripeImg,11,38);
+								
+								totalPrice += 15.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow-Silver-Yellow 2-inch shoulder to cuff stripes stripe</p>$15.00<p class="floatRight">$</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 						
@@ -1659,6 +1691,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B5').val() === "ON"){
 								var stripeImg=document.getElementById("silv2ShoulderToCuff");
 								ctx.drawImage(stripeImg,11,38);
+								
+								totalPrice += 13.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 2-inch shoulder to cuff stripes stripe</p><p class="floatRight">$13.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 					
@@ -1666,6 +1702,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B5').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1ShoulderToCuff");
 								ctx.drawImage(stripeImg,19,38);
+								
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 1-inch shoulder to cuff stripes stripe</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 						
@@ -1673,6 +1713,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B5').val() === "ON"){
 								var stripeImg=document.getElementById("orange1ShoulderToCuff");
 								ctx.drawImage(stripeImg,11,38);
+								
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Orange 1-inch shoulder to cuff stripes stripe</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 						
@@ -1680,6 +1724,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B5').val() === "ON"){
 								var stripeImg=document.getElementById("silv1ShoulderToCuff");
 								ctx.drawImage(stripeImg,15,38);
+								
+								totalPrice += 13.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch shoulder to cuff stripes stripe</p><p class="floatRight">$13.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 					}
@@ -1695,6 +1743,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B7').val() === "ON"){
 								var stripeImg=document.getElementById("yellow2ShoulderToShoulder");
 								ctx.drawImage(stripeImg,285,38);
+								
+								totalPrice += 7.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 2-inch shoulder to shoulder stripes stripe</p><p class="floatRight">$7.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 						
@@ -1702,6 +1754,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B7').val() === "ON"){
 								var stripeImg=document.getElementById("yellSilvYell2ShoulderToShoulder");
 								ctx.drawImage(stripeImg,285,38);
+								
+								totalPrice += 8.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow-Silver-Yellow 2-inch shoulder to shoulder stripes stripe</p>$8.00<p class="floatRight">$</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 						
@@ -1709,6 +1765,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B7').val() === "ON"){
 								var stripeImg=document.getElementById("silv2ShoulderToShoulder");
 								ctx.drawImage(stripeImg,287,38);
+								
+								totalPrice += 6.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 2-inch shoulder to shoulder stripes stripe</p><p class="floatRight">$6.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 					
@@ -1716,6 +1776,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B7').val() === "ON"){
 								var stripeImg=document.getElementById("yellow1ShoulderToShoulder");
 								ctx.drawImage(stripeImg,284,33);
+								
+								totalPrice += 7.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 1-inch shoulder to shoulder stripes stripe</p><p class="floatRight">$7.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 						
@@ -1723,6 +1787,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B7').val() === "ON"){
 								var stripeImg=document.getElementById("orange1ShoulderToShoulder");
 								ctx.drawImage(stripeImg,284,34);
+								
+								totalPrice += 7.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Orange 1-inch shoulder to shoulder stripes stripe</p><p class="floatRight">$7.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 						
@@ -1730,6 +1798,10 @@ var pogs_blueCollar = function() {
 							if($('#pog_B7').val() === "ON"){
 								var stripeImg=document.getElementById("silv1ShoulderToShoulder");
 								ctx.drawImage(stripeImg,284,34);
+								
+								totalPrice += 6.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch shoulder to shoulder stripes stripe</p><p class="floatRight">$6.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 					}
@@ -1747,6 +1819,10 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,53,15);
 								var stripeImg=document.getElementById("yellow2SuspendersBack");
 								ctx.drawImage(stripeImg,304,20);
+								
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 2-inch suspender waist stripes stripe</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 						
@@ -1756,6 +1832,10 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,53,15);
 								var stripeImg=document.getElementById("yellSilvYell2SuspendersBack");
 								ctx.drawImage(stripeImg,305,17);
+								
+								totalPrice += 15.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow-Silver-Yellow 2-inch suspender waist stripes stripe</p>$15.00<p class="floatRight">$</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 						
@@ -1765,6 +1845,10 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,53,12);
 								var stripeImg=document.getElementById("silv2SuspendersBack");
 								ctx.drawImage(stripeImg,304,15);
+								
+								totalPrice += 13.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 2-inch suspender waist stripes stripe</p><p class="floatRight">$13.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break; 
 					
@@ -1774,6 +1858,10 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,50,17);
 								var stripeImg=document.getElementById("yellow1SuspendersBack");
 								ctx.drawImage(stripeImg,303,15);
+								
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Yellow 1-inch suspender waist stripes stripe</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 						
@@ -1783,6 +1871,10 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,52,5);
 								var stripeImg=document.getElementById("orange1SuspendersBack");
 								ctx.drawImage(stripeImg,308,20);
+								
+								totalPrice += 14.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Orange 1-inch suspender waist stripes stripe</p><p class="floatRight">$14.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 						
@@ -1792,6 +1884,10 @@ var pogs_blueCollar = function() {
 								ctx.drawImage(stripeImg,52,15);
 								var stripeImg=document.getElementById("silv1SuspendersBack");
 								ctx.drawImage(stripeImg,303,13);
+								
+								totalPrice += 13.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Silver 1-inch suspender waist stripes stripe</p><p class="floatRight">$13.00</p></div>').appendTo(".selectedOptionPriceList");
+
 							}
 							break;
 					}
@@ -1892,36 +1988,58 @@ var pogs_blueCollar = function() {
 					{
 						case "00": //8MM BLOCK 22CHARS
 							ctx.font = '3pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 8mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "01": //10MM BLOCK 18CHARS
 							ctx.font = '3pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 10mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "02": //12MM BLOCK 16CHARS
 							ctx.font = '4pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 12mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "03": //15MM BLOCK 14CHARS
 							ctx.font = '4.5pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 15mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "04": //18MM BLOCK 11CHARS
 							ctx.font = '5.5pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 18mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "05": //25MM BLOCK 8CHARS
 							ctx.font = '6.5pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 25mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "06": //8MM SCRIPT 30CHARS
 							ctx.font = '2pt "Yesteryear"';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 8mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "07": //12MM SCRIPT 19CHARS
 							ctx.font = '4pt "Yesteryear"';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 12mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "08": //15MM SCRIPT 17CHARS
 							ctx.font = '4.5pt "Yesteryear"';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 15mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "09": //18MM SCRIPT 12CHARS
 							ctx.font = '7pt "Yesteryear"';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 18mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "0A": //25MM SCRIPT 8CHARS
 							ctx.font = '9pt "Yesteryear"';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket 25mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 					}
 					ctx.fillText(($("#pog_BG").val()),49,61);
@@ -2018,36 +2136,58 @@ var pogs_blueCollar = function() {
 					{
 						case "00": //8MM BLOCK 22CHARS
 							ctx.font = '3pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 8mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "01": //10MM BLOCK 18CHARS
 							ctx.font = '3pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 10mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "02": //12MM BLOCK 16CHARS
 							ctx.font = '4pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 12mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "03": //15MM BLOCK 14CHARS
 							ctx.font = '4.5pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 15mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "04": //18MM BLOCK 11CHARS
 							ctx.font = '5.5pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 18mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "05": //25MM BLOCK 8CHARS
 							ctx.font = '6.5pt Arial';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 25mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "06": //8MM SCRIPT 30CHARS
 							ctx.font = '2pt "Yesteryear"';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 8mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "07": //12MM SCRIPT 19CHARS
 							ctx.font = '4pt "Yesteryear"';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 12mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "08": //15MM SCRIPT 17CHARS
 							ctx.font = '4.5pt "Yesteryear"';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 15mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "09": //18MM SCRIPT 12CHARS
 							ctx.font = '7pt "Yesteryear"';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 18mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "0A": //25MM SCRIPT 8CHARS
 							ctx.font = '9pt "Yesteryear"';
+							totalPrice += 3.00;
+								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket 25mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 					}
 					ctx.fillText(($("#pog_BD").val()),120,61);
@@ -2191,46 +2331,68 @@ var pogs_blueCollar = function() {
 						case "00": //8MM BLOCK 22CHARS
 							ctx.font = '6pt Arial';
 							ctx.fillText(($("#pog_BJ").val()),236,22);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 8mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "01": //10MM BLOCK 18CHARS
 							ctx.font = '7pt Arial';
 							ctx.fillText(($("#pog_BJ").val()),236,21);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 10mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "02": //12MM BLOCK 16CHARS
 							ctx.font = '8pt Arial';
 							ctx.fillText(($("#pog_BJ").val()),233,22);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 12mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "03": //15MM BLOCK 14CHARS
 							ctx.font = '9pt Arial';
 							ctx.fillText(($("#pog_BJ").val()),233,22);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 15mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "04": //18MM BLOCK 11CHARS
 							ctx.font = '12pt Arial';
 							ctx.fillText(($("#pog_BJ").val()),233,23);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 18mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "05": //25MM BLOCK 8CHARS
 							ctx.font = '16pt Arial';
 							ctx.fillText(($("#pog_BJ").val()),236,24);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 25mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "06": //8MM SCRIPT 30CHARS
 							ctx.font = '6pt "Yesteryear"';
 							ctx.fillText(($("#pog_BJ").val()),235,20);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 8mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "07": //12MM SCRIPT 19CHARS
 							ctx.font = '10pt "Yesteryear"';
 							ctx.fillText(($("#pog_BJ").val()),233,20);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 12mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "08": //15MM SCRIPT 17CHARS
 							ctx.font = '11pt "Yesteryear"';
 							ctx.fillText(($("#pog_BJ").val()),233,20);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 15mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "09": //18MM SCRIPT 12CHARS
 							ctx.font = '14pt "Yesteryear"';
 							ctx.fillText(($("#pog_BJ").val()),236,21);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 18mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 						case "0A": //25MM SCRIPT 8CHARS
 							ctx.font = '18pt "Yesteryear"';
 							ctx.fillText(($("#pog_BJ").val()),243,24);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder 25mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
 						break;
 					}
 					
@@ -2373,46 +2535,79 @@ var pogs_blueCollar = function() {
 						case "00": //8MM BLOCK 22CHARS
 							ctx.font = '6pt Arial';
 							ctx.fillText(($("#pog_BM").val()),6,16);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 8mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 						case "01": //10MM BLOCK 18CHARS
 							ctx.font = '7pt Arial';
 							ctx.fillText(($("#pog_BM").val()),6,16);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 10mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 						case "02": //12MM BLOCK 16CHARS
 							ctx.font = '8pt Arial';
 							ctx.fillText(($("#pog_BM").val()),2,16);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 12mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 						case "03": //15MM BLOCK 14CHARS
 							ctx.font = '9pt Arial';
 							ctx.fillText(($("#pog_BM").val()),3,17);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 15mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 						case "04": //18MM BLOCK 11CHARS
 							ctx.font = '12pt Arial';
 							ctx.fillText(($("#pog_BM").val()),3,17);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 18mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 						case "05": //25MM BLOCK 8CHARS
 							ctx.font = '16pt Arial';
 							ctx.fillText(($("#pog_BM").val()),6,19);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 25mm block</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 						case "06": //8MM SCRIPT 30CHARS
 							ctx.font = '6pt "Yesteryear"';
 							ctx.fillText(($("#pog_BM").val()),5,14);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 8mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 						case "07": //12MM SCRIPT 19CHARS
 							ctx.font = '10pt "Yesteryear"';
 							ctx.fillText(($("#pog_BM").val()),4,16);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 12mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 						case "08": //15MM SCRIPT 17CHARS
 							ctx.font = '11pt "Yesteryear"';
 							ctx.fillText(($("#pog_BM").val()),3,15);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 15mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 						case "09": //18MM SCRIPT 12CHARS
 							ctx.font = '14pt "Yesteryear"';
 							ctx.fillText(($("#pog_BM").val()),6,15);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 18mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 						case "0A": //25MM SCRIPT 8CHARS
 							ctx.font = '18pt "Yesteryear"';
 							ctx.fillText(($("#pog_BM").val()),13,18);
+							totalPrice += 5.00;
+							$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder 25mm script</p><p class="floatRight">$5.00</p></div>').appendTo(".selectedOptionPriceList");
+
 						break;
 					}
 				}
