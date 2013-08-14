@@ -419,7 +419,7 @@ var pogs_blueCollar = function() {
 						$(".leftPocketState").val("");
 						$("#pog_AB").val("");
 						$(".stateContLP").hide();
-						$(".leftPocketCustomLogoMess").hide();
+						//$(".leftPocketCustomLogoMess").hide();
 
 						$(".rightPocket").prop('checked', false);
 						$('.rightPocketCont').slideUp(1000);
@@ -435,7 +435,7 @@ var pogs_blueCollar = function() {
 						$(".rightPocketState").val("");
 						$("#pog_AE").val("");
 						$(".stateContRP").hide();
-						$(".rightPocketCustomLogoMess").hide();
+						//$(".rightPocketCustomLogoMess").hide();
 
 						$(".leftShoulder").prop('checked', false);
 						$('.leftShoulderCont').slideUp(1000);
@@ -451,7 +451,7 @@ var pogs_blueCollar = function() {
 						$(".leftShoulderState").val("");
 						$("#pog_AG").val("");
 						$(".stateContLS").hide();
-						$(".leftShoulderCustomLogoMess").hide();
+						//$(".leftShoulderCustomLogoMess").hide();
 
 						$(".rightShoulder").prop('checked', false);
 						$('.rightShoulderCont').slideUp(1000);
@@ -467,7 +467,7 @@ var pogs_blueCollar = function() {
 						$(".rightShoulderState").val("");
 						$("#pog_AI").val("");
 						$(".stateContLS").hide();
-						$(".rightShoulderCustomLogoMess").hide();
+						//$(".rightShoulderCustomLogoMess").hide();
 						
 						$("#pog_A9").val("");
 						$("#pog_AV").prop('checked', false);
@@ -2629,7 +2629,7 @@ var pogs_blueCollar = function() {
 								$(".leftPocketState").val("");
 								$("#pog_AB").val("");
 								$(".stateContLP").slideUp(500);
-								$(".leftPocketCustomLogoMess").slideUp(500);
+								//$(".leftPocketCustomLogoMess").slideUp(500);
 								totalPrice += 8.00;
 								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket US flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
@@ -3191,7 +3191,7 @@ var pogs_blueCollar = function() {
 								break; 
 								}
 								$(".stateContLP").slideDown(500);
-								$(".leftPocketCustomLogoMess").slideUp(500);
+								//$(".leftPocketCustomLogoMess").slideUp(500);
 							break;
 							
 							case "02": //Custom Logo
@@ -3204,7 +3204,7 @@ var pogs_blueCollar = function() {
 								$(".leftPocketState").val("");
 								$("#pog_AB").val("");
 								$(".stateContLP").slideUp(500);
-								$(".leftPocketCustomLogoMess").slideDown(500);
+								//$(".leftPocketCustomLogoMess").slideDown(500);
 								totalPrice += 8.00;
 								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left pocket custom logo</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
@@ -3221,7 +3221,7 @@ var pogs_blueCollar = function() {
 								$(".rightPocketState").val("");
 								$("#pog_AE").val("");
 								$(".stateContRP").slideUp(500);
-								$(".rightPocketCustomLogoMess").slideUp(500);
+								//$(".rightPocketCustomLogoMess").slideUp(500);
 								totalPrice += 8.00;
 								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket US flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
@@ -3733,7 +3733,7 @@ var pogs_blueCollar = function() {
 								break; 
 								}
 								$(".stateContRP").slideDown(500);
-								$(".rightPocketCustomLogoMess").slideUp(500);
+								//$(".rightPocketCustomLogoMess").slideUp(500);
 							break;
 							
 							case "02": //Custom Logo
@@ -3746,7 +3746,7 @@ var pogs_blueCollar = function() {
 								$(".rightPocketState").val("");
 								$("#pog_AE").val("");
 								$(".stateContRP").slideUp(500);
-								$(".rightPocketCustomLogoMess").slideDown(500);
+								//$(".rightPocketCustomLogoMess").slideDown(500);
 								totalPrice += 8.00;
 								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right pocket custom logo</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
@@ -3769,7 +3769,7 @@ var pogs_blueCollar = function() {
 								$(".leftShoulderState").val("");
 								$("#pog_AG").val("");
 								$(".stateContLS").slideUp(500);
-								$(".leftShoulderCustomLogoMess").slideUp(500);
+								//$(".leftShoulderCustomLogoMess").slideUp(500);
 								totalPrice += 8.00;
 								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder US flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
@@ -4632,7 +4632,7 @@ var pogs_blueCollar = function() {
 								break; 
 								}
 								$(".stateContLS").slideDown(500);
-								$(".leftShoulderCustomLogoMess").slideUp(500);
+								//$(".leftShoulderCustomLogoMess").slideUp(500);
 							break;
 							
 							case "02": //Custom Logo
@@ -4652,7 +4652,7 @@ var pogs_blueCollar = function() {
 								$(".leftShoulderState").val("");
 								$("#pog_AG").val("");
 								$(".stateContLS").slideUp(500);
-								$(".leftShoulderCustomLogoMess").slideDown(500);
+								//$(".leftShoulderCustomLogoMess").slideDown(500);
 								totalPrice += 8.00;
 								$('<div style="width:458px; clear:both;"><p class="floatLeft">Left shoulder custom logo</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
@@ -4673,7 +4673,7 @@ var pogs_blueCollar = function() {
 								$(".rightShoulderState").val("");
 								$("#pog_AI").val("");
 								$(".stateContRS").slideUp(500);
-								$(".rightShoulderCustomLogoMess").slideUp(500);
+								//$(".rightShoulderCustomLogoMess").slideUp(500);
 								totalPrice += 8.00;
 								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder US flag</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
@@ -5385,7 +5385,7 @@ var pogs_blueCollar = function() {
 								break; 
 								}
 								$(".stateContRS").slideDown(500);
-								$(".rightShoulderCustomLogoMess").slideUp(500);
+								//$(".rightShoulderCustomLogoMess").slideUp(500);
 							break;
 							
 							case "02": //Custom Logo
@@ -5402,7 +5402,7 @@ var pogs_blueCollar = function() {
 								$(".rightShoulderState").val("");
 								$("#pog_AG").val("");
 								$(".stateContRS").slideUp(500);
-								$(".rightShoulderCustomLogoMess").slideDown(500);
+								//$(".rightShoulderCustomLogoMess").slideDown(500);
 								totalPrice += 8.00;
 								$('<div style="width:458px; clear:both;"><p class="floatLeft">Right shoulder custom logo</p><p class="floatRight">$8.00</p></div>').appendTo(".selectedOptionPriceList");
 							break;
@@ -5468,7 +5468,7 @@ var pogs_blueCollar = function() {
 						$(".leftPocketState").val("");
 						$("#pog_AB").val("");
 						$(".stateContLP").hide();
-						$(".leftPocketCustomLogoMess").hide();
+						//$(".leftPocketCustomLogoMess").hide();
 						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 					else{
@@ -5492,7 +5492,7 @@ var pogs_blueCollar = function() {
 						$(".rightPocketState").val("");
 						$("#pog_AE").val("");
 						$(".stateContRP").hide();
-						$(".rightPocketCustomLogoMess").hide();
+						//$(".rightPocketCustomLogoMess").hide();
 						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 					else{
@@ -5516,7 +5516,7 @@ var pogs_blueCollar = function() {
 						$(".leftShoulderState").val("");
 						$("#pog_AG").val("");
 						$(".stateContLS").hide();
-						$(".leftShoulderCustomLogoMess").hide();
+						//$(".leftShoulderCustomLogoMess").hide();
 						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 					else{
@@ -5540,7 +5540,7 @@ var pogs_blueCollar = function() {
 						$(".rightShoulderState").val("");
 						$("#pog_AI").val("");
 						$(".stateContLS").hide();
-						$(".rightShoulderCustomLogoMess").hide();
+						//$(".rightShoulderCustomLogoMess").hide();
 						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 					else{
@@ -5558,7 +5558,7 @@ var pogs_blueCollar = function() {
 						$(".leftPocketState").val("");
 						$("#div_AB").val("");
 						$(".stateContLP").hide();
-						$(".leftPocketCustomLogoMess").hide();
+						//$(".leftPocketCustomLogoMess").hide();
 						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
@@ -5581,7 +5581,7 @@ var pogs_blueCollar = function() {
 						$(".rightPocketState").val("");
 						$("#pog_AE").val("");
 						$(".stateContRP").hide();
-						$(".rightPocketCustomLogoMess").hide();
+						//$(".rightPocketCustomLogoMess").hide();
 						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
@@ -5604,7 +5604,7 @@ var pogs_blueCollar = function() {
 						$(".leftShoulderState").val("");
 						$("#pog_AG").val("");
 						$(".stateContLS").hide();
-						$(".leftShoulderCustomLogoMess").hide();
+						//$(".leftShoulderCustomLogoMess").hide();
 						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
@@ -5627,7 +5627,7 @@ var pogs_blueCollar = function() {
 						$(".rightShoulderState").val("");
 						$("#pog_AI").val("");
 						$(".stateContLS").hide();
-						$(".rightShoulderCustomLogoMess").hide();
+						//$(".rightShoulderCustomLogoMess").hide();
 						app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 					}
 				},
@@ -5703,7 +5703,7 @@ var pogs_blueCollar = function() {
 					$(".leftPocketState").val("");
 					$("#pog_AB").val("");
 					$(".stateContLP").hide();
-					$(".leftPocketCustomLogoMess").hide();
+					//$(".leftPocketCustomLogoMess").hide();
 
 					$(".rightPocket").prop('checked', false);
 					$('.rightPocketCont').slideUp(1000);
@@ -5719,7 +5719,7 @@ var pogs_blueCollar = function() {
 					$(".rightPocketState").val("");
 					$("#pog_AE").val("");
 					$(".stateContRP").hide();
-					$(".rightPocketCustomLogoMess").hide();
+					//$(".rightPocketCustomLogoMess").hide();
 
 					$(".leftShoulder").prop('checked', false);
 					$('.leftShoulderCont').slideUp(1000);
@@ -5735,7 +5735,7 @@ var pogs_blueCollar = function() {
 					$(".leftShoulderState").val("");
 					$("#pog_AG").val("");
 					$(".stateContLS").hide();
-					$(".leftShoulderCustomLogoMess").hide();
+					//$(".leftShoulderCustomLogoMess").hide();
 
 					$(".rightShoulder").prop('checked', false);
 					$('.rightShoulderCont').slideUp(1000);
@@ -5751,7 +5751,7 @@ var pogs_blueCollar = function() {
 					$(".rightShoulderState").val("");
 					$("#pog_AI").val("");
 					$(".stateContLS").hide();
-					$(".rightShoulderCustomLogoMess").hide();
+					//$(".rightShoulderCustomLogoMess").hide();
 					app.ext.pogs_blueCollar.a.UpdateCustomizerImage();
 				}
 				
